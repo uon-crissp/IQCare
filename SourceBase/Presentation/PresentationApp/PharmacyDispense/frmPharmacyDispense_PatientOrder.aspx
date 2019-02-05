@@ -252,10 +252,10 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                     <asp:Panel ID="PatientInfoHeader" runat="server">
-                                        <h5 class="forms" align="left">
+                                        <h3 class="forms" align="left">
                                             <asp:ImageButton ID="imgClientInfo" runat="server" ImageUrl="~/Images/arrow-up.gif" />
-                                            <asp:Label ID="lblClientInfo" runat="server" Text="Current Patient Information"></asp:Label>
-                                        </h5>
+                                            <font color="#0000E0"><asp:Label ID="lblClientInfo" runat="server" Text="Current Patient Information (Click to open)"></asp:Label></font>
+                                        </h3>
                                     </asp:Panel>
                                 </div>
                             </div>
@@ -447,23 +447,15 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                                                    <label for="inputEmail3" class="control-label">
-                                                        Days to Next appointment</label>
-                                                </div>
-                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group" style="margin-left: 5px;">
-                                                    <asp:TextBox ID="txtDaysToNextAppt" runat="server" Width="65px" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                                    <div style="width: 100%; margin: 0px auto;">
-                                                        <div style="float: left">
-                                                            <asp:TextBox ID="txtNextApptDate" runat="server" Width="108px" CssClass="form-control"></asp:TextBox></div>
-                                                        <div style="float: left">
-                                                            <img id="Img2" onclick="w_displayDatePicker('<%=txtNextApptDate.ClientID%>');" height="22"
-                                                                alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0"
-                                                                name="appDateimg0" /></div>
-                                                        <div style="float: left">
-                                                            <span class="smallerlabel" id="Span4">(DD-MMM-YYYY)</span>
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                            <label for="inputEmail3" class="control-label">
+                                                                WHO Stage</label>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                            <asp:DropDownList ID="ddlWHOStage" runat="server" Width="99%" Enabled="False" CssClass="form-control">
+                                                            </asp:DropDownList>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -471,132 +463,98 @@
                                         </div>
                                     </div>
                                     <hr />
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                                    <label for="inputEmail3" class="control-label">
-                                                        Treatment Plan</label>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                                    <asp:DropDownList ID="ddlTreatmentPlan" runat="server" Width="99%" Enabled="True"
-                                                        CssClass="form-control">
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                                    <label for="inputEmail3" class="control-label">
-                                                        WHO Stage</label>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                                    <asp:DropDownList ID="ddlWHOStage" runat="server" Width="99%" Enabled="False" CssClass="form-control">
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </asp:Panel>
                                 <act:CollapsiblePanelExtender ID="CollapsiblePanelExtenderPatientInfo" runat="server"
-                                    SuppressPostBack="True" ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PatientInfoBody"
-                                    CollapseControlID="PatientInfoHeader" ExpandControlID="PatientInfoHeader" CollapsedImage="~/images/arrow-up.gif"
+                                    SuppressPostBack="True" ExpandedImage="~/images/arrow-up.gif" TargetControlID="PatientInfoBody"
+                                    CollapseControlID="PatientInfoHeader" ExpandControlID="PatientInfoHeader" CollapsedImage="~/images/arrow-dn.gif"
                                     Collapsed="True" ImageControlID="imgClientInfo" Enabled="True"></act:CollapsiblePanelExtender>
                             </div>
                             <hr />
                             <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                            <label for="inputEmail3" class="control-label">
-                                                Patient Classification</label>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <asp:DropDownList ID="ddlPtnClassification" ClientIDMode="Static" runat="server"
-                                                Width="99%" Enabled="True" CssClass="form-control">
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
+                                <div class="col-md-4 form-group">
+                                    <label for="inputEmail3" class="control-label">
+                                        Days to Next appointment</label>
+                                    <asp:TextBox ID="txtDaysToNextAppt" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
-                                <div class="col-xs-6">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                            <label for="inputEmail3" class="control-label">
-                                                Differenciated Care</label>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                            <asp:HiddenField ID="hidDifferenciatedCare" ClientIDMode="Static" runat="server" Value="0" />
-                                            <input id="chkDifferenciatedCare" runat="server" clientidmode="Static" name="switch-size"
-                                                type="checkbox" checked data-size="small" data-on-text="Yes" data-off-text="No">
+                                <div class="col-md-4 form-group">
+                                    <label for="inputEmail3" class="control-label">
+                                        Appointment Date</label>
+                                    <div style="width: 100%; margin: 0px auto;">
+                                        <div style="float: left">
+                                            <asp:TextBox ID="txtNextApptDate" runat="server" Width="100%" CssClass="form-control"></asp:TextBox></div>
+                                        <div style="float: left">
+                                            <img id="Img2" onclick="w_displayDatePicker('<%=txtNextApptDate.ClientID%>');" height="22"
+                                                alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0"
+                                                name="appDateimg0" /></div>
+                                        <div style="float: left">
+                                            <span class="smallerlabel" id="Span4">(DD-MMM-YYYY)</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
-                                        Treatment Program</label>
-                                </div>
-                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                    <asp:DropDownList ID="ddlTreatmentProg" runat="server" Width="95%" CssClass="form-control">
+                                        Patient Classification</label>
+                                    <asp:DropDownList ID="ddlPtnClassification" ClientIDMode="Static" runat="server"
+                                        Enabled="True" CssClass="form-control" Width="98%">
                                     </asp:DropDownList>
                                 </div>
-                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
-                                        <asp:Label ID="lblregimenCode" runat="server" Text="Regimen Code:" CssClass="required"
-                                            Style="visibility: hidden;"></asp:Label>
-                                    </label>
+                                        Differenciated Care</label><br />
+                                    <asp:HiddenField ID="hidDifferenciatedCare" ClientIDMode="Static" runat="server"
+                                        Value="0" />
+                                    <input id="chkDifferenciatedCare" runat="server" clientidmode="Static" name="switch-size"
+                                        type="checkbox" checked data-size="small" data-on-text="Yes" data-off-text="No">
                                 </div>
-                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                    <asp:DropDownList ID="ddlRegimenCode" runat="server" Width="95%" OnSelectedIndexChanged="ddlRegimenCode_SelectedIndexChanged"
-                                        AutoPostBack="true" CssClass="form-control" Style="visibility: hidden;" EnableViewState="true">
+                                <div class="col-md-4 form-group">
+                                    <font color="#0000E0"><label for="inputEmail3" class="control-label">
+                                        Treatment Program</label></font>
+                                    <asp:DropDownList ID="ddlTreatmentProg" runat="server" CssClass="form-control" Width="98%">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4 form-group">
+                                    <font color="#0000E0"><label for="ddlTreatmentPlan" class="control-label">
+                                        Treatment Plan</label></font>
+                                    <asp:DropDownList ID="ddlTreatmentPlan" runat="server" Enabled="True" CssClass="form-control" Width="98%">
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label for="inputEmail3" class="control-label">
+                                        <font color="#0000E0"><asp:Label ID="lblregimenCode" runat="server" Text="Regimen Code:" CssClass="required"></asp:Label></font>
+                                    </label>
+                                    <asp:DropDownList ID="ddlRegimenCode" runat="server" OnSelectedIndexChanged="ddlRegimenCode_SelectedIndexChanged"
+                                        AutoPostBack="true" CssClass="form-control" EnableViewState="true" Width="98%">
                                     </asp:DropDownList>
                                     <asp:HiddenField ID="hdnregimenCode" runat="server" Value="hidden" />
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label required">
-                                        <asp:Label ID="lblregimenLine" runat="server" Text="Regimen Line:" Style="visibility: hidden;"></asp:Label>
+                                        <font color="#0000E0"><asp:Label ID="lblregimenLine" runat="server" Text="Regimen Line:"></asp:Label></font>
                                     </label>
-                                </div>
-                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                    <asp:DropDownList ID="ddlregimenLine" runat="server" Width="95%" CssClass="form-control"
-                                        Style="visibility: hidden;">
+                                    <asp:DropDownList ID="ddlregimenLine" runat="server" CssClass="form-control" Width="98%">
                                     </asp:DropDownList>
                                     <asp:HiddenField ID="hdnregimenLine" runat="server" Value="hidden" />
                                 </div>
                             </div>
                             <hr />
                             <div class="row">
-                                <div class="col-md-1 text-nowrap">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
-                                        <asp:Label ID="lblDispensingStoreLabel" runat="server" Font-Bold="True" Text="Dispensing Store:"
-                                            CssClass="required"></asp:Label>
+                                        <font color="#0000E0"><asp:Label ID="Label17" runat="server" Font-Bold="True" Text="Prescribed by:" CssClass="required"></asp:Label></font>
                                     </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <asp:DropDownList ID="ddlDispensingStore" runat="server" Width="98%" OnSelectedIndexChanged="ddlDispensingStore_SelectedIndexChanged"
-                                        AutoPostBack="true" CssClass="form-control">
-                                    </asp:DropDownList>
-                                </div>
-                                <div class="col-md-1 text-nowrap">
-                                    <label for="inputEmail3" class="control-label">
-                                        <asp:Label ID="Label17" runat="server" Font-Bold="True" Text="Prescribed by:" CssClass="required"></asp:Label>
-                                    </label>
-                                </div>
-                                <div class="col-md-3">
                                     <asp:DropDownList ID="ddlPrescribedBy" runat="server" Width="98%" CssClass="form-control">
                                     </asp:DropDownList>
                                 </div>
-                                <div class="col-md-1 text-nowrap">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
                                         <asp:Label ID="Label18" runat="server" Font-Bold="True" Text="Prescription date:"
                                             CssClass="required"></asp:Label>
                                     </label>
-                                </div>
-                                <div class="col-md-3">
                                     <div style="width: 100%; margin: 0px auto;">
                                         <div style="float: left">
                                             <div class="form-group">
@@ -605,31 +563,36 @@
                                                         <i class="fa fa-calendar"></i>
                                                     </div>
                                                     <input type="text" class="form-control pull-left" id="txtprescriptionDate" clientidmode="Static"
-                                                        runat="server" data-date-format="dd-M-yyyy" style="width: 150px;" />
+                                                        runat="server" data-date-format="dd-M-yyyy" style="width: 98%;" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-12 col-xs-12 form-group text-nowrap">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
-                                        <asp:Label ID="lblDispensedBy" runat="server" Font-Bold="True" Text="Dispensed by:"
+                                        <asp:Label ID="lblDispensingStoreLabel" runat="server" Font-Bold="True" Text="Dispensing Store:"
                                             CssClass="required"></asp:Label>
                                     </label>
+                                    <asp:DropDownList ID="ddlDispensingStore" runat="server" Width="98%" OnSelectedIndexChanged="ddlDispensingStore_SelectedIndexChanged"
+                                        AutoPostBack="true" CssClass="form-control">
+                                    </asp:DropDownList>
                                 </div>
-                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 form-group">
+                                    <label for="inputEmail3" class="control-label">
+                                        <font color="#0000E0"><asp:Label ID="lblDispensedBy" runat="server" Font-Bold="True" Text="Dispensed by:"
+                                            CssClass="required"></asp:Label></font>
+                                    </label>
                                     <asp:DropDownList ID="ddlDispensedBy" runat="server" Width="98%" class="form-control">
                                     </asp:DropDownList>
                                 </div>
-                                <div class="col-md-1 col-sm-12 col-xs-12 form-group text-nowrap">
+                                <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
                                         <asp:Label ID="lblDispenseDate" runat="server" Font-Bold="True" Text="Dispense date:"
                                             CssClass="required"></asp:Label>
                                     </label>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                     <div style="width: 100%; margin: 0px auto;">
                                         <div style="float: left">
                                             <div class="form-group">
@@ -638,13 +601,11 @@
                                                         <i class="fa fa-calendar"></i>
                                                     </div>
                                                     <input type="text" class="form-control pull-left" id="txtDispenseDate" clientidmode="Static"
-                                                        runat="server" data-date-format="dd-M-yyyy" style="width: 150px;" />
+                                                        runat="server" data-date-format="dd-M-yyyy" style="width: 98%;" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                                 </div>
                             </div>
                             <div class="row" align="center">
@@ -727,7 +688,8 @@
                                                                                             <asp:Label ID="lblSellingPrice" runat="server" Text='<%# Bind("SellingPrice") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Expiry Date" HeaderStyle-Width="80px">
+                                                                                    <asp:TemplateField HeaderText="Expiry Date" HeaderStyle-Width="80px" HeaderStyle-CssClass="hidden"
+                                                                                        ItemStyle-CssClass="hidden">
                                                                                         <ItemTemplate>
                                                                                             <asp:HiddenField ID="hBatchQty" runat="server" />
                                                                                             <asp:Label ID="lblExpiryDate" runat="server" Width="100%" Text='<%# Bind("ExpiryDate") %>'></asp:Label>
@@ -757,7 +719,7 @@
                                                                                                 class="form-control"></asp:TextBox>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Duration" HeaderStyle-Width="90px">
+                                                                                    <asp:TemplateField HeaderText="Duration" HeaderStyle-Width="120px">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtDuration" runat="server" Width="100%" Text='<%# Bind("Duration") %>'
                                                                                                 class="form-control"></asp:TextBox>
@@ -778,13 +740,13 @@
                                                                                                 class="form-control"></asp:TextBox>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Refill" HeaderStyle-Width="55px">
+                                                                                    <asp:TemplateField HeaderText="Refill" HeaderStyle-Width="120px">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtRefillQty1" runat="server" Width="90%" Text='<%# Bind("QtyDispensed") %>'
                                                                                                 class="form-control" disabled="disabled"></asp:TextBox>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Qty Disp" HeaderStyle-Width="75px">
+                                                                                    <asp:TemplateField HeaderText="Qty Disp" HeaderStyle-Width="120px">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtQtyDispensed" runat="server" Width="90%" Text="" class="form-control"></asp:TextBox>
                                                                                             <asp:RangeValidator ID="RangeValidatorQtyDisp" runat="server" ErrorMessage="Error"
@@ -794,7 +756,7 @@
                                                                                                 ControlToValidate="txtQtyDispensed" Enabled="false" ValidationGroup='RequiredForSave'
                                                                                                 Display="Dynamic"></asp:RequiredFieldValidator></ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="PPx">
+                                                                                    <asp:TemplateField HeaderText="PPx" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                                                                         <ItemTemplate>
                                                                                             <div style="text-align: center">
                                                                                                 <asp:CheckBox ID="chkProphylaxis" runat="server" Checked='<%# (Eval("Prophylaxis").ToString() == "1" ? true : false) %>'
@@ -802,13 +764,13 @@
                                                                                             </div>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Print Rx" HeaderStyle-HorizontalAlign="Center">
+                                                                                    <asp:TemplateField HeaderText="Print Rx" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                                                                         <ItemTemplate>
                                                                                             <asp:CheckBox ID="chkPrintPrescrip" runat="server" Checked='<%# (Eval("PrintPrescriptionStatus").ToString() == "1" ? true : false) %>'
                                                                                                 ToolTip="Prophylaxis" />
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Comments" HeaderStyle-Width="200px">
+                                                                                    <asp:TemplateField HeaderText="Comments" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtComments" runat="server" Width="98%" Text='<%# Bind("Comments") %>'
                                                                                                 class="form-control"></asp:TextBox>

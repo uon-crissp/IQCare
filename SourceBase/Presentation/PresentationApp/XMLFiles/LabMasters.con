@@ -81,7 +81,7 @@
     <LabName>CD4</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>74</Sequence>
+    <Sequence>70</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -89,7 +89,7 @@
     <LabName>CD4 Percent</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>5</Sequence>
+    <Sequence>1</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -97,7 +97,7 @@
     <LabName>Viral Load</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>75</Sequence>
+    <Sequence>71</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -105,7 +105,7 @@
     <LabName>Store Plasma</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>16</Sequence>
+    <Sequence>12</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -113,7 +113,7 @@
     <LabName>HCT/Hb percent</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>18</Sequence>
+    <Sequence>14</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -121,15 +121,15 @@
     <LabName>HCT/Hb</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>18</Sequence>
-    <DeleteFlag>1</DeleteFlag>
+    <Sequence>14</Sequence>
+    <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
     <LabTestId>7</LabTestId>
     <LabName>WBC</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>19</Sequence>
+    <Sequence>15</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -137,7 +137,7 @@
     <LabName>WBC Diff</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>6</Sequence>
+    <Sequence>2</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -145,7 +145,7 @@
     <LabName>Platelets</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>21</Sequence>
+    <Sequence>17</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -153,7 +153,7 @@
     <LabName>AST/SGOT</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>22</Sequence>
+    <Sequence>18</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -161,7 +161,7 @@
     <LabName>ALT/SGPT</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>24</Sequence>
+    <Sequence>20</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -169,7 +169,7 @@
     <LabName>Creatinine</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>25</Sequence>
+    <Sequence>21</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -177,7 +177,7 @@
     <LabName>Amylase</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>26</Sequence>
+    <Sequence>22</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -185,7 +185,7 @@
     <LabName>Pregnancy</LabName>
     <LabDepartmentId>3</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>27</Sequence>
+    <Sequence>23</Sequence>
     <DeleteFlag>1</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -193,7 +193,7 @@
     <LabName>Malaria parasite</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>28</Sequence>
+    <Sequence>24</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -201,7 +201,7 @@
     <LabName>Serum Crypto Ag</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>30</Sequence>
+    <Sequence>26</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -209,7 +209,7 @@
     <LabName>Sputum AFB 1</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>31</Sequence>
+    <Sequence>27</Sequence>
     <DeleteFlag>1</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -217,7 +217,7 @@
     <LabName>Sputum AFB 2</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>33</Sequence>
+    <Sequence>29</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -225,7 +225,7 @@
     <LabName>Sputum AFB 3</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>34</Sequence>
+    <Sequence>30</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -233,7 +233,7 @@
     <LabName>Sputum Gram Stain</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>35</Sequence>
+    <Sequence>31</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -241,7 +241,7 @@
     <LabName>Urinalysis</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>36</Sequence>
+    <Sequence>32</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -249,7 +249,7 @@
     <LabName>Urine Culture/Sensitivity</LabName>
     <LabDepartmentId>1</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>37</Sequence>
+    <Sequence>33</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -257,7 +257,7 @@
     <LabName>CSF cryptococcal Ag</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>38</Sequence>
+    <Sequence>34</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -265,7 +265,7 @@
     <LabName>CSF India Ink</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>39</Sequence>
+    <Sequence>35</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -273,7 +273,7 @@
     <LabName>CSF Gram Stain</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>40</Sequence>
+    <Sequence>36</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -281,7 +281,7 @@
     <LabName>CSF Culture</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>41</Sequence>
+    <Sequence>37</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -289,7 +289,7 @@
     <LabName>CSF Biochemistry</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>42</Sequence>
+    <Sequence>38</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -297,7 +297,7 @@
     <LabName>ESR</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>66</Sequence>
+    <Sequence>62</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -305,7 +305,7 @@
     <LabName>Cell Count Neutrophils</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>45</Sequence>
+    <Sequence>41</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -313,7 +313,7 @@
     <LabName>Cell Count Lymphocytes</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>46</Sequence>
+    <Sequence>42</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -321,7 +321,7 @@
     <LabName>Protein</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>47</Sequence>
+    <Sequence>43</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -329,7 +329,7 @@
     <LabName>HIV Rapid Test</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>73</Sequence>
+    <Sequence>69</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -365,7 +365,7 @@
     <LabName>Albumin (mg/dL)</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>5</Sequence>
+    <Sequence>1</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -373,7 +373,7 @@
     <LabName>Colposcopy (Cervical CA – female only)</LabName>
     <LabDepartmentId>1</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>6</Sequence>
+    <Sequence>2</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -381,7 +381,7 @@
     <LabName>Cytomegalovirus (CMV)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>7</Sequence>
+    <Sequence>3</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -389,7 +389,7 @@
     <LabName>Epstein Barr Virus (EBV)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>8</Sequence>
+    <Sequence>4</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -397,7 +397,7 @@
     <LabName>HDL (mg/dL)</LabName>
     <LabDepartmentId>2</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>9</Sequence>
+    <Sequence>5</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -405,7 +405,7 @@
     <LabName>Hepatitis A Ab-Total</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>10</Sequence>
+    <Sequence>6</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -413,7 +413,7 @@
     <LabName>Hepatitis A Ab-IgM</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>11</Sequence>
+    <Sequence>7</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -421,7 +421,7 @@
     <LabName>Hepatitis B core - antibody IgM (HBsAb)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>12</Sequence>
+    <Sequence>8</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -429,7 +429,7 @@
     <LabName>Hepatitis B core – antibody, total</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>13</Sequence>
+    <Sequence>9</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -437,7 +437,7 @@
     <LabName>Hepatitis B surface – antibody (HBsAb)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>14</Sequence>
+    <Sequence>10</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -445,7 +445,7 @@
     <LabName>Hepatitis B surface – antigen (HBsAg)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>15</Sequence>
+    <Sequence>11</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -453,7 +453,7 @@
     <LabName>LDL (Mg/dL)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>16</Sequence>
+    <Sequence>12</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -461,7 +461,7 @@
     <LabName>Pap Smear (Cervical CA – female only)</LabName>
     <LabDepartmentId>3</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>17</Sequence>
+    <Sequence>13</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -469,7 +469,7 @@
     <LabName>Gonorrhea</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>18</Sequence>
+    <Sequence>14</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -477,7 +477,7 @@
     <LabName>Chlamydia</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>19</Sequence>
+    <Sequence>15</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -485,7 +485,7 @@
     <LabName>Rectal Pap Smear</LabName>
     <LabDepartmentId>3</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>20</Sequence>
+    <Sequence>16</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -493,7 +493,7 @@
     <LabName>Syphilis (FTA)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>21</Sequence>
+    <Sequence>17</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -501,7 +501,7 @@
     <LabName>Syphilis (RPR)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>22</Sequence>
+    <Sequence>18</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -509,7 +509,7 @@
     <LabName>Total Cholesterol (mg/dL)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>23</Sequence>
+    <Sequence>19</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -517,7 +517,7 @@
     <LabName>Toxoplasma IgG Antibody</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>24</Sequence>
+    <Sequence>20</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -525,7 +525,7 @@
     <LabName>Triglycerides (mg/dL)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>25</Sequence>
+    <Sequence>21</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -533,7 +533,7 @@
     <LabName>Vaginal Inspection with Acetic Acid (VIA)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>26</Sequence>
+    <Sequence>22</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -541,7 +541,7 @@
     <LabName>Varicella (Chicken Pox)</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>27</Sequence>
+    <Sequence>23</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -549,7 +549,7 @@
     <LabName>Hepatitis C antibody</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
-    <Sequence>28</Sequence>
+    <Sequence>24</Sequence>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -557,7 +557,7 @@
     <LabName>HIV Confirm</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
-    <Sequence>76</Sequence>
+    <Sequence>72</Sequence>
     <DeleteFlag>1</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
@@ -577,27 +577,13 @@
   </Mst_LabTest>
   <Mst_LabTest>
     <LabTestId>95</LabTestId>
-    <LabName>BLOOD GROUP</LabName>
-    <LabDepartmentId>7</LabDepartmentId>
-    <LabTypeId>1</LabTypeId>
-    <DeleteFlag>1</DeleteFlag>
-  </Mst_LabTest>
-  <Mst_LabTest>
-    <LabTestId>96</LabTestId>
-    <LabName>BLOOD GROUP1</LabName>
-    <LabDepartmentId>7</LabDepartmentId>
-    <LabTypeId>1</LabTypeId>
-    <DeleteFlag>1</DeleteFlag>
-  </Mst_LabTest>
-  <Mst_LabTest>
-    <LabTestId>97</LabTestId>
     <LabName>ARV Mutations</LabName>
     <LabDepartmentId>4</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
-    <LabTestId>98</LabTestId>
+    <LabTestId>96</LabTestId>
     <LabName>GeneXpert</LabName>
     <LabDepartmentId>6</LabDepartmentId>
     <LabTypeId>1</LabTypeId>
@@ -605,30 +591,14 @@
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
-    <LabTestId>99</LabTestId>
-    <LabName>Urinalysis Group</LabName>
-    <LabDepartmentId>2</LabDepartmentId>
-    <LabTypeId>1</LabTypeId>
-    <Sequence>2</Sequence>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_LabTest>
-  <Mst_LabTest>
-    <LabTestId>100</LabTestId>
-    <LabName>BLOOD GROUP2</LabName>
-    <LabDepartmentId>7</LabDepartmentId>
-    <LabTypeId>1</LabTypeId>
-    <Sequence>1</Sequence>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_LabTest>
-  <Mst_LabTest>
-    <LabTestId>101</LabTestId>
+    <LabTestId>97</LabTestId>
     <LabName>Rhesus</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
     <DeleteFlag>0</DeleteFlag>
   </Mst_LabTest>
   <Mst_LabTest>
-    <LabTestId>102</LabTestId>
+    <LabTestId>98</LabTestId>
     <LabName>SPO2(%)</LabName>
     <LabDepartmentId>7</LabDepartmentId>
     <LabTypeId>2</LabTypeId>
@@ -1218,8 +1188,8 @@
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>98</SubTestId>
-    <SubTestName>Urinalysis Microscopic WBC</SubTestName>
-    <TestId>21</TestId>
+    <SubTestName>SPO2(%)</SubTestName>
+    <TestId>98</TestId>
     <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
@@ -1314,45 +1284,20 @@
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>115</SubTestId>
-    <SubTestName>BLOOD GROUP</SubTestName>
+    <SubTestName>ARV Mutations</SubTestName>
     <TestId>95</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>116</SubTestId>
-    <SubTestName>BLOOD GROUP</SubTestName>
-    <TestId>95</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <SubTestName>GeneXpert</SubTestName>
+    <TestId>96</TestId>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>117</SubTestId>
-    <SubTestName>BLOOD GROUP1</SubTestName>
-    <TestId>96</TestId>
-    <DeleteFlag>1</DeleteFlag>
-  </Lnk_TestParameter>
-  <Lnk_TestParameter>
-    <SubTestId>118</SubTestId>
-    <SubTestName>ARV Mutations</SubTestName>
-    <TestId>97</TestId>
-    <DeleteFlag>0</DeleteFlag>
-  </Lnk_TestParameter>
-  <Lnk_TestParameter>
-    <SubTestId>119</SubTestId>
-    <SubTestName>GeneXpert</SubTestName>
-    <TestId>98</TestId>
-    <DeleteFlag>0</DeleteFlag>
-  </Lnk_TestParameter>
-  <Lnk_TestParameter>
-    <SubTestId>120</SubTestId>
-    <SubTestName>Urinalysis Group</SubTestName>
-    <TestId>99</TestId>
-    <DeleteFlag>0</DeleteFlag>
-  </Lnk_TestParameter>
-  <Lnk_TestParameter>
-    <SubTestId>121</SubTestId>
-    <SubTestName>BLOOD GROUP2</SubTestName>
-    <TestId>100</TestId>
-    <DeleteFlag>0</DeleteFlag>
+    <SubTestName>Urinalysis Microscopic WBC</SubTestName>
+    <TestId>21</TestId>
   </Lnk_TestParameter>
   <Lnk_LabValue>
     <SubTestID>1</SubTestID>
@@ -1374,7 +1319,7 @@
   </Lnk_LabValue>
   <Lnk_LabValue>
     <SubTestID>3</SubTestID>
-    <MinBoundaryValue>1.00</MinBoundaryValue>
+    <MinBoundaryValue>21.00</MinBoundaryValue>
     <MaxBoundaryValue>2000000.00</MaxBoundaryValue>
     <MinNormalRange>50.00</MinNormalRange>
     <MaxNormalRange>2000000.00</MaxNormalRange>
@@ -1559,7 +1504,7 @@
   <Lnk_LabValue>
     <SubTestID>82</SubTestID>
     <MinBoundaryValue>0.00</MinBoundaryValue>
-    <MaxBoundaryValue>100.00</MaxBoundaryValue>
+    <MaxBoundaryValue>60.00</MaxBoundaryValue>
     <MinNormalRange>2.00</MinNormalRange>
     <MaxNormalRange>10.00</MaxNormalRange>
     <DefaultUnit>1</DefaultUnit>
@@ -1767,7 +1712,7 @@
   <Lnk_LabValue>
     <SubTestID>107</SubTestID>
     <MinBoundaryValue>0.00</MinBoundaryValue>
-    <MaxBoundaryValue>500.00</MaxBoundaryValue>
+    <MaxBoundaryValue>20.00</MaxBoundaryValue>
     <MinNormalRange>0.00</MinNormalRange>
     <MaxNormalRange>500.00</MaxNormalRange>
     <DefaultUnit>1</DefaultUnit>
@@ -2043,594 +1988,282 @@
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>24</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>25</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>26</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>27</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>28</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>29</ResultId>
-    <ParameterId>115</ParameterId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>30</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>31</ResultId>
-    <Result>A-</Result>
+    <ParameterId>4</ParameterId>
+    <Result>Stored</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>32</ResultId>
-    <Result>AB+</Result>
+    <ParameterId>15</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>33</ResultId>
-    <Result>AB-</Result>
+    <ParameterId>15</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>34</ResultId>
-    <Result>O+</Result>
+    <ParameterId>114</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>35</ResultId>
-    <Result>O-</Result>
+    <ParameterId>114</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>36</ResultId>
-    <Result>A+</Result>
+    <ParameterId>75</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>37</ResultId>
-    <Result>A-</Result>
+    <ParameterId>75</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>38</ResultId>
-    <Result>AB+</Result>
+    <ParameterId>74</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>39</ResultId>
-    <Result>AB-</Result>
+    <ParameterId>74</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>40</ResultId>
-    <Result>O+</Result>
+    <ParameterId>101</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>41</ResultId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>42</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>43</ResultId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>44</ResultId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>45</ResultId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>46</ResultId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>47</ResultId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>48</ResultId>
-    <Result>B-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>49</ResultId>
-    <Result>B+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>50</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>51</ResultId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>52</ResultId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>53</ResultId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>54</ResultId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>55</ResultId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>56</ResultId>
-    <Result>B+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>57</ResultId>
-    <Result>B-</Result>
+    <ParameterId>101</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>58</ResultId>
-    <Result>A+</Result>
+    <ParameterId>114</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>59</ResultId>
-    <Result>A-</Result>
+    <ParameterId>114</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>60</ResultId>
-    <Result>AB+</Result>
+    <ParameterId>75</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>61</ResultId>
-    <Result>AB-</Result>
+    <ParameterId>75</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>62</ResultId>
-    <Result>O+</Result>
+    <ParameterId>74</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>63</ResultId>
-    <Result>O-</Result>
+    <ParameterId>74</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>64</ResultId>
-    <Result>B+</Result>
+    <ParameterId>101</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>65</ResultId>
-    <Result>B-</Result>
+    <ParameterId>101</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>66</ResultId>
-    <Result>A+</Result>
+    <ParameterId>14</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>67</ResultId>
-    <Result>A-</Result>
+    <ParameterId>14</ParameterId>
+    <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>68</ResultId>
-    <Result>AB+</Result>
+    <ParameterId>16</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>69</ResultId>
-    <Result>AB-</Result>
+    <ParameterId>16</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>70</ResultId>
-    <Result>O+</Result>
+    <ParameterId>17</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>71</ResultId>
-    <Result>O-</Result>
+    <ParameterId>17</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>72</ResultId>
-    <Result>B+</Result>
+    <ParameterId>18</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>73</ResultId>
-    <Result>B-</Result>
+    <ParameterId>18</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>74</ResultId>
-    <Result>A+</Result>
+    <ParameterId>19</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>75</ResultId>
-    <Result>A-</Result>
+    <ParameterId>19</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>76</ResultId>
-    <Result>AB+</Result>
+    <ParameterId>23</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>77</ResultId>
-    <Result>AB-</Result>
+    <ParameterId>23</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>78</ResultId>
-    <Result>O+</Result>
+    <ParameterId>24</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>79</ResultId>
-    <Result>O-</Result>
+    <ParameterId>24</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>80</ResultId>
-    <Result>B+</Result>
+    <ParameterId>25</ParameterId>
+    <Result>Yes</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
     <ResultId>81</ResultId>
-    <Result>B-</Result>
+    <ParameterId>25</ParameterId>
+    <Result>No</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>90</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>91</ResultId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>92</ResultId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>93</ResultId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>94</ResultId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>95</ResultId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>96</ResultId>
+    <ResultId>82</ResultId>
     <ParameterId>4</ParameterId>
     <Result>Stored</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>97</ResultId>
+    <ResultId>83</ResultId>
     <ParameterId>17</ParameterId>
     <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>98</ResultId>
+    <ResultId>84</ResultId>
     <ParameterId>17</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>99</ResultId>
+    <ResultId>85</ResultId>
     <ParameterId>18</ParameterId>
     <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>100</ResultId>
+    <ResultId>86</ResultId>
     <ParameterId>18</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>101</ResultId>
+    <ResultId>87</ResultId>
     <ParameterId>19</ParameterId>
     <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>102</ResultId>
+    <ResultId>88</ResultId>
     <ParameterId>19</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>104</ResultId>
-    <ParameterId>15</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>105</ResultId>
-    <ParameterId>15</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>106</ResultId>
-    <ParameterId>4</ParameterId>
-    <Result>Stored</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>107</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>108</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>109</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>110</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>111</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>112</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>113</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>114</ResultId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>115</ResultId>
-    <Result>B+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>116</ResultId>
-    <Result>B-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>117</ResultId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>118</ResultId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>119</ResultId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>120</ResultId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>121</ResultId>
-    <ParameterId>114</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>122</ResultId>
-    <ParameterId>114</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>123</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>124</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>125</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>126</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>127</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>128</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>129</ResultId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>130</ResultId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>131</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>A+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>132</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>A-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>133</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>B-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>134</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>B+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>135</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>AB+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>136</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>AB-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>137</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>O-</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>138</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result>O+</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>141</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>142</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>143</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>144</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>145</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>146</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>149</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>150</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>151</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>152</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>153</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>154</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>155</ResultId>
+    <ResultId>89</ResultId>
     <ParameterId>14</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>156</ResultId>
+    <ResultId>90</ResultId>
     <ParameterId>15</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>157</ResultId>
+    <ResultId>91</ResultId>
     <ParameterId>97</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>158</ResultId>
+    <ResultId>92</ResultId>
     <ParameterId>98</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>159</ResultId>
+    <ResultId>93</ResultId>
     <ParameterId>99</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>160</ResultId>
+    <ResultId>94</ResultId>
     <ParameterId>114</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>161</ResultId>
-    <ParameterId>121</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>162</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>95</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>163</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>96</ResultId>
+    <ParameterId>116</ParameterId>
+    <Result>Indeterminate</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>97</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>164</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>98</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>MTB Positive R Indeterminate</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>165</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>99</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>MTB positive RR</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>166</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>100</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>MTB Positive RS</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>167</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>101</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>Invalid/Error</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>168</ResultId>
-    <ParameterId>119</ParameterId>
+    <ResultId>102</ResultId>
+    <ParameterId>116</ParameterId>
     <Result>MTB Negative</Result>
   </Lnk_ParameterResult>
   <LabTestOrder>
@@ -3067,8 +2700,8 @@
   </LabTestOrder>
   <LabTestOrder>
     <SubTestId>98</SubTestId>
-    <SubTestName>Urinalysis Microscopic WBC</SubTestName>
-    <TestId>21</TestId>
+    <SubTestName>SPO2(%)</SubTestName>
+    <TestId>98</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <LabTestOrder>
@@ -3120,27 +2753,15 @@
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <LabTestOrder>
-    <SubTestId>118</SubTestId>
+    <SubTestId>115</SubTestId>
     <SubTestName>ARV Mutations</SubTestName>
-    <TestId>97</TestId>
+    <TestId>95</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <LabTestOrder>
-    <SubTestId>119</SubTestId>
+    <SubTestId>116</SubTestId>
     <SubTestName>GeneXpert</SubTestName>
-    <TestId>98</TestId>
-    <DeleteFlag>0</DeleteFlag>
-  </LabTestOrder>
-  <LabTestOrder>
-    <SubTestId>120</SubTestId>
-    <SubTestName>Urinalysis Group</SubTestName>
-    <TestId>99</TestId>
-    <DeleteFlag>0</DeleteFlag>
-  </LabTestOrder>
-  <LabTestOrder>
-    <SubTestId>121</SubTestId>
-    <SubTestName>BLOOD GROUP2</SubTestName>
-    <TestId>100</TestId>
+    <TestId>96</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <Mst_PatientLabPeriod>

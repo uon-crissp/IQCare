@@ -1197,7 +1197,11 @@ namespace PresentationApp.Laboratory
                                 else
                                     objLabFields1.RejectId = 0;
 
-                                objLabFields1.JustificationID = Convert.ToInt32(rdJustification.SelectedItem.Value);
+                                if (rdJustification.SelectedItem.Value.Length > 0)
+                                {
+                                    objLabFields1.JustificationID = Convert.ToInt32(rdJustification.SelectedItem.Value);
+                                }
+
                                 if (txtJustification != null)
                                     objLabFields1.OtherJustification = txtJustification.Text;
                                 else
@@ -1249,7 +1253,11 @@ namespace PresentationApp.Laboratory
                         else
                             objLabFields1.RejectId = 0;
 
-                        objLabFields1.JustificationID = Convert.ToInt32(rdJustification.SelectedItem.Value);
+                        if (rdJustification.SelectedItem.Value.Length > 0)
+                        {
+                            objLabFields1.JustificationID = Convert.ToInt32(rdJustification.SelectedItem.Value);
+                        }
+
                         if (txtJustification != null)
                             objLabFields1.OtherJustification = txtJustification.Text;
                         else

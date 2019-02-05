@@ -1864,6 +1864,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 }
                 else
                     DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
+                
                 DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 if (spanfield == true)

@@ -22,7 +22,7 @@ namespace PresentationApp.PharmacyDispense
     {
         IDrug PrescriptionManager;
         StringBuilder str = new StringBuilder();
-        private static int chkavdrugs = 1;
+        private static int chkavdrugs = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -100,6 +100,11 @@ namespace PresentationApp.PharmacyDispense
             JavaScriptFunctionsOnLoad();
             resizeScreen();
 
+            //Ensure all drugs are displayed
+            if (!IsPostBack)
+            {
+                chkAvailDrugs.Checked = false;
+            }
         }
 
         private void setValidatorsBasedOntechnicalArea()
@@ -964,7 +969,7 @@ namespace PresentationApp.PharmacyDispense
         private Boolean FieldValidation()
         {
             //Store Validation
-            if (ddlregimenLine.SelectedValue == "0" && hdnregimenLine.Value != "hidden")
+            if (ddlregimenLine.SelectedValue == "0")
             {
                 MsgBuilder theBuilder = new MsgBuilder();
                 theBuilder.DataElements["MessageText"] = "Please Select Regimen line";
@@ -974,7 +979,7 @@ namespace PresentationApp.PharmacyDispense
 
                 return false;
             }
-            if (ddlRegimenCode.SelectedValue == "0" && hdnregimenCode.Value != "hidden")
+            if (ddlRegimenCode.SelectedValue == "0")
             {
                 MsgBuilder theBuilder = new MsgBuilder();
                 theBuilder.DataElements["MessageText"] = "Please Select Regimen Code";
@@ -1228,6 +1233,7 @@ namespace PresentationApp.PharmacyDispense
 
                 //Check for Mbungoni to avoid ordering or dispensing if avaialble quantity is not enough
                 //--------------------------------------------------------------------
+                /*
                 bool error1 = false;
                 string Messege1 = "";
                 string msg1 = "The prescribed or dispense amount is more than the available quantity for: ";
@@ -1261,7 +1267,7 @@ namespace PresentationApp.PharmacyDispense
                     Label lblError = new Label();
                     lblError.Text = (Master.FindControl("lblError") as Label).Text;
                     return false;
-                }
+                }*/
                 //---------------------------------------------------------------
             }
 
@@ -1699,15 +1705,14 @@ namespace PresentationApp.PharmacyDispense
                         gvDispenseDrugs.Columns[12].ItemStyle.CssClass = "";
                     }*/
 
-                    gvDispenseDrugs.Columns[11].HeaderText = "Already<br/> Disp";
-                    gvDispenseDrugs.Columns[11].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-                    gvDispenseDrugs.Columns[11].HeaderStyle.CssClass = "";
-                    gvDispenseDrugs.Columns[11].ItemStyle.CssClass = "";
+                    //gvDispenseDrugs.Columns[11].HeaderText = "Already<br/> Disp";
+                    //gvDispenseDrugs.Columns[11].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    //gvDispenseDrugs.Columns[11].HeaderStyle.CssClass = "";
+                    //gvDispenseDrugs.Columns[11].ItemStyle.CssClass = "";
 
-                    gvDispenseDrugs.Columns[12].HeaderText = "Qty disp";
-                    gvDispenseDrugs.Columns[12].HeaderStyle.CssClass = "";
-                    gvDispenseDrugs.Columns[12].ItemStyle.CssClass = "";
-
+                    //gvDispenseDrugs.Columns[12].HeaderText = "Qty disp";
+                    //gvDispenseDrugs.Columns[12].HeaderStyle.CssClass = "";
+                    //gvDispenseDrugs.Columns[12].ItemStyle.CssClass = "";
 
                     gvDispenseDrugs.DataSource = null;
                     gvDispenseDrugs.DataSource = theDS.Tables[0];

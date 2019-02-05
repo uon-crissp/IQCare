@@ -130,7 +130,7 @@
                                 <!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding" style="overflow: hidden; margin-left: 5px;">
                                     <%--Main Content Start--%>
-                                    <div class="row">
+                                    <div class="row hidden">
                                         <br />
                                         <div class="col-md-1 col-sm-12 col-xs-12 form-group text-nowrap">
                                             <label class="control-label">
@@ -173,12 +173,13 @@
                                                 margin-right: 2%; color: #fff"></span>
                                         </div>
                                     </div>
+                                    <br /><br />
                                     <div class="row">
-                                        <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                        <div class="col-md-2 form-group">
                                             <label class="control-label">
-                                                Select Lab:</label>
+                                                Select Lab Test:</label>
                                         </div>
-                                        <div class="col-md-10 col-sm-12 col-xs-12 form-group">
+                                        <div class="col-md-10 form-group">
                                             <telerik:radautocompletebox id="AutoselectLabTest" runat="server" skin="Metro" dropdownwidth="500px"
                                                 minfilterlength="2" width="555" onentryadded="Autoselectdrug_EntryAdded" cssclass="form-control">
                                                     <WebServiceSettings Path="frm_Laboratory.aspx" Method="GetLabsNames" />
