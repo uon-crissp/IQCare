@@ -274,33 +274,6 @@ namespace PresentationApp.PharmacyDispense {
         protected global::System.Web.UI.WebControls.TextBox txtPreviousApptDate;
         
         /// <summary>
-        /// txtDaysToNextAppt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDaysToNextAppt;
-        
-        /// <summary>
-        /// txtNextApptDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNextApptDate;
-        
-        /// <summary>
-        /// ddlTreatmentPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTreatmentPlan;
-        
-        /// <summary>
         /// ddlWHOStage control.
         /// </summary>
         /// <remarks>
@@ -317,6 +290,24 @@ namespace PresentationApp.PharmacyDispense {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtenderPatientInfo;
+        
+        /// <summary>
+        /// txtDaysToNextAppt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDaysToNextAppt;
+        
+        /// <summary>
+        /// txtNextApptDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNextApptDate;
         
         /// <summary>
         /// ddlPtnClassification control.
@@ -353,6 +344,15 @@ namespace PresentationApp.PharmacyDispense {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTreatmentProg;
+        
+        /// <summary>
+        /// ddlTreatmentPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTreatmentPlan;
         
         /// <summary>
         /// lblregimenCode control.
@@ -409,24 +409,6 @@ namespace PresentationApp.PharmacyDispense {
         protected global::System.Web.UI.WebControls.HiddenField hdnregimenLine;
         
         /// <summary>
-        /// lblDispensingStoreLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDispensingStoreLabel;
-        
-        /// <summary>
-        /// ddlDispensingStore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDispensingStore;
-        
-        /// <summary>
         /// Label17 control.
         /// </summary>
         /// <remarks>
@@ -461,6 +443,24 @@ namespace PresentationApp.PharmacyDispense {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtprescriptionDate;
+        
+        /// <summary>
+        /// lblDispensingStoreLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDispensingStoreLabel;
+        
+        /// <summary>
+        /// ddlDispensingStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDispensingStore;
         
         /// <summary>
         /// lblDispensedBy control.

@@ -1715,7 +1715,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.21022                                                         "
+                "FrameworkVersion" = "8:3.5.21022                                                           "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -3231,7 +3231,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:IQCareService"
         "ProductCode" = "8:{C9A1B86A-1C6D-4141-BC99-893E58479FA0}"
-        "PackageCode" = "8:{CBD4ADD2-E063-4DC7-8499-E94819FEBB63}"
+        "PackageCode" = "8:{20F879E4-8A3A-400B-9ADB-5FA83D33B486}"
         "UpgradeCode" = "8:{80A07246-5896-49F6-8B67-A9C025F0A433}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3695,7 +3695,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_119F5B4473CA491AB17691BA453D56B5"
             {
-            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.Common\\obj\\Debug\\HIVCE.Common.dll"
+            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.Common\\obj\\Release\\HIVCE.Common.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3723,7 +3723,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2A3DE3E7CE714EAB850175B4EA08AB93"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Scheduler\\obj\\Debug\\BusinessProcess.Scheduler.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Scheduler\\obj\\Release\\BusinessProcess.Scheduler.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3751,7 +3751,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3DD90DB6A2F24197BD623512C83EA629"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Reports\\obj\\Debug\\BusinessProcess.Reports.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Reports\\obj\\Release\\BusinessProcess.Reports.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3779,7 +3779,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3E73C2C0C6E14A4E891A593C388FD6AA"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Administration\\obj\\Debug\\BusinessProcess.Administration.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Administration\\obj\\Release\\BusinessProcess.Administration.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3807,7 +3807,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_652587E0991D4430A3DE52ECD2C6D164"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Pharmacy\\obj\\Debug\\BusinessProcess.Pharmacy.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Pharmacy\\obj\\Release\\BusinessProcess.Pharmacy.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3835,7 +3835,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6A1C7CE94D7B41D0A1ECACCB212FAB98"
             {
-            "SourcePath" = "8:..\\BusinessProcess.FormBuilder\\obj\\Debug\\BusinessProcess.FormBuilder.dll"
+            "SourcePath" = "8:..\\BusinessProcess.FormBuilder\\obj\\Release\\BusinessProcess.FormBuilder.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3863,7 +3863,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D7E3D15C71F48A299AEDC2A71809BE1"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Laboratory\\obj\\Debug\\BusinessProcess.Laboratory.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Laboratory\\obj\\Release\\BusinessProcess.Laboratory.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3891,7 +3891,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_87A289A7192E4D8C89E157CF78B025B1"
             {
-            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.DataAccess\\obj\\Debug\\HIVCE.DataAccess.dll"
+            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.DataAccess\\obj\\Release\\HIVCE.DataAccess.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3919,7 +3919,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9CED2121566944F683ED2A54CF7B2EA5"
             {
-            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.BusinessLayer\\obj\\Debug\\HIVCE.BusinessLayer.dll"
+            "SourcePath" = "8:..\\..\\IQCare.HIVCE\\HIVCE.BusinessLayer\\obj\\Release\\HIVCE.BusinessLayer.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3947,7 +3947,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A358EAFC38C442369786E6B5DB20D0B3"
             {
-            "SourcePath" = "8:..\\BusinessProcess.SCM\\obj\\Debug\\BusinessProcess.SCM.dll"
+            "SourcePath" = "8:..\\BusinessProcess.SCM\\obj\\Release\\BusinessProcess.SCM.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -3975,7 +3975,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A3CBF9D2C1A046D9978E51D26986CF80"
             {
-            "SourcePath" = "8:..\\RemServer.Service\\obj\\Debug\\RemServer.Service.exe"
+            "SourcePath" = "8:..\\RemServer.Service\\obj\\Release\\RemServer.Service.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -4003,7 +4003,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B3323A51B7ED4A34A79FE9F699DF9D9A"
             {
-            "SourcePath" = "8:..\\Interface.HIVCE\\obj\\Debug\\Interface.HIVCE.dll"
+            "SourcePath" = "8:..\\Interface.HIVCE\\obj\\Release\\Interface.HIVCE.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -4031,7 +4031,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BDB907D089164890B2542A84B8ED63C4"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Service\\obj\\Debug\\BusinessProcess.Service.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Service\\obj\\Release\\BusinessProcess.Service.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -4059,7 +4059,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D78D6D27D4E44A83885F7A7350D71A01"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Clinical\\obj\\Debug\\BusinessProcess.Clinical.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Clinical\\obj\\Release\\BusinessProcess.Clinical.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"
@@ -4087,7 +4087,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E1E63B18EA9F402B81721152E7925D3D"
             {
-            "SourcePath" = "8:..\\BusinessProcess.Security\\obj\\Debug\\BusinessProcess.Security.dll"
+            "SourcePath" = "8:..\\BusinessProcess.Security\\obj\\Release\\BusinessProcess.Security.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AD6361FAFFA4046A22F453C4368DBD1"

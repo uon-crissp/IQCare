@@ -4,11 +4,11 @@
 
 </script>
 <div class="row">
-    <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-1 form-group">
         <label for="inputEmail3" class="control-label requiredFieldColor">
             Visit Date</label>
     </div>
-    <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-3 form-group">
         <div class="input-group date">
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
@@ -17,27 +17,24 @@
                 style="padding: 13px 12px;">
         </div>
     </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-        (MM-DD-YYYY)
-    </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-1 form-group">
         <label for="inputEmail3" class="control-label">
             Scheduled?:
         </label>
     </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-1 form-group">
         <div class="form-group">
             <label>
                 <input type="checkbox" class="minimal" id="chkScheduled" checked>
             </label>
         </div>
     </div>
-    <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-1 form-group">
         <label for="inputEmail3" class="control-label requiredFieldColor">
             Visit Type:
         </label>
     </div>
-    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-5 form-group">
         <select class="form-control select2" data-placeholder="Select" id="ddlVisitType"
             style="width: 100%;">
         </select>
@@ -137,11 +134,11 @@
         <!-- /.box-header -->
         <div class="box-body" id="divBodyHivCare">
             <div class="row">
-                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <label for="inputEmail3" class="control-label requiredFieldColor">
                         Date Confirmed HIV Positive:</label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                     <div class="input-group date">
                         <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
@@ -154,7 +151,7 @@
                     <label for="inputEmail3" class="control-label requiredFieldColor">
                         Date Enrolled in HIV Care:</label>
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                     <div class="input-group date">
                         <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
@@ -330,76 +327,68 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="row">
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-3 form-group">
                     <label for="inputEmail3" class="control-label requiredFieldColor">
                         Height/Length(cm):</label>
-                </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                    <input type="number" class="form-control" id="txtHeight" placeholder="Height/Length(cm)"
+                    <input type="number" class="form-control" id="txtHeight" placeholder="Height(cm)"
                         onblur="CalcualteBMI('hidPAYM','txtWeight','txtHeight','txtBMI','lblBMIClassification');" />
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-3 form-group">
                     <label for="inputEmail3" class="control-label requiredFieldColor">
                         Weight(Kg):</label>
+                    <input type="number" class="form-control" id="txtWeight" placeholder="Weight(kg)"
+                        onblur="CalcualteBMI('hidPAYM','txtWeight','txtHeight','txtBMI','lblBMIClassification');">
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                    <input type="number" class="form-control" id="txtWeight" placeholder="Weight" onblur="CalcualteBMI('hidPAYM','txtWeight','txtHeight','txtBMI','lblBMIClassification');">
-                </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group" id="divBMILable">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-3 form-group" id="divBMIText">
+                    <label for="txtBMI" class="control-label">
                         BMI:</label>
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" id="divBMIText">
                     <input type="text" class="form-control" id="txtBMI" disabled="disabled">
                     <label for="txtBMI" id="lblBMIClassification">
                     </label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-3 form-group">
+                    <label for="txtHeadCircumference" class="control-label">
                         Head circumference(cm):</label>
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <input type="text" class="form-control" id="txtHeadCircumference" placeholder="Head circumference">
                 </div>
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-1 form-group">
+                    <label for="txtMUAC" class="control-label">
                         MUAC(cm):</label>
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-2 form-group">
                     <input type="text" class="form-control" id="txtMUAC" placeholder="MUAC">
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group" id="divBMIZ">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-1 form-group" id="divBMIZ">
+                    <label for="txtBMIZScore" class="control-label">
                         BMI Zscore</label>
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group" id="divBMIZV">
+                <div class="col-md-2 form-group" id="divBMIZV">
                     <input type="text" class="form-control" id="txtBMIZScore" disabled="disabled">
                     <label for="txtBMIZScore" id="lblBMIzClassification">
                     </label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" id="divWA">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-1 form-group" id="divWA">
+                    <label for="txtWAgeZScore" class="control-label">
                         Weight for age zscore:</label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" id="divWAV">
+                <div class="col-md-2 form-group" id="divWAV">
                     <input type="text" class="form-control" id="txtWAgeZScore" disabled="disabled">
                     <label for="txtWAgeZScore" id="lblWAClassification">
                     </label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" id="divHA">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-1 form-group" id="divHA">
+                    <label for="txtHAgeZScore" class="control-label">
                         Height for age zscore:
                     </label>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" id="divHAV">
+                <div class="col-md-2 form-group" id="divHAV">
                     <input type="text" class="form-control" id="txtHAgeZScore" disabled="disabled">
                     <label for="txtHAgeZScore" id="lblWHClassification">
                     </label>
                 </div>
-
             </div>
             <!-- /.row -->
         </div>
@@ -414,54 +403,47 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="row">
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-6 form-group">
                     <label id="lblBPMMHG" for="inputEmail3" class="control-label">
                         BP(mm/Hg):</label>
+                    <div class="col-md-12 form-group" style="display: inline-flex">
+                        <input type="number" class="form-control" id="txtMM" placeholder="MM" style="width: 50%">
+                        &nbsp;/&nbsp;
+                        <input type="number" class="form-control" id="txtHG" placeholder="HG" style="width: 50%">
+                    </div>
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group" style="display: inline-flex">
-                    <input type="number" class="form-control" id="txtMM" placeholder="MM" style="width: 50%">
-                    &nbsp;/&nbsp;
-                    <input type="number" class="form-control" id="txtHG" placeholder="HG" style="width: 50%">
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-3 form-group">
                     <label for="inputEmail3" class="control-label">
                         Temperature(°C):
                     </label>
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <input type="number" class="form-control" id="txtTemperature" placeholder="Temperature"
                         onblur="isBetween('txtTemperature', 'Temperature', '30', '50'); HighLightAbnormalValues('temp','txtTemperature');">
                 </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-3 form-group">
                     <label for="inputEmail3" class="control-label">
                         Respiratory Rate (bpm):</label>
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <input type="number" class="form-control" id="txtRR">
                 </div>
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-3 form-group">
+                    <label for="txtHRate" class="control-label">
                         Heart Rate (bpm):</label>
-                </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                     <input type="number" class="form-control" id="txtHRate">
                 </div>
-                <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                    <label for="inputEmail3" class="control-label">
+                <div class="col-md-3 form-group">
+                    <label for="txtSP" class="control-label">
                         SPO2 (%):</label>
-                </div>
-                <div class="col-md-5 col-sm-12 col-xs-12 form-group">
-                    <input type="text" class="form-control" id="txtSP" style="width: 30%">
+                    <input type="text" class="form-control" id="txtSP">
                 </div>
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-12 form-group">
                     Nurses Comments:
-                    <textarea class="form-control" rows="5" placeholder="Nurses Comments" id="txtNursesComment" maxlength="1000"></textarea>
+                    <textarea class="form-control" rows="7" placeholder="Nurses Comments" id="txtNursesComment"
+                        maxlength="1000"></textarea>
                 </div>
             </div>
             <!-- /.row -->

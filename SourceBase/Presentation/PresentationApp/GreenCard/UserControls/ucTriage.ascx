@@ -257,64 +257,48 @@
     <!-- /.box-header -->
     <div class="box-body">
         <div class="row">
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+            <div class="col-md-3 form-group">
+                <label for="txtHeight" class="control-label">
                     *Height/Length(cm):</label>
+                <input type="text" class="form-control" id="txtHeight" placeholder="Height(cm)">
             </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <input type="text" class="form-control" id="txtHeight" placeholder="Height/Length(cm)">
-            </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+            <div class="col-md-3 form-group">
+                <label for="txtWeight" class="control-label">
                     Weight(Kg):</label>
+                <input type="text" class="form-control" id="txtWeight" placeholder="Weight(kg)">
             </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                <input type="text" class="form-control" id="txtWeight" placeholder="Weight">
-            </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+            <div class="col-md-3 form-group">
+                <label for="txtBMI" class="control-label">
                     BMI:</label>
-            </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="txtBMI" disabled="disabled">
             </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+            <div class="col-md-3 form-group">
+                <label for="txtHeadCircumference" class="control-label">
                     Head circumference(cm):</label>
-            </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="txtHeadCircumference" placeholder="Head circumference">
             </div>
         </div>
         <!-- /.row -->
         <div class="row">
             <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+                <label for="txtMUAC" class="control-label">
                     MUAC(cm):</label>
-            </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="txtMUAC" placeholder="MUAC">
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+                <label for="Text1" class="control-label">
                     Weight for age zscore:</label>
-            </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="Text1" disabled="disabled">
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+                <label for="Text3" class="control-label">
                     Height for age zscore:
                 </label>
-            </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="Text3" disabled="disabled">
             </div>
             <div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                <label for="inputEmail3" class="control-label">
+                <label for="Text4" class="control-label">
                     BMI Zscore</label>
-            </div>
-            <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                 <input type="text" class="form-control" id="Text4" disabled="disabled">
             </div>
         </div>
