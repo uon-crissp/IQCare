@@ -2812,67 +2812,32 @@
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>548</StrengthId>
-    <StrengthName>150mg/75mg/400mg/275mg</StrengthName>
+    <StrengthName>300MG/100MG</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>549</StrengthId>
-    <StrengthName>150mg/75mg/275mg</StrengthName>
+    <StrengthName>40/10</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>550</StrengthId>
-    <StrengthName>300mg/100mg</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>551</StrengthId>
-    <StrengthName>Suspension</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>1550</StrengthId>
-    <StrengthName>1g</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2550</StrengthId>
-    <StrengthName>200000 IU</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2551</StrengthId>
-    <StrengthName>Appropriate weight dosage</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2552</StrengthId>
-    <StrengthName>150mg/75mg/400mg</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2553</StrengthId>
-    <StrengthName>150mg/400mg</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2554</StrengthId>
-    <StrengthName>150mg/75mg</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>2555</StrengthId>
-    <StrengthName>120mg/60mg</StrengthName>
-    <DeleteFlag>false</DeleteFlag>
-  </Mst_Strength>
-  <Mst_Strength>
-    <StrengthId>3555</StrengthId>
     <StrengthName>40mg/10mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
-    <StrengthId>3556</StrengthId>
+    <StrengthId>551</StrengthId>
+    <StrengthName>120mg/60mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>552</StrengthId>
     <StrengthName>300mg/300mg/50mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>553</StrengthId>
+    <StrengthName>300mg/150mg/50mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_FrequencyUnits>
@@ -9947,6 +9912,21 @@
   <Mst_Drug>
     <Drug_PK>1226</Drug_PK>
     <DrugName>Abacavir/Zidovudine-ABC/3TC 120mg/60mg</DrugName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1227</Drug_PK>
+    <DrugName>Tenofovir DF/Lamivudine/Dolutegravir-TDF/3TC/DTG 300mg/300mg/50mg</DrugName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1228</Drug_PK>
+    <DrugName>Zidovudine/Lamivudine/Dolutegravir-AZT/3TC/DTG 300mg/150mg/50mg</DrugName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1229</Drug_PK>
+    <DrugName>Abacavir/Lamivudine/Dolutegravir-ABC/3TC/DTG 300mg/150mg/50mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Generic>

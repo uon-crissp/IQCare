@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                 <input id="chkCaseManager2" name="switch-size" type="checkbox" checked data-size="small"
-                    data-on-text="Yes" data-off-text="No" />
+                    data-on-text="Yes" data-off-text="No" checked="checked" />
             </div>
         </div>
     </div>

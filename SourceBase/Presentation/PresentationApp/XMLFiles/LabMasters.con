@@ -1319,7 +1319,7 @@
   </Lnk_LabValue>
   <Lnk_LabValue>
     <SubTestID>3</SubTestID>
-    <MinBoundaryValue>21.00</MinBoundaryValue>
+    <MinBoundaryValue>1.00</MinBoundaryValue>
     <MaxBoundaryValue>2000000.00</MaxBoundaryValue>
     <MinNormalRange>50.00</MinNormalRange>
     <MaxNormalRange>2000000.00</MaxNormalRange>
@@ -2042,229 +2042,219 @@
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
+    <ResultId>42</ResultId>
+    <ParameterId>14</ParameterId>
+    <Result>Positive</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>43</ResultId>
+    <ParameterId>14</ParameterId>
+    <Result>Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>44</ResultId>
+    <ParameterId>16</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>45</ResultId>
+    <ParameterId>16</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>46</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>47</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>48</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>49</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>50</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>51</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>52</ResultId>
+    <ParameterId>23</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>53</ResultId>
+    <ParameterId>23</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>54</ResultId>
+    <ParameterId>24</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>55</ResultId>
+    <ParameterId>24</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>56</ResultId>
+    <ParameterId>25</ParameterId>
+    <Result>Yes</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>57</ResultId>
+    <ParameterId>25</ParameterId>
+    <Result>No</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
     <ResultId>58</ResultId>
-    <ParameterId>114</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>59</ResultId>
-    <ParameterId>114</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>60</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>61</ResultId>
-    <ParameterId>75</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>62</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>63</ResultId>
-    <ParameterId>74</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>64</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>65</ResultId>
-    <ParameterId>101</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>66</ResultId>
-    <ParameterId>14</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>67</ResultId>
-    <ParameterId>14</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>68</ResultId>
-    <ParameterId>16</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>69</ResultId>
-    <ParameterId>16</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>70</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>71</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>72</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>73</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>74</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>75</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>76</ResultId>
-    <ParameterId>23</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>77</ResultId>
-    <ParameterId>23</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>78</ResultId>
-    <ParameterId>24</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>79</ResultId>
-    <ParameterId>24</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>80</ResultId>
-    <ParameterId>25</ParameterId>
-    <Result>Yes</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>81</ResultId>
-    <ParameterId>25</ParameterId>
-    <Result>No</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>82</ResultId>
-    <ParameterId>4</ParameterId>
-    <Result>Stored</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>83</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>84</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>85</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>86</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>87</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>Positive</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>88</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result>Negative</Result>
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>89</ResultId>
     <ParameterId>14</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>90</ResultId>
+    <ResultId>59</ResultId>
     <ParameterId>15</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>91</ResultId>
+    <ResultId>60</ResultId>
+    <ParameterId>16</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>61</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>62</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>63</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>64</ResultId>
+    <ParameterId>23</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>65</ResultId>
+    <ParameterId>24</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>66</ResultId>
+    <ParameterId>25</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>67</ResultId>
     <ParameterId>97</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>92</ResultId>
+    <ResultId>68</ResultId>
     <ParameterId>98</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>93</ResultId>
+    <ResultId>69</ResultId>
     <ParameterId>99</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>94</ResultId>
+    <ResultId>70</ResultId>
     <ParameterId>114</ParameterId>
     <Result />
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>95</ResultId>
+    <ResultId>71</ResultId>
     <ParameterId>116</ParameterId>
     <Result>Positive</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>96</ResultId>
+    <ResultId>72</ResultId>
     <ParameterId>116</ParameterId>
-    <Result>Indeterminate</Result>
+    <Result>Inderteminate</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>97</ResultId>
+    <ResultId>73</ResultId>
     <ParameterId>116</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>98</ResultId>
+    <ResultId>74</ResultId>
     <ParameterId>116</ParameterId>
     <Result>MTB Positive R Indeterminate</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>99</ResultId>
+    <ResultId>75</ResultId>
     <ParameterId>116</ParameterId>
     <Result>MTB positive RR</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>100</ResultId>
+    <ResultId>76</ResultId>
     <ParameterId>116</ParameterId>
     <Result>MTB Positive RS</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>101</ResultId>
+    <ResultId>77</ResultId>
     <ParameterId>116</ParameterId>
     <Result>Invalid/Error</Result>
   </Lnk_ParameterResult>
   <Lnk_ParameterResult>
-    <ResultId>102</ResultId>
+    <ResultId>78</ResultId>
     <ParameterId>116</ParameterId>
     <Result>MTB Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>79</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result>Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>80</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result>Positive</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>81</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result>Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>82</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result>Positive</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>83</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result>Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>84</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result>Positive</Result>
   </Lnk_ParameterResult>
   <LabTestOrder>
     <SubTestId>1</SubTestId>

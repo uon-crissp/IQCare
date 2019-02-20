@@ -153,18 +153,18 @@ function GetSession1Data() {
                 }
             }
             else {
-                if (response.MV != null && response.MV == 0 && response.VId > 0 && callFrom == 'new') {
-                    // display message to open existing form.......
-                    customAlert("Please complete the previous unfilled form, first before opening a new one of the same.");
-                    window.location.assign("../ClinicalForms/frmPatient_History.aspx?&sts=0");
-                }
-                else {
+//                if (response.MV != null && response.MV == 0 && response.VId > 0 && callFrom == 'new') {
+//                    // display message to open existing form.......
+//                    customAlert("Please complete the previous unfilled form, first before opening a new one of the same.");
+//                    window.location.assign("../ClinicalForms/frmPatient_History.aspx?&sts=0");
+//                }
+//                else {
                     if (response.AST != null) {
                         currAST = response.AST;
                         enableAlreadySavedTabs(response.AST);
                     }
                     Init_UC_Session1_Controls(response);
-                }
+//                }
             }
         },
         error: function (xhr, textStatus, errorThrown) {
