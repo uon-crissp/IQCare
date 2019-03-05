@@ -8,7 +8,7 @@ namespace Interface.Administration
 {
     public interface IDrugMst
     {
-        DataSet GetDrug();
+        DataSet GetDrug(int Drug_pk);
         DataSet GetDrugMst();
         DataSet DeleteDrug(int Drug_ID);
         DataTable GetExistDrug(string DrugName);
@@ -25,8 +25,7 @@ namespace Interface.Administration
       
         DataSet GetExistDrugDetail(int Drug_pk, string DrugType, string Generic );
         DataSet GetStrengthLists(int DrugId);
-
-        int SaveUpdateDrugDetails(int Drug_Pk, string DrugName, string DrugAbbreviation, int Status, DataTable ExistGeneric, DataTable Generics, decimal MaxDose, decimal MinDose, int DrugTypeID, int UserID, DataTable Strength, DataTable Frequency, DataTable Schedule,int Update);
+        int SaveUpdateDrugDetails(int Drug_Pk, string DrugName, string DrugAbbreviation, int purchaseUnit, int PurchaseUnitQty, int dispensingUnit, int IsSyrup, int Status, int DrugTypeID, int UserID);
         DataTable CreateStrength(string StrengthName, int UserId);
         DataTable CreateFrequency(string FrequencyName, int UserId);
         DataTable CreateSchedule(string ScheduleName, int UserId);

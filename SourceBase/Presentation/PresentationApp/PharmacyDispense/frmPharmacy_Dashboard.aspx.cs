@@ -30,14 +30,14 @@ namespace PresentationApp.PharmacyDispense
                 ISCMReport objPODetails = (ISCMReport)ObjectFactory.CreateInstance("BusinessProcess.SCM.BSCMReport, BusinessProcess.SCM");
                 DataSet theDTPODetails = objPODetails.PharmacyDashBoard(Convert.ToInt32(ddlStore.SelectedValue));
 
-                RadHtmlChart1.DataSource = theDTPODetails.Tables[0];
-                RadHtmlChart1.DataBind();
+                //RadHtmlChart1.DataSource = theDTPODetails.Tables[0];
+                //RadHtmlChart1.DataBind();
 
                 RadHtmlChart2.DataSource = theDTPODetails.Tables[1];
                 RadHtmlChart2.DataBind();
 
-                grdDrugsRunningOut.DataSource = theDTPODetails.Tables[2];
-                grdDrugsRunningOut.DataBind();
+                //grdDrugsRunningOut.DataSource = theDTPODetails.Tables[2];
+                //grdDrugsRunningOut.DataBind();
                 resizeScreen();
                 (Master.FindControl("pnlExtruder") as Panel).Visible = false;
                 (Master.FindControl("level2Navigation") as Control).Visible = true;

@@ -38,28 +38,28 @@
     <NAME>q4hr</NAME>
     <SRNO>3</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>8</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>4</Id>
     <NAME>q6hr</NAME>
     <SRNO>4</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>4</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>5</Id>
     <NAME>TID</NAME>
     <SRNO>5</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>3</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>6</Id>
     <NAME>QID</NAME>
     <SRNO>6</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>4</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>7</Id>
@@ -80,7 +80,7 @@
     <NAME>5 times daily</NAME>
     <SRNO>9</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>5</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>10</Id>

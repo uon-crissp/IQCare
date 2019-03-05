@@ -571,8 +571,8 @@
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="inputEmail3" class="control-label">
-                                        <asp:Label ID="lblDispensingStoreLabel" runat="server" Font-Bold="True" Text="Dispensing Store:"
-                                            CssClass="required"></asp:Label>
+                                        <font color="#0000E0"><asp:Label ID="lblDispensingStoreLabel" runat="server" Font-Bold="True" Text="Dispensing Store:"
+                                            CssClass="required"></asp:Label></font>
                                     </label>
                                     <asp:DropDownList ID="ddlDispensingStore" runat="server" Width="98%" OnSelectedIndexChanged="ddlDispensingStore_SelectedIndexChanged"
                                         AutoPostBack="true" CssClass="form-control">
@@ -656,7 +656,7 @@
                                                     </div>
                                                     <div class="row" align="center">
                                                         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                                            <div class="mid" style="height: 300px; overflow: auto; width: 100%; margin-right: 5px;
+                                                            <div class="mid" style="height: 500px; overflow: auto; width: 100%; margin-right: 5px;
                                                                 text-align: center; z-index=-1;">
                                                                 <div id="div-gridview" class="GridView whitebg" style="padding-right: 20px;">
                                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -671,28 +671,9 @@
                                                                                             <asp:Label ID="lblDrugName" runat="server" Text='<%# Bind("DrugName") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Unit" HeaderStyle-Width="50px">
+                                                                                    <asp:TemplateField HeaderText="Unit" HeaderStyle-Width="100px">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lblUnit" runat="server" Text='<%# Bind("Unit") %>'></asp:Label>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Batch No" HeaderStyle-Width="150px">
-                                                                                        <ItemTemplate>
-                                                                                            <asp:DropDownList ID="ddlBatchNo" runat="server" Width="99%" OnSelectedIndexChanged="ddlBatchNo_SelectedIndexChanged"
-                                                                                                AutoPostBack="true" class="form-control">
-                                                                                            </asp:DropDownList>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Price" HeaderStyle-Width="50px">
-                                                                                        <ItemTemplate>
-                                                                                            <asp:Label ID="lblSellingPrice" runat="server" Text='<%# Bind("SellingPrice") %>'></asp:Label>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Expiry Date" HeaderStyle-Width="80px" HeaderStyle-CssClass="hidden"
-                                                                                        ItemStyle-CssClass="hidden">
-                                                                                        <ItemTemplate>
-                                                                                            <asp:HiddenField ID="hBatchQty" runat="server" />
-                                                                                            <asp:Label ID="lblExpiryDate" runat="server" Width="100%" Text='<%# Bind("ExpiryDate") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
                                                                                     <asp:TemplateField HeaderText="Morning" HeaderImageUrl="~/Images/morning1.jpg" HeaderStyle-Width="80px">

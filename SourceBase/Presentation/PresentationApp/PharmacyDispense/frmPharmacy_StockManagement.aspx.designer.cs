@@ -49,6 +49,15 @@ namespace PresentationApp.PharmacyDispense {
         protected global::System.Web.UI.WebControls.TextBox txtOrderNumber;
         
         /// <summary>
+        /// lblSourceStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSourceStore;
+        
+        /// <summary>
         /// ddlSourceStore control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace PresentationApp.PharmacyDispense {
         protected global::System.Web.UI.WebControls.DropDownList ddlSourceStore;
         
         /// <summary>
+        /// tblDestinationStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblDestinationStore;
+        
+        /// <summary>
         /// ddlDestinationStore control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace PresentationApp.PharmacyDispense {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDestinationStore;
+        
+        /// <summary>
+        /// tblSupplier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblSupplier;
         
         /// <summary>
         /// ddlSupplier control.

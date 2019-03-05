@@ -2166,6 +2166,13 @@
     <Compile Include="PharmacyDispense\frmPharmacyDispense_PatientOrder.aspx.designer.cs">
       <DependentUpon>frmPharmacyDispense_PatientOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PharmacyDispense\frmPharmacy_Configuration.aspx.cs">
+      <DependentUpon>frmPharmacy_Configuration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PharmacyDispense\frmPharmacy_Configuration.aspx.designer.cs">
+      <DependentUpon>frmPharmacy_Configuration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PharmacyDispense\frmPharmacy_Dashboard.aspx.cs">
       <DependentUpon>frmPharmacy_Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5044,6 +5051,7 @@
     <Content Include="PharmacyDispense\BinCard.aspx" />
     <Content Include="PharmacyDispense\frmPharmacyDispense_FindPatient.aspx" />
     <Content Include="PharmacyDispense\frmPharmacyDispense_PatientOrder.aspx" />
+    <Content Include="PharmacyDispense\frmPharmacy_Configuration.aspx" />
     <Content Include="PharmacyDispense\frmPharmacy_Dashboard.aspx" />
     <Content Include="PharmacyDispense\frmPharmacy_DrugHistory.aspx" />
     <Content Include="PharmacyDispense\frmPharmacy_PrintLabels.aspx" />
@@ -6592,7 +6600,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57375</DevelopmentServerPort>
+          <DevelopmentServerPort>55085</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/IQCare</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

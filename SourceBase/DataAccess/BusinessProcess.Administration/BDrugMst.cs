@@ -44,13 +44,15 @@ namespace BusinessProcess.Administration
                 return (DataSet)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_SelectDrugForID_Constella", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
-         
-        public DataSet GetDrug()
+
+        public DataSet GetDrug(int Drug_pk)
         {
             lock (this)
             {
                 ClsUtility.Init_Hashtable();
                 ClsObject DrugManager = new ClsObject();
+                ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, Drug_pk.ToString());
+
                 return (DataSet)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_SelectDrug_Constella", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
@@ -171,13 +173,9 @@ namespace BusinessProcess.Administration
                 return (DataSet)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_GetDrugStrengthFrequency_Constella", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
-     
-        public int SaveUpdateDrugDetails(int Drug_Pk, string DrugName, string DrugAbbreviation,int Status, DataTable ExistGeneric, DataTable Generics, decimal MaxDose, decimal MinDose, int DrugTypeID, int UserID, DataTable Strength, DataTable Frequency, DataTable Schedule,int Update)
-        { 
-            int DrugID = 0;
-            int theReturnValue = 0;
-            int theAffectedRows = 0;
 
+        public int SaveUpdateDrugDetails(int Drug_Pk, string DrugName, string DrugAbbreviation, int purchaseUnit, int PurchaseUnitQty, int dispensingUnit, int IsSyrup, int Status, int DrugTypeID, int UserID)
+        {
             DataSet theReturnDS = new DataSet();
             DataTable theExistRow = new DataTable();
             try
@@ -189,330 +187,25 @@ namespace BusinessProcess.Administration
                 DrugManager.Connection = this.Connection;
                 DrugManager.Transaction = this.Transaction;
 
-                #region "Delete Exist Records"
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@DrugId", SqlDbType.Int, Drug_Pk.ToString());
+                ClsUtility.AddParameters("@DrugTypeID", SqlDbType.Int, DrugTypeID.ToString());
+                ClsUtility.AddParameters("@DrugName", SqlDbType.VarChar, DrugName);
+                ClsUtility.AddParameters("@DrugAbbreviation", SqlDbType.VarChar, DrugAbbreviation);
+                ClsUtility.AddParameters("@purchaseUnit", SqlDbType.Int, purchaseUnit.ToString());
+                ClsUtility.AddParameters("@QtyPerpurchaseUnit", SqlDbType.Int, PurchaseUnitQty.ToString());
+                ClsUtility.AddParameters("@dispensingunit", SqlDbType.Int, dispensingUnit.ToString());
+                ClsUtility.AddParameters("@issyrup", SqlDbType.Int, IsSyrup.ToString());
+                ClsUtility.AddParameters("@UserID", SqlDbType.Int, UserID.ToString());
+                ClsUtility.AddParameters("@Status", SqlDbType.Int, Status.ToString());
 
-                if (ExistGeneric.Rows.Count != 0)
-                {
-                    /****************Delete Exist ARV Records *******************/
+                theReturnDS = (DataSet)DrugManager.ReturnObject(ClsUtility.theParams, "Pr_Admin_InsertDrug_Constella", ClsDBUtility.ObjectEnum.DataSet);
 
-                    if (DrugTypeID == 37)
-                    {
-                        int AffectedRows = 0;
-                        foreach (DataRow dr in ExistGeneric.Rows)
-                        {
-                            ClsUtility.Init_Hashtable();
-                            ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, Drug_Pk.ToString());
-
-                            if (Drug_Pk == 0)
-                            {
-                                ClsUtility.AddParameters("@GenericId", SqlDbType.Int, dr[0].ToString());
-                                //ClsUtility.AddParameters("@GenericId", SqlDbType.Int, dr[1].ToString());
-                                AffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_DeleteARVDruglnkDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                            }
-                            else
-                            {
-                                int GenericId = 0;
-                                ClsUtility.AddParameters("@GenericId", SqlDbType.Int, GenericId.ToString());
-                                AffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_DeleteARVDruglnkDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-                                break; // since all rows are deleted at once from lnk_drugGeneric
-                            }
-                        }
-                    }
-                    else
-                    {
-                        /************ Delete NonARV Details *****************/
-                        int AffectedRows = 0;
-                        foreach (DataRow dr in ExistGeneric.Rows)
-                        {
-                            ClsUtility.Init_Hashtable();
-                            ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, Drug_Pk.ToString());
-
-                            if (Drug_Pk == 0)
-                            {
-                                ClsUtility.AddParameters("@GenericId", SqlDbType.Int, dr[0].ToString());
-                                //ClsUtility.AddParameters("@GenericId", SqlDbType.Int, dr[1].ToString());
-                                AffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_DeleteNonARVDrugDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                            }
-                            else
-                            {
-                                int GenericId = 0;
-                                ClsUtility.AddParameters("@GenericId", SqlDbType.Int, GenericId.ToString());
-                                AffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_DeleteNonARVDrugGenericlnkDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-                            }
-                        }
-                    }
-                }
-                #endregion
-
-                #region "Save Trade Name and Map with Generic"
-                   if (DrugName != "")
-                    {
-                        #region "Strength & Frequency Mapping"
-                        int GenericID = 0;
-                        int RowsAffected = 0;
-
-                        if (DrugID != 0 && DrugTypeID == 37)
-                        {
-                            GenericID = 0;
-                        }
-                        else if (DrugID == 0 && DrugTypeID == 37 && DrugName == "" && Drug_Pk == 0)
-                        {
-
-                            GenericID = Convert.ToInt32(Generics.Rows[0]["Id"].ToString());
-                            ClsUtility.Init_Hashtable();
-                            ClsUtility.AddParameters("@GenericID", SqlDbType.Int, GenericID.ToString());
-                            //ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, Drug_Pk.ToString());
-                            theExistRow = (DataTable)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_CheckLinkDrugStrength_Constella", ClsDBUtility.ObjectEnum.DataTable);
-                        }
-
-
-                        if (DrugName != "" && DrugID == 0)
-                        {
-                            theAffectedRows = 0;
-                        }
-                        else if (DrugID == 0 && theExistRow.Rows.Count != 0)
-                        {
-                            theAffectedRows = 2;
-                        }
-
-                        else
-                        {
-                            // if (DrugID == 0) //rupesh
-                            // {
-                            GenericID = Convert.ToInt32(Generics.Rows[0]["Id"].ToString());
-                            //  }
-
-                            //-------------
-
-                        }
-                        //-----------
-                        if (DrugName != "" && DrugID == 0)
-                        {
-                            theAffectedRows = 0;
-                        }
-                        else if (DrugID == 0 && theExistRow.Rows.Count != 0)
-                        {
-                            theAffectedRows = 2;
-                        }
-                        else
-                        {
-                            if (DrugTypeID != 37)
-                            {
-                                /**************Save NONARV Details *************/
-
-                                if (DrugID == 0 && Drug_Pk == 0)
-                                {
-                                    GenericID = Convert.ToInt32(Generics.Rows[0]["Id"].ToString());
-                                    ClsUtility.Init_Hashtable();
-                                    ClsUtility.AddParameters("@GenericID", SqlDbType.Int, GenericID.ToString());
-                                    // ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, Drug_Pk.ToString());
-                                    theExistRow = (DataTable)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_CheckNonARVDrug_Constella", ClsDBUtility.ObjectEnum.DataTable);
-                                }
-                                if (theExistRow.Rows.Count != 0)
-                                {
-                                    theAffectedRows = 2;
-                                }
-                                else
-                                {
-                                    foreach (DataRow dr in Generics.Rows)
-                                    {
-                                        GenericID = Convert.ToInt32(dr["Id"].ToString()); // rupesh 16-07-07
-                                        ClsUtility.Init_Hashtable();
-                                        ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, DrugID.ToString());
-                                        ClsUtility.AddParameters("@GenericId", SqlDbType.Int, GenericID.ToString());
-                                        ClsUtility.AddParameters("@MaxDose", SqlDbType.Decimal, MaxDose.ToString());
-                                        ClsUtility.AddParameters("@MinDose", SqlDbType.Decimal, MinDose.ToString());
-                                        ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-
-                                        theAffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_InsertNonARVDrugDoseDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-                                        if (theAffectedRows == 0)
-                                        {
-                                            MsgBuilder theMsg = new MsgBuilder();
-                                            theMsg.DataElements["MessageText"] = "Error in Saving Non-ARV Drug Details. Try Again..";
-                                            AppException.Create("#C1", theMsg);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-
-                            /////////////////////////////////////////////////////
-                            /************** Saving Strengths ***************/
-                            if (Strength.Rows.Count != 0)
-                            {
-                                foreach (DataRow dr in Strength.Rows)
-                                {
-                                    StringBuilder strgenname = new StringBuilder();
-                                    foreach (DataRow drgenericname in Generics.Rows)
-                                    {
-                                        string genName = "";
-                                        genName = drgenericname["Name"].ToString();
-                                        //if (DrugTypeID == 37)
-                                        //{
-                                            if (genName.IndexOf("-[") > -1)
-                                            {
-                                                genName = genName.Substring(0, genName.IndexOf("-["));
-
-                                            }
-                                            genName = "/" + genName.ToString();
-                                            //genName = genName.Substring(0, genName.Length - 1);
-                                        //}
-                                        strgenname.Append(genName.ToString());
-
-                                    }
-                                    //if (DrugTypeID == 37)
-                                    //{
-                                        strgenname.Remove(0, 1);
-                                    //}
-
-                                    ///////////////////////////////////////////////
-
-
-                                    ClsUtility.Init_Hashtable();
-                                    ClsUtility.AddParameters("@DrugId", SqlDbType.Int, Drug_Pk.ToString());
-                                    ClsUtility.AddParameters("@DrugName", SqlDbType.VarChar, strgenname.ToString() + "-" + DrugName + " " + dr["Name"].ToString());
-                                    ClsUtility.AddParameters("@DrugAbbreviation", SqlDbType.VarChar, DrugAbbreviation);
-                                    ClsUtility.AddParameters("@DrugTypeID", SqlDbType.Int, DrugTypeID.ToString());
-                                    ClsUtility.AddParameters("@UserID", SqlDbType.Int, UserID.ToString());
-                                    ClsUtility.AddParameters("@Status", SqlDbType.Int, Status.ToString());
-                                    ClsUtility.AddParameters("@Update", SqlDbType.Int, Update.ToString());
-                                    theReturnDS = (DataSet)DrugManager.ReturnObject(ClsUtility.theParams, "Pr_Admin_InsertDrug_Constella", ClsDBUtility.ObjectEnum.DataSet);
-
-                                    if (theReturnDS.Tables[2].Rows[0][0].ToString() == "0")
-                                    {
-                                        MsgBuilder theMsg = new MsgBuilder();
-                                        theMsg.DataElements["MessageText"] = "Drug Already Exists. Try Again..";
-                                        Exception ex = AppException.Create("#C1", theMsg);
-                                        throw ex;
-                                    }
-
-
-                                    ///////////////////////////////////////////////
-
-                                    foreach (DataRow drgeneric in Generics.Rows)
-                                    {
-
-
-                                        if (DrugName != "" && theReturnDS.Tables[2].Rows[0][0].ToString() != "0")
-                                        {
-                                            DrugID = Convert.ToInt32(theReturnDS.Tables[2].Rows[0][0].ToString());
-                                        }
-                                        else
-                                            DrugID = 0;
-
-                                        int theGeneric = 0;
-                                        if (DrugName == "")
-                                        {
-                                            theGeneric = Convert.ToInt32(drgeneric["Id"].ToString());
-                                        }
-                                        int DeleteFlag = Convert.ToInt32(theReturnDS.Tables[2].Rows[0]["DeleteFlag"]);
-                                        ClsUtility.Init_Hashtable();
-                                        ClsUtility.AddParameters("@DrugId", SqlDbType.Int, DrugID.ToString());
-                                        ClsUtility.AddParameters("@StrengthId", SqlDbType.Int, dr[0].ToString());
-                                        ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                                        ClsUtility.AddParameters("@GenericID", SqlDbType.Int, theGeneric.ToString());
-                                        RowsAffected = (Int32)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_LinkDrugStrength_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                                        if (RowsAffected == 0)
-                                        {
-                                            MsgBuilder theMsg = new MsgBuilder();
-                                            theMsg.DataElements["MessageText"] = "Error in Saving Strength for Drug. Try Again..";
-                                            AppException.Create("#C1", theMsg);
-                                        }
-
-
-                                        ClsUtility.Init_Hashtable();
-                                        ClsUtility.AddParameters("@Drug_pk", SqlDbType.Int, DrugID.ToString());
-                                        ClsUtility.AddParameters("@GenericId", SqlDbType.Int, drgeneric["Id"].ToString());
-                                        ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                                        ClsUtility.AddParameters("@DeleteFlag", SqlDbType.Int, DeleteFlag.ToString());
-
-                                        theAffectedRows = (int)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_InsertDrugGenericDetails_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                                        if (theAffectedRows == 0)
-                                        {
-                                            MsgBuilder theMsg = new MsgBuilder();
-                                            theMsg.DataElements["MessageText"] = "Error in Saving Drug Generic Combinations. Try Again..";
-                                            AppException.Create("#C1", theMsg);
-                                        }
-                                        //if (DrugTypeID != 60)
-                                        //{
-                                        //    if (Frequency.Rows.Count != 0)
-                                        //    {
-                                        //        /************** Saving Frequency ***************/
-                                        //        foreach (DataRow drFrquency in Frequency.Rows)
-                                        //        {
-                                        //            ClsUtility.Init_Hashtable();
-                                        //            ClsUtility.AddParameters("@DrugId", SqlDbType.Int, DrugID.ToString());
-                                        //            ClsUtility.AddParameters("@FrequencyId", SqlDbType.Int, drFrquency[0].ToString());
-                                        //            ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                                        //            ClsUtility.AddParameters("@GenericID", SqlDbType.Int, theGeneric.ToString());
-                                        //            theAffectedRows = (Int32)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_LinkDrugFrequency_Constella", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                                        //            if (theAffectedRows == 0)
-                                        //            {
-                                        //                MsgBuilder theMsg = new MsgBuilder();
-                                        //                theMsg.DataElements["MessageText"] = "Error in Saving Frequency for Drug. Try Again..";
-                                        //                AppException.Create("#C1", theMsg);
-                                        //            }
-                                        //        }
-
-                                        //    }
-                                        //}
-
-                                        #region "Adding Generics as Drugs with Strength"
-                                        #endregion
-
-
-                                    }///
-
-
-                        #endregion
-                                    #region "Drug Scheduling Mapping"
-                                    if (DrugName != "" && DrugTypeID == 60)
-                                    {
-                                        if (Schedule.Rows.Count != 0)
-                                        {
-                                            /************** Saving Frequency ***************/
-                                            foreach (DataRow drSchedule in Schedule.Rows)
-                                            {
-                                                ClsUtility.Init_Hashtable();
-                                                ClsUtility.AddParameters("@DrugId", SqlDbType.Int, DrugID.ToString());
-                                                ClsUtility.AddParameters("@ScheduleId", SqlDbType.Int, drSchedule[0].ToString());
-                                                ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                                                theAffectedRows = (Int32)DrugManager.ReturnObject(ClsUtility.theParams, "pr_Admin_LinkDrugSchedule_Futures", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
-
-                                                if (theAffectedRows == 0)
-                                                {
-                                                    MsgBuilder theMsg = new MsgBuilder();
-                                                    theMsg.DataElements["MessageText"] = "Error in Saving Schedule for Drug. Try Again..";
-                                                    AppException.Create("#C1", theMsg);
-                                                }
-
-                                            }
-
-                                        }
-                                    }
-                                    #endregion
-
-                                }
-                            }//////
-                        
-                        
-                    }
-                
-                #endregion
-
-                ////////////////////////////////////////////////////
                 DataMgr.CommitTransaction(this.Transaction);
                 DataMgr.ReleaseConnection(this.Connection);
 
-                return (theAffectedRows);
+                return 0;
             }
-
             catch
             {
                 DataMgr.RollBackTransation(this.Transaction);
@@ -522,10 +215,8 @@ namespace BusinessProcess.Administration
             {
                 if (this.Connection != null)
                     DataMgr.ReleaseConnection(this.Connection);
-            }       
-                        
+            }
         }
-
 
         public DataTable CreateStrength(string StrengthName,int UserId)
         {

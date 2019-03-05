@@ -176,8 +176,7 @@
             <hr />
             <div class="row">
                 <div class="col-md-1 pull-left">
-                    <a href="http://thepalladiumgroup.com/ " onclick="window.open('http://thepalladiumgroup.com/ '); return false;">
-                        <img src="./Images/FGI.jpg" width="99" style="margin-left: 10.5%" alt="" /></a>
+                    
                 </div>
                 <div class="col-md-1">
                 </div>

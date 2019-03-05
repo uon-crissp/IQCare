@@ -15,15 +15,6 @@ using Application.Common;
 
 public partial class DrugMaster_List : BasePage
 {
-    /////////////////////////////////////////////////////////////////////
-    // Code Written By   : Sanjay Rana
-    // Written Date      : 25th July 2006
-    // Modification Date : 
-    // Description       : Drug List
-    //
-    /// /////////////////////////////////////////////////////////////////
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["AppLocation"] == null || Session.Count == 0 || Session["AppUserID"].ToString() == "")
@@ -34,51 +25,19 @@ public partial class DrugMaster_List : BasePage
         IDrugMst DrugManager;
         try
         {
-
             if (!IsPostBack)
             {
-                //(Master.FindControl("lblRoot") as Label).Text = " » Customize Lists";
-                //(Master.FindControl("lblMark") as Label).Visible = false;
-                //(Master.FindControl("lblheader") as Label).Text = "Drugs"; 
-                //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Customize Lists >> ";
-                //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Drugs";
-                                
-                //checking the NULL condition, if user close the page without doing anything......
-                //ViewState["FID"] = Request.QueryString["Fid"].ToString(); commented on 23 Jan 2014
                 if(!string.IsNullOrEmpty(Request.QueryString["Fid"])){ViewState["FID"] = Request.QueryString["Fid"].ToString();}
                
-                
                 DrugManager = (IDrugMst)ObjectFactory.CreateInstance("BusinessProcess.Administration.BDrugMst, BusinessProcess.Administration");
-                //pr_Admin_SelectDrug_Constella
-                DataSet theDS = DrugManager.GetDrug();
-                MakeDrugList(theDS);//11Mar08
-                //--------- 11Mar08---------
-                //string theStr;
-                //foreach (DataRow theDR in theDS.Tables[0].Rows)
-                //{
-                //    theStr = theDR["DrugGeneric"].ToString();
-                //    if (theStr.IndexOf("/") != -1)
-                //        theStr = theStr.Replace("/", "/ ");
-                //    theDR["DrugGeneric"] = theStr;
-
-                //    theStr = theDR["GenericAbbv"].ToString();
-                //    if (theStr.IndexOf("/") != -1)
-                //        theStr = theStr.Replace("/", "/ ");
-                //    theDR["GenericAbbv"] = theStr;
-
-                //}
-                //grdMasterDrugs.DataSource = theDS.Tables[0];
-                //BindGrid();
-                //--------------------------
+                DataSet theDS = DrugManager.GetDrug(0);
+                MakeDrugList(theDS);
+               
                 AuthenticationManager Authentication = new AuthenticationManager();
                 if (Authentication.HasFunctionRight(22, FunctionAccess.Add, (DataTable)Session["UserRight"]) == false)
                 {
                     btnAdd.Enabled = false;
                 }
-                //if (Authentication.HasFunctionRight(Convert.ToInt32(ViewState["FID"]), FunctionAccess.Add, (DataTable)Session["UserRight"]) == false)
-                //{
-                //    btnAdd.Enabled = false;
-                //}
             }
         }
         catch (Exception err)
@@ -103,8 +62,6 @@ public partial class DrugMaster_List : BasePage
         Response.Redirect(url);
     }
 
-    #region "User Functions"
-    //private void BindGrid(DataTable theDT)
     private void BindGrid()
     {
 
@@ -115,19 +72,11 @@ public partial class DrugMaster_List : BasePage
         theCol0.ItemStyle.Width = 4;
         theCol0.ReadOnly = true;
 
-        //BoundField theCol1 = new BoundField();
-        //theCol1.HeaderText = "Priority";
-        //theCol1.DataField = "Sequence";
-        //theCol1.ItemStyle.CssClass = "textstyle";
-        //theCol1.SortExpression = "Sequence";
-        //theCol1.ItemStyle.Font.Underline = true;
-        //theCol1.ReadOnly = true;
-
         BoundField theCol2 = new BoundField();
         theCol2.HeaderText = "Trade Name";
         theCol2.ItemStyle.CssClass = "textstyle";
         theCol2.DataField = "TradeName";
-        theCol2.SortExpression = "TradeName";                 ///"DrugName";
+        theCol2.SortExpression = "TradeName";
         theCol2.ItemStyle.Width = 5;
         theCol2.ReadOnly = true;
 
@@ -151,7 +100,7 @@ public partial class DrugMaster_List : BasePage
         theCol5.HeaderText = "Generic Abbrevation";
         theCol5.ItemStyle.CssClass = "textstyle";
         theCol5.DataField = "GenericAbbv";
-        theCol5.SortExpression = "GenericAbbv";                     //"GenericAbbrevation";
+        theCol5.SortExpression = "GenericAbbv"; 
         theCol5.ItemStyle.Width = 5;
         theCol5.ReadOnly = true;
 
@@ -170,7 +119,6 @@ public partial class DrugMaster_List : BasePage
         theBtn.ItemStyle.CssClass = "textstylehidden";
 
         grdMasterDrugs.Columns.Add(theCol0);
-        //grdMasterDrugs.Columns.Add(theCol1);
         grdMasterDrugs.Columns.Add(theCol2);
         grdMasterDrugs.Columns.Add(theCol3);
         grdMasterDrugs.Columns.Add(theCol4);
@@ -222,8 +170,6 @@ public partial class DrugMaster_List : BasePage
 
                     if (theDV.Count > 0)
                     {
-                        //theTradeName = Convert.ToString(theDV[0].Row["DrugName"]);
-                        #region "Modified 18June2007 (1)"
                         for (int j = 0; j < theDV.Count; j++)
                         {
                             if (theGeneric.Trim() == "")
@@ -246,7 +192,7 @@ public partial class DrugMaster_List : BasePage
                             }
 
                         }
-                        #endregion
+
                         DataRow theDR = theDT1.NewRow();
                         theDR["Drug_pk"] = Convert.ToInt32(theDT.Rows[i]["Drug_Pk"]);
                         theDR["DrugGeneric"] = theGeneric;
@@ -291,7 +237,6 @@ public partial class DrugMaster_List : BasePage
         BindGrid();
     }
 
-    #endregion
     protected void grdMasterDrugs_Sorting(object sender, GridViewSortEventArgs e)
     {
         IQCareUtils clsUtil = new IQCareUtils();
@@ -339,7 +284,6 @@ public partial class DrugMaster_List : BasePage
 
         string Status = theRow.Cells[5].Text.ToString();
 
-        //string theUrl = string.Format("{0}&DrugId={1}&DrugType={2}&Generic={3}", "frmAdmin_Drug.aspx?name=Edit" , DrugId, DrugType,GenericName);
         string theUrl = string.Format("{0}&DrugId={1}&DrugType={2}&Generic={3}&Status={4}", "frmAdmin_Drug.aspx?name=Edit", DrugId, DrugType, GenericName, Status);
         Response.Redirect(theUrl);
     }

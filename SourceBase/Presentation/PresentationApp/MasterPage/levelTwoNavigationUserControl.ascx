@@ -274,24 +274,26 @@
                 </Items>
             </asp:Menu>
             <asp:Menu ID="PharmacyDispensingMenu" runat="server" Orientation="Horizontal" CssClass="nav navbar-nav text-muted PharmacyDispensing"
-                ForeColor="Black" Width="50%" RenderingMode="Table" StaticEnableDefaultPopOutImage="False"
+                ForeColor="Black" Width="70%" RenderingMode="Table" StaticEnableDefaultPopOutImage="False"
                 Font-Bold="False" Visible="False" DynamicMenuStyle-CssClass="dropdown-menu">
                 <StaticMenuItemStyle Height="40px" />
                 <DynamicMenuItemStyle CssClass="PharmacyDispensing" Height="25px" HorizontalPadding="5px" />
                 <DynamicHoverStyle CssClass="PharmacyDispensinghover" />
                 <Items>
-                    <asp:MenuItem Text="Dashboard | " Value="Dashboard" NavigateUrl="~/PharmacyDispense/frmPharmacy_Dashboard.aspx">
+                    <asp:MenuItem Text="Dashboard" Value="Dashboard" NavigateUrl="~/PharmacyDispense/frmPharmacy_Dashboard.aspx">
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Dispense | " Value="Dispense" NavigateUrl="~/PharmacyDispense/frmPharmacyDispense_FindPatient.aspx">
+                    <asp:MenuItem Text="Dispense" Value="Dispense" NavigateUrl="~/PharmacyDispense/frmPharmacyDispense_FindPatient.aspx">
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Stock Summary | " Value="StockSummaryWeb" NavigateUrl="~/PharmacyDispense/frmPharmacy_StockSummary.aspx">
+                    <asp:MenuItem Text="Stock Summary" Value="StockSummaryWeb" NavigateUrl="~/PharmacyDispense/frmPharmacy_StockSummary.aspx">
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Stock Management | " Value="StockManagement" NavigateUrl="~/PharmacyDispense/frmPharmacy_StockManagement.aspx">
+                    <asp:MenuItem Text="Stock Management" Value="StockManagement" NavigateUrl="~/PharmacyDispense/frmPharmacy_StockManagement.aspx">
                     </asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/PharmacyDispense/frmPharmacy_ReferenceMaterials.aspx"
-                        Text="Reference Materials | " Value="Reference Materials"></asp:MenuItem>
+                        Text="Reference Materials" Value="Reference Materials"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="javascript:PopupCenterL2('International Quality Care Patient Management and Monitoring System','1000','650');"
                         Text="ADR Reporting" Value="ADR Reporting"></asp:MenuItem>
+                    <asp:MenuItem Text="Pharmacy Configuration" Value="PharmacyConfiguration" NavigateUrl="~/PharmacyDispense/frmPharmacy_Configuration.aspx">
+                    </asp:MenuItem>
                 </Items>
             </asp:Menu>
         </div>

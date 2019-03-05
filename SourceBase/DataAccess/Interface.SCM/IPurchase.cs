@@ -23,7 +23,7 @@ namespace Interface.SCM
         int SaveDisposeItems(int StoreId, int LocationId, DateTime AsofDate, int UserId, DataTable theDT);
         DataSet GetStockforAdjustment(int StoreId, string AdjustmentDate);
         DataTable GetDuplicateBatchOpenStock(string batchname, DateTime ExpiryDate);
-        DataSet GetOpenStockWeb();
+        DataSet GetOpenStockWeb(int storeid);
         int SavePurchaseOrderWeb(DataTable DtMasterPO, DataTable dtPOItems, bool isUpdate);
         int SaveUpdateStockAdjustmentWeb(DataTable theDTAdjustStock, int LocationId, int StoreId,
                                             string AdjustmentDate, int AdjustmentPreparedBy, int AdjustmentAuthorisedBy,
@@ -31,5 +31,6 @@ namespace Interface.SCM
         int SaveGoodreceivedNotes_Web(DataTable DtMasterGRN, DataTable dtGRNItems, int IsPOorIST);
         int SaveUpdateOpeningStockWeb(DataTable theDTOPStock, Int32 UserID, string TransactionDate);
         DataTable GetStoreSourceDestination(int StoreId);
+        int SaveStockTransaction(int drug_pk, DateTime TransactionDate, int TransactionType, int storeid, int sourceStoreId, int SupplierId, int quantity, string BatchNo, DateTime ExpiryDate, int ptn_pharmacy_pk, int userid);
     }
 }

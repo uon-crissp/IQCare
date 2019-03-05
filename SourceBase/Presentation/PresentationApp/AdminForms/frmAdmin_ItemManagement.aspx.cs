@@ -166,7 +166,6 @@ namespace PresentationApp.AdminForms
             {
                 BindManager.BindCombo((DropDownList)ddlItemType, DTItemlist, "Name", "ID");
             }
-            
 
             BindManager.BindCombo(ddlpurchaseunit, theDS.Tables[3].Copy(), "Name", "Id");
             BindManager.BindCombo(ddlmanufaturer, theDS.Tables[4], "Name", "Id");

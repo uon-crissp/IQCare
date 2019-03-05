@@ -46,8 +46,8 @@ namespace PresentationApp.PharmacyDispense
                 addAttributes();
             }
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "showHide", "showHideTransactionType('" + ddlTransactionType.ClientID + "');", true);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "showHidesupplier", "showHideSupplierStore('" + ddlSourceStore.ClientID + "');", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showHide", "showHideTransactionType('" + ddlTransactionType.ClientID + "');", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showHidesupplier", "showHideSupplierStore('" + ddlSourceStore.ClientID + "');", true);
             userRights();
         }
 
@@ -82,8 +82,8 @@ namespace PresentationApp.PharmacyDispense
 
         private void addAttributes()
         {
-            ddlTransactionType.Attributes.Add("OnChange", "showHideTransactionType('" + ddlTransactionType.ClientID + "');");
-            ddlSourceStore.Attributes.Add("OnChange", "showHideSupplierStore('" + ddlSourceStore.ClientID + "');");
+            //ddlTransactionType.Attributes.Add("OnChange", "showHideTransactionType('" + ddlTransactionType.ClientID + "');");
+            //ddlSourceStore.Attributes.Add("OnChange", "showHideSupplierStore('" + ddlSourceStore.ClientID + "');");
         }
 
         private void BindCombo()
@@ -97,6 +97,9 @@ namespace PresentationApp.PharmacyDispense
                 theDV.RowFilter = "(DeleteFlag =0 or DeleteFlag is null)";
                 theDV.Sort = "Name ASC";
                 DataTable theStoreDT = theDV.ToTable();
+
+                Session["theStoreDT"] = theStoreDT;
+
                 theBindManager.BindCombo(ddlDestinationStore, theStoreDT, "Name", "Id");                
                 theBindManager.BindCombo(ddlSourceStore, theStoreDT, "Name", "Id");
                 DataView theDVSup = new DataView(XMLDS.Tables["Mst_Supplier"]);
@@ -171,6 +174,10 @@ namespace PresentationApp.PharmacyDispense
                         Session["theStocks"] = GetItems_OpeningStock();
                         HideColumnsPO(0);
                         txtDrug.Enabled = true;
+
+                        tblDestinationStore.Visible = false;
+                        tblSupplier.Visible = false;
+                        lblSourceStore.Text = "Store:";
                     }
                     else
                     {
@@ -180,11 +187,27 @@ namespace PresentationApp.PharmacyDispense
                             sourceType = "";
                             HideColumnsPO(0);
                             txtDrug.Enabled = true;
+
+                            tblDestinationStore.Visible = true;
+                            tblSupplier.Visible = false;
+                            lblSourceStore.Text = "Source Store:";
+                            theBindManager.BindCombo(ddlDestinationStore, (DataTable)Session["theStoreDT"], "Name", "Id");
+
+                            if (ddlTransactionType.SelectedItem.Text == "Adjustment")
+                            {
+                                tblDestinationStore.Visible = false;
+                                tblSupplier.Visible = false;
+                                lblSourceStore.Text = "Store:";
+                            }
                         }
                         else if (ddlSourceStore.SelectedItem.Text == "Supplier" && ddlSourceStore.SelectedValue == "7777")
                         {
                             sourceType = "Supplier";
                             HideColumnsPO(1);
+
+                            tblDestinationStore.Visible = true;
+                            tblSupplier.Visible = true;
+                            lblSourceStore.Text = "Source Store:";
                         }
                     }
                 }
@@ -209,21 +232,16 @@ namespace PresentationApp.PharmacyDispense
         {
             ISCMReport objOpenStock = (ISCMReport)ObjectFactory.CreateInstance("BusinessProcess.SCM.BSCMReport,BusinessProcess.SCM");
             return objOpenStock.GetStocksPerStore(StoreId, SupplierFlag);
-
-
         }
 
         private DataTable GetItems_OpeningStock()
         {
             //IMasterList objOpenStock = (IMasterList)ObjectFactory.CreateInstance("BusinessProcess.SCM.BMasterList,BusinessProcess.SCM");
             IPurchase objOpenStock = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-            dsOpenStock = objOpenStock.GetOpenStockWeb();
+            dsOpenStock = objOpenStock.GetOpenStockWeb(Convert.ToInt32(ddlSourceStore.SelectedValue.ToString()));
 
             DataView theDV = new DataView(dsOpenStock.Tables[0]);
             theDV.RowFilter = "StoreID='" + Convert.ToInt32(ddlSourceStore.SelectedValue.ToString()) + "'";
-            //DataTable theDT = theDV.ToTable();
-
-            //Session["ExistingBatches"] = dsOpenStock.Tables[1];
 
             DataTable batcheDT = dsOpenStock.Tables[1];
             if (batcheDT.Rows.Count > 0)
@@ -406,7 +424,6 @@ namespace PresentationApp.PharmacyDispense
                         }
                         else
                         {
-
                             theDV.RowFilter = "Drug_Pk = " + details[0].ToString() + " and BatchNo = '" + details[1].ToString() + "'";
                         }
                     }
@@ -600,301 +617,97 @@ namespace PresentationApp.PharmacyDispense
             ViewState["dt"] = dt;
 
             populateGrid();
-
         }
 
         protected void populateGrid()
         {
             grdStockMngt.DataSource = ViewState["dt"] as DataTable;
             grdStockMngt.DataBind();
-            //UpdatePanel2.Update();
+        }
+
+        protected void SaveData()
+        {
+            if (FieldValidation())
+            {
+                IPurchase objMasterlist = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
+                int iTransactionType = 0;
+
+                //Transaction Type
+                if (ddlTransactionType.SelectedItem.Text == "Opening Stock")
+                {
+                    iTransactionType = 1;
+                }
+                else if (ddlTransactionType.SelectedItem.Text == "Receive" && ddlSourceStore.SelectedItem.Text == "Supplier")
+                {
+                    iTransactionType = 2;
+                }
+                else if (ddlTransactionType.SelectedItem.Text == "Receive" && ddlSourceStore.SelectedItem.Text != "Supplier")
+                {
+                    iTransactionType = 3;
+                }
+                else if (ddlTransactionType.SelectedItem.Text == "Receive" && ddlSourceStore.SelectedItem.Text != "Supplier")
+                {
+                    iTransactionType = 4;
+                }
+                else if (ddlTransactionType.SelectedItem.Text == "Adjustment")
+                {
+                    iTransactionType = 5;
+                }
+
+                DateTime TransactionDate = Convert.ToDateTime(txtTransactionDate.Value);
+                string orderNo = txtOrderNumber.Text;
+                int sourcestore = Convert.ToInt16(ddlSourceStore.SelectedItem.Value);
+                int destinationstore = Convert.ToInt16(ddlDestinationStore.SelectedItem.Value);
+                int supplier = Convert.ToInt16(ddlSupplier.SelectedItem.Value);
+
+                foreach (GridViewRow gvRow in grdStockMngt.Rows)
+                {
+                    Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
+                    Label lblUnit = (Label)gvRow.FindControl("lblUnit");
+                    Label lblBatchID = (Label)gvRow.FindControl("lblBatchID");
+                    TextBox txtBatchNo = (TextBox)gvRow.FindControl("txtBatchNo");
+                    Label lblExpiryDate = (Label)gvRow.FindControl("lblExpiryDate");
+                    Label lblAvailQty = (Label)gvRow.FindControl("lblAvailQty");
+                    TextBox txtQty = (TextBox)gvRow.FindControl("txtQuantity");
+                    TextBox txtExpiryDate = (TextBox)gvRow.FindControl("txtExpiryDate");
+                    Label lblPurchaseUnitPrice = (Label)gvRow.FindControl("lblPurchaseUnitPrice");
+                    Label lblQtyPerPurchaseUnit = (Label)gvRow.FindControl("lblQtyPerPurchaseUnit");
+                    TextBox txtComments = (TextBox)gvRow.FindControl("txtComments");
+                    int DrugID = Convert.ToInt32(grdStockMngt.DataKeys[gvRow.RowIndex].Value);
+
+                    if (iTransactionType == 1) //Set Opening Stock
+                    {
+                        objMasterlist.SaveStockTransaction(DrugID, TransactionDate, iTransactionType, sourcestore, 0, 0, Convert.ToInt32(txtQty.Text), txtBatchNo.Text, Convert.ToDateTime(txtExpiryDate.Text), 0, 1);
+                    }
+                    else if (iTransactionType == 2) //Receive from Supplier
+                    {
+                        int iQtyPerPurchaseUnit = Convert.ToInt32(lblQtyPerPurchaseUnit.Text);
+                        objMasterlist.SaveStockTransaction(DrugID, TransactionDate, iTransactionType, destinationstore, sourcestore, supplier, Convert.ToInt32(txtQty.Text) * iQtyPerPurchaseUnit, txtBatchNo.Text, Convert.ToDateTime(txtExpiryDate.Text), 0, 1);
+                    }
+                    else if (iTransactionType == 3) //Receive from Bulk Store
+                    {
+                        objMasterlist.SaveStockTransaction(DrugID, TransactionDate, iTransactionType, destinationstore, sourcestore, 0, Convert.ToInt32(txtQty.Text), txtBatchNo.Text, Convert.ToDateTime(txtExpiryDate.Text), 0, 1);
+                    }
+                    else if (iTransactionType == 4) //Inter Dispensing Store Transfer
+                    {
+                        objMasterlist.SaveStockTransaction(DrugID, TransactionDate, iTransactionType, destinationstore, sourcestore, 0, Convert.ToInt32(txtQty.Text), txtBatchNo.Text, Convert.ToDateTime(txtExpiryDate.Text), 0, 1);
+                    }
+                    else if (iTransactionType == 5) //Adjust stock
+                    {
+                        objMasterlist.SaveStockTransaction(DrugID, TransactionDate, iTransactionType, sourcestore, 0, 0, Convert.ToInt32(txtQty.Text), txtBatchNo.Text, Convert.ToDateTime(txtExpiryDate.Text), 0, 1);
+                    }
+                }
+
+                IQCareMsgBox.NotifyAction("Saved successfully.", "Stock Management", false, this, "");
+            clearFields();
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
-                if (FieldValidation())
-                {
-                    if (ddlTransactionType.SelectedItem.Text == "Receive")
-                    {
-                        Boolean IsPOUpdated = false;
-
-                        DataTable dtOrdermaster = CreateOrderMasterTable();
-                        DataRow drOM = dtOrdermaster.NewRow();
-                        //drOM["IsPO"] = Convert.ToInt32("10");
-                        drOM["POID"] = Convert.ToInt32("10");
-                        drOM["OrderDate"] = txtTransactionDate.Value;
-                        //drOM["SupplierID"] = Convert.ToInt32("10");
-                        if (ddlSourceStore.SelectedValue == "7777")
-                        {
-                            drOM["SrcStore"] = ddlSupplier.SelectedValue;
-                        }
-                        else
-                        {
-                            drOM["SrcStore"] = ddlSourceStore.SelectedValue;
-                        }
-                        drOM["DestStore"] = ddlDestinationStore.SelectedValue;
-                        drOM["UserID"] = Session["AppUserID"].ToString();
-                        drOM["PreparedBy"] = Session["AppUserID"].ToString();
-                        drOM["AthorizedBy"] = Session["AppUserID"].ToString();
-                        drOM["LocationID"] = Session["AppLocationId"].ToString();
-                        drOM["IsRejectedStatus"] = Convert.ToInt32("0");
-                        dtOrdermaster.Rows.Add(drOM);
-
-
-                        DataTable dtOrderItem = CreateOrderItemTable();
-                        DataRow drOI;
-
-                        foreach (GridViewRow gvRow in grdStockMngt.Rows)
-                        {
-                            int DrugID = Convert.ToInt32(grdStockMngt.DataKeys[gvRow.RowIndex].Value);
-                            Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
-                            //Label lblUnit = (Label)gvRow.FindControl("lblUnit");
-                            Label lblBatchID = (Label)gvRow.FindControl("lblBatchID");
-                            Label lblExpiryDate = (Label)gvRow.FindControl("lblExpiryDate");
-                            Label lblAvailQty = (Label)gvRow.FindControl("lblAvailQty");
-                            TextBox txtQty = (TextBox)gvRow.FindControl("txtQuantity");
-                            TextBox txtExpiry = (TextBox)gvRow.FindControl("txtExpiryDate");
-                            Label lblPurchaseUnitPrice = (Label)gvRow.FindControl("lblPurchaseUnitPrice");
-                            Label lblQtyPerPurchaseUnit = (Label)gvRow.FindControl("lblQtyPerPurchaseUnit");
-                            if (txtExpiry.Text != "" && ddlSourceStore.SelectedValue == "7777")
-                            {
-                                TimeSpan difference = Convert.ToDateTime(txtExpiry.Text) - Convert.ToDateTime(Application["AppCurrentDate"]);
-                                double days = difference.TotalDays;
-                                if (days <= 0)
-                                {
-                                    MsgBuilder theBuilder = new MsgBuilder();
-                                    theBuilder.DataElements["MessageText"] = "Expiry Date must be greater than todays date";
-                                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                                    txtExpiry.Focus();
-                                    return;
-                                }
-                            }
-                            drOI = dtOrderItem.NewRow();
-                            drOI["ItemID"] = DrugID;
-                            drOI["ItemName"] = lblDrugName.Text;
-                            //drOI["PurchaseUnit"] = 1;// lblUnit.Text;
-                            drOI["Quantity"] = txtQty.Text;
-                            drOI["priceperunit"] = lblPurchaseUnitPrice.Text;
-                            //drOI["totPrice"] = "200";
-                            drOI["BatchID"] = lblBatchID.Text;
-                            drOI["AvaliableQty"] = lblAvailQty.Text;
-                            if (ddlSourceStore.SelectedValue == "7777")
-                            {
-                                drOI["ExpiryDate"] = txtExpiry.Text;
-                            }
-                            else
-                            {
-                                drOI["ExpiryDate"] = lblExpiryDate.Text;
-                            }
-                            
-                            drOI["UnitQuantity"] = lblQtyPerPurchaseUnit.Text;
-                            dtOrderItem.Rows.Add(drOI);
-                        }
-
-
-                        //request
-                        IPurchase objMasterlist = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-                        int POID = objMasterlist.SavePurchaseOrderWeb(dtOrdermaster, dtOrderItem, IsPOUpdated);
-
-                        //issue
-                        //IPurchase objMasterlist = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-                        DataTable dtGRNmaster = CreateGRNMasterTable();
-                        DataRow theDRow = dtGRNmaster.NewRow();
-                        theDRow["POID"] = POID;
-                        theDRow["GRNId"] = 0;
-                        theDRow["LocationID"] = Session["AppLocationId"].ToString();
-                        theDRow["OrderDate"] = txtTransactionDate.Value;
-                        theDRow["DestinStoreID"] = Convert.ToInt32(ddlDestinationStore.SelectedValue);
-                        if (ddlSourceStore.SelectedValue == "7777")
-                        {
-                            theDRow["SupplierID"] = ddlSupplier.SelectedValue;
-                        }
-                        else
-                        {
-                            theDRow["SupplierID"] = 0;
-                        }
-                        
-
-                        theDRow["UserID"] = Session["AppUserID"].ToString();
-                        theDRow["OrderNo"] = txtOrderNumber.Text;
-                        theDRow["Freight"] = 0; // (Convert.ToString(txtFreight.Text) == "") ? 0 : Convert.ToDecimal(txtFreight.Text);
-                        theDRow["Tax"] = 0; // (Convert.ToString(txtTax.Text) == "") ? 0 : Convert.ToDecimal(txtTax.Text);
-                        dtGRNmaster.Rows.Add(theDRow);
-
-                        DataTable dtGRNItem = CreateGRNItemTable();
-                        DataRow drGRNI;
-                        XMLDS = new DataSet();
-                        XMLDS.ReadXml(MapPath("..\\XMLFiles\\AllMasters.con"));
-                        DataView theDV = new DataView(XMLDS.Tables["Mst_Batch"]);
-                        theDV.RowFilter = "(DeleteFlag =0 or DeleteFlag is null)";
-                        theDV.Sort = "Name ASC";
-                        DataTable theBatchDT = theDV.ToTable();
-                        foreach (GridViewRow gvRow in grdStockMngt.Rows)
-                        {
-                            int DrugID = Convert.ToInt32(grdStockMngt.DataKeys[gvRow.RowIndex].Value);
-                            Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
-                            //Label lblUnit = (Label)gvRow.FindControl("lblUnit");
-                            Label lblBatchID = (Label)gvRow.FindControl("lblBatchID");
-                            TextBox txtBatchNo = (TextBox)gvRow.FindControl("txtBatchNo");
-                            Label lblExpiryDate = (Label)gvRow.FindControl("lblExpiryDate");
-                            Label lblAvailQty = (Label)gvRow.FindControl("lblAvailQty");
-                            TextBox txtQty = (TextBox)gvRow.FindControl("txtQuantity");
-                            TextBox txtExpiryGRN = (TextBox)gvRow.FindControl("txtExpiryDate");
-                            Label lblPurchaseUnitPrice = (Label)gvRow.FindControl("lblPurchaseUnitPrice");
-                            Label lblQtyPerPurchaseUnit = (Label)gvRow.FindControl("lblQtyPerPurchaseUnit");
-                            TextBox txtComments = (TextBox)gvRow.FindControl("txtComments");
-                            if (txtExpiryGRN.Text != "" && ddlSourceStore.SelectedValue == "7777")
-                            {
-                                TimeSpan difference = Convert.ToDateTime(txtExpiryGRN.Text) - Convert.ToDateTime(Application["AppCurrentDate"]);
-                                double days = difference.TotalDays;
-                                if (days <= 0)
-                                {
-                                    MsgBuilder theBuilder = new MsgBuilder();
-                                    theBuilder.DataElements["MessageText"] = "Expiry Date must be greater than todays date";
-                                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                                    txtExpiryGRN.Focus();
-                                    return;
-                                }
-                            }
-                            drGRNI = dtGRNItem.NewRow();
-                            drGRNI["ItemID"] = DrugID;
-                            drGRNI["POId"] = POID;
-                            //drGRNI["ItemName"] = lblDrugName.Text;
-                            //drOI["PurchaseUnit"] = 1;// lblUnit.Text;
-                            drGRNI["RecievedQuantity"] = txtQty.Text;
-                            drGRNI["QtyPerPurchaseUnit"] = lblPurchaseUnitPrice.Text;
-                            if (txtBatchNo.Text != "" && ddlSourceStore.SelectedValue == "7777")
-                            {
-                                DataView theBatchDV = new DataView(theBatchDT);
-                                theBatchDV.RowFilter = "Name='" + txtBatchNo.Text + "'";
-                                if (theBatchDV.ToTable().Rows.Count > 0)
-                                {
-                                    MsgBuilder theBuilder = new MsgBuilder();
-                                    theBuilder.DataElements["MessageText"] = "Batch Name already Exits";
-                                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                                    txtBatchNo.Focus();
-                                    return;
-                                }
-                            }
-                            else if (txtBatchNo.Text == "" && ddlSourceStore.SelectedValue == "7777")
-                            {
-                                MsgBuilder theBuilder = new MsgBuilder();
-                                theBuilder.DataElements["MessageText"] = "Batch Name required";
-                                IQCareMsgBox.Show("#C1", theBuilder, this);
-                                txtBatchNo.Focus();
-                                return;
-                            }
-                            drGRNI["BatchName"] = txtBatchNo.Text;
-                            drGRNI["BatchID"] = lblBatchID.Text;
-                            //drGRNI["AvaliableQty"] = lblAvailQty.Text;
-                            if (ddlSourceStore.SelectedValue == "7777")
-                            {
-                                drGRNI["ExpiryDate"] = txtExpiryGRN.Text;
-                            }
-                            else
-                            {
-                                drGRNI["ExpiryDate"] = lblExpiryDate.Text;
-                            }
-                            
-                            //drGRNI["UnitQuantity"] = lblQtyPerPurchaseUnit.Text;
-                            drGRNI["SourceStoreID"] = ddlSourceStore.SelectedValue;
-                            drGRNI["DestinStoreID"] = ddlDestinationStore.SelectedValue;
-                            drGRNI["Comments"] = txtComments.Text;
-                            dtGRNItem.Rows.Add(drGRNI);
-                        }
-
-
-                        int issue = objMasterlist.SaveGoodreceivedNotes_Web(dtGRNmaster, dtGRNItem, 2);
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertInterStoreTransfer", "alert('Saved Successfully.');", true);
-                        IQCareMsgBox.NotifyAction("Saved successfully.", "Stock Management", false, this, "");
-                        clearFields();
-                        //btnSubmit.Enabled = false;
-                    }
-                    else if (ddlTransactionType.SelectedItem.Text == "Adjustment")
-                    {
-                        DataTable dtAdjustStocks = CreateAdjustStockTable();
-                        DataRow drAS;
-
-                        foreach (GridViewRow gvRow in grdStockMngt.Rows)
-                        {
-                            int DrugID = Convert.ToInt32(grdStockMngt.DataKeys[gvRow.RowIndex].Value);
-                            Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
-                            //Label lblUnit = (Label)gvRow.FindControl("lblUnit");
-                            Label lblBatchID = (Label)gvRow.FindControl("lblBatchID");
-                            Label lblExpiryDate = (Label)gvRow.FindControl("lblExpiryDate");
-                            Label lblAvailQty = (Label)gvRow.FindControl("lblAvailQty");
-                            TextBox txtQty = (TextBox)gvRow.FindControl("txtQuantity");
-                            //TextBox txtComments = (TextBox)gvRow.FindControl("txtComments");
-                            Label lblPurchaseUnitPrice = (Label)gvRow.FindControl("lblPurchaseUnitPrice");
-                            Label lblQtyPerPurchaseUnit = (Label)gvRow.FindControl("lblQtyPerPurchaseUnit");
-                            TextBox txtComments = (TextBox)gvRow.FindControl("txtComments");
-
-                            drAS = dtAdjustStocks.NewRow();
-                            drAS["ItemID"] = DrugID;
-                            drAS["BatchID"] = lblBatchID.Text;
-                            drAS["ExpiryDate"] = lblExpiryDate.Text;
-                            drAS["StoreID"] = ddlSourceStore.SelectedValue;
-                            drAS["AdjQty"] = txtQty.Text;
-                            drAS["Comments"] = txtComments.Text;
-                            dtAdjustStocks.Rows.Add(drAS);
-                        }
-                        IPurchase objStock = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-                        int ret = objStock.SaveUpdateStockAdjustmentWeb(dtAdjustStocks, Convert.ToInt32(Session["AppLocationId"].ToString()), Convert.ToInt32(ddlSourceStore.SelectedValue), txtTransactionDate.Value, Convert.ToInt32(Session["AppUserID"].ToString()), Convert.ToInt32(Session["AppUserID"].ToString()), 1, Convert.ToInt32(Session["AppUserID"].ToString()));
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertAdjustment", "alert('Saved Successfully.');", true);
-                        IQCareMsgBox.NotifyAction("Saved successfully.", "Stock Management", false, this, "");
-                        //btnSubmit.Enabled = false;
-                        clearFields();
-                    }
-                    else if (ddlTransactionType.SelectedItem.Text == "Opening Stock")
-                    {
-                        DataTable dtOpeningStocks = CreateOpeningStockTable();
-                        DataRow drOS;
-
-                        foreach (GridViewRow gvRow in grdStockMngt.Rows)
-                        {
-                            int DrugID = Convert.ToInt32(grdStockMngt.DataKeys[gvRow.RowIndex].Value);
-                            //Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
-                            //Label lblUnit = (Label)gvRow.FindControl("lblUnit");
-                            TextBox txtBatchNo = (TextBox)gvRow.FindControl("txtBatchNo");
-                            TextBox txtExpiryDate = (TextBox)gvRow.FindControl("txtExpiryDate");
-                            //Label lblAvailQty = (Label)gvRow.FindControl("lblAvailQty");
-                            TextBox txtQty = (TextBox)gvRow.FindControl("txtQuantity");
-                            //TextBox txtComments = (TextBox)gvRow.FindControl("txtComments");
-                            //Label lblPurchaseUnitPrice = (Label)gvRow.FindControl("lblPurchaseUnitPrice");
-                            //Label lblQtyPerPurchaseUnit = (Label)gvRow.FindControl("lblQtyPerPurchaseUnit");
-                            if (txtExpiryDate.Text != "")
-                            {
-                                TimeSpan difference = Convert.ToDateTime(txtExpiryDate.Text) - Convert.ToDateTime(Application["AppCurrentDate"]);
-                                double days = difference.TotalDays;
-                                if (days <= 0)
-                                {
-                                    MsgBuilder theBuilder = new MsgBuilder();
-                                    theBuilder.DataElements["MessageText"] = "Expiry Date must be greater than todays date";
-                                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                                    txtExpiryDate.Focus();
-                                    return;
-                                }
-                            }
-                            drOS = dtOpeningStocks.NewRow();
-                            drOS["ItemID"] = DrugID;
-                            drOS["BatchNo"] = txtBatchNo.Text;
-                            drOS["ExpiryDate"] = Convert.ToDateTime(txtExpiryDate.Text).ToString("dd-MMM-yyyy");
-                            drOS["StoreID"] = ddlSourceStore.SelectedValue;
-                            drOS["Quantity"] = txtQty.Text;
-                            //drOS["Comments"] = txtComments.Text;
-
-                            dtOpeningStocks.Rows.Add(drOS);
-                        }
-                        IPurchase objStock = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-                        int ret = objStock.SaveUpdateOpeningStockWeb(dtOpeningStocks, Convert.ToInt32(Session["AppUserID"].ToString()), txtTransactionDate.Value);
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertOpeningStock", "alert('Saved Successfully.');", true);
-                        IQCareMsgBox.NotifyAction("Saved successfully.", "Stock Management", false, this, "");
-                        //btnSubmit.Enabled = false;
-                        clearFields();
-                    }
-                }
+                SaveData();
             }
             catch (Exception ex)
             {
@@ -1037,56 +850,41 @@ namespace PresentationApp.PharmacyDispense
                 dr["Name"] = "Supplier";
                 theStoreDT.Rows.Add(dr);
                 theBindManager.BindCombo(ddlSourceStore, theStoreDT, "Name", "Id");
+
+                tblDestinationStore.Visible = true;
+                tblSupplier.Visible = false;
+                lblSourceStore.Text = "Source Store:";
             }
             else
             {
                 ddlSourceStore.DataSource = "";
                 ddlSourceStore.DataBind();
                 theBindManager.BindCombo(ddlSourceStore, theStoreDT, "Name", "Id");
+
+                tblDestinationStore.Visible = false;
+                tblSupplier.Visible = false;
+                lblSourceStore.Text = "Store:";
             }
-            //else if(ddlSourceStore.DataSource !=null)
-            //{
-            //    DataTable thesrcDT = (DataTable)ddlSourceStore.DataSource;
-            //    if (thesrcDT.Rows.Count > 0)
-            //    {
-            //        DataRow[] theSrcRow = thesrcDT.Select("Id='7777'");
-            //        if (theSrcRow.Length > 0)
-            //        {
-            //            thesrcDT.Rows.Remove(theSrcRow[0]);
-            //            thesrcDT.AcceptChanges();
-            //        }
-            //        theBindManager.BindCombo(ddlSourceStore, thesrcDT, "Name", "Id");
-            //    }
-            //}
+
             ddlSourceStore.SelectedIndex = 0;
-            
-            //if (ddlTransactionType.SelectedItem.Text != "Receive")
-            //{
-            //    destinationStoreRequiredValidator.Enabled = false;
-            //}
-            //else
-            //{
-            //    destinationStoreRequiredValidator.Enabled = true;
-            //}
         }
 
         protected void grnDetails()
         {
             IPurchase objPODetails = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
             DataTable theDTPODetails = objPODetails.GetPurchaseOrderDetailsForGRN(Convert.ToInt32(Session["AppUserID"].ToString()), Convert.ToInt32(ddlDestinationStore.SelectedValue), Convert.ToInt32(Session["AppLocationId"].ToString()));
-
-
         }
 
         protected void ddlSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlSourceStore.SelectedItem.Text == "Supplier" && Convert.ToInt32(ddlSupplier.SelectedValue) > 0)
             {
-                IPurchase objSup = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
-                IQCareUtils theUtils = new IQCareUtils();
-                DataTable theDT = objSup.GetStoreSourceDestination(Convert.ToInt32(ddlSupplier.SelectedValue));
-                ddlDestinationStore.Items.Clear();
-                theBindManager.BindCombo(ddlDestinationStore, theDT, "Name", "Id");                
+                //IPurchase objSup = (IPurchase)ObjectFactory.CreateInstance("BusinessProcess.SCM.BPurchase,BusinessProcess.SCM");
+                //IQCareUtils theUtils = new IQCareUtils();
+                //DataTable theDT = objSup.GetStoreSourceDestination(Convert.ToInt32(ddlSupplier.SelectedValue));
+                //ddlDestinationStore.Items.Clear();
+                //theBindManager.BindCombo(ddlDestinationStore, theDT, "Name", "Id");
+                //ddlDestinationStore.SelectedIndex = (ddlDestinationStore.Items.Count-1);
                 Session["theStocks"] = GetItems(Convert.ToInt32(ddlSupplier.SelectedValue), 1);
                 txtDrug.Enabled = true;
             }

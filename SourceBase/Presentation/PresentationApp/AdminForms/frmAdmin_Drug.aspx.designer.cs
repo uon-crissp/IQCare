@@ -21,13 +21,13 @@ public partial class frmAdmin_Drug {
     protected global::System.Web.UI.WebControls.Label lblH2;
     
     /// <summary>
-    /// ddDrugTypeID control.
+    /// ddlDrugType control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList ddDrugTypeID;
+    protected global::System.Web.UI.WebControls.DropDownList ddlDrugType;
     
     /// <summary>
     /// txtDrugName control.
@@ -48,112 +48,40 @@ public partial class frmAdmin_Drug {
     protected global::System.Web.UI.WebControls.TextBox txtDrugAbbre;
     
     /// <summary>
-    /// lstGeneric control.
+    /// ddlPurchaseUnit control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ListBox lstGeneric;
+    protected global::System.Web.UI.WebControls.DropDownList ddlPurchaseUnit;
     
     /// <summary>
-    /// btnAddGeneric control.
+    /// txtPurchaseUnitQty control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnAddGeneric;
+    protected global::System.Web.UI.WebControls.TextBox txtPurchaseUnitQty;
     
     /// <summary>
-    /// arvShow control.
+    /// ddlDispensingUnit control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl arvShow;
+    protected global::System.Web.UI.WebControls.DropDownList ddlDispensingUnit;
     
     /// <summary>
-    /// lstStrength control.
+    /// ddlIsSyrup control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ListBox lstStrength;
-    
-    /// <summary>
-    /// btnAddDose control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnAddDose;
-    
-    /// <summary>
-    /// arvShow1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl arvShow1;
-    
-    /// <summary>
-    /// lstFrequency control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ListBox lstFrequency;
-    
-    /// <summary>
-    /// btnAddFrequency control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnAddFrequency;
-    
-    /// <summary>
-    /// vaccshow control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl vaccshow;
-    
-    /// <summary>
-    /// lstshedule control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ListBox lstshedule;
-    
-    /// <summary>
-    /// btnAddshedule control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnAddshedule;
-    
-    /// <summary>
-    /// divStatus control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatus;
+    protected global::System.Web.UI.WebControls.DropDownList ddlIsSyrup;
     
     /// <summary>
     /// ddStatus control.
@@ -190,15 +118,6 @@ public partial class frmAdmin_Drug {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btn;
-    
-    /// <summary>
-    /// nonARVShow1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl nonARVShow1;
     
     /// <summary>
     /// Master property.

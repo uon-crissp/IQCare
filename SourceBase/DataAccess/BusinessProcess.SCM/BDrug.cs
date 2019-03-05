@@ -286,7 +286,6 @@ namespace BusinessProcess.SCM
             Int32 theRowCount = (Int32)theManager.ReturnObject(ClsUtility.theParams, "pr_Clinical_SaveUpdate_IPTDetails", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
         }
 
-        //KK. 19-Feb-2015
         public DataSet GetPharmacyVitals(int PatientID)
         {
             ClsUtility.Init_Hashtable();
@@ -323,8 +322,6 @@ namespace BusinessProcess.SCM
         {
             string Morning, Midday, Evening, Night;
             DataTable thePharmacyDT = new DataTable();
-            //Added by VY for regimen
-            #region "Regimen"
 
             //string theRegimen = "";
             string thetmpRegimen = "";
@@ -343,8 +340,6 @@ namespace BusinessProcess.SCM
                     }
                 }
                 thetmpRegimen = thetmpRegimen.Trim();
-
-
             }
 
             foreach (string s in thetmpRegimen.Split('/'))
@@ -355,7 +350,8 @@ namespace BusinessProcess.SCM
                     if (!theRegimen.Contains(s))
                         theRegimen = theRegimen + "/" + s;
             }
-            #endregion
+
+
             try
             {
                 this.Connection = DataMgr.GetConnection();
@@ -407,18 +403,9 @@ namespace BusinessProcess.SCM
 
                     ClsUtility.AddParameters("@Prophylaxis", SqlDbType.Int, theDR["Prophylaxis"].ToString() == "True" ? "1" : "0");
 
-                    ClsUtility.AddParameters("@BatchId", SqlDbType.Int, theDR["BatchId"].ToString());
-
-                    if (theDR["BatchNo"].ToString().Contains("("))
-                    {
-                        ClsUtility.AddParameters("@BatchNo", SqlDbType.VarChar, theDR["BatchNo"].ToString().Substring(0, theDR["BatchNo"].ToString().IndexOf('(')));
-                    }
-                    else
-                    {
-                        ClsUtility.AddParameters("@BatchNo", SqlDbType.VarChar, theDR["BatchNo"].ToString());
-                    }
-
-                    ClsUtility.AddParameters("@ExpiryDate", SqlDbType.VarChar, theDR["ExpiryDate"].ToString());
+                    ClsUtility.AddParameters("@BatchId", SqlDbType.Int, "0");
+                    ClsUtility.AddParameters("@BatchNo", SqlDbType.VarChar, "");
+                    ClsUtility.AddParameters("@ExpiryDate", SqlDbType.VarChar, "01-Jan-1990");
                     ClsUtility.AddParameters("@DispensingUnit", SqlDbType.Int, theDR["DispensingUnitId"].ToString());
                     if (DispDate.ToString() != "")
                         ClsUtility.AddParameters("@DispensedByDate", SqlDbType.VarChar, DispDate.ToString());
@@ -441,10 +428,9 @@ namespace BusinessProcess.SCM
                     ClsUtility.AddParameters("@StoreId", SqlDbType.Int, StoreId.ToString());
                     ClsUtility.AddParameters("@ptn_pharmacy_pk", SqlDbType.Int, thePharmacyDT.Rows[0]["Ptn_Pharmacy_Pk"].ToString());
                     ClsUtility.AddParameters("@drug_pk", SqlDbType.Int, theDR["DrugId"].ToString());
-                    ClsUtility.AddParameters("@batchid", SqlDbType.Int, theDR["BatchId"].ToString());
-                    ClsUtility.AddParameters("@ExpiryDate", SqlDbType.VarChar, theDR["ExpiryDate"].ToString());
+                    ClsUtility.AddParameters("@batchid", SqlDbType.Int, "0");
+                    ClsUtility.AddParameters("@ExpiryDate", SqlDbType.VarChar, "01-Jan-1990");
                     ClsUtility.AddParameters("@DispensedQuantity", SqlDbType.Int, theDR["QtyDispensed"].ToString() == "" ? "0" : theDR["QtyDispensed"].ToString());
-                    //ClsUtility.AddParameters("@DispensedQuantity", SqlDbType.Decimal, theDR["RefillQty"].ToString() == "" ? "0" : theDR["RefillQty"].ToString());
                     ClsUtility.AddParameters("@DispensedBy", SqlDbType.Int, dispensedBy.ToString());
                     if (DispDate.ToString() != "")
                         ClsUtility.AddParameters("@DispensedByDate", SqlDbType.VarChar, DispDate.ToString());

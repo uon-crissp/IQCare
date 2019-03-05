@@ -691,7 +691,7 @@ namespace BusinessProcess.SCM
             }
         }
 
-        public DataSet GetOpenStockWeb()
+        public DataSet GetOpenStockWeb(int storeid)
         {
             lock (this)
             {
@@ -699,10 +699,8 @@ namespace BusinessProcess.SCM
                 {
                     ClsUtility.Init_Hashtable();
                     ClsObject OpeningStock = new ClsObject();
-                    return
-                        (DataSet)
-                        OpeningStock.ReturnObject(ClsUtility.theParams, "pr_SCM_GetOpeningStock_Web",
-                                                  ClsDBUtility.ObjectEnum.DataSet);
+                    ClsUtility.AddParameters("@StoreId", SqlDbType.VarChar, storeid.ToString());
+                    return (DataSet)OpeningStock.ReturnObject(ClsUtility.theParams, "pr_SCM_GetOpeningStock_Web", ClsDBUtility.ObjectEnum.DataSet);
                 }
                 catch
                 {
@@ -1004,11 +1002,33 @@ namespace BusinessProcess.SCM
                 }
                 return theRowAffected;
             }
-
         }
 
+        public int SaveStockTransaction(int drug_pk, DateTime TransactionDate, int TransactionType, int storeid, 
+            int sourceStoreId, int SupplierId, int quantity, string BatchNo, DateTime ExpiryDate, int ptn_pharmacy_pk, int userid)
+        {
+            lock (this)
+            {
+                ClsObject StoreUserLnk = new ClsObject();
+                int theRowAffected = 0;
 
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@drug_pk", SqlDbType.Int, drug_pk.ToString());
+                ClsUtility.AddParameters("@TransactionDate", SqlDbType.VarChar, TransactionDate.ToString());
+                ClsUtility.AddParameters("@TransactionType", SqlDbType.Int, TransactionType.ToString());
+                ClsUtility.AddParameters("@StoreId", SqlDbType.Int, storeid.ToString());
+                ClsUtility.AddParameters("@SourceStoreId", SqlDbType.Int, sourceStoreId.ToString());
+                ClsUtility.AddParameters("@SupplierId", SqlDbType.VarChar, SupplierId.ToString());
+                ClsUtility.AddParameters("@Quantity", SqlDbType.Int, quantity.ToString());
+                ClsUtility.AddParameters("@BatchNo", SqlDbType.Int, BatchNo.ToString());
+                ClsUtility.AddParameters("@ExpiryDate ", SqlDbType.VarChar, ExpiryDate.ToString());
+                ClsUtility.AddParameters("@ptn_pharmacy_pk ", SqlDbType.Int, ptn_pharmacy_pk.ToString());
+                ClsUtility.AddParameters("@userid", SqlDbType.VarChar, userid.ToString());
 
+                theRowAffected = (int)StoreUserLnk.ReturnObject(ClsUtility.theParams, "pr_Pharmacy_SaveTransaction", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
+                return theRowAffected;
+            }
+        }
     }
 
 }
