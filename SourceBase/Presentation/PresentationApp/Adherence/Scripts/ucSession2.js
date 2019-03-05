@@ -9,7 +9,7 @@ function Init_UC_Session2_Controls(response) {
         DisableAdherenceBarriersDiv(this);
     });
 
-    $("#chkCaseManager2").bootstrapSwitch('state', false);
+    $("#chkCaseManager2").bootstrapSwitch('state', true);
     $("#dtFilledDate2").datepicker({
         autoclose: true
     }).datepicker("setDate", "0");

@@ -1774,7 +1774,7 @@ namespace PresentationApp.ClinicalForms
                     {
                         txtVisitDate.Focus();
                         MsgBuilder totalMsgBuilder = new MsgBuilder();
-                        totalMsgBuilder.DataElements["MessageText"] = "Visit Date should not be less then registration date";
+                        totalMsgBuilder.DataElements["MessageText"] = "Visit Date should not be less than registration date";
                         IQCareMsgBox.Show("#C1", totalMsgBuilder, this);
                         return false;
                     }
@@ -1798,32 +1798,32 @@ namespace PresentationApp.ClinicalForms
                 validationCheck = false;
             }
 
-            if (txtHeight.Text == "")
-            {
-                MsgBuilder msgBuilder = new MsgBuilder();
-                msgBuilder.DataElements["Control"] = " -Height";
-                validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
-                txtVisitDate.Focus();
-                validationCheck = false;
-            }
+            //if (txtHeight.Text == "")
+            //{
+            //    MsgBuilder msgBuilder = new MsgBuilder();
+            //    msgBuilder.DataElements["Control"] = " -Height";
+            //    validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
+            //    txtVisitDate.Focus();
+            //    validationCheck = false;
+            //}
 
-            if (txtWeight.Text == "")
-            {
-                MsgBuilder msgBuilder = new MsgBuilder();
-                msgBuilder.DataElements["Control"] = " -Weight";
-                validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
-                txtVisitDate.Focus();
-                validationCheck = false;
-            }
+            //if (txtWeight.Text == "")
+            //{
+            //    MsgBuilder msgBuilder = new MsgBuilder();
+            //    msgBuilder.DataElements["Control"] = " -Weight";
+            //    validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
+            //    txtVisitDate.Focus();
+            //    validationCheck = false;
+            //}
 
-            if ((txtBPDiastolic.Text == "") || (txtBPSystolic.Text == ""))
-            {
-                MsgBuilder msgBuilder = new MsgBuilder();
-                msgBuilder.DataElements["Control"] = " -BP";
-                validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
-                txtVisitDate.Focus();
-                validationCheck = false;
-            }
+            //if ((txtBPDiastolic.Text == "") || (txtBPSystolic.Text == ""))
+            //{
+            //    MsgBuilder msgBuilder = new MsgBuilder();
+            //    msgBuilder.DataElements["Control"] = " -BP";
+            //    validateMessage += IQCareMsgBox.GetMessage("BlankTextBox", msgBuilder, this) + "</br>";
+            //    txtVisitDate.Focus();
+            //    validationCheck = false;
+            //}
 
 
             if (ddlVisitType.SelectedItem.Text == "Full Visit")

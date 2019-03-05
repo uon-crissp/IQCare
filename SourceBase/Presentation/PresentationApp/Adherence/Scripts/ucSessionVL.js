@@ -5,7 +5,7 @@ function Init_UC_SessionVL_Controls(response) {
     debugger;
     window.scrollTo(0, 0);
 
-    $("#chkCaseManager5").bootstrapSwitch('state', false);
+    $("#chkCaseManager5").bootstrapSwitch('state', true);
     if (jQuery.isEmptyObject(response.ACM) == false) {
         if (response.ACM > 0) {
             $("#chkCaseManager5").bootstrapSwitch('state', true);
