@@ -571,12 +571,12 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
     }
     private void SectionHeading(String H2)
     {
-        DIVCustomItem.Controls.Add(new LiteralControl("<h5 class='forms' align='left'>" + H2 + "</h5>"));
+        DIVCustomItem.Controls.Add(new LiteralControl("<h3 class='forms' align='left'>&nbsp " + H2 + "</h3>"));
     }
 
     private void SectionHeading(String H2, int i)
     {
-        DIVCustomItem.Controls.Add(new LiteralControl("<h5 class='forms' align='left'>" + H2 + "</h5>"));
+        DIVCustomItem.Controls.Add(new LiteralControl("<h3 class='forms' align='left'>" + H2 + "</h3>"));
         tabcontainer.Tabs[i].Controls.Add(DIVCustomItem);
 
     }
@@ -968,15 +968,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
     private void LoadFieldTypeControl(string ControlID, string Column, string FieldId, string CodeID, string Label, string AdditionalInform, string Table, string TabID, string BindSource, Boolean theEnable)
     {
-
-
-        //Button thelnkButton = new Button();
-        //thelnkButton.ID = FieldId;
-        //thelnkButton.Click += new EventHandler(thelnkButton_Click);
-
-
-        //try
-        //{
         tabcontainer.ID = "TAB";
         bool theAutoPopulate = false;
         DataTable theBusinessRuleDT = (DataTable)ViewState["BusRule"];
@@ -985,26 +976,18 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         theBusinessRuleDV.RowFilter = "BusRuleId=17 and FieldId = " + FieldId.ToString();
         if (theBusinessRuleDV.Count > 0)
             theAutoPopulate = true;
-        //Chnage By Rahmat as on 07-Feb-2017
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<div class='row'>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
-        //DIVCustomItemNew.Controls.Add(new LiteralControl("</div"));
 
-        //
+
         if (ControlID == "1") ///SingleLine Text Box
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
             if (theAutoPopulate == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
                 TextBox theSingleTextAuto = new TextBox();
                 theSingleTextAuto.CssClass = "form-control";
                 theSingleTextAuto.ID = "TXTAuto-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
@@ -1024,26 +1007,25 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
 
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
-
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top' align='right'>"));
             }
 
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "' >" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "' ><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
 
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
             TextBox theSingleText = new TextBox();
             theSingleText.CssClass = "form-control";
             theSingleText.ID = "TXT-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-            theSingleText.Width = 180;
-            theSingleText.MaxLength = 50;
+            //theSingleText.Width = 180;
+            //theSingleText.MaxLength = 50;
             theSingleText.Attributes.Add("onkeyup", "chkMultiString('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleText.ClientID + "')");
             Hashtable ht = new Hashtable();
             if (theEnable == false)
@@ -1058,29 +1040,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 }
             }
             DIVCustomItem.Controls.Add(theSingleText);
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                ////theSingleText.Enabled = theEnable;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             tabcontainer.ID = "TAB";
             TextBox thehiddenText = new TextBox();
             thehiddenText.CssClass = "form-control";
@@ -1098,11 +1058,11 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
 
             if (theAutoPopulate == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
                 TextBox theSingleDecimalAuto = new TextBox();
@@ -1126,57 +1086,31 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             }
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
 
             TextBox theSingleDecimalText = new TextBox();
             theSingleDecimalText.CssClass = "form-control";
             theSingleDecimalText.ID = "TXT-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
 
-            theSingleDecimalText.Width = 180;
-            theSingleDecimalText.MaxLength = 50;
             if (theEnable == false)
             {
                 string str = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID + "";
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", str, false);
 
                 System.Web.UI.ScriptManager.RegisterStartupScript(this, typeof(Page), "" + Guid.NewGuid() + "", "EnableControlFalse('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID + "');", true);
                 if (!IsPostBack)
                 {
                     AddContolStausInHastTable(str);
                 }
-
             }
-            //theSingleDecimalText.Enabled = theEnable;
             DIVCustomItem.Controls.Add(theSingleDecimalText);
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             ApplyBusinessRules(theSingleDecimalText, ControlID, theEnable);
             tabcontainer.ID = "TAB";
             theSingleDecimalText.Attributes.Add("onkeyup", "chkDecimal('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID + "')");
@@ -1193,17 +1127,13 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
             if (Column.ToUpper() == "HEIGHT")
             {
-                //theSingleDecimalText.Attributes.Add("OnBlur", "CalcualteBMIGet();");
                 theSingleDecimalText.Attributes.Add("OnBlur", "CalcualteBMIGet();");
                 hdnHeight.Value = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID;
-
             }
             if (Column.ToUpper() == "WEIGHT")
             {
-                //theSingleDecimalText.Attributes.Add("OnBlur", "CalcualteBMIGet();");
                 theSingleDecimalText.Attributes.Add("OnBlur", "CalcualteBMIGet();");
                 hdnWeight.Value = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID;
-
             }
 
         }
@@ -1211,11 +1141,11 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
 
             if (theAutoPopulate == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
                 TextBox theNumberAuto = new TextBox();
@@ -1240,19 +1170,19 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
             TextBox theNumberText = new TextBox();
             theNumberText.CssClass = "form-control";
             theNumberText.ID = "TXTNUM-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-            theNumberText.Width = 100;
-            theNumberText.MaxLength = 9;
+            //theNumberText.Width = 100;
+            //theNumberText.MaxLength = 9;
             if (theEnable == false)
             {
                 string str = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theNumberText.ClientID + "";
@@ -1267,28 +1197,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
             //theNumberText.Enabled = theEnable;
             DIVCustomItem.Controls.Add(theNumberText);
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             tabcontainer.ID = "TAB";
             theNumberText.Attributes.Add("onkeyup", "chkInteger('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theNumberText.ClientID + "')");
             TextBox thehiddenText = new TextBox();
@@ -1309,13 +1218,13 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             {
                 //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
                 DropDownList ddlSelectListAuto = new DropDownList();
                 ddlSelectListAuto.CssClass = "form-control";          
                 tabcontainer.ID = "TAB";
                 if (theAutoPopulate == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                     DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                     DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
 
@@ -1337,14 +1246,14 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 }
                 if (SetBusinessrule(FieldId, Column) == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
                 }
                 else
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
                 }
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
                 DropDownList ddlSelectList = new DropDownList();
                 ddlSelectList.CssClass = "form-control";
                 ddlSelectList.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
@@ -1450,7 +1359,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     theItem1.Value = "0";
                     ddlSelectList.Items.Add(theItem1);
                 }
-                ddlSelectList.Width = 180;
+                //ddlSelectList.Width = 180;
                 if (theEnable == false)
                 {
                     string str = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + ddlSelectList.ClientID + "";
@@ -1495,29 +1404,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
                 DIVCustomItem.Controls.Add(ddlSelectList);
 
-                if (AdditionalInform != "")
-                {
-                    //Image Img = new Image();
-                    //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //Img.ImageUrl = "../images/img_tooltip.jpg";
-                    //Img.ToolTip = "click to see additional information";
-                    //Img.Style.Add("vertical-align", "inherit");
-                    //DIVCustomItem.Controls.Add(Img);
-                    //Panel thePnlBPE = new Panel();
-                    //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                    //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                    //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //BPE.TargetControlID = Img.ID;
-                    //BPE.UseShadow = true;
-                    //BPE.DisplayOnClick = true;
-                    //BPE.Position = BalloonPopupPosition.TopRight;
-                    //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                    //BPE.BalloonPopupControlID = thePnlBPE.ID;
-
-                    //DIVCustomItem.Controls.Add(thePnlBPE);
-                    //DIVCustomItem.Controls.Add(BPE);
-                }
                 ApplyBusinessRules(ddlSelectList, ControlID, theEnable);
                 TextBox thehiddenText = new TextBox();
                 thehiddenText.CssClass = "form-control";
@@ -1534,11 +1420,11 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
 
             if (theAutoPopulate == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
 
@@ -1563,14 +1449,14 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             }
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='form-group'><div class='input-group date'><div class='input-group-addon'><i class='fa fa-calendar'></i></div>"));
             TextBox theDateText = new TextBox();
             theDateText.CssClass = "form-control pull-left datePicker";
@@ -1578,12 +1464,10 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             
             theDateText.ID = "TXTDT-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
             Control ctl = (TextBox)theDateText;
-            theDateText.Width = 120;
             theDateText.MaxLength = 11;
             if (theEnable == false)
             {
                 string str = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theDateText.ClientID + "";
-                // Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", str, false);
 
                 System.Web.UI.ScriptManager.RegisterStartupScript(Page, typeof(Page), "" + Guid.NewGuid() + "", "EnableControlFalse('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theDateText.ClientID + "');", true);
                 if (!IsPostBack)
@@ -1594,28 +1478,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             //theDateText.Enabled = theEnable;
             DIVCustomItem.Controls.Add(theDateText);
             DIVCustomItem.Controls.Add(new LiteralControl("</div></div>"));
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             CreateDateImage(theDateText, ControlID, theEnable, false);
             
             //theDateText.Attributes.Add("onclick", "SetTextInTextBox2(this)");
@@ -1628,22 +1491,19 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
-
-
         }
         else if (ControlID == "6")  /// Radio Button
         {
-
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'><font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
@@ -1699,7 +1559,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             //theYesNoRadio1.Visible = theEnable;
             ApplyBusinessRules(theYesNoRadio1, ControlID, theEnable);
             //theYesNoRadio1.Visible = theEnable;
-            DIVCustomItem.Controls.Add(new LiteralControl("<label align='labelright' id='lblYes-" + FieldId + "'>Yes</label>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<label align='labelright' id='lblYes-" + FieldId + "'>Yes &nbsp&nbsp&nbsp</label>"));
             HtmlInputRadioButton thehiddenRd = new HtmlInputRadioButton();
             thehiddenRd.Style.Add("class", "radio-btn");
             thehiddenRd.ID = "" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theYesNoRadio1.ClientID + "";
@@ -1738,29 +1598,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             theYesNoRadio2.Attributes.Add("onfocus", "up(this)");
             DIVCustomItem.Controls.Add(theYesNoRadio2);
 
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
-
             HtmlInputRadioButton thehiddenRd1 = new HtmlInputRadioButton();
             thehiddenRd1.ID = "" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theYesNoRadio2.ClientID + "";
             divhidden.Controls.Add(thehiddenRd1);
@@ -1788,17 +1625,17 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
 
 
             //HtmlInputCheckBox theChk = new HtmlInputCheckBox();
@@ -1813,28 +1650,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", str, false);
             }
             DIVCustomItem.Controls.Add(theChk);
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             TextBox thehiddenText = new TextBox();
             thehiddenText.CssClass = "form-control";
             thehiddenText.ID = "" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theChk.ClientID + "";
@@ -1843,7 +1659,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
-
         }
         else if (ControlID == "8")  /// MultiLine TextBox
         {
@@ -1852,29 +1667,31 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             theBusinessRuleDV.RowFilter = "BusRuleId=25 and FieldId = " + FieldId.ToString();
             if (theBusinessRuleDV.Count > 0)
                 spanfield = true;
-            //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-
 
             if (theAutoPopulate == true)
             {
                 if (spanfield == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
                 }
                 else
-                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group'>"));
-                
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
+                {
+                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group'>"));
+                }
+
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lblAutoPopulate" + Label + "-" + FieldId + "'>" + "Previous-" + Label + " :</label>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 if (spanfield == true)
                 {
                     DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                     DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-10 form-group pull-top'>"));
                 }
                 else
-                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                {
+                    DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
+                }
 
                 TextBox theMultiTextAuto = new TextBox();
                 theMultiTextAuto.CssClass = "form-control";
@@ -1889,6 +1706,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 else
                     theMultiTextAuto.Width = 100;
                 theMultiTextAuto.MaxLength = 9;
+
                 theMultiTextAuto.Enabled = false;
                 DIVCustomItem.Controls.Add(theMultiTextAuto);
                 TextBox thehiddenText = new TextBox();
@@ -1899,33 +1717,33 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                //DIVCustomItem.Controls.Add(new LiteralControl("<td style='width:40%' align='right'>"));
-
             }
+
             if (spanfield == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group text-left pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-10 form-group text-left pull-top'>"));
             }
             else
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-10 form-group pull-top'>"));
 
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
+
             if (spanfield == true)
             {
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-10 form-group pull-top'>"));
             }
             else
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
 
             TextBox theMultiText = new TextBox();
             theMultiText.CssClass = "form-control";
@@ -1937,36 +1755,16 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             {
                 theMultiText.Width = Unit.Percentage(100);
                 theMultiText.Rows = 6;
-
             }
-            else
-                theMultiText.Width = 200;
+            {
+                //theMultiText.Width = 200;
+                theMultiText.Rows = 6;
+            }
+
             theMultiText.TextMode = TextBoxMode.MultiLine;
-            theMultiText.MaxLength = 200;
             theMultiText.Enabled = theEnable;
             DIVCustomItem.Controls.Add(theMultiText);
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             TextBox thehiddenText1 = new TextBox();
             thehiddenText1.CssClass = "form-control";
             thehiddenText1.ID = "" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theMultiText.ClientID + "";
@@ -1976,8 +1774,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             //theMultiText.Enabled = theEnable;
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
-
         }
         else if (ControlID == "9") ///  MultiSelect List 
         {
@@ -1991,11 +1787,11 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
                 if (SetBusinessrule(FieldId, Column) == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " </label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
                 }
                 else
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " </label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " </label>"));
                 }
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 Int32 theColCount = 1;
@@ -2010,7 +1806,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                             if ((FieldId == DR["FieldID"].ToString() && DR["BusRuleID"].ToString() == "20"))
                             {
                                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
-                                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + DR["Value"] + "-" + FieldId + "'>" + DR["Value"] + " </label>"));
+                                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + DR["Value"] + "-" + FieldId + "'>" + DR["Value"] + " </label>"));
                                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                                 theColCount = theColCount + 1;
                             }
@@ -2022,7 +1818,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                                 for (int i = 0; i < arrValue.Length; i++)
                                 {
                                     DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
-                                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + arrValue[i] + "-" + FieldId + "'>" + arrValue[i] + " </label>"));
+                                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + arrValue[i] + "-" + FieldId + "'>" + arrValue[i] + " </label>"));
                                     DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                                     theColCount = theColCount + 1;
                                 }
@@ -2030,7 +1826,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                             else if (((FieldId == DR["FieldID"].ToString() && DR["BusRuleID"].ToString() == "18")))
                             {
                                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
-                                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + DR["Value"] + "-" + FieldId + "'>" + DR["Value"] + " </label>"));
+                                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + DR["Value"] + "-" + FieldId + "'>" + DR["Value"] + " </label>"));
                                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
 
                             }
@@ -2099,17 +1895,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                         string thDTVar = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theDate1.ClientID;
                         theDate1.Attributes.Add("onblur", "DateFormat(this, this.value,event,true,'3'); isCheckValidDate('" + Application["AppCurrentDate"] + "', '" + thDTVar + "', '" + thDTVar + "')");
 
-                        //Image theDateImage1 = new Image();
-                        //theDateImage1.ID = "img" + theDate1.ID;
-                        //theDateImage1.Height = 22;
-                        //theDateImage1.Width = 22;
-                        //theDateImage1.Visible = theEnable;
-                        //theDateImage1.ToolTip = "Date Helper";
-                        //theDateImage1.ImageUrl = "~/images/cal_icon.gif";
-                        //theDateImage1.Attributes.Add("onClick", "w_displayDatePicker('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + ((TextBox)ctl).ClientID + "');");
-                        //theDate1.Visible = false;
-                        //theDateImage1.Visible = false;
-                        //Date 2 Control
                         TextBox theDate2 = new TextBox();
                         theDate2.CssClass = "form-control";                        
                         theDate2.ID = "TXTDT2-" + theDT.Rows[i][0] + "-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
@@ -2122,16 +1907,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                         tabcontainer.ID = "TAB";
                         string thDTVarOth = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theDate2.ClientID;
                         theDate2.Attributes.Add("onblur", "DateFormat(this, this.value,event,true,'3'); isCheckValidDate('" + Application["AppCurrentDate"] + "', '" + thDTVarOth + "', '" + thDTVarOth + "')");
-
-
-                        //Image theDateImage2 = new Image();
-                        //theDateImage2.ID = "img" + theDate2.ID;
-                        //theDateImage2.Height = 22;
-                        //theDateImage2.Width = 22;
-                        //theDateImage2.Visible = theEnable;
-                        //theDateImage2.ToolTip = "Date Helper";
-                        //theDateImage2.ImageUrl = "~/images/cal_icon.gif";
-                        //theDateImage2.Attributes.Add("onClick", "w_displayDatePicker('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + ((TextBox)ctl2).ClientID + "');");
 
                         // Text control for numeric field
                         TextBox theNumeric = new TextBox();
@@ -2214,13 +1989,8 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                                     {
                                         PnlMulti.Controls.Add(theDate1);
                                         PnlMulti.Controls.Add(new LiteralControl("&nbsp;"));
-                                        //PnlMulti.Controls.Add(theDateImage1);
-                                        //PnlMulti.Controls.Add(new LiteralControl("<span class='smallerlabel'>(DD-MMM-YYYY)</span>"));
-                                        //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
-                                        //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
-                                        theDate1.Visible = true;
-                                        //theDateImage1.Visible = true;
 
+                                        theDate1.Visible = true;
                                     }
                                     else if ((FieldId == DR["FieldID"].ToString() && DR["BusRuleID"].ToString() == "19"))
                                     {
@@ -2236,10 +2006,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                                             //theDateImage1.Visible = true;
                                             PnlMulti.Controls.Add(theDate1);
                                             PnlMulti.Controls.Add(new LiteralControl("&nbsp;"));
-                                            //PnlMulti.Controls.Add(theDateImage1);
-                                            //PnlMulti.Controls.Add(new LiteralControl("<span class='smallerlabel'>(DD-MMM-YYYY)</span>"));
-                                            //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
-                                            //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
                                         }
                                         theSpace2.ID = "theSpace2_2" + chkbox.ID;
                                         theSpace2.Text = "";
@@ -2247,10 +2013,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                                         PnlMulti.Controls.Add(theSpace2);
                                         PnlMulti.Controls.Add(theDate2);
                                         PnlMulti.Controls.Add(new LiteralControl("&nbsp;"));
-                                        //PnlMulti.Controls.Add(theDateImage2);
-                                        //PnlMulti.Controls.Add(new LiteralControl("<span class='smallerlabel'>(DD-MMM-YYYY)</span>"));
-                                        //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
-                                        //PnlMulti.Controls.Add(new LiteralControl("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;"));
                                     }
                                     else if ((FieldId == DR["FieldID"].ToString() && DR["BusRuleID"].ToString() == "20"))
                                     {
@@ -2272,57 +2034,33 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 }
                 PnlMulti.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(PnlMulti);
-                if (AdditionalInform != "")
-                {
-                    //Image Img = new Image();
-                    //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //Img.ImageUrl = "../images/img_tooltip.jpg";
-                    //Img.ToolTip = "click to see additional information";
-                    //Img.Style.Add("vertical-align", "inherit");
-                    //DIVCustomItem.Controls.Add(Img);
-                    //Panel thePnlBPE = new Panel();
-                    //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                    //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                    //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //BPE.TargetControlID = Img.ID;
-                    //BPE.UseShadow = true;
-                    //BPE.DisplayOnFocus = true;
-                    //BPE.Position = BalloonPopupPosition.TopRight;
-                    //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                    //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                    //DIVCustomItem.Controls.Add(thePnlBPE);
-                    //DIVCustomItem.Controls.Add(BPE);
-                }
+ 
                 ApplyBusinessRules(PnlMulti, ControlID, theEnable);
-                //PnlMulti.Enabled = theEnable;
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             }
             else
             {
-                //DIVCustomItem.Controls.Add(new LiteralControl("<table class='table-condensed'>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group  pull-top'>"));
                 if (SetBusinessrule(FieldId, Column) == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
                 }
                 else
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
                 }
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
 
                 //WithPanel
                 Panel PnlMulti = new Panel();
                 PnlMulti.ID = "Pnl_-" + Table + "-" + FieldId;
                 PnlMulti.ToolTip = Label;
                 PnlMulti.Enabled = theEnable;
-                PnlMulti.Controls.Add(new LiteralControl("<DIV class ='customdivbordermultiselect dyn-height'  runat='server' nowrap='nowrap'>"));
+                PnlMulti.Controls.Add(new LiteralControl("<DIV class ='customdivbordermultiselect dyn-height' style='border: 1px solid lightgrey' runat='server' nowrap='nowrap'>"));
                 tabcontainer.ID = "TAB";
                 if (CodeID == "")
                 {
@@ -2453,28 +2191,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 PnlMulti.Controls.Add(new LiteralControl("</DIV>"));
                 PnlMulti.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(PnlMulti);
-                if (AdditionalInform != "")
-                {
-                    //Image Img = new Image();
-                    //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //Img.ImageUrl = "../images/img_tooltip.jpg";
-                    //Img.ToolTip = "click to see additional information";
-                    //Img.Style.Add("vertical-align", "inherit");
-                    //DIVCustomItem.Controls.Add(Img);
-                    //Panel thePnlBPE = new Panel();
-                    //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                    //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                    //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                    //BPE.TargetControlID = Img.ID;
-                    //BPE.UseShadow = true;
-                    //BPE.DisplayOnFocus = true;
-                    //BPE.Position = BalloonPopupPosition.TopRight;
-                    //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                    //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                    //DIVCustomItem.Controls.Add(thePnlBPE);
-                    //DIVCustomItem.Controls.Add(BPE);
-                }
+
                 ApplyBusinessRules(PnlMulti, ControlID, theEnable);
                 //PnlMulti.Enabled = theEnable;
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
@@ -2487,20 +2204,20 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group text-right pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group text-right pull-top'>"));
             Label theLabel = new Label();
             HiddenField theHF = new HiddenField();
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
                 ARLHeader.Add(Label);
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
             RegimenType = GetFilterId(FieldId, Column);
             theHF.ID = "hfReg-10-" + FieldId + "-" + Table + "-" + Column + "-" + RegimenType;
             theHF.Value = Label;
@@ -2509,9 +2226,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             theRegText.CssClass = "form-control";
             theRegText.ID = "TXTReg-" + Column + "-" + Table + "-" + FieldId + "=" + RegimenType + "-" + TabID;
             theRegText.Attributes.Add("readonly", "readonly");
-            //theRegText.Enabled = theEnable;
-            theRegText.Width = 100;
-            theRegText.MaxLength = 200;
+
             DIVCustomItem.Controls.Add(theRegText);
             tabcontainer.ID = "TAB";
             Control ctl = (TextBox)theRegText;
@@ -2548,7 +2263,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
             IQCareUtils theUtils = new IQCareUtils();
             DrugType = GetFilterId(FieldId, Column);
             DataView theDVName = new DataView((DataTable)Session["DrugTypeName"]);
@@ -2563,7 +2278,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 theLabel.Font.Bold = true;
                 if (SetBusinessrule(FieldId, Column) == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='left' id='lbl" + Label + "-" + FieldId + "'>" + Label + " - " + theDVName.ToTable().Rows[0]["DrugTypeName"].ToString() + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='left' id='lbl" + Label + "-" + FieldId + "'><font color='blue'>" + Label + " - " + theDVName.ToTable().Rows[0]["DrugTypeName"].ToString() + " :</font></label>"));
                     ARLHeader.Add(theLabel.Text);
                 }
                 else
@@ -2629,7 +2344,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             theLabel.Text = Label;
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='left' id='lbl" + Label + "-" + FieldId + "'>" + theLabel.Text + ":</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='left' id='lbl" + Label + "-" + FieldId + "'><font color='blue'>" + theLabel.Text + ":</font></label>"));
                 ARLHeader.Add(theLabel.Text);
             }
             else
@@ -2657,35 +2372,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
-            //ApplyBusinessRules(theBtn, theBtn.ID, theEnable);
-            //if ((DataSet)Session["AddLab"] != null)
-            //{
-            //    ViewState["LabMaster"] = ((DataSet)Session["AddLab"]).Tables[0];
-            //    ViewState["AddLab"] = ((DataSet)Session["AddLab"]).Tables[1];
-            //    Session.Remove("AddLab");
-            //}
-            //if (Convert.ToString(ViewState["btnlabisEnable"]) == "2")
-            //{
-            //    ViewState["AddLab"] = null;
-            //}
-
-            //if ((DataTable)ViewState["AddLab"] != null)
-            //{
-
-            //    foreach (DataRow theDR in ((DataTable)ViewState["AddLab"]).Rows)
-            //    {
-            //        if (theDR["Flag"] == System.DBNull.Value)
-            //        {
-            //            BindCustomControls(theDR);
-            //        }
-            //    }
-            //    Session["SelectedData"] = ViewState["AddLab"];
-            //}
-
-            //if (Convert.ToInt32(Session["PatientVisitId"]) > 0)
-            //{
-            //    LabDataBinding();
-            //}
 
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
@@ -2706,34 +2392,29 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
-
         }
 
         else if (ControlID == "18")  /// BMI
         {
             {
-
                 //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group text-right pull-top'>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group text-right pull-top'>"));
 
                 if (SetBusinessrule(FieldId, Column) == true)
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
                 }
                 else
                 {
-                    DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                    DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
                 }
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+
+                DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
                 TextBox theSingleDecimalText = new TextBox();
                 theSingleDecimalText.CssClass = "form-control";
                 theSingleDecimalText.ID = "TXT-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                // theSingleDecimalText.ID = "TXT-BMI-DTL_PATIENTVITALS-" + FieldId + "-" + TabID;
-                //theSingleDecimalText.Text="00";
-                theSingleDecimalText.Width = 180;
-                theSingleDecimalText.MaxLength = 50;
                 theSingleDecimalText.Enabled = theEnable;
                 DIVCustomItem.Controls.Add(theSingleDecimalText);
                 ApplyBusinessRules(theSingleDecimalText, ControlID, theEnable);
@@ -2748,12 +2429,8 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 thehiddenText.Width = 0;
                 divhidden.Controls.Add(thehiddenText);
 
-                //theSingleDecimalText.Enabled = theEnable;
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-                //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
-
-
 
                 Int32 PatientID = Convert.ToInt32(Session["PatientId"]);
                 Int32 VisitID = Convert.ToInt32(Session["PatientVisitId"]);
@@ -2775,31 +2452,25 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
                 theSingleDecimalText.Attributes.Add("OnBlur", "CalcualteBMIGet();");
                 hdnBNI.Value = "ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + theSingleDecimalText.ClientID;
-                //hdnBNI.Value ='ctl00_IQCareContentPlaceHolder'_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_"  +theSingleDecimalText.ClientID + "
-
-
             }
-
         }
 
         else if (ControlID == "15")  /// Disease/Symptom Control
         {
-            //DIVCustomItem.Controls.Add(new LiteralControl("<table class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group text-right pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group text-right pull-top'>"));
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
 
             //WithPanel
-
             Panel PnlMulti = new Panel();
             PnlMulti.ID = "Pnl_" + FieldId;
             PnlMulti.ToolTip = Label;
@@ -2891,7 +2562,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
         else if (ControlID == "16")  /// ICD10 Control
         {
-            //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-12 col-sm-12 col-xs-12 form-group pull-top'>"));
 
@@ -3026,17 +2696,17 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         {
             //DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 form-group pull-top'>"));
             if (SetBusinessrule(FieldId, Column) == true)
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label class='required' align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'><Font color='blue'>" + Label + " :</font></label>"));
             }
             else
             {
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + Label + "-" + FieldId + "'>" + Label + " :</label>"));
             }
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
-            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-3 col-sm-12 col-xs-12 form-group pull-top'>"));
+            DIVCustomItem.Controls.Add(new LiteralControl("<div class='col-md-6 form-group pull-top'>"));
             IQCareUtils theUtil = new IQCareUtils();
             DataView theDV = new DataView((DataTable)ViewState["BusRule"]);
             theDV.RowFilter = "ControlId=14 and FieldId=" + FieldId + "";
@@ -3051,7 +2721,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     DropDownList ddlSelectList24Hr = new DropDownList();
                     ddlSelectList24Hr.CssClass = "form-control";
                     ddlSelectList24Hr.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "24Hr" + "-" + TabID;
-                    ddlSelectList24Hr.Width = 60;
+                    ddlSelectList24Hr.Width = 100;
                     DataTable theDT24 = theUtil.CreateHourFormat_24();
                     DataRow theDR24 = theDT24.NewRow();
                     theDR24[0] = "0";
@@ -3068,7 +2738,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     DropDownList ddlSelectList60Min = new DropDownList();
                     ddlSelectList60Min.CssClass = "form-control";
                     ddlSelectList60Min.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "Min" + "-" + TabID;
-                    ddlSelectList60Min.Width = 60;
+                    ddlSelectList60Min.Width = 100;
                     DataTable theDT60 = theUtil.CreateMinuteFormat();
                     DataRow theDR60 = theDT60.NewRow();
                     theDR60[0] = "0";
@@ -3092,7 +2762,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     DropDownList ddlSelectList12Hr = new DropDownList();
                     ddlSelectList12Hr.CssClass = "form-control";
                     ddlSelectList12Hr.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "12Hr" + "-" + TabID;
-                    ddlSelectList12Hr.Width = 60;
+                    ddlSelectList12Hr.Width = 100;
                     DataTable theDT12 = theUtil.CreateHourFormat_12();
                     DataRow theDR12 = theDT12.NewRow();
                     theDR12[0] = "0";
@@ -3109,7 +2779,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     DropDownList ddlSelectList60Min = new DropDownList();
                     ddlSelectList60Min.CssClass = "form-control";
                     ddlSelectList60Min.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "Min" + "-" + TabID;
-                    ddlSelectList60Min.Width = 60;
+                    ddlSelectList60Min.Width = 100;
                     DataTable theDT60 = theUtil.CreateMinuteFormat();
                     DataRow theDR60 = theDT60.NewRow();
                     theDR60[0] = "0";
@@ -3126,7 +2796,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     DropDownList ddlSelectListAMPM = new DropDownList();
                     ddlSelectListAMPM.CssClass = "form-control";
                     ddlSelectListAMPM.ID = "SELECTLIST-" + Column + "-" + Table + "-" + FieldId + "AMPM" + "-" + TabID;
-                    ddlSelectListAMPM.Width = 40;
+                    ddlSelectListAMPM.Width = 100;
                     DataTable theDTAMPM = theUtil.CreateAMPM();
                     ddlSelectListAMPM.DataSource = theDTAMPM;
                     ddlSelectListAMPM.DataTextField = "Format";
@@ -3172,18 +2842,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 }
             }
 
-            //if (theConditional == true && theEnable == true)
-            //{
-            //    ddlSelectList24Hr.AutoPostBack = true;
-            //    ddlSelectList24Hr.SelectedIndexChanged += new EventHandler(ddlSelectList_SelectedIndexChanged);
-            //}
-            ///////////////////////////////////////////////////
-            //if (theSecondLabelConditional == true && theEnable == false)
-            //{
-            //    ddlSelectList24Hr.AutoPostBack = false;
-            //    ddlSelectList24Hr.SelectedIndexChanged += new EventHandler(ddlSelectList_SelectedIndexChanged);
-            //}
-            ////////////////////////////////////////////////
             //ApplyBusinessRules(ddlSelectList24Hr, ControlID, theEnable);
             DIVCustomItem.Controls.Add(new LiteralControl("<span class='glyphicon glyphicon-bookmark' style='margin-left: -16%; vertical-align: sub; color: #fff; margin-right:2%;'></span>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
@@ -3224,28 +2882,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             }
             DIVCustomItem.Controls.Add(theBtn);
             DIVCustomItem.Controls.Add(new LiteralControl("<span class='glyphicon glyphicon-share' style='margin-left: -2.5%;; vertical-align: sub;color: #fff; margin-right:2%;'></span>"));
-            if (AdditionalInform != "")
-            {
-                //Image Img = new Image();
-                //Img.ID = "Img-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //Img.ImageUrl = "../images/img_tooltip.jpg";
-                //Img.ToolTip = "click to see additional information";
-                //Img.Style.Add("vertical-align", "inherit");
-                //DIVCustomItem.Controls.Add(Img);
-                //Panel thePnlBPE = new Panel();
-                //thePnlBPE.ID = "Panel-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //thePnlBPE.Controls.Add(new LiteralControl("<b>" + AdditionalInform + "</b>"));
-                //BalloonPopupExtender BPE = new BalloonPopupExtender();
-                //BPE.ID = "Ballon-" + Column + "-" + Table + "-" + FieldId + "-" + TabID;
-                //BPE.TargetControlID = Img.ID;
-                //BPE.UseShadow = true;
-                //BPE.DisplayOnFocus = true;
-                //BPE.Position = BalloonPopupPosition.TopRight;
-                //BPE.BalloonStyle = BalloonPopupStyle.Rectangle;
-                //BPE.BalloonPopupControlID = thePnlBPE.ID;
-                //DIVCustomItem.Controls.Add(thePnlBPE);
-                //DIVCustomItem.Controls.Add(BPE);
-            }
+
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             DIVCustomItem.Controls.Add(new LiteralControl("<div class='row'>"));
@@ -3254,13 +2891,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             DIVCustomItem.Controls.Add(new LiteralControl("</div>"));
             //DIVCustomItem.Controls.Add(new LiteralControl("</table>"));
         }
-        //}
-        //catch (Exception err)
-        //{
-        //    MsgBuilder theBuilder = new MsgBuilder();
-        //    theBuilder.DataElements["MessageText"] = err.Message.ToString();
-        //    IQCareMsgBox.Show("#C1", theBuilder, this);
-        //}
     }
 
     void theBtn_Click(object sender, EventArgs e)
@@ -4288,10 +3918,9 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 {
                     tbChildPanel.ID = dr["TabId"].ToString();
                     SectionHeading(dr["SectionName"].ToString());
+                    DIVCustomItem.Controls.Add(new LiteralControl("<hr>"));
                     DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
 
-                    //bool isHeight = false;
-                    //bool isWeight = false;
                     foreach (DataRow DRLnkTable in theDS.Tables[1].Rows)
                     {
                         DataView dvchkHeight = theDS.Tables[1].DefaultView;
@@ -4834,7 +4463,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 DIVCustomItem.Controls.Add(new LiteralControl("<table width='100%' class='table-condensed'>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<tr>"));
                 DIVCustomItem.Controls.Add(new LiteralControl("<td class='border center pad5 whitebg' colspan='2' style='width: 50%' vertical-align='top'>"));
-                DIVCustomItem.Controls.Add(new LiteralControl("<label align='center' id='lbl" + distincttabdr["Signature"] + "' >Signature:</label>"));
+                DIVCustomItem.Controls.Add(new LiteralControl("<label id='lbl" + distincttabdr["Signature"] + "' >Signature:</label>"));
                 DropDownList theDropDown = new DropDownList();
                 theDropDown.CssClass = "form-control";
                 theDropDown.ID = "SELECTLIST-TABSignature-LNK_FORMTABORDVISIT-'00'-" + distincttabdr["TabId"];

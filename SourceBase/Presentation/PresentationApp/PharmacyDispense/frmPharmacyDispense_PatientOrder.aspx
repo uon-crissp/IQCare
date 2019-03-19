@@ -656,7 +656,7 @@
                                                     </div>
                                                     <div class="row" align="center">
                                                         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                                            <div class="mid" style="height: 500px; overflow: auto; width: 100%; margin-right: 5px;
+                                                            <div class="mid" style="height: 400px; overflow: auto; width: 100%; margin-right: 5px;
                                                                 text-align: center; z-index=-1;">
                                                                 <div id="div-gridview" class="GridView whitebg" style="padding-right: 20px;">
                                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -666,9 +666,14 @@
                                                                                 OnRowDataBound="gvDispenseDrugs_RowDataBound" DataKeyNames="DrugId, DispensingUnitId, orderId, QtyUnitDisp, syrup, UserID, StoreId"
                                                                                 GridLines="None" OnRowDeleting="gvDispenseDrugs_RowDeleting">
                                                                                 <Columns>
-                                                                                    <asp:TemplateField HeaderText="Drug Name">
+                                                                                    <asp:TemplateField HeaderText="Drug Name" ItemStyle-HorizontalAlign="Left">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lblDrugName" runat="server" Text='<%# Bind("DrugName") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Availbl. Qty" HeaderStyle-Width="100px">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Bind("AvailQty") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
                                                                                     <asp:TemplateField HeaderText="Unit" HeaderStyle-Width="100px">

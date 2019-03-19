@@ -86,9 +86,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\Application.Interface.dll</HintPath>
     </Reference>
-    <Reference Include="Application.Presentation">
-      <HintPath>..\Presentation\Application.Presentation\obj\Release\Application.Presentation.dll</HintPath>
-    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -194,6 +191,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Presentation\Application.Presentation\Application.Presentation.csproj">
+      <Project>{2E7534C9-101D-4B6D-8E57-056101E4D54D}</Project>
+      <Name>Application.Presentation</Name>
+    </ProjectReference>
     <ProjectReference Include="IQCare.Service\IQCare.Service.csproj">
       <Project>{82EBF600-0829-4FEA-9D90-A396A302DDDC}</Project>
       <Name>IQCare.Service</Name>

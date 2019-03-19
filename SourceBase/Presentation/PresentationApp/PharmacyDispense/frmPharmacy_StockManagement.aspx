@@ -165,7 +165,7 @@
                                                                     </act:AutoCompleteExtender>
                                                                     <hr />
                                                                 </div>
-                                                                <div class="mid" style="height: 300px; overflow: auto">
+                                                                <div class="mid" style="height: 500px; overflow: auto">
                                                                     <div id="div-gridview" class="GridView whitebg">
                                                                         <asp:GridView ID="grdStockMngt" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True"
                                                                             Width="100%" BorderWidth="0px" CellPadding="0" CssClass="table table-bordered table-hover"

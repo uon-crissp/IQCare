@@ -1,4 +1,4 @@
-use IQCare_new
+use IQCare
 go
 
 update AppAdmin set AppVer='4.2.0', DBVer='4.2.0', RelDate='15-Mar-2019'
@@ -20,7 +20,7 @@ begin
 	if (@CatName <> 'Lab Tests')                                                    
 	begin  
 		select  a.drugTypeID, a.DrugTypeName ,a.DeleteFlag,b.ItemTypeId [MapTypeID]  from  mst_drugtype a  left outer join Lnk_ItemDrugType b on           
-		a.DrugTypeID =b.DrugTypeId /*and b.ItemTypeId =@ItemTypeId*/ where (a.deleteflag is null or deleteflag = 0)  order by DrugTypeName asc       
+		a.DrugTypeID =b.DrugTypeId where (a.deleteflag is null or deleteflag = 0)  order by DrugTypeName asc       
     
 		select drugTypeID,DrugTypeName from Mst_DrugType where (deleteflag is null or deleteflag = 0)  order by DrugTypeName asc          
 	end   
@@ -725,6 +725,7 @@ BEGIN
 		,(select top 1 convert(varchar, x.TransactionDate, 106) from dtl_DrugStockTransactions x where x.drug_pk=a.Drug_pk and x.TransactionType=1 and StoreId=@storeid) as [TransacDate]
 	FROM dbo.mst_Drug a
 	LEFT OUTER JOIN dbo.mst_dispensingunit d ON a.DispensingUnit = d.Id
+	where a.DeleteFlag=0
 	) a where a.Quantity > 0 
 END
 go
@@ -773,6 +774,7 @@ BEGIN
 			,'' [PurchaseUnit]
 		FROM mst_Drug mstD
 		INNER JOIN Mst_DispensingUnit mstDU ON mstD.DispensingUnit = mstDU.Id
+		where mstD.DeleteFlag=0
 	END
 END
 go
@@ -788,7 +790,7 @@ ALTER PROCEDURE [dbo].[pr_SCM_GetStockSummary_Futures] @StoreId INT
 	,@ToDate DATETIME
 AS
 BEGIN
-	--0                                                    
+	--0                                                
 	SET @Todate = dateadd(dd, 1, @Todate)
 
 	SELECT @StoreId as [StoreId]
@@ -796,6 +798,7 @@ BEGIN
 	, a.DrugName
 	FROM mst_Drug a
 	where a.Drug_pk in (select x.Drug_pk from dtl_DrugStockTransactions x where x.StoreId=@StoreId)
+	and a.DeleteFlag=0
 	order by a.DrugName asc
 
 	--1     
@@ -805,7 +808,7 @@ BEGIN
 			,a.DrugName [ItemName]
 			,b.Name [DispensingUnit]
 			,(select top 1 x.StoreBal from dtl_DrugStockTransactions x 
-				where x.drug_pk=a.Drug_pk and x.StoreId=@StoreId and x.TransactionDate < @FromDate order by id desc) [OpeningStock]
+				where x.drug_pk=a.Drug_pk and x.StoreId=@StoreId and x.createdate < @FromDate order by id desc) [OpeningStock]
 			,(select sum(x.Quantity) from dtl_DrugStockTransactions x 
 				where x.TransactionType in (1,2,3,4) and x.drug_pk=a.Drug_pk and StoreId=@StoreId and x.Quantity>0 and x.createdate between @FromDate and @ToDate) [QtyRecieved]
 			,(select sum(x.Quantity) from dtl_DrugStockTransactions x 
@@ -821,6 +824,7 @@ BEGIN
 		FROM Mst_Drug a
 		inner join Mst_DispensingUnit b on a.DispensingUnit=b.Id
 		where a.Drug_pk in (select x.Drug_pk from dtl_DrugStockTransactions x where x.StoreId=@StoreId)
+		and a.DeleteFlag=0
 		order by a.DrugName asc	
 	end
 	else
@@ -845,6 +849,7 @@ BEGIN
 		FROM Mst_Drug a
 		inner join Mst_DispensingUnit b on a.DispensingUnit=b.Id
 		where a.Drug_pk in (select x.Drug_pk from dtl_DrugStockTransactions x where x.StoreId=@StoreId)
+		and a.DeleteFlag=0
 		and a.Drug_pk=@ItemId
 		order by a.DrugName asc	
 	end
@@ -1060,7 +1065,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
---EXEC [Pr_HIVCE_GetClinicalEncounter] @Ptn_Pk = N'3072' ,@Visit_Id = N'20678' ,@LocationId = N'1018' 
 ALTER PROCEDURE [dbo].[Pr_HIVCE_GetClinicalEncounter] @Ptn_pk INT
 	,@Visit_Id INT
 	,@LocationId INT
@@ -1586,3 +1590,121 @@ end
 go
 --==
 
+update mst_Drug set PurchaseUnit = 37 where PurchaseUnit is null
+update mst_Drug set DispensingUnit=51 where DispensingUnit is null
+go
+--=
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[pr_KNH_GetPMTCTMEIPatientLabResult] @patientID INT
+
+AS
+
+BEGIN
+	SELECT LO.Ptn_pk
+		,LO.VisitId
+		,LR.ParameterID
+		,TP.SubTestName
+		,LO.ReportedbyDate [TestDate]
+		--,Case When LR.TestResults IS NOT NULL Then LR.TestResults when LR.TestResults1 IS NOT NULL then LR.TestResults1 else pr.Result end [Result]
+		,CASE WHEN LR.TestResultId IS NOT NULL THEN Convert(varchar(20),pr.Result)
+			  WHEN LR.TestResults IS NOT NULL THEN Convert(varchar(20),LR.TestResults)
+		      else Convert(varchar(20),LR.TestResults1)
+		END [Result]
+		,CASE  WHEN Convert(DATETIME, LO.ReportedbyDate) = convert(DATE, getdate(), 101) THEN Convert(BIT, '1')
+			   ELSE Convert(BIT, '0')
+		END [Order]
+		,LR.TestResults
+		,LR.TestResults1
+	FROM ord_PatientLabOrder LO
+	INNER JOIN dtl_PatientLabResults LR ON LO.LabID = LR.LabID
+	JOIN lnk_TestParameter TP ON LR.ParameterID = TP.SubTestID
+		AND LO.Ptn_pk = @patientID
+	LEFT JOIN [lnk_parameterresult] pr ON LR.TestResultId = pr.ResultID
+END
+go
+--==
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER function [dbo].[fn_GetPatientStatus]    
+
+(    
+   @ptn_pk int,    
+   @ModuleId int    
+)    
+
+returns varchar(50)    
+
+as    
+
+Begin    
+
+  declare @PatStatus varchar(50)   
+
+     set @PatStatus = '' 
+
+     select top 1 @PatStatus = (Case @ModuleId when 1 then PMTCTCareEnded when 2 then CareEnded when 203 then CareEnded end) from
+
+     VW_PatientCareEnd where Ptn_Pk = @Ptn_Pk order by CareEndedId desc   
+
+	  if(@PatStatus = '1')   
+		  set @PatStatus = 'Care Ended'  
+      else  
+		  set @PatStatus = 'Active'  
+
+  return @PatStatus      
+End
+go
+--==
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[pr_GetPharmacypriorPrescription_Web] @ptn_pk INT
+AS
+BEGIN
+ SELECT DISTINCT '0' AS orderId
+  ,a.Drug_Pk [DrugId]
+  ,a.DrugName [DrugName]
+  ,a.[Dispensing Unit Id] [DispensingUnitId]
+  ,a.[Dispensing Unit] [Unit]
+  ,dbo.fn_GetItemStock_Futures(a.Drug_Pk,0,'',a.StoreId) [AvailQty]
+  ,a.BatchNo
+  ,a.BatchId
+  ,convert(VARCHAR(11), a.ExpiryDate, 113) [ExpiryDate]
+  ,a.MorningDose AS Morning
+  ,a.MiddayDose AS Midday
+  ,a.EveningDose AS Evening
+  ,a.NightDose AS Night
+  ,a.Duration
+  ,a.PillCount
+  ,a.OrderedQuantity AS [QtyPrescribed]
+  ,a.DispensedQuantity [QtyDispensed]
+  ,a.Prophylaxis
+  ,a.comments
+  ,a.PatientInstructions AS [Instructions]
+  ,a.PrintPrescriptionStatus
+  ,a.RegimenType [GenericAbbrevation]
+  ,isnull(a.QtyUnitDisp, 0) QtyUnitDisp
+  ,isnull(a.syrup, 0) syrup
+  ,a.UserID
+  ,a.StoreId
+  ,a.RegimenLine
+  ,a.RegimenId
+ FROM vw_patientpharmacy a
+ WHERE a.VisitID IN (
+   SELECT MAX(VisitId)
+   FROM ord_PatientPharmacyOrder
+   WHERE Ptn_pk = @ptn_pk and (DeleteFlag=0 or DeleteFlag IS NULL)
+   )
+END
+go
+--==

@@ -22,7 +22,7 @@ namespace PresentationApp.PharmacyDispense
     {
         IDrug PrescriptionManager;
         StringBuilder str = new StringBuilder();
-        private static int chkavdrugs = 0;
+        private static int chkavdrugs = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -92,12 +92,6 @@ namespace PresentationApp.PharmacyDispense
             setValidatorsBasedOntechnicalArea();
             JavaScriptFunctionsOnLoad();
             resizeScreen();
-
-            //Ensure all drugs are displayed
-            if (!IsPostBack)
-            {
-                chkAvailDrugs.Checked = false;
-            }
         }
 
         private void setValidatorsBasedOntechnicalArea()
@@ -182,6 +176,7 @@ namespace PresentationApp.PharmacyDispense
             dr["DrugId"] = SelectedDrug["Drug_pk"].ToString();
             dr["DrugName"] = SelectedDrug["DrugName"].ToString();
             dr["Unit"] = SelectedDrug["DispensingUnit"].ToString();
+            dr["AvailQty"] = SelectedDrug["AvailQty"].ToString();
             dr["Morning"] = SelectedDrug["MorDose"].ToString();
             dr["Midday"] = SelectedDrug["MidDose"].ToString();
             dr["Evening"] = SelectedDrug["EvenDose"].ToString();
@@ -690,6 +685,16 @@ namespace PresentationApp.PharmacyDispense
         private Boolean FieldValidation()
         {
             //Store Validation
+            if (ddlDispensingStore.SelectedValue == "0")
+            {
+                MsgBuilder theBuilder = new MsgBuilder();
+                theBuilder.DataElements["MessageText"] = "Please Select the dispensing store";
+                IQCareMsgBox.Show("#C1", theBuilder, this);
+                Label lblError = new Label();
+                lblError.Text = (Master.FindControl("lblError") as Label).Text;
+
+                return false;
+            }
             if (ddlregimenLine.SelectedValue == "0")
             {
                 MsgBuilder theBuilder = new MsgBuilder();
@@ -1100,6 +1105,7 @@ namespace PresentationApp.PharmacyDispense
             dt.Columns.Add(new DataColumn("StoreId", typeof(string)));
             dt.Columns.Add(new DataColumn("DrugId", typeof(string)));
             dt.Columns.Add(new DataColumn("DrugName", typeof(string)));
+            dt.Columns.Add(new DataColumn("AvailQty", typeof(string)));
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Morning", typeof(string)));
             dt.Columns.Add(new DataColumn("Midday", typeof(string)));
@@ -1118,9 +1124,6 @@ namespace PresentationApp.PharmacyDispense
             dt.Columns.Add(new DataColumn("QtyUnitDisp", typeof(string)));
             dt.Columns.Add(new DataColumn("syrup", typeof(string)));
             dt.Columns.Add(new DataColumn("UserID", typeof(string)));
-
-
-            //vy added regimenmap info
             dt.Columns.Add(new DataColumn("GenericAbbrevation", typeof(string)));
 
             //Add existing data to data table
@@ -1129,6 +1132,7 @@ namespace PresentationApp.PharmacyDispense
                 int orderID = Convert.ToInt32(gvDispenseDrugs.DataKeys[gvRow.RowIndex].Values["orderId"] == null ? 0 : gvDispenseDrugs.DataKeys[gvRow.RowIndex].Values["orderId"]);
                 int DrugID = Convert.ToInt32(gvDispenseDrugs.DataKeys[gvRow.RowIndex].Values["DrugId"] == null ? 0 : gvDispenseDrugs.DataKeys[gvRow.RowIndex].Values["DrugId"]);
                 Label lblDrugName = (Label)gvRow.FindControl("lblDrugName");
+                Label lblQuantity = (Label)gvRow.FindControl("lblQuantity");
                 Label lblUnit = (Label)gvRow.FindControl("lblUnit");
                 TextBox txtMorning = (TextBox)gvRow.FindControl("txtMorning");
                 TextBox txtMidday = (TextBox)gvRow.FindControl("txtMidday");
@@ -1158,6 +1162,7 @@ namespace PresentationApp.PharmacyDispense
                 dr["orderId"] = orderID;
                 dr["DrugId"] = DrugID;
                 dr["DrugName"] = lblDrugName.Text;
+                dr["AvailQty"] = lblQuantity.Text;
                 dr["Unit"] = lblUnit.Text;
                 dr["Morning"] = txtMorning.Text;
                 dr["Midday"] = txtMidday.Text;
