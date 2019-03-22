@@ -1708,3 +1708,291 @@ BEGIN
 END
 go
 --==
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[pr_SCM_GetPharmacyOrderDetail_Web] @visit_id INT
+AS
+BEGIN
+	SELECT DISTINCT a.ptn_pharmacy_pk AS orderId
+		,a.Drug_Pk [DrugId]
+		,a.DrugName [DrugName]
+		,a.[Dispensing Unit Id] [DispensingUnitId]
+		,a.[Dispensing Unit] [Unit]
+		,dbo.fn_GetItemStock_Futures(a.Drug_Pk,0,'',a.StoreId) as AvailQty
+		,a.BatchNo
+		,a.BatchId
+		,CONVERT(VARCHAR(11), a.ExpiryDate, 113) [ExpiryDate]
+		,a.MorningDose AS Morning
+		,a.MiddayDose AS Midday
+		,a.EveningDose AS Evening
+		,a.NightDose AS Night
+		,a.Duration
+		,a.PillCount
+		,a.OrderedQuantity AS [QtyPrescribed]
+		,a.DispensedQuantity [QtyDispensed]
+		,a.Prophylaxis
+		,a.comments
+		,a.PatientInstructions AS [Instructions]
+		,a.PrintPrescriptionStatus
+		,a.RegimenType [GenericAbbrevation]
+		,ISNULL(a.QtyUnitDisp, 0) QtyUnitDisp
+		,ISNULL(a.syrup, 0) syrup
+		,a.UserID
+		,ISNULL(a.ProgID, 0) TreatmentProgram
+		,ISNULL(a.RegimenLine, 0) RegimenLine
+		,ISNULL(a.RegimenId, 0) RegimenId
+		,ISNULL(a.TreatmentPlan, 0) TreatmentPlan
+		,ISNULL(a.StoreId, 0) StoreId
+		,ISNULL(a.UnitSellingPrice, 0) AS SellingPrice
+		,a.PatientClassification
+		,ISNULL(a.IsEnrolDifferenciatedCare,0) as IsEnrolDifferenciatedCare
+		,a.ARTRefillModel
+	FROM vw_patientpharmacy a
+	WHERE a.VisitID = @visit_id;
+
+	SELECT TOP 1 OrderedBy
+		,CONVERT(VARCHAR, OrderedByDate, 106) AS OrderedByDate
+		,DispensedBy
+		,CONVERT(VARCHAR, DispensedByDate, 106) AS DispensedByDate
+		,ISNULL(ProgId, 0) [ProgId]
+		,ptn_pharmacy_pk
+		,StoreId
+	FROM vw_patientpharmacy
+	WHERE VisitID = @visit_id;
+
+	SELECT CASE 
+			WHEN a.OrderStatus = 1
+				THEN 'New Order'
+			WHEN a.OrderStatus = 3
+				THEN 'Partial Dispense'
+			ELSE 'Already Dispensed Order'
+			END [OrderStatus]
+	FROM dbo.ord_PatientPharmacyOrder a
+	WHERE VisitID = @visit_id;
+END;
+go
+--==
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+alter VIEW [dbo].[VW_PatientPharmacy]
+AS
+SELECT a.Ptn_pk
+, a.VisitID
+, a.LocationID
+, a.OrderedBy
+, a.OrderedByDate
+, a.DispensedBy
+, a.DispensedByDate
+, a.ProgID
+, a.OrderType
+, a.Height
+, a.Weight
+, a.ProviderID
+, a.PharmacyPeriodTaken
+, d.Drug_pk
+, d.DrugName
+, f.RegimenType
+, a.RegimenId
+, c.Duration
+, c.OrderedQuantity
+, c.DispensedQuantity
+, c.Prophylaxis
+, b.VisitDate, b.VisitType
+, a.ptn_pharmacy_pk
+, d.DrugType as DrugTypeId
+, e.ItemName AS DrugType
+, c.DispensedQuantity AS ActualQtyDispensed
+, c.ExpiryDate
+, ISNULL(a.StoreId, 0) AS StoreId
+, (select top 1 x.Name from Mst_Store x where x.StoreId=a.StoreId) AS StoreName
+, 0 AS BatchId
+, c.BatchNo
+, 0 as SellingPrice
+, 0 as CostPrice
+, 0 as Margin
+, 0 as BillAmount
+, '' as [Item Code]
+, '' as [FDA Code]
+, i.Name as [Dispensing Unit]
+, i.id as [Dispensing Unit Id]
+, d.MaxStock
+, d.MinStock
+, h.Name as PurchaseUnitId
+, h.id as [Purchase Unit]
+, c.FrequencyID
+, c.TreatmentPhase
+, c.Month
+, a.HoldMedicine
+, a.RegimenLine
+, a.PharmacyNotes
+, c.StrengthID
+, a.CreateDate
+, a.EmployeeID
+, a.Signature
+, '' as StrengthName
+, '' AS FrequencyName
+, 0 AS UnitSellingPrice
+, 0 as GenericID
+, d.DrugAbbreviation as GenericName
+, c.SingleDose
+, c.Financed
+, c.PrintPrescriptionStatus
+, c.PatientInstructions
+, a.ReportingID
+, 0 as multiplier
+, d.ItemInstructions
+, d.QtyUnitDisp
+, d.syrup
+, c.MorningDose
+, c.MiddayDose
+, c.EveningDose
+, c.NightDose
+, c.PillCount
+, c.comments
+, c.UserID
+, a.TreatmentPlan
+, b.PatientClassification
+, b.IsEnrolDifferenciatedCare
+, b.ARTRefillModel
+, g.RegimenName
+, g.RegimenCode
+FROM ord_PatientPharmacyOrder a
+INNER JOIN ord_Visit b ON a.VisitID = b.Visit_Id 
+INNER JOIN dtl_PatientPharmacyOrder c ON a.ptn_pharmacy_pk = c.ptn_pharmacy_pk
+LEFT JOIN mst_drug d ON c.Drug_Pk = d.Drug_pk
+left join Mst_ItemType e on d.DrugType = e.ItemTypeID
+left join dtl_RegimenMap f on b.Visit_Id=f.Visit_Pk
+left join mst_Regimen g on a.RegimenId=g.RegimenID
+left join Mst_DispensingUnit h on d.PurchaseUnit=h.Id
+left join Mst_DispensingUnit i on d.DispensingUnit=i.Id
+WHERE isnull(b.DeleteFlag,0) = 0
+GO
+--==
+
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ACY003', N'Acyclovir 400mg Tabs', 0, 1, CAST(N'2012-01-07 14:11:19.000' AS DateTime), CAST(N'2019-03-07 12:01:00.153' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(4 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(43.00 AS Decimal(18, 2)), 30, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 36)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM02FLU002', N'Fluconazole 200mg Tablets', 0, 1, CAST(N'2012-01-10 16:53:43.000' AS DateTime), CAST(N'2019-03-07 12:07:06.360' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(6 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(599.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-18 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 36)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Fluconazole 50mg Tablets', 0, 1, CAST(N'2012-01-10 16:54:25.000' AS DateTime), CAST(N'2019-03-07 12:08:26.077' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(1.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-18 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 36)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Isoniazid (INH) 300mg Tabs (pack of 100)', 0, 1, CAST(N'2012-01-10 16:58:58.000' AS DateTime), CAST(N'2019-03-07 13:08:26.857' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(100.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 0, 0, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Isoniazid-INH 100mg Tabs', 0, 1, CAST(N'2012-01-10 16:59:46.000' AS DateTime), CAST(N'2019-03-07 12:10:44.823' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(100.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM01DAP001', N'Dapsone 100mg Tabs', 0, 1, CAST(N'2012-01-11 16:05:59.000' AS DateTime), CAST(N'2019-03-07 12:06:21.393' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(1000.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-16 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 0, 0, N'', 36)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Ethambutol 400mg Tab', 0, 1, CAST(N'2012-01-11 16:47:40.000' AS DateTime), CAST(N'2019-03-07 12:09:57.163' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(100.00 AS Decimal(18, 2)), 28, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Pyrazinamide 500mg Tabs', 0, 1, CAST(N'2012-01-12 11:04:13.000' AS DateTime), CAST(N'2019-03-07 12:17:01.307' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(100.00 AS Decimal(18, 2)), 28, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Rifabutin 150mg Tab', 0, 1, CAST(N'2012-01-12 11:15:32.000' AS DateTime), CAST(N'2019-03-07 12:21:17.757' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(30.00 AS Decimal(18, 2)), 30, CAST(1.00 AS Decimal(18, 2)), 24, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM14PYR001', N'Pyridoxine (Vitamin B6) 50mg Tabs', 0, 1, CAST(N'2012-01-12 18:50:27.000' AS DateTime), CAST(N'2019-03-07 12:19:04.980' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(54.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-03-13 00:00:00.000' AS DateTime), NULL, N'', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 61)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Amphotericin B 50mg IV Injection', 0, 1, CAST(N'2012-01-13 12:37:43.000' AS DateTime), CAST(N'2019-03-07 12:02:49.790' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(1.00 AS Decimal(18, 2)), 1, CAST(1.00 AS Decimal(18, 2)), 56, 1, CAST(N'2012-01-17 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'', 15)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM01CTX002', N'Cotrimoxazole 240mg/5ml Suspension', 0, 1, CAST(N'2012-01-14 15:03:19.000' AS DateTime), CAST(N'2019-03-07 12:05:30.757' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(27 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(27.00 AS Decimal(18, 2)), 1, CAST(27.00 AS Decimal(18, 2)), 67, 67, CAST(N'2012-01-18 00:00:00.000' AS DateTime), NULL, N'', NULL, 522, NULL, NULL, NULL, 1, N'', 5, 0, 0, 0, N'', 4)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM01CTX006', N'Cotrimoxazole 960mg Tabs', 0, 1, CAST(N'2012-01-16 13:24:04.000' AS DateTime), CAST(N'2019-03-07 12:04:07.920' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(2 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(167.00 AS Decimal(18, 2)), 100, CAST(2.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-18 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 0, 0, N'', 36)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ABA001', N'Abacavir (ABC) 300mg Tabs', 0, 1, CAST(N'2012-01-17 11:34:11.000' AS DateTime), CAST(N'2019-03-07 10:52:34.830' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(18 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(1100.00 AS Decimal(18, 2)), 60, CAST(18.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'ABC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'', N'Atazanavir/Ritonavir-(ATV/r) 300/100mg Tablets', 0, 1, CAST(N'2012-01-17 11:41:24.000' AS DateTime), CAST(N'2019-03-07 10:56:33.867' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'ATV/r', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Atazanavir (ATV) 100mg caps', 0, 1, CAST(N'2012-01-17 11:42:27.000' AS DateTime), CAST(N'2019-03-07 11:32:48.707' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(60.00 AS Decimal(18, 2)), 60, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'ATV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Zidovudine (AZT) liquid 10mg/ml', 0, 1, CAST(N'2012-01-17 11:43:21.000' AS DateTime), CAST(N'2019-03-07 11:58:08.663' AS DateTime), NULL, NULL, NULL, 1, NULL, NULL, NULL, 1, NULL, 124, 124, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'AZT', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ZDV005', N'Zidovudine (AZT) 300mg Tabs', 0, 1, CAST(N'2012-01-17 11:53:56.000' AS DateTime), CAST(N'2019-03-07 11:24:22.090' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'AZT', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Tenofovir DF-TDF300 300mg', 0, 1, CAST(N'2012-01-17 12:02:11.000' AS DateTime), CAST(N'2019-03-07 11:14:24.700' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(60.00 AS Decimal(18, 2)), 60, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 1, 0, N'TDF', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Darunavir (DRV) 150mg tabs', 0, 1, CAST(N'2012-01-17 12:25:08.000' AS DateTime), CAST(N'2019-03-07 11:34:24.520' AS DateTime), NULL, NULL, NULL, 1, NULL, NULL, NULL, 240, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'DRV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Darunavir (DRV) 600mg Tablets', 0, 1, CAST(N'2012-01-17 12:25:08.000' AS DateTime), CAST(N'2019-03-07 10:58:12.920' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(60.00 AS Decimal(18, 2)), 60, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'DRV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Darunavir (DRV) 75mg', 0, 1, CAST(N'2012-01-17 12:25:08.000' AS DateTime), CAST(N'2019-03-07 11:35:35.757' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(480.00 AS Decimal(18, 2)), 480, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'DRV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Ritonavir-RTV100 100mg', 0, 1, CAST(N'2012-01-17 12:26:35.000' AS DateTime), CAST(N'2019-03-07 11:13:55.700' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(60.00 AS Decimal(18, 2)), 60, CAST(1.00 AS Decimal(18, 2)), 51, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'RTV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ABA004', N'Abacavir/Lamivudine (ABC/3TC) 600/300mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:26:41.000' AS DateTime), CAST(N'2019-03-07 10:54:06.693' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(5 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(279.00 AS Decimal(18, 2)), 60, CAST(5.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-08-07 00:00:00.000' AS DateTime), NULL, N'', 0, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, N'ABC/3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'', N'Abacavir/Lamivudine (ABC/3TC) 60/30mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:27:34.000' AS DateTime), CAST(N'2019-03-07 11:30:00.580' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', 0, 0, 0, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, N'3TC/ABC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04NEV002', N'Nevirapine (NVP) 10mg/ml Susp', 0, 1, CAST(N'2012-01-17 12:37:52.000' AS DateTime), CAST(N'2019-03-07 11:52:48.127' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(157 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(157.00 AS Decimal(18, 2)), 1, CAST(157.00 AS Decimal(18, 2)), 67, 72, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 522, NULL, NULL, NULL, 1, N'', 0, 0, 0, 0, N'NVP', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04NEV003', N'Nevirapine (NVP) 200mg Tabs', 0, 1, CAST(N'2012-01-17 12:39:36.000' AS DateTime), CAST(N'2019-03-07 11:11:39.490' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(4 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(238.00 AS Decimal(18, 2)), 60, CAST(4.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 1, N'', 1, 0, 1, 0, N'NVP', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04LAM007', N'Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 60/30/50mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:49:47.000' AS DateTime), CAST(N'2019-03-07 11:59:16.917' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'AZT/3TC/NVP', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ZDV006', N'Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 300/150/200mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:51:55.000' AS DateTime), CAST(N'2019-03-07 11:26:45.543' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'AZT/3TC/NVP', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04LAM008', N'Zidovudine/Lamivudine (AZT/3TC) 60/30mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:53:28.000' AS DateTime), CAST(N'2019-03-07 11:58:48.463' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'AZT', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04LAM005', N'Zidovudine/Lamivudine (AZT/3TC) 300/150mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:54:41.000' AS DateTime), CAST(N'2019-03-07 11:25:37.057' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'AZT/3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PMTEN003', N'Tenofovir/Lamivudine/Efavirenz (TDF/3TC/EFV) 300/300/600mg FDC Tabs', 0, 1, CAST(N'2012-01-17 12:57:05.000' AS DateTime), CAST(N'2019-03-07 11:23:40.860' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', 0, 0, 0, NULL, 0, 0, N'', 0, 0, 1, 0, N'TDF/3TC/EFV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04TEN001', N'Tenofovir DF/Lamivudine-TDF300/3TC300 300mg/300mg', 0, 1, CAST(N'2012-01-17 13:04:53.000' AS DateTime), CAST(N'2019-03-07 11:17:31.540' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(14 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(421.00 AS Decimal(18, 2)), 30, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'TDF/3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04EFA005', N'Efavirenz (EFV) 200mg Tabs', 0, 1, CAST(N'2012-01-17 16:33:49.000' AS DateTime), CAST(N'2019-03-07 11:37:16.470' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 90, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 1, 0, N'EFV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04EF4004', N'Efavirenz (EFV) 600mg Tabs', 0, 1, CAST(N'2012-01-17 16:34:51.000' AS DateTime), CAST(N'2019-03-07 10:59:32.273' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 1, 0, N'EFV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Dolutegravir-DTG 50 mg', 0, 1, CAST(N'2012-01-17 16:36:25.000' AS DateTime), CAST(N'2019-03-07 10:58:42.393' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2017-10-01 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'DTG', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Lamivudine (3TC) liquid 10mg/ml (240ml bottles)', 0, 1, CAST(N'2012-01-17 16:48:11.000' AS DateTime), CAST(N'2019-03-07 14:29:22.813' AS DateTime), NULL, NULL, NULL, 1, NULL, NULL, NULL, 1, NULL, 123, 123, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04LAM003', N'Lamivudine (3TC) 150mg Tabs', 0, 1, CAST(N'2012-01-17 16:48:11.000' AS DateTime), CAST(N'2019-03-07 11:09:36.843' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 60, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2015-01-22 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 1, 0, 1, 0, N'3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Lopinavir/ritonavir (LPV/r) 200/50mg Tabs', 0, 1, CAST(N'2012-01-17 16:57:24.000' AS DateTime), CAST(N'2019-03-07 11:11:06.190' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(120.00 AS Decimal(18, 2)), 120, CAST(1.00 AS Decimal(18, 2)), 20, 20, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'LPV/r', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Lopinavir/Ritonavir-LPV/r 100mg/25mg tabs', 0, 1, CAST(N'2012-01-17 17:01:38.000' AS DateTime), CAST(N'2019-03-07 11:43:31.240' AS DateTime), NULL, NULL, NULL, 1, NULL, NULL, NULL, 60, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'LPV/r', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04LPN002', N'Lopinavir/ritonavir (LPV/r) 80/20mg/ml Liquid', 0, 1, CAST(N'2012-01-17 17:48:54.000' AS DateTime), CAST(N'2019-03-07 11:48:29.020' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(1.00 AS Decimal(18, 2)), 1, CAST(0.00 AS Decimal(18, 2)), 186, 183, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, N'', NULL, 522, NULL, NULL, NULL, 1, N'', 0, 0, 0, 0, N'LPV/r', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'0', N'Lopinavir/Ritonavir (LPV/r) 40mg/10mg Caps', 0, 1, CAST(N'2012-01-17 17:49:44.000' AS DateTime), CAST(N'2019-03-07 11:45:15.763' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(0.00 AS Decimal(18, 2)), 120, CAST(0.00 AS Decimal(18, 2)), 37, 37, CAST(N'2017-10-01 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'LPV/r', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Tenofovir/Emtricitabine (TDF/FTC) 300mg/200mg Tabs', 0, 1, CAST(N'2017-06-07 17:38:58.510' AS DateTime), CAST(N'2019-03-07 11:16:04.377' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 1, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2017-05-01 00:00:00.000' AS DateTime), 0, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'FTC/TDF', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Tenofovir/Lamivudine/Dolutegravir (TDF/3TC/DTG) 300mg/300mg/50mg FDC tabs', 0, 1, CAST(N'2018-11-16 11:35:35.167' AS DateTime), CAST(N'2019-03-07 11:19:52.613' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 3, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2018-11-16 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'TDF/3TC/DTG', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Abacavir/Lamivudine-ABC/3TC 120mg/60mg', 0, 1, CAST(N'2019-01-10 14:44:43.457' AS DateTime), CAST(N'2019-03-07 11:29:23.110' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 21, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2019-01-10 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'ABC/3TC', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Tenofovir DF/Lamivudine/Efavirenz-TDF/3TC/EFV 300mg/300mg/400mg', 0, 1, CAST(N'2019-01-29 11:14:52.117' AS DateTime), CAST(N'2019-03-07 11:21:58.400' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 21, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), 30, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2019-02-28 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'TDF/3TC/EFV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Pyridoxine 25mg tabs', 0, 1, CAST(N'2019-02-14 16:36:07.890' AS DateTime), CAST(N'2019-03-07 12:20:22.213' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), N'', 21, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), 100, CAST(0.00 AS Decimal(18, 2)), 51, 37, CAST(N'2019-02-14 00:00:00.000' AS DateTime), NULL, N'', NULL, 0, NULL, NULL, NULL, 0, N'', 0, 0, 0, 0, N'', 61)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Etravirine (ETV) 200mg tablets', 0, 1, CAST(N'2019-03-07 11:08:50.770' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 60, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'ETV', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Raltegravir (RAL) 400mg Tabs', 0, 1, CAST(N'2019-03-07 12:31:13.463' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 60, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'RAL', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Darunavir (DRV) susp 100mg/ml', 0, 1, CAST(N'2019-03-07 12:33:59.590' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 123, 124, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Raltegravir (RAL) 100mg Tabs', 0, 1, CAST(N'2019-03-07 12:35:39.143' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 60, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'RAL', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Raltegravir (RAL) 25mg Tabs', 0, 1, CAST(N'2019-03-07 12:36:38.617' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 60, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'RAL', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Ritonavir (RTV) liquid 80mg/ml', 0, 1, CAST(N'2019-03-07 12:38:23.687' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 197, 197, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'', 37)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Isoniazid (INH) 10mg/ml', 0, 1, CAST(N'2019-03-07 12:41:35.163' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 83, 83, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (NULL, N'Isoniazid (INH) 300mg Tabs (pack of 672)', 0, 1, CAST(N'2019-03-07 13:09:39.727' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 672, NULL, 51, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 31)
+GO
+--==
+
+if not exists(select * from dtl_DrugStockTransactions)
+begin
+insert into dtl_DrugStockTransactions(drug_pk,TransactionDate,TransactionType,StoreId,SourceStoreId,SupplierId,Quantity,StoreBal,BatchNo,ExpiryDate,ptn_pharmacy_pk,userid,createdate)
+select Drug_pk, '01-Mar-2019', 1, 3,0,0,10000,10000,'XXX','31-Dec-2022', 0,1,'01-Mar-2019' from mst_Drug where DeleteFlag=0
+end
+go
+--==

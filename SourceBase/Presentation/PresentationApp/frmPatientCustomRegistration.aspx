@@ -137,14 +137,6 @@
                     document.getElementById('ctl00_IQCareContentPlaceHolder_txtageCurrentMonths').value = "";
                 }
             }
-            //            if (document.getElementById(txtAge).value < 15) {
-            //                document.getElementById('Adult Patient Demographic Information').style.display = 'none';
-            //                document.getElementById('Paediatric Patient Demographic Information').style.display = 'block';
-            //            }
-            //            else {
-            //                document.getElementById('Adult Patient Demographic Information').style.display = 'block';
-            //                document.getElementById('Paediatric Patient Demographic Information').style.display = 'none';
-            //            }          
         }
         function jsAreaClose(id) {
             document.getElementById(id).style.display = 'none';
@@ -176,18 +168,6 @@
 
         }
 
-        //        function chkLength() {
-        //            var nationaID = document.getElementById('<%=txtNationalID.ClientID %>').value;
-        //            var showAlert = false;
-        //            if (nationaID.length != 8) {
-        //                if (showAlert == false) {
-        //                    alert("National-ID should be 8 digits.");
-        //                    document.getElementById('<%=txtNationalID.ClientID %>').focus();
-        //                    showAlert = true;
-        //                }
-        //            }
-        //        }
-
         function fnshow() {
 
             var status = '<%=Request.QueryString["name"]%>';
@@ -211,14 +191,14 @@
         }
        
     </script>
-    <div class="content-wrapper">       
+    <div class="content-wrapper">
         <div class="box-body">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-primary box-solid">
                         <div class="box-header with-border">
                             <h3 class="box-title">
-                                IQCare Registration</h3>
+                                Registration Form</h3>
                         </div>
                         <!-- /.box-header -->
                         <%--Main Content Start--%>
@@ -262,7 +242,7 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label class="control-label">
-                                                    First Name:</label>
+                                                    <font color="blue">First Name:</font></label>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <asp:TextBox ID="txtfirstName" MaxLength="50" runat="server" class="form-control"></asp:TextBox>
@@ -280,7 +260,7 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
-                                                    Last Name:</label>
+                                                    <font color="blue">Last Name:</font></label>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <asp:TextBox ID="txtlastName" onchange="fnshow();" onblur="fnshow();" MaxLength="50"
@@ -290,7 +270,7 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
-                                                    Sex:</label>
+                                                    <font color="blue">Sex:</font></label>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <asp:DropDownList ID="ddgender" runat="server" class="form-control" Width="100">
@@ -310,7 +290,7 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
-                                                    Date of Birth:</label>
+                                                    <font color="blue">Date of Birth:</font></label>
                                             </div>
                                             <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                                                 <div class="form-group">
@@ -318,8 +298,6 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <%--<input type="text" class="form-control pull-left" id="TxtDOB" clientidmode="Static"
-                                                            maxlength="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;" />--%>
                                                         <asp:TextBox ID="TxtDOB" MaxLength="11" runat="server" Width="110px" class="form-control pull-left"
                                                             data-date-format="dd-M-yyyy" ClientIDMode="Static" onblur="DateFormat(this, this.value, event, true, '3');
                                                             ValidateAge(); CalcualteAge('txtageCurrentYears', 'txtageCurrentMonths', 'TxtDOB', 'txtSysDate');"></asp:TextBox>
@@ -327,8 +305,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-1 col-sm-12 col-xs-12 form-group text-nowrap">
-                                                <input id="rbtndobPrecExact" onmouseup="up(this);" onfocus="up(this);calculate_age_Exact();" onclick="down(this);calculate_age_Exact();"
-                                                    type="radio" value="1" name="dobPrecision" runat="server">
+                                                <input id="rbtndobPrecExact" onmouseup="up(this);" onfocus="up(this);calculate_age_Exact();"
+                                                    onclick="down(this);calculate_age_Exact();" type="radio" value="1" name="dobPrecision"
+                                                    runat="server">
                                                 <span class="smalllabel">Exact </span>
                                             </div>
                                             <div class="col-md-1 col-sm-12 col-xs-12 form-group text-nowrap">
@@ -340,7 +319,7 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
-                                                    Registration Date:</label>
+                                                    <font color="blue">Registration Date:</font></label>
                                             </div>
                                             <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                 <div class="form-group">
@@ -351,17 +330,6 @@
                                                         <input type="text" class="form-control pull-left" id="txtRegDate" clientidmode="Static"
                                                             maxlength="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;" />
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
-                                                <label for="inputEmail3" class="control-label">
-                                                    National ID:</label>
-                                            </div>
-                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                                <div class="form-group">
-                                                    <asp:TextBox ID="txtNationalID" MaxLength="8" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -436,36 +404,36 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            Chief/Local Council:</label>
+                                                            <font color="blue">Place of residence:</font></label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:TextBox ID="txtlocalCouncil" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            Residence/Address/PO Box:</label>
+                                                            Landmark:</label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:TextBox ID="txtaddress" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            Phone Number:</label>
+                                                            <font color="blue">Phone Number:</font></label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:TextBox ID="txtphone" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            Village/Town/City Name:</label>
+                                                            Village/Town/Estate:</label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:DropDownList ID="ddvillageName" runat="server" class="form-control">
                                                         </asp:DropDownList>
                                                     </div>
@@ -477,7 +445,7 @@
                                                         <label for="inputEmail3" class="control-label">
                                                             Country:</label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:DropDownList ID="ddCountry" runat="server" class="form-control">
                                                         </asp:DropDownList>
                                                     </div>
@@ -485,9 +453,9 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            Province/State:</label>
+                                                            County:</label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:DropDownList ID="ddProvince" runat="server" class="form-control" AutoPostBack="true">
                                                         </asp:DropDownList>
                                                     </div>
@@ -495,9 +463,9 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                         <label for="inputEmail3" class="control-label">
-                                                            District/County/Ward/LGA:</label>
+                                                            District/Sub county:</label>
                                                     </div>
-                                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                         <asp:DropDownList ID="dddistrictName" runat="server" class="form-control">
                                                         </asp:DropDownList>
                                                     </div>
@@ -518,13 +486,13 @@
                             </div>
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-xs-8 col-md-7">
+                                    <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
                                                     Emergency Contact Name:</label>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                 <asp:TextBox ID="txtemergContactName" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
@@ -533,37 +501,37 @@
                                                 <label for="inputEmail3" class="control-label">
                                                     Emergency Contact Phone Number:</label>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                 <asp:TextBox ID="txtemergContactPhone" runat="server" class="form-control"> </asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" style="display: none;">
                                             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                                                 <label for="inputEmail3" class="control-label">
                                                     Application Date Format</label>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
                                                 <asp:TextBox ID="txtSysDate" runat="server" class="form-control" Width="120" ReadOnly="true"> </asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-4 col-md-5">
+                                    <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-5 form-group">
                                                 <label for="inputEmail3" class="control-label">
                                                     Emergency Contact Relationship:</label>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-7 form-group">
                                                 <asp:DropDownList ID="ddEmergContactRelation" runat="server" class="form-control">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-5 form-group">
                                                 <label for="inputEmail3" class="control-label">
                                                     Emergency Contact Address:</label>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                            <div class="col-md-7 form-group">
                                                 <asp:TextBox ID="txtemergContactAddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
@@ -571,18 +539,57 @@
                                 </div>
                             </div>
                         </div>
-                        <%--Main Content End--%>
-                        <%--Dynamic Content Begin--%>
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-5 col-sm-12 col-xs-12 form-group">
-                                    <asp:Panel class="border center formbg" ID="PnlDynamicElements" Width="100%" runat="server">
-                                        <br />
-                                    </asp:Panel>
+                         <div class="box box-primary" style="background-color: #fff;">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">
+                                    Next of Kin / Treatment Supporter</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <label for="inputEmail3" class="control-label">
+                                                    Next of Kin Name:</label>
+                                            </div>
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
+                                                <asp:TextBox ID="txtNOKName" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <label for="inputEmail3" class="control-label">
+                                                    Next of Kin Phone Number:</label>
+                                            </div>
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
+                                                <asp:TextBox ID="txtNOKPhone" runat="server" class="form-control"> </asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <label for="inputEmail3" class="control-label">
+                                                    Next of Kin Relationship:</label>
+                                            </div>
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
+                                                <asp:DropDownList ID="ddlNOKRelationship" runat="server" class="form-control">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <label for="inputEmail3" class="control-label">
+                                                    Next of Kin Contact Address:</label>
+                                            </div>
+                                            <div class="col-md-7 col-sm-12 col-xs-12 form-group">
+                                                <asp:TextBox ID="txtNOKAddress" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <%--Dynamic Content End--%>
                         <div class="row" align="center">
                             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                 <asp:HiddenField ID="HdnCntrl" runat="server" />
@@ -606,5 +613,4 @@
             </div>
         </div>
     </div>
-   
 </asp:Content>

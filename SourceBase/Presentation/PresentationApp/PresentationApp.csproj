@@ -1736,6 +1736,13 @@
     <Compile Include="HIVCE\frm_GreenCard.aspx.designer.cs">
       <DependentUpon>frm_GreenCard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HIVCE\MoriskyAdherence.aspx.cs">
+      <DependentUpon>MoriskyAdherence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HIVCE\MoriskyAdherence.aspx.designer.cs">
+      <DependentUpon>MoriskyAdherence.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HIVCE\RefillEncounterForm.aspx.cs">
       <DependentUpon>RefillEncounterForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4937,6 +4944,7 @@
     <Content Include="HIVCE\Controls\ucSystemicReview.ascx" />
     <Content Include="HIVCE\frm_GreenCard.aspx" />
     <Content Include="HIVCE\HTMLPage1.htm" />
+    <Content Include="HIVCE\MoriskyAdherence.aspx" />
     <Content Include="HIVCE\RefillEncounterForm.aspx" />
     <Content Include="HIVCE\Scripts\AlcoholDepressionScreening.js" />
     <Content Include="HIVCE\Scripts\ARTReadinessAssessment.js" />
@@ -6610,7 +6618,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -93,15 +93,6 @@ public partial class frmPatientCustomRegistration {
     protected global::System.Web.UI.HtmlControls.HtmlInputText txtRegDate;
     
     /// <summary>
-    /// txtNationalID control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtNationalID;
-    
-    /// <summary>
     /// imgpatient control.
     /// </summary>
     /// <remarks>
@@ -282,13 +273,40 @@ public partial class frmPatientCustomRegistration {
     protected global::System.Web.UI.WebControls.TextBox txtemergContactAddress;
     
     /// <summary>
-    /// PnlDynamicElements control.
+    /// txtNOKName control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel PnlDynamicElements;
+    protected global::System.Web.UI.WebControls.TextBox txtNOKName;
+    
+    /// <summary>
+    /// txtNOKPhone control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtNOKPhone;
+    
+    /// <summary>
+    /// ddlNOKRelationship control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlNOKRelationship;
+    
+    /// <summary>
+    /// txtNOKAddress control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtNOKAddress;
     
     /// <summary>
     /// HdnCntrl control.
