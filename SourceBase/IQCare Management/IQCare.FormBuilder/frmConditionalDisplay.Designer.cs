@@ -54,14 +54,14 @@
             this.pnlCondFields.Controls.Add(this.label3);
             this.pnlCondFields.Location = new System.Drawing.Point(2, 4);
             this.pnlCondFields.Name = "pnlCondFields";
-            this.pnlCondFields.Size = new System.Drawing.Size(851, 505);
+            this.pnlCondFields.Size = new System.Drawing.Size(759, 444);
             this.pnlCondFields.TabIndex = 62;
             this.pnlCondFields.Tag = "pnlPanel";
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDelete.Location = new System.Drawing.Point(442, 472);
+            this.btnDelete.Location = new System.Drawing.Point(396, 411);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 52;
@@ -73,7 +73,7 @@
             // btnBack
             // 
             this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnBack.Location = new System.Drawing.Point(361, 472);
+            this.btnBack.Location = new System.Drawing.Point(315, 411);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 51;
@@ -107,30 +107,30 @@
             this.dgwConditionalField.AllowUserToDeleteRows = false;
             this.dgwConditionalField.AllowUserToResizeColumns = false;
             this.dgwConditionalField.AllowUserToResizeRows = false;
-            this.dgwConditionalField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwConditionalField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwConditionalField.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgwConditionalField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwConditionalField.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgwConditionalField.Location = new System.Drawing.Point(3, 33);
             this.dgwConditionalField.Name = "dgwConditionalField";
-            this.dgwConditionalField.Size = new System.Drawing.Size(802, 433);
+            this.dgwConditionalField.Size = new System.Drawing.Size(710, 372);
             this.dgwConditionalField.TabIndex = 42;
             this.dgwConditionalField.Tag = "dgwDataGridView";
+            this.dgwConditionalField.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwConditionalField_CellClick);
+            this.dgwConditionalField.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwConditionalField_CellFormatting);
             this.dgwConditionalField.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwConditionalField_CellLeave);
             this.dgwConditionalField.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwConditionalField_CellMouseLeave);
-            this.dgwConditionalField.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwConditionalField_CellFormatting);
-            this.dgwConditionalField.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwConditionalField_CellClick);
-            this.dgwConditionalField.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgwConditionalField_EditingControlShowing);
             this.dgwConditionalField.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgwConditionalField_DataError);
+            this.dgwConditionalField.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgwConditionalField_EditingControlShowing);
             this.dgwConditionalField.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgwConditionalField_KeyDown);
             // 
             // theUPExitReason
             // 
             this.theUPExitReason.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.theUPExitReason.Image = ((System.Drawing.Image)(resources.GetObject("theUPExitReason.Image")));
-            this.theUPExitReason.Location = new System.Drawing.Point(811, 205);
+            this.theUPExitReason.Location = new System.Drawing.Point(719, 175);
             this.theUPExitReason.Name = "theUPExitReason";
             this.theUPExitReason.Size = new System.Drawing.Size(24, 26);
             this.theUPExitReason.TabIndex = 47;
@@ -142,7 +142,7 @@
             // 
             this.theDownExitreason.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.theDownExitreason.Image = ((System.Drawing.Image)(resources.GetObject("theDownExitreason.Image")));
-            this.theDownExitreason.Location = new System.Drawing.Point(811, 274);
+            this.theDownExitreason.Location = new System.Drawing.Point(719, 244);
             this.theDownExitreason.Name = "theDownExitreason";
             this.theDownExitreason.Size = new System.Drawing.Size(24, 26);
             this.theDownExitreason.TabIndex = 46;
@@ -154,7 +154,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(806, 246);
+            this.label3.Location = new System.Drawing.Point(714, 216);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 48;

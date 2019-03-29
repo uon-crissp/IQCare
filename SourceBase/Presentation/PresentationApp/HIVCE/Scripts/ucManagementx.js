@@ -118,7 +118,9 @@ function InitManagementControls(response) {
     ReInitialiseAppointmentsDatatable();
 
     //GetManagementData();
-    BindManagementData(response);
+    if (response.length != 0) {
+        BindManagementData(response);
+    }
 }
 
 function EnableDisableSTIOption(ctrlValue) {

@@ -130795,6 +130795,26 @@
     <SystemID>1</SystemID>
     <CodeName>ReferralPeads</CodeName>
   </Mst_ModDecode>
+  <Mst_ModDecode>
+    <ID>1134</ID>
+    <NAME>Yes</NAME>
+    <Predefined>0</Predefined>
+    <CodeID>231</CodeID>
+    <SRNo>1</SRNo>
+    <DeleteFlag>0</DeleteFlag>
+    <SystemID>1</SystemID>
+    <CodeName>CurrentART</CodeName>
+  </Mst_ModDecode>
+  <Mst_ModDecode>
+    <ID>1135</ID>
+    <NAME>No</NAME>
+    <Predefined>0</Predefined>
+    <CodeID>231</CodeID>
+    <SRNo>2</SRNo>
+    <DeleteFlag>0</DeleteFlag>
+    <SystemID>1</SystemID>
+    <CodeName>CurrentART</CodeName>
+  </Mst_ModDecode>
   <Mst_ARVSideEffects>
     <ID>1</ID>
     <Name>Anemia</Name>
@@ -132774,6 +132794,14 @@
     <UserID>1</UserID>
     <CreateDate>2016-04-11T14:25:00.203+03:00</CreateDate>
     <Name>ReferralPeads</Name>
+  </Mst_ModCode>
+  <Mst_ModCode>
+    <CodeID>231</CodeID>
+    <DeleteFlag>0</DeleteFlag>
+    <Predefined>0</Predefined>
+    <UserID>1</UserID>
+    <CreateDate>2019-03-27T15:43:34.107+03:00</CreateDate>
+    <Name>CurrentART</Name>
   </Mst_ModCode>
   <Mst_Town>
     <ID>1</ID>

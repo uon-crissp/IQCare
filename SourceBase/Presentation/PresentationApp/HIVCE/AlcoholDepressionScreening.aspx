@@ -23,7 +23,7 @@
                         <div class="box box-primary box-solid">
                             <div class="box-header with-border">
                                 <h3 class="box-title">
-                                    Alcohol Depression Screening</h3>
+                                    Alcohol, GBV and Depression Screening</h3>
                                 <!-- /.box-tools -->
                             </div>
                             <!-- /.box-header -->

@@ -2418,5 +2418,25 @@ namespace HIVCE.BusinessLayer
             }
             return oiChronicDisease;
         }
+
+        public int SaveUpdateMoriskyData(DataTable obj, int userId, int locationId)
+        {
+            CLogger.WriteLog(ELogLevel.INFO, "BLClinicalEncounter.SaveRefillEncounterData() method called");
+            int flag = 1;
+            try
+            {
+                dbLayer = new DBClinicalEncounter();
+                dbLayer.SaveUpdateMoriskyData(obj, userId, locationId);
+                flag = 1;
+            }
+            catch (Exception ex)
+            {
+                flag = 0;
+                CLogger.WriteLog(ELogLevel.ERROR, "BLClinicalEncounter.SaveRefillEncounterData() Method:" + ex.ToString());
+                throw ex;
+            }
+            return flag;
+        }
+
     }
 }

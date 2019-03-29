@@ -720,22 +720,18 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                         }
                     }
                 }
-
-
             }
-
             else if (Field[0].ToUpper() == "TXTDT")
             {
-                // Date format for like "MMM-yyyy"
-                //if (Field[1] == Convert.ToString(DR["FieldName"]) && Convert.ToString(DR["BusRuleId"]) == "21")
-                //{
-                //    //isDateSet = true;
-                //    TextBox theDateText = (TextBox)theControl;
-                //    theDateText.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,'4')");
-                //    theDateText.Attributes.Add("onblur", "DateFormat(this,this.value,event,true,'4')");
-                //    DIVCustomItem.Controls.Add(new LiteralControl("<span class='smallerlabel'>(MMM-YYYY)</span>"));
-                //}
-
+                //Date format for like "MMM-yyyy"
+                if (Field[1] == Convert.ToString(DR["FieldName"]) && Convert.ToString(DR["BusRuleId"]) == "21")
+                {
+                    //isDateSet = true;
+                    TextBox theDateText = (TextBox)theControl;
+                    theDateText.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,'4')");
+                    theDateText.Attributes.Add("onblur", "DateFormat(this,this.value,event,true,'4')");
+                    DIVCustomItem.Controls.Add(new LiteralControl("<span class='smallerlabel'>(MMM-YYYY)</span>"));
+                }
             }
             else
             {
@@ -761,7 +757,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
 
                 }
 
-
                 if (Field[1] == Convert.ToString(DR["FieldName"]) && Field[2] == Convert.ToString(DR["TableName"]) && Field[3] == Convert.ToString(DR["FieldId"])
                     && Convert.ToString(DR["BusRuleId"]) == "14" && Session["PatientSex"].ToString() != "Male")
                     theEnable = false;
@@ -775,6 +770,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 {
                     if (Convert.ToDecimal(Session["PatientAge"]) >= Convert.ToDecimal(DR["Value"]) && Convert.ToDecimal(Session["PatientAge"]) <= Convert.ToDecimal(DR["Value1"]))
                     {
+
                     }
                     else
                         theEnable = false;
@@ -844,21 +840,13 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                     tbox.Attributes.Add("onblur", "checkMin('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + tbox.ClientID + "', '" + Column + "', '" + Min + "')");
                 }
             }
-            //else if (Max != "" && Min != "" && MaxNormalval != "" && MinNormalVal != "")
-            //{
-            //    if (!tbox.ClientID.Contains("ctl00_IQCareContentPlaceHolder_"))
-            //    {
-            //        tbox.Attributes.Add("onblur", "isCheckNormal('ctl00_IQCareContentPlaceHolder_" + tabcontainer.ID + "_" + tbChildPanel.ID + "_" + tbox.ClientID + "', '" + Column + "', '" + Min + "', '" + Max + "', '" + MinNormalVal + "', '" + MaxNormalval + "')");
-            //    }
-            //}
 
-
+            tbox.Enabled = theEnable;
         }
         else if (theControl.GetType().ToString() == "System.Web.UI.WebControls.DropDownList")
         {
             DropDownList ddList = (DropDownList)theControl;
             ddList.Enabled = theEnable;
-
         }
         else if (theControl.GetType().ToString() == "System.Web.UI.WebControls.CheckBox")
         {
@@ -868,7 +856,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         else if (theControl.GetType().ToString() == "System.Web.UI.HtmlControls.HtmlInputRadioButton")
         {
             HtmlInputRadioButton Rdobtn = (HtmlInputRadioButton)theControl;
-            //Rdobtn.Visible = theEnable;
+            Rdobtn.Disabled = !theEnable;
         }
         else if (theControl.GetType().ToString() == "System.Web.UI.WebControls.Image")
         {
@@ -885,13 +873,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             Button tbtn = (Button)theControl;
             tbtn.Enabled = theEnable;
         }
-        //}
-        //catch (Exception err)
-        //{
-        //    MsgBuilder theBuilder = new MsgBuilder();
-        //    theBuilder.DataElements["MessageText"] = err.Message.ToString();
-        //    IQCareMsgBox.Show("#C1", theBuilder, this);
-        //}
     }
 
     private void RegimenSessionSetting(int RegimenType, string controlId, string Regimen)

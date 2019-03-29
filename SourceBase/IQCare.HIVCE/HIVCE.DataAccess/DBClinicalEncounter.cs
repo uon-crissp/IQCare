@@ -1566,7 +1566,55 @@ namespace HIVCE.DataAccess
             return ds;
         }
 
+        public int SaveUpdateMoriskyData(DataTable obj, int userId, int locationId)
+        {
+            ClsObject clsObjTP = new ClsObject();
+            CLogger.WriteLog(ELogLevel.INFO, "DBClinicalEncounter.SaveUpdateMoriskyData() Method Called.");
 
+            int i = 1;
+
+            try
+            {
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@Ptn_pk", SqlDbType.VarChar, obj.Rows[0]["ptn_pk"].ToString());
+                ClsUtility.AddParameters("@Visit_Pk", SqlDbType.VarChar, obj.Rows[0]["Visit_Pk"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, obj.Rows[0]["visitdate"].ToString());
+                ClsUtility.AddParameters("@LocationId", SqlDbType.VarChar, obj.Rows[0]["LocationId"].ToString());
+                ClsUtility.AddParameters("@UserID", SqlDbType.VarChar, obj.Rows[0]["UserID"].ToString());
+                ClsUtility.AddParameters("@ForgetMedicineSinceLastVisit", SqlDbType.VarChar, obj.Rows[0]["ForgetMedicineSinceLastVisit"].ToString());
+                ClsUtility.AddParameters("@CarelessAboutTakingMedicine", SqlDbType.VarChar, obj.Rows[0]["CarelessAboutTakingMedicine"].ToString());
+                ClsUtility.AddParameters("@FeelWorseStopTakingMedicine", SqlDbType.VarChar, obj.Rows[0]["FeelWorseStopTakingMedicine"].ToString());
+                ClsUtility.AddParameters("@FeelBetterStopTakingMedicine", SqlDbType.VarChar, obj.Rows[0]["FeelBetterStopTakingMedicine"].ToString());
+                ClsUtility.AddParameters("@TakeMedicineYesterday", SqlDbType.VarChar, obj.Rows[0]["TakeMedicineYesterday"].ToString());
+                ClsUtility.AddParameters("@SymptomsUnderControl_StopTakingMedicine", SqlDbType.VarChar, obj.Rows[0]["SymptomsUnderControl_StopTakingMedicine"].ToString());
+                ClsUtility.AddParameters("@UnderPresureStickingYourTreatmentPlan", SqlDbType.VarChar, obj.Rows[0]["UnderPresureStickingYourTreatmentPlan"].ToString());
+                ClsUtility.AddParameters("@RememberingMedications", SqlDbType.VarChar, obj.Rows[0]["RememberingMedications"].ToString());
+                ClsUtility.AddParameters("@MMAS4_Score", SqlDbType.VarChar, obj.Rows[0]["MMAS4_Score"].ToString());
+                ClsUtility.AddParameters("@MMAS8_Score", SqlDbType.VarChar, obj.Rows[0]["MMAS8_Score"].ToString());
+                ClsUtility.AddParameters("@MMAS4_AdherenceRating", SqlDbType.VarChar, obj.Rows[0]["MMAS4_AdherenceRating"].ToString());
+                ClsUtility.AddParameters("@MMAS8_AdherenceRating", SqlDbType.VarChar, obj.Rows[0]["MMAS8_AdherenceRating"].ToString());
+                ClsUtility.AddParameters("@ReferToCounselor", SqlDbType.VarChar, obj.Rows[0]["ReferToCounselor"].ToString());
+                ClsUtility.AddParameters("@signature", SqlDbType.VarChar, obj.Rows[0]["signature"].ToString());
+                ClsUtility.AddParameters("@VisitTypeId", SqlDbType.VarChar, obj.Rows[0]["VisitTypeId"].ToString());
+
+                clsObjTP.ReturnObject(ClsUtility.theParams, "Pr_HIVCE_SaveUpdateMoriskyData", ClsDBUtility.ObjectEnum.DataSet);
+
+                i = 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                i = 0;
+            }
+            finally
+            {
+                clsObjTP = null;
+                if (this.Connection != null)
+                    DataMgr.ReleaseConnection(this.Connection);
+            }
+
+            return i;
+        }
     }
 
 
