@@ -4958,6 +4958,7 @@
     <Content Include="HIVCE\Scripts\TreatmentPreparation.js" />
     <Content Include="HIVCE\Scripts\ucAdditionalHx.js" />
     <Content Include="HIVCE\Scripts\ucManagementx.js" />
+    <Content Include="HIVCE\Scripts\ucMorisky.js" />
     <Content Include="HIVCE\Scripts\ucPresentingComplaints.js" />
     <Content Include="HIVCE\Scripts\ucScreening.js" />
     <Content Include="HIVCE\Scripts\ucSystemicReview.js" />
@@ -6618,7 +6619,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

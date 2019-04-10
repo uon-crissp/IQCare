@@ -112350,21 +112350,21 @@
     <FacilityTemplate>0</FacilityTemplate>
   </Mst_Facility>
   <Mst_Facility>
-    <FacilityName>Sagana Rural Health Demonstration Centre </FacilityName>
+    <FacilityName>JKUAT</FacilityName>
     <FacilityID>755</FacilityID>
-    <PosID>994</PosID>
+    <PosID>700</PosID>
     <DeleteFlag>0</DeleteFlag>
     <SatelliteID>0</SatelliteID>
     <SystemID>1</SystemID>
-    <FacilityAddress>24, kerugoya</FacilityAddress>
-    <FacilityTel>0716236925</FacilityTel>
+    <FacilityAddress>JKUAT</FacilityAddress>
+    <FacilityTel>0712</FacilityTel>
     <FacilityCell />
     <FacilityFax />
-    <FacilityEmail>saganahcentre@gmail.com</FacilityEmail>
+    <FacilityEmail />
     <FacilityURL />
     <FacilityFooter />
     <FacilityTemplate>0</FacilityTemplate>
-    <FacilityLogo>Sagana Rural Health Demonstration Centre .jpg</FacilityLogo>
+    <FacilityLogo>JKUAT.jpg</FacilityLogo>
     <StrongPassFlag>0</StrongPassFlag>
     <DateConstraint>0</DateConstraint>
     <Billing>0</Billing>
@@ -114842,6 +114842,38 @@
     <DeleteFlag>0</DeleteFlag>
   </Mst_Regimen>
   <Mst_Regimen>
+    <Id>72</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF2E</RegimenCode>
+    <Name>AF2E - TDF + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>73</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF1D</RegimenCode>
+    <Name>AF1D - AZT + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>74</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF4C</RegimenCode>
+    <Name>AF4C - ABC + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>75</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>3</RegimenLineID>
+    <RegimenCode>AS6X</RegimenCode>
+    <Name>AS6X - TDF + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
     <Id>22</Id>
     <Purpose>222</Purpose>
     <RegimenLineID>1</RegimenLineID>
@@ -115239,38 +115271,6 @@
     <RegimenLineID>7</RegimenLineID>
     <RegimenCode>PC1</RegimenCode>
     <Name>PC1 - NVP OD up to 6 weeks of age </Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>72</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF2E</RegimenCode>
-    <Name>AF2E - TDF + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>73</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF1D</RegimenCode>
-    <Name>AF1D - AZT + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>74</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF4C</RegimenCode>
-    <Name>AF4C - ABC + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>75</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>3</RegimenLineID>
-    <RegimenCode>AS6X</RegimenCode>
-    <Name>AS6X - TDF + 3TC + DTG</Name>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Regimen>
   <Mst_CouncellingType>
@@ -130795,26 +130795,6 @@
     <SystemID>1</SystemID>
     <CodeName>ReferralPeads</CodeName>
   </Mst_ModDecode>
-  <Mst_ModDecode>
-    <ID>1134</ID>
-    <NAME>Yes</NAME>
-    <Predefined>0</Predefined>
-    <CodeID>231</CodeID>
-    <SRNo>1</SRNo>
-    <DeleteFlag>0</DeleteFlag>
-    <SystemID>1</SystemID>
-    <CodeName>CurrentART</CodeName>
-  </Mst_ModDecode>
-  <Mst_ModDecode>
-    <ID>1135</ID>
-    <NAME>No</NAME>
-    <Predefined>0</Predefined>
-    <CodeID>231</CodeID>
-    <SRNo>2</SRNo>
-    <DeleteFlag>0</DeleteFlag>
-    <SystemID>1</SystemID>
-    <CodeName>CurrentART</CodeName>
-  </Mst_ModDecode>
   <Mst_ARVSideEffects>
     <ID>1</ID>
     <Name>Anemia</Name>
@@ -132794,14 +132774,6 @@
     <UserID>1</UserID>
     <CreateDate>2016-04-11T14:25:00.203+03:00</CreateDate>
     <Name>ReferralPeads</Name>
-  </Mst_ModCode>
-  <Mst_ModCode>
-    <CodeID>231</CodeID>
-    <DeleteFlag>0</DeleteFlag>
-    <Predefined>0</Predefined>
-    <UserID>1</UserID>
-    <CreateDate>2019-03-27T15:43:34.107+03:00</CreateDate>
-    <Name>CurrentART</Name>
   </Mst_ModCode>
   <Mst_Town>
     <ID>1</ID>
@@ -140767,30 +140739,6 @@
     <CreateDate>2019-02-28T14:14:43.173+03:00</CreateDate>
     <ItemID>1235</ItemID>
     <ExpiryDate>2020-08-01T00:00:00+03:00</ExpiryDate>
-  </Mst_Batch>
-  <Mst_Batch>
-    <ID>5333</ID>
-    <Name>3090160</Name>
-    <UserId>29</UserId>
-    <CreateDate>2019-03-01T14:27:19.607+03:00</CreateDate>
-    <ItemID>1235</ItemID>
-    <ExpiryDate>2020-09-30T00:00:00+03:00</ExpiryDate>
-  </Mst_Batch>
-  <Mst_Batch>
-    <ID>5334</ID>
-    <Name>3085539</Name>
-    <UserId>8</UserId>
-    <CreateDate>2019-03-05T10:55:10.8+03:00</CreateDate>
-    <ItemID>1226</ItemID>
-    <ExpiryDate>2021-02-28T00:00:00+03:00</ExpiryDate>
-  </Mst_Batch>
-  <Mst_Batch>
-    <ID>5335</ID>
-    <Name>3079434</Name>
-    <UserId>8</UserId>
-    <CreateDate>2019-03-05T10:55:47.86+03:00</CreateDate>
-    <ItemID>1232</ItemID>
-    <ExpiryDate>2020-01-31T00:00:00+03:00</ExpiryDate>
   </Mst_Batch>
   <mst_Countries>
     <CountryID>1</CountryID>

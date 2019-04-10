@@ -4,81 +4,133 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HIVCE.Common;
+using HIVCE.Common.Entities;
+using Application.Presentation;
 using System.Data;
+using System.Configuration;
+using HIVCE.BusinessLayer;
+using Interface.HIVCE;
 
 namespace PresentationApp.HIVCE
 {
     public partial class MoriskyAdherence : System.Web.UI.Page
     {
-        int PatientId;
+        int PatientId = 0;
         int locationId;
         int userId;
+        int visitPK = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!object.Equals(Session["PatientId"], null))
+            if (!IsPostBack)
             {
-                PatientId = Convert.ToInt32(Session["PatientId"]);
-            }
-            if (!object.Equals(Session["AppLocationId"], null))
-            {
-                locationId = Convert.ToInt32(Session["AppLocationId"]);
-            }
-            if (!object.Equals(Session["AppUserId"], null))
-            {
-                userId = Convert.ToInt32(Session["AppUserId"]);
-            }
+                if (!object.Equals(Session["PatientId"], null))
+                {
+                    PatientId = Convert.ToInt32(Session["PatientId"]);
+                }
+                if (!object.Equals(Session["AppLocationId"], null))
+                {
+                    locationId = Convert.ToInt32(Session["AppLocationId"]);
+                }
+                if (!object.Equals(Session["AppUserId"], null))
+                {
+                    userId = Convert.ToInt32(Session["AppUserId"]);
+                }
+                if (!object.Equals(Session["PatientVisitId"], null))
+                {
+                    visitPK = Convert.ToInt32(Session["PatientVisitId"]);
+                }
 
+                if (!object.Equals(Request.QueryString["data"], null))
+                {
+                    string response = string.Empty;
+                    if (!object.Equals(Request.QueryString["data"], null))
+                    {
+                        if (Request.QueryString["data"].ToString() == "getdata")
+                        {
+                            response = GetMoriskyData(PatientId, visitPK);
+                            SendResponse(response);
+                        }
+                    }
 
+                    if (Request.QueryString["data"].ToString() == "savedata")
+                    {
+                        System.IO.StreamReader sr = new System.IO.StreamReader(Request.InputStream);
+                        string jsonString = "";
+                        jsonString = sr.ReadToEnd();
+
+                        response = SaveData(jsonString, PatientId, visitPK);
+                        SendResponse(response);
+                    }
+                }
+
+            }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        private string SaveData(string nodeJson, int ptn_pk, int visitPK)
         {
-            DataTable dt = new DataTable();
+            string result = string.Empty;
+            ResponseType ObjResponse = new ResponseType();
+            try
+            {
+                MAdherence adcObj = SerializerUtil.ConverToObject<MAdherence>(nodeJson);
+                IClinicalEncounter blObj = (IClinicalEncounter)ObjectFactory.CreateInstance("HIVCE.BusinessLayer.BLClinicalEncounter, HIVCE.BusinessLayer");
+                adcObj.Ptn_pk = ptn_pk;
+                adcObj.Visit_Id = visitPK;
 
-            dt.Columns.Add(new DataColumn("Ptn_pk", typeof(string)));
-            dt.Columns.Add(new DataColumn("Visit_Pk", typeof(string)));
-            dt.Columns.Add(new DataColumn("visitdate", typeof(string)));
-            dt.Columns.Add(new DataColumn("LocationId", typeof(string)));
-            dt.Columns.Add(new DataColumn("UserID", typeof(string)));
-            dt.Columns.Add(new DataColumn("ForgetMedicineSinceLastVisit", typeof(string)));
-            dt.Columns.Add(new DataColumn("CarelessAboutTakingMedicine", typeof(string)));
-            dt.Columns.Add(new DataColumn("FeelWorseStopTakingMedicine", typeof(string)));
-            dt.Columns.Add(new DataColumn("FeelBetterStopTakingMedicine", typeof(string)));
-            dt.Columns.Add(new DataColumn("TakeMedicineYesterday", typeof(string)));
-            dt.Columns.Add(new DataColumn("SymptomsUnderControl_StopTakingMedicine", typeof(string)));
-            dt.Columns.Add(new DataColumn("UnderPresureStickingYourTreatmentPlan", typeof(string)));
-            dt.Columns.Add(new DataColumn("RememberingMedications", typeof(string)));
-            dt.Columns.Add(new DataColumn("MMAS4_Score", typeof(string)));
-            dt.Columns.Add(new DataColumn("MMAS8_Score", typeof(string)));
-            dt.Columns.Add(new DataColumn("MMAS4_AdherenceRating", typeof(string)));
-            dt.Columns.Add(new DataColumn("MMAS8_AdherenceRating", typeof(string)));
-            dt.Columns.Add(new DataColumn("ReferToCounselor", typeof(string)));
-            dt.Columns.Add(new DataColumn("signature", typeof(string)));
-            dt.Columns.Add(new DataColumn("VisitTypeId", typeof(string)));
+                int flag = blObj.SaveUpdateMoriskyData(adcObj, ptn_pk, visitPK, userId, locationId, DateTime.Now);
+                if (flag == 1)
+                {
+                    ObjResponse.Success = EnumUtil.GetEnumDescription(Success.True);
+                }
+                else
+                {
+                    ObjResponse.Success = EnumUtil.GetEnumDescription(Success.False);
+                }
+            }
+            catch (Exception ex)
+            {
+                ObjResponse.Success = EnumUtil.GetEnumDescription(Success.False);
+            }
+            finally
+            {
 
-            DataRow dr = dt.NewRow();
-            dr["Ptn_pk"] = PatientId;
-            dr["Visit_Pk"] = 0;
-            dr["visitdate"] = DateTime.Now.ToString("dd-MMM-yyyy");
-            dr["LocationId"] = locationId;
-            dr["UserID"] = userId;
-            dr["ForgetMedicineSinceLastVisit"] = chkForgotMed.Value;
-            dr["CarelessAboutTakingMedicine"] = chkCarelessMed.Value;
-            dr["FeelWorseStopTakingMedicine"] = chkWorseTakingMed.Value;
-            dr["FeelBetterStopTakingMedicine"] = chkFeelBetterMed.Value;
-            dr["TakeMedicineYesterday"] = chkYesterdayMed.Value;
-            dr["SymptomsUnderControl_StopTakingMedicine"] = chkSymptomUnderControl.Value;
-            dr["UnderPresureStickingYourTreatmentPlan"] = chkStickingTreatmentPlan.Value;
-            dr["RememberingMedications"] = "";
-            dr["MMAS4_Score"] = txtMMAS4Score.Value;
-            dr["MMAS8_Score"] = txtMMAS8Score.Value;
-            dr["MMAS4_AdherenceRating"] = txtMMAS4Rating.Value;
-            dr["MMAS8_AdherenceRating"] = txtMMAS8Rating.Value;
-            dr["ReferToCounselor"] = 0;
-            dr["signature"] = userId;
-            dr["VisitTypeId"] = 0;
+            }
+
+            result = SerializerUtil.ConverToJson<ResponseType>(ObjResponse);
+            return result;
+        }
+
+        private void SendResponse(string data)
+        {
+            Response.Clear();
+            Response.ContentType = "application/json";
+            Response.AddHeader("Content-type", "text/json");
+            Response.AddHeader("Content-type", "application/json");
+            Response.Write(data);
+            Response.End();
+        }
+
+        private string GetMoriskyData(int ptn_pk, int visitPK)
+        {
+            string result = string.Empty;
+            try
+            {
+                IClinicalEncounter blObj = (IClinicalEncounter)ObjectFactory.CreateInstance("HIVCE.BusinessLayer.BLClinicalEncounter, HIVCE.BusinessLayer");
+                MAdherence objTP = blObj.GetMoriskyData(ptn_pk, visitPK);
+                result = SerializerUtil.ConverToJson<MAdherence>(objTP);
+            }
+            catch (Exception ex)
+            {
+                ResponseType response = new ResponseType() { Success = EnumUtil.GetEnumDescription(Success.False) };
+                result = SerializerUtil.ConverToJson<ResponseType>(response);
+            }
+            finally
+            {
+
+            }
+            return result;
         }
     }
 }

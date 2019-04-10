@@ -6,13 +6,13 @@
         type="text/javascript"></script>
     <script src="<%=ResolveUrl("Scripts/Constants.js") %>?n=<%=string.Format("{0:yyyyMMddhhmmss}",DateTime.Now)%>"
         type="text/javascript"></script>
-    <script src="<%=ResolveUrl("Scripts/ucManagementx.js") %>?n=<%=string.Format("{0:yyyyMMddhhmmss}",DateTime.Now)%>"
+    <script src="<%=ResolveUrl("Scripts/ucMorisky.js") %>?n=<%=string.Format("{0:yyyyMMddhhmmss}",DateTime.Now)%>"
         type="text/javascript"></script>
     <script src="<%=ResolveUrl("Scripts/bootstrap-maxlength.min.js") %>" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("[name='switch-size']").bootstrapSwitch();
-            InitManagementControls('');
+            InitMoriskyControls('');
         });
     </script>
     <div class="content-wrapper">
@@ -56,7 +56,7 @@
                                                         </td>
                                                         <td style="border-top: 0px; width: 10%">
                                                             <input id="chkForgotMed" name="switch-size" type="checkbox" checked data-size="small"
-                                                                data-on-text="Yes" data-off-text="No" runat="server">
+                                                                data-on-text="Yes" data-off-text="No">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -65,7 +65,7 @@
                                                         </td>
                                                         <td style="border-top: 0px; width: 10%">
                                                             <input id="chkCarelessMed" name="switch-size" type="checkbox" checked data-size="small"
-                                                                data-on-text="Yes" data-off-text="No" runat="server">
+                                                                data-on-text="Yes" data-off-text="No">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -74,7 +74,7 @@
                                                         </td>
                                                         <td style="border-top: 0px; width: 10%">
                                                             <input id="chkWorseTakingMed" name="switch-size" type="checkbox" checked data-size="small"
-                                                                data-on-text="Yes" data-off-text="No" runat="server">
+                                                                data-on-text="Yes" data-off-text="No">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -83,7 +83,7 @@
                                                         </td>
                                                         <td style="border-top: 0px; width: 10%">
                                                             <input id="chkFeelBetterMed" name="switch-size" type="checkbox" checked data-size="small"
-                                                                data-on-text="Yes" data-off-text="No" runat="server">
+                                                                data-on-text="Yes" data-off-text="No">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -92,13 +92,13 @@
                                                                 <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                                                     (MMAS-4) Score =
                                                                     <input id="txtMMAS4Score" type="text" disabled="disabled" class="form-control" value="0"
-                                                                        style="width: 30%; display: inline;" runat="server">
+                                                                        style="width: 30%; display: inline;">
                                                                     / 4
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                                                     Adherence Rating:
                                                                     <input type="text" id="txtMMAS4Rating" disabled="disabled" value="Good" class="form-control"
-                                                                        style="width: 55%; display: inline;" runat="server">
+                                                                        style="width: 55%; display: inline;">
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -112,7 +112,7 @@
                                                             </td>
                                                             <td style="border-top: 0px; width: 10%">
                                                                 <input id="chkYesterdayMed" name="switch-size" type="checkbox" checked data-size="small"
-                                                                    data-on-text="Yes" data-off-text="No" runat="server">
+                                                                    data-on-text="Yes" data-off-text="No">
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -122,7 +122,7 @@
                                                             </td>
                                                             <td style="border-top: 0px; width: 10%">
                                                                 <input id="chkSymptomUnderControl" name="switch-size" type="checkbox" checked data-size="small"
-                                                                    data-on-text="Yes" data-off-text="No" runat="server">
+                                                                    data-on-text="Yes" data-off-text="No">
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -132,13 +132,13 @@
                                                             </td>
                                                             <td style="border-top: 0px; width: 10%">
                                                                 <input id="chkStickingTreatmentPlan" name="switch-size" type="checkbox" checked data-size="small"
-                                                                    data-on-text="Yes" data-off-text="No" runat="server">
+                                                                    data-on-text="Yes" data-off-text="No">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2" style="border-top: 0px; width: 90%">
                                                                 8. How often do you have difficulty remembering to take all your medications?
-                                                                <asp:TextBox ID="txtDifficulty" runat="server" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtDifficulty" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -159,17 +159,17 @@
                                                                     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                                                         (MMAS-8) Score =
                                                                         <input id="txtMMAS8Score" type="text" disabled="disabled" class="form-control" value="0"
-                                                                            style="width: 30%; display: inline;" runat="server">
+                                                                            style="width: 30%; display: inline;" />
                                                                         / 8
                                                                     </div>
                                                                     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                                                         Adherence Rating:
                                                                         <input type="text" id="txtMMAS8Rating" disabled="disabled" value="None" class="form-control"
-                                                                            style="width: 55%; display: inline;" runat="server">
+                                                                            style="width: 55%; display: inline;" />
                                                                     </div>
                                                                     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                                                         <input type="text" id="txtMMAS8Suggestion" disabled="disabled" value="None" class="form-control"
-                                                                            style="width: 55%; display: inline;" runat="server">
+                                                                            style="width: 55%; display: inline;" />
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -186,9 +186,10 @@
                             <!-- / sub box level 1 -->
                             <!-- /.box-body -->
                             <div class="box-footer" align="center">
-                                <asp:Button ID="btnSave" runat="server" Text="Save" 
-                                    CssClass="glyphicon glyphicon-floppy-disk" onclick="btnSave_Click"/>
-                                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="glyphicon glyphicon-remove-circle"/>
+                                <button type="button" class="btn btn-primary" onclick="SaveMoriskyData();">
+                                    Save<span class="glyphicon glyphicon-floppy-disk" style="padding-left: 5px;"></span></button>
+                                <button type="button" class="btn btn-primary" onclick="ResetData();">
+                                    Reset<span class="glyphicon glyphicon-remove-circle" style="padding-left: 5px;"></span></button>
                             </div>
                         </div>
                         <!-- /.box -->

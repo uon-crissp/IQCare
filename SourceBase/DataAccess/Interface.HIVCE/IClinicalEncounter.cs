@@ -27,6 +27,7 @@ namespace Interface.HIVCE
         bool SaveRefillEncounterData(RefillEncounterDB obj, int userId, int locationId);
 
         OIChronicDiseaseData GetOIChronicDiseaseData(int ptn_pk, int locationId);
-        int SaveUpdateMoriskyData(DataTable obj, int userId, int LocationId);
+        int SaveUpdateMoriskyData(MAdherence obj, int ptn_pk, int visit_pk, int userId, int locationId, DateTime visitdate);
+        MAdherence GetMoriskyData(int ptn_pk, int visit_pk);
     }
 }

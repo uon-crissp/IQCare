@@ -703,7 +703,10 @@ public partial class frmPatient_History : BasePage
                 url = string.Format("{0}", "~/Adherence/AdherenceBarriers.aspx");
                 Response.Redirect(url);
                 break;
-
+            case "Morisky Adherence Screening":
+                url = string.Format("{0}", "~/HIVCE/MoriskyAdherence.aspx");
+                Response.Redirect(url);
+                break;
         }
 
         foreach (DataRow DRCustomFrm in ((DataTable)ViewState["theCFDT"]).Rows)

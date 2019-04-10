@@ -2419,14 +2419,14 @@ namespace HIVCE.BusinessLayer
             return oiChronicDisease;
         }
 
-        public int SaveUpdateMoriskyData(DataTable obj, int userId, int locationId)
+        public int SaveUpdateMoriskyData(MAdherence obj, int ptn_pk, int visit_pk, int userId, int locationId, DateTime visitdate)
         {
             CLogger.WriteLog(ELogLevel.INFO, "BLClinicalEncounter.SaveRefillEncounterData() method called");
             int flag = 1;
             try
             {
                 dbLayer = new DBClinicalEncounter();
-                dbLayer.SaveUpdateMoriskyData(obj, userId, locationId);
+                dbLayer.SaveUpdateMoriskyData(obj, ptn_pk, visit_pk, userId, locationId, visitdate);
                 flag = 1;
             }
             catch (Exception ex)
@@ -2438,5 +2438,47 @@ namespace HIVCE.BusinessLayer
             return flag;
         }
 
+        public MAdherence GetMoriskyData(int ptn_pk, int visit_pk)
+        {
+            CLogger.WriteLog(ELogLevel.INFO, "BLClinicalEncounter.GetScreeningData() method called");
+            MAdherence obj = new MAdherence();
+
+            try
+            {
+                dbLayer = new DBClinicalEncounter();
+                DataSet data = dbLayer.GetMoriskyData(ptn_pk, visit_pk);
+
+                if (data.Tables[0].Rows.Count > 0)
+                {
+                    obj = (from dt in data.Tables[0].AsEnumerable()
+                           select new MAdherence()
+                            {
+                                Ptn_pk = ptn_pk,
+                                Visit_Id = visit_pk,
+                                IsCarelessMed = dt.Field<int>("CarelessAboutTakingMedicine"),
+                                IsFeelBetterMed = dt.Field<int>("FeelBetterStopTakingMedicine"),
+                                IsForgotMed = dt.Field<int>("ForgetMedicineSinceLastVisit"),
+                                IsStickingTreatmentPlan = dt.Field<int>("UnderPresureStickingYourTreatmentPlan"),
+                                IsSymptomUnderControl = dt.Field<int>("SymptomsUnderControl_StopTakingMedicine"),
+                                IsWorseTakingMed = dt.Field<int>("FeelWorseStopTakingMedicine"),
+                                IsYesterdayMed = dt.Field<int>("TakeMedicineYesterday"),
+                                MGTSIG = dt.Field<int>("Signature"),
+                                MMAS4Rating = dt.Field<string>("MMAS4_AdherenceRating"),
+                                MMAS4Score = dt.Field<string>("MMAS4_Score"),
+                                MMAS8Rating = dt.Field<string>("MMAS8_AdherenceRating"),
+                                MMAS8Score = dt.Field<string>("MMAS8_Score"),
+                                MMAS8Suggestion = dt.Field<string>("ReferToCounselor"),
+                                PAM_Id = dt.Field<int>("PAM_ID"),
+                                RememberingMedications = dt.Field<int>("RememberingMedications")
+                            }).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                CLogger.WriteLog(ELogLevel.ERROR, "BLClinicalEncounter.GetScreeningData() Method:" + ex.ToString());
+            }
+
+            return obj;
+        }
     }
 }
