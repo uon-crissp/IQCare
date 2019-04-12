@@ -348,6 +348,11 @@ public partial class frmPatientCustomRegistration : LogPage
             this.txtemergContactPhone.Text = theDS.Tables[1].Rows[0]["EmergContactPhone"].ToString();
             this.txtemergContactAddress.Text = theDS.Tables[1].Rows[0]["EmergContactAddress"].ToString();
             this.ddEmergContactRelation.SelectedValue = theDS.Tables[1].Rows[0]["EmergContactRelation"].ToString();
+
+            this.txtNOKName.Text = theDS.Tables[1].Rows[0]["NextofKinName"].ToString();
+            this.txtNOKPhone.Text = theDS.Tables[1].Rows[0]["NextofKinTelNo"].ToString();
+            this.txtNOKAddress.Text = theDS.Tables[1].Rows[0]["NextofAddress"].ToString();
+            this.ddlNOKRelationship.Text = theDS.Tables[1].Rows[0]["NextofKinRelationship"].ToString();
         }
         catch (Exception err)
         {
@@ -407,8 +412,10 @@ public partial class frmPatientCustomRegistration : LogPage
         StringBuilder SbContColumns = new StringBuilder();
         StringBuilder SbContValues = new StringBuilder();
         SbContColumns.Append(" Delete  from [DTL_PATIENTCONTACTS] where Ptn_Pk=" + PatientID + " and Visitid=" + VisitID + " and LocationID=" + LocationID + " ");
-        SbContColumns.Append(" Insert into [DTL_PATIENTCONTACTS](Ptn_pk,Visitid,LocationId,UserID,CreateDate,EmergContactName,EmergContactRelation,EmergContactPhone,EmergContactAddress,");
-        SbContValues.Append("Values(" + PatientID + "," + VisitID + ", " + LocationID + "," + Session["AppUserId"] + ", GetDate(),'" + txtemergContactName.Text + "'," + ddEmergContactRelation.SelectedValue + ",'" + txtemergContactPhone.Text + "','" + txtemergContactAddress.Text + "',");
+        //SbContColumns.Append(" Insert into [DTL_PATIENTCONTACTS](Ptn_pk,Visitid,LocationId,UserID,CreateDate,EmergContactName,EmergContactRelation,EmergContactPhone,EmergContactAddress,");
+        //SbContValues.Append("Values(" + PatientID + "," + VisitID + ", " + LocationID + "," + Session["AppUserId"] + ", GetDate(),'" + txtemergContactName.Text + "'," + ddEmergContactRelation.SelectedValue + ",'" + txtemergContactPhone.Text + "','" + txtemergContactAddress.Text + "',");
+        SbContColumns.Append(" Insert into [DTL_PATIENTCONTACTS](Ptn_pk,Visitid,LocationId,UserID,CreateDate,EmergContactName,EmergContactRelation,EmergContactPhone,EmergContactAddress,NextofKinName,NextofKinRelationship,NextofKinTelNo,NextofAddress,");
+        SbContValues.Append("Values(IDENT_CURRENT('mst_Patient'),IDENT_CURRENT('Ord_Visit')," + Session["AppLocationId"] + "," + Session["AppUserId"] + ", GetDate(),'" + txtemergContactName.Text + "'," + ddEmergContactRelation.SelectedValue + ",'" + txtemergContactPhone.Text + "','" + txtemergContactAddress.Text + "','" + txtNOKName.Text + "'," + ddlNOKRelationship.SelectedValue + ",'" + txtNOKPhone.Text + "','" + txtNOKAddress.Text + "',");
 
         StringBuilder SbHouseHoldColumns = new StringBuilder();
         StringBuilder SbHouseHoldValues = new StringBuilder();
@@ -679,8 +686,8 @@ public partial class frmPatientCustomRegistration : LogPage
             SbInsert.Append(SbmstpatValues.Append(")"));
             SbmstpatColumns = new StringBuilder();
             SbmstpatValues = new StringBuilder();
-            SbmstpatColumns.Append("Insert into ord_Visit(Ptn_Pk,LocationID,VisitDate,VisitType,UserID,CreateDate");
-            SbmstpatValues.Append("values (IDENT_CURRENT('mst_Patient'),'" + Session["AppLocationId"] + "', '" + txtRegDate.Value + "', 12, '" + Session["AppUserId"] + "', getdate()");
+            SbmstpatColumns.Append("Insert into ord_Visit(Ptn_Pk,LocationID,VisitDate,VisitType,UserID,CreateDate,dataquality");
+            SbmstpatValues.Append("values (IDENT_CURRENT('mst_Patient'),'" + Session["AppLocationId"] + "', '" + txtRegDate.Value + "', 12, '" + Session["AppUserId"] + "', getdate(), 1");
             SbInsert.Append(SbmstpatColumns.Append(")"));
             SbInsert.Append(SbmstpatValues.Append(")"));
         }

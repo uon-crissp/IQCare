@@ -35490,7 +35490,7 @@
   </Mst_Feature>
   <Mst_Feature>
     <FeatureId>291</FeatureId>
-    <FeatureName>HIVCE - Treatment Preparation</FeatureName>
+    <FeatureName>Treatment Preparation</FeatureName>
     <ReportFlag>0</ReportFlag>
     <DeleteFlag>0</DeleteFlag>
     <AdminFlag>0</AdminFlag>
@@ -35498,7 +35498,7 @@
   </Mst_Feature>
   <Mst_Feature>
     <FeatureId>292</FeatureId>
-    <FeatureName>HIVCE - ART Readiness Assessment</FeatureName>
+    <FeatureName>ART Readiness Assessment</FeatureName>
     <ReportFlag>0</ReportFlag>
     <DeleteFlag>0</DeleteFlag>
     <AdminFlag>0</AdminFlag>
@@ -35506,7 +35506,7 @@
   </Mst_Feature>
   <Mst_Feature>
     <FeatureId>293</FeatureId>
-    <FeatureName>HIVCE - Transition</FeatureName>
+    <FeatureName>Transition from Paediatric to Adolescent Services</FeatureName>
     <ReportFlag>0</ReportFlag>
     <DeleteFlag>0</DeleteFlag>
     <AdminFlag>0</AdminFlag>
@@ -35514,7 +35514,7 @@
   </Mst_Feature>
   <Mst_Feature>
     <FeatureId>294</FeatureId>
-    <FeatureName>HIVCE - Alcohol Depression Screening</FeatureName>
+    <FeatureName>Alcohol, GBV and Depression Screening</FeatureName>
     <ReportFlag>0</ReportFlag>
     <DeleteFlag>0</DeleteFlag>
     <AdminFlag>0</AdminFlag>
@@ -35567,6 +35567,14 @@
     <DeleteFlag>0</DeleteFlag>
     <AdminFlag>0</AdminFlag>
     <SystemID>2</SystemID>
+  </Mst_Feature>
+  <Mst_Feature>
+    <FeatureId>301</FeatureId>
+    <FeatureName>Morisky Adherence Screening</FeatureName>
+    <ReportFlag>0</ReportFlag>
+    <DeleteFlag>0</DeleteFlag>
+    <AdminFlag>0</AdminFlag>
+    <SystemID>0</SystemID>
   </Mst_Feature>
   <Mst_Feature>
     <FeatureId>1001</FeatureId>
@@ -112350,21 +112358,21 @@
     <FacilityTemplate>0</FacilityTemplate>
   </Mst_Facility>
   <Mst_Facility>
-    <FacilityName>JKUAT</FacilityName>
+    <FacilityName>Sagana Rural Health Demonstration Centre </FacilityName>
     <FacilityID>755</FacilityID>
-    <PosID>700</PosID>
+    <PosID>994</PosID>
     <DeleteFlag>0</DeleteFlag>
     <SatelliteID>0</SatelliteID>
     <SystemID>1</SystemID>
-    <FacilityAddress>JKUAT</FacilityAddress>
-    <FacilityTel>0712</FacilityTel>
+    <FacilityAddress>24, kerugoya</FacilityAddress>
+    <FacilityTel>0716236925</FacilityTel>
     <FacilityCell />
     <FacilityFax />
-    <FacilityEmail />
+    <FacilityEmail>saganahcentre@gmail.com</FacilityEmail>
     <FacilityURL />
     <FacilityFooter />
     <FacilityTemplate>0</FacilityTemplate>
-    <FacilityLogo>JKUAT.jpg</FacilityLogo>
+    <FacilityLogo>Sagana Rural Health Demonstration Centre .jpg</FacilityLogo>
     <StrongPassFlag>0</StrongPassFlag>
     <DateConstraint>0</DateConstraint>
     <Billing>0</Billing>
@@ -114842,38 +114850,6 @@
     <DeleteFlag>0</DeleteFlag>
   </Mst_Regimen>
   <Mst_Regimen>
-    <Id>72</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF2E</RegimenCode>
-    <Name>AF2E - TDF + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>73</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF1D</RegimenCode>
-    <Name>AF1D - AZT + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>74</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>1</RegimenLineID>
-    <RegimenCode>AF4C</RegimenCode>
-    <Name>AF4C - ABC + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
-    <Id>75</Id>
-    <Purpose>222</Purpose>
-    <RegimenLineID>3</RegimenLineID>
-    <RegimenCode>AS6X</RegimenCode>
-    <Name>AS6X - TDF + 3TC + DTG</Name>
-    <DeleteFlag>0</DeleteFlag>
-  </Mst_Regimen>
-  <Mst_Regimen>
     <Id>22</Id>
     <Purpose>222</Purpose>
     <RegimenLineID>1</RegimenLineID>
@@ -115271,6 +115247,46 @@
     <RegimenLineID>7</RegimenLineID>
     <RegimenCode>PC1</RegimenCode>
     <Name>PC1 - NVP OD up to 6 weeks of age </Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>72</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF2E</RegimenCode>
+    <Name>AF2E - TDF + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>73</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF1D</RegimenCode>
+    <Name>AF1D - AZT + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>74</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>1</RegimenLineID>
+    <RegimenCode>AF4C</RegimenCode>
+    <Name>AF4C - ABC + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>75</Id>
+    <Purpose>222</Purpose>
+    <RegimenLineID>3</RegimenLineID>
+    <RegimenCode>AS6X</RegimenCode>
+    <Name>AS6X - TDF + 3TC + DTG</Name>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Regimen>
+  <Mst_Regimen>
+    <Id>76</Id>
+    <Purpose>223</Purpose>
+    <RegimenLineID>9</RegimenLineID>
+    <RegimenCode>OI</RegimenCode>
+    <Name>OI - OI Medicine</Name>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Regimen>
   <Mst_CouncellingType>
@@ -119776,12 +119792,12 @@
   </Mst_Module>
   <Mst_Module>
     <ModuleID>203</ModuleID>
-    <ModuleName>CCC Patient Card MoH 257</ModuleName>
+    <ModuleName>CCC Clinic</ModuleName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Module>
   <Mst_Module>
     <ModuleID>5</ModuleID>
-    <ModuleName>TB Clinic Module</ModuleName>
+    <ModuleName>TB Clinic</ModuleName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Module>
   <Mst_Module>
@@ -119816,7 +119832,7 @@
   </Mst_Module>
   <Mst_Module>
     <ModuleID>207</ModuleID>
-    <ModuleName>RECORDS</ModuleName>
+    <ModuleName>Records</ModuleName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Module>
   <Mst_Module>
@@ -119832,6 +119848,11 @@
   <Mst_Module>
     <ModuleID>211</ModuleID>
     <ModuleName>HTS</ModuleName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_Module>
+  <Mst_Module>
+    <ModuleID>300</ModuleID>
+    <ModuleName>Laboratory</ModuleName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Module>
   <Mst_ModDecode>
@@ -134592,6 +134613,14 @@
     <UserID>1</UserID>
     <CreateDate>2017-09-18T16:26:09.687+03:00</CreateDate>
   </mst_RegimenLine>
+  <mst_RegimenLine>
+    <ID>9</ID>
+    <Name>OI</Name>
+    <DeleteFlag>0</DeleteFlag>
+    <SRNO>9</SRNO>
+    <UserID>1</UserID>
+    <CreateDate>2019-04-10T14:24:08.053+03:00</CreateDate>
+  </mst_RegimenLine>
   <mst_Store>
     <Id>1</Id>
     <Name>County Bulk Store</Name>
@@ -140731,14 +140760,6 @@
     <CreateDate>2019-02-04T10:08:27.357+03:00</CreateDate>
     <ItemID>1164</ItemID>
     <ExpiryDate>2020-10-31T00:00:00+03:00</ExpiryDate>
-  </Mst_Batch>
-  <Mst_Batch>
-    <ID>5332</ID>
-    <Name>3088176</Name>
-    <UserId>8</UserId>
-    <CreateDate>2019-02-28T14:14:43.173+03:00</CreateDate>
-    <ItemID>1235</ItemID>
-    <ExpiryDate>2020-08-01T00:00:00+03:00</ExpiryDate>
   </Mst_Batch>
   <mst_Countries>
     <CountryID>1</CountryID>

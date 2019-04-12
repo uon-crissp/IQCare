@@ -487,7 +487,7 @@ namespace BusinessProcess.SCM
                     ClsUtility.Init_Hashtable();
                     ClsUtility.AddParameters("@ptn_pharmacy_pk", SqlDbType.Int, theDR["orderId"].ToString());
                     ClsUtility.AddParameters("@drug_pk", SqlDbType.Int, theDR["DrugId"].ToString());
-                    ClsUtility.AddParameters("@batchid", SqlDbType.Int, theDR["BatchId"].ToString());
+                    ClsUtility.AddParameters("@batchid", SqlDbType.Int, "0");
                     //ClsUtility.AddParameters("@DispensedQuantity", SqlDbType.Decimal, theDR["RefillQty"].ToString() == "" ? "0" : theDR["RefillQty"].ToString());
                     ClsUtility.AddParameters("@DispensedQuantity", SqlDbType.Decimal, theDR["QtyDispensed"].ToString() == "" ? "0" : theDR["QtyDispensed"].ToString());
                     ClsUtility.AddParameters("@DispensedBy", SqlDbType.Int, dispensedBy.ToString());

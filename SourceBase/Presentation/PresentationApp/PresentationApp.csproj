@@ -1802,6 +1802,13 @@
     <Compile Include="Laboratory\frmLaboratoryHistory.aspx.designer.cs">
       <DependentUpon>frmLaboratoryHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Laboratory\frmLaboratoryHome.aspx.cs">
+      <DependentUpon>frmLaboratoryHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Laboratory\frmLaboratoryHome.aspx.designer.cs">
+      <DependentUpon>frmLaboratoryHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Laboratory\frm_Laboratory.aspx.cs">
       <DependentUpon>frm_Laboratory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5052,7 +5059,9 @@
     <Content Include="Incl\notification_center_plugin\js\ttw-notification-center-min.js" />
     <Content Include="Incl\notification_center_plugin\js\ttw-notification-center.js" />
     <Content Include="Incl\ANCProfile.js" />
+    <Content Include="Incl\quicksearch.js" />
     <Content Include="Laboratory\frmLaboratoryHistory.aspx" />
+    <Content Include="Laboratory\frmLaboratoryHome.aspx" />
     <Content Include="Laboratory\frm_Laboratory.aspx" />
     <Content Include="Laboratory\frm_LabTestResults.aspx" />
     <Content Include="Laboratory\UserControl\UserControl_LabOrderDetails.ascx" />

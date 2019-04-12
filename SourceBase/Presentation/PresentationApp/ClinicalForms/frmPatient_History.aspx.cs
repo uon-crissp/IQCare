@@ -538,13 +538,6 @@ public partial class frmPatient_History : BasePage
                 Response.Redirect(url);
                 //}
                 break;
-            //case "Enrollment-PMTCT":
-            //    if (Convert.ToInt32(Session["TechnicalAreaId"]) == 1)
-            //    {
-            //        url = string.Format("{0}", "frmClinical_EnrolmentPMTCT.aspx");
-            //        Response.Redirect(url);
-            //    }
-            //    break;
             case "ART Follow-Up":
                 //if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 //{
@@ -660,19 +653,19 @@ public partial class frmPatient_History : BasePage
                     Response.Redirect(url);
                 }
                 break;
-            case "HIVCE - Treatment Preparation":
+            case "Treatment Preparation":
                 url = string.Format("{0}", "~/HIVCE/TreatmentPreparation.aspx");
                 Response.Redirect(url);
                 break;
-            case "HVICE - ART Readiness Assessment":
+            case "ART Readiness Assessment":
                 url = string.Format("{0}", "~/HIVCE/ARTReadinessAssessment.aspx");
                 Response.Redirect(url);
                 break;
-            case "HVICE - Transition":
+            case "Transition from Paediatric to Adolescent Services":
                 url = string.Format("{0}", "~/HIVCE/Transition.aspx");
                 Response.Redirect(url);
                 break;
-            case "HIVCE - Alcohol Depression Screening":
+            case "Alcohol, GBV and Depression Screening":
                 url = string.Format("{0}", "~/HIVCE/AlcoholDepressionScreening.aspx");
                 Response.Redirect(url);
                 break;

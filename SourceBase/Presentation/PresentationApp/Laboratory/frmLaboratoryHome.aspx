@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/IQCare.master" AutoEventWireup="true"
-    CodeBehind="frmPharmacyDispense_FindPatient.aspx.cs" Inherits="PresentationApp.PharmacyDispense.frmPharmacyDispense_FindPatient"
-    EnableEventValidation="false" %>
+    CodeBehind="frmLaboratoryHome.aspx.cs" Inherits="PresentationApp.Laboratory.frmLaboratoryHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
     <script src="../Incl/quicksearch.js" type="text/javascript" defer="defer"></script>
     <script type="text/javascript">
         $(function () {
             $('.search_textbox').each(function (i) {
-                $(this).quicksearch("[id*=grdPatientPrescriptions] tr:not(:has(th))", {
+                $(this).quicksearch("[id*=gvLabOrders] tr:not(:has(th))", {
                     'testQuery': function (query, txt, row) {
                         return $(row).children(":eq(" + i + ")").text().toLowerCase().indexOf(query[0].toLowerCase()) != -1;
                     }
@@ -16,7 +15,6 @@
         });
 
         function fnGoToURL(url) {
-            //var result = frmFindAddPatient.SetPatientIdFamily_Session(url).value;
             window.location.href = url;
         }
     </script>
@@ -27,7 +25,7 @@
                     <div class="box box-primary box-solid">
                         <div class="box-header">
                             <h3 class="box-title">
-                                Dispense Drugs</h3>
+                                Laboratory</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding" style="overflow: hidden; margin-left: 5px;">
@@ -36,7 +34,7 @@
                                 <br />
                                 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                     <h5 class="box-title">
-                                        Patient Prescriptions</h5>
+                                        Patient Lab Orders</h5>
                                 </div>
                             </div>
                             <div class="row">
@@ -45,9 +43,10 @@
                                         Search for:</label>
                                 </div>
                                 <div class="col-md-11 col-sm-12 col-xs-12 form-group">
-                                    <asp:RadioButtonList ID="rbtlst_findPrescription" runat="server" AutoPostBack="True"
-                                        RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtlst_findBill_SelectedIndexChanged">
-                                        <asp:ListItem id="rbt_prescriptions" Text="Prescriptions &nbsp; &nbsp;" Selected="True"></asp:ListItem>
+                                    <asp:RadioButtonList ID="rbtlstFindLabOrders" runat="server" AutoPostBack="True"
+                                        RepeatDirection="Horizontal" 
+                                        onselectedindexchanged="rbtlstFindLabOrders_SelectedIndexChanged">
+                                        <asp:ListItem id="rbt_prescriptions" Text="Lab Orders &nbsp; &nbsp;" Selected="True"></asp:ListItem>
                                         <asp:ListItem id="rbt_patients" Text="Patient"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </div>
@@ -59,20 +58,19 @@
                                             <div class="mid-inner">
                                                 <div class="mid" style="height: 400px; overflow: auto">
                                                     <div id="div-gridview" class="GridView whitebg">
-                                                        <asp:GridView ID="grdPatientPrescriptions" runat="server" AutoGenerateColumns="False"
-                                                            AllowSorting="true" Width="100%" BorderColor="white" PageIndex="1" BorderWidth="1"
-                                                            GridLines="None" CssClass="table table-bordered table-hover" CellPadding="0"
-                                                            CellSpacing="0" OnSelectedIndexChanged="grdPatientPrescriptions_SelectedIndexChanged"
-                                                            DataKeyNames="Ptn_pk, VisitID" OnRowDataBound="grdPatientPrescriptions_RowDataBound"
-                                                            OnDataBound="grdPatientPrescriptions_DataBound">
+                                                        <asp:GridView ID="gvLabOrders" runat="server" AutoGenerateColumns="False" AllowSorting="true"
+                                                            Width="100%" BorderColor="white" PageIndex="1" BorderWidth="1" GridLines="None"
+                                                            CssClass="table table-bordered table-hover" CellPadding="0" 
+                                                            CellSpacing="0" DataKeyNames="Ptn_pk, VisitID" 
+                                                            onselectedindexchanged="gvLabOrders_SelectedIndexChanged" 
+                                                            ondatabound="gvLabOrders_DataBound" onrowdatabound="gvLabOrders_RowDataBound">
                                                             <Columns>
                                                                 <asp:BoundField HeaderText="PtnPK" DataField="Ptn_pk" Visible="False" />
-                                                                <asp:BoundField HeaderText="Patient ID" DataField="PatientID" HeaderStyle-Width="120px" />
-                                                                <asp:BoundField HeaderText="Last Name" DataField="lname" HeaderStyle-Width="150px" />
-                                                                <asp:BoundField HeaderText="First Name" DataField="fname" HeaderStyle-Width="150px" />
-                                                                <asp:BoundField HeaderText="Age" DataField="Age" HeaderStyle-Width="80px" />
-                                                                <asp:BoundField HeaderText="Time Ordered" DataField="OrderedByDate" HeaderStyle-Width="100px" />
-                                                                <asp:BoundField HeaderText="Status" DataField="Status" HeaderStyle-Width="200px" />
+                                                                <asp:BoundField HeaderText="Patient ID" DataField="PatientID" HeaderStyle-Width="10%" />
+                                                                <asp:BoundField HeaderText="Patient Name" DataField="Name" HeaderStyle-Width="30%" />
+                                                                <asp:BoundField HeaderText="Age" DataField="Age" HeaderStyle-Width="20%" />
+                                                                <asp:BoundField HeaderText="Time Ordered" DataField="TimeOrdered" HeaderStyle-Width="20%" />
+                                                                <asp:BoundField HeaderText="Status" DataField="Status" HeaderStyle-Width="20%" />
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>

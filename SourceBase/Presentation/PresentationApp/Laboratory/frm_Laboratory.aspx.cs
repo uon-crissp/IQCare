@@ -96,8 +96,11 @@ namespace PresentationApp.Laboratory
 
             if (Request.QueryString["name"] == "Delete")
             {
+                btntr.Visible = true;
+                trReported.Visible = true;
                 btnsave.Text = "Delete";
             }
+
             int PID = Convert.ToInt32(Session["PatientId"]);
 
             FillOldCustomData(PID);
@@ -119,13 +122,6 @@ namespace PresentationApp.Laboratory
                             RadGridLabTest_ItemCommand(sender, evarg);
                             griditem.Expanded = true;
                         }
-                        //if (Request.QueryString["name"] != "Delete")
-                        //{
-                        //    if ((Session["LabOrderStatus"].ToString() == "Completed") || (Session["LabOrderStatus"].ToString() == "Partial"))
-                        //    {
-                        //        btntr.Visible = false;
-                        //    }
-                        //}
                     }
                     if (!string.IsNullOrEmpty(Session["LMIS"].ToString()))
                     {
@@ -134,6 +130,12 @@ namespace PresentationApp.Laboratory
                             btntr.Visible = false;
                             trReported.Visible = false;
                         }
+
+                        if (Request.QueryString["name"] == "Delete")
+                        {
+                            btntr.Visible = true;
+                            trReported.Visible = true;
+                        }
                     }
                 }
             }
@@ -141,13 +143,9 @@ namespace PresentationApp.Laboratory
         }
         private void showhide()
         {
-            //if ((Session["LabOrderStatus"].ToString() == "") || (Session["LabOrderStatus"].ToString() == "Not Specified"))
-            //{
             trReported.Visible = false;
-
-            // }
-
         }
+
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod(EnableSession = true)]
         public static AutoCompleteBoxData GetLabsNames(object context)

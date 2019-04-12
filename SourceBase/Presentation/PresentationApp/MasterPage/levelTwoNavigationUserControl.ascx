@@ -180,18 +180,18 @@
                     </asp:MenuItem>
                     <asp:MenuItem Text="<i class='fa fa-file-text-o fa-lg text-muted' aria-hidden='true'></i> <span class='text-muted'>Create New Form</span>"
                         Selectable="False" Value="mnuCreateNewForm">
+                        <asp:MenuItem Text="ART Readiness Assessment" Value="mnuARTReadinessAssessment" NavigateUrl="~/HIVCE/ARTReadinessAssessment.aspx?add=0">
+                        </asp:MenuItem>
                         <asp:MenuItem Text="Treatment Preparation" Value="mnuTreatmentPreparation" NavigateUrl="~/HIVCE/TreatmentPreparation.aspx?add=0">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Alcohol, GBV & Depression Screening" Value="mnuAlcoholDepressionScreening"
+                        <asp:MenuItem Text="Alcohol, GBV and Depression Screening" Value="mnuAlcoholDepressionScreening"
                             NavigateUrl="~/HIVCE/AlcoholDepressionScreening.aspx?add=0"></asp:MenuItem>
-                        <asp:MenuItem Text="ART Readiness Assessment" Value="mnuARTReadinessAssessment" NavigateUrl="~/HIVCE/ARTReadinessAssessment.aspx?add=0">
+                        <asp:MenuItem Text="Morisky Adherence Screening" Value="mnuMorisky" NavigateUrl="~/HIVCE/MoriskyAdherence.aspx?add=0">
                         </asp:MenuItem>
                         <asp:MenuItem Text="Adherence Barriers" Value="mnuAB" NavigateUrl="~/Adherence/AdherenceBarriers.aspx?add=0" />
                         <asp:MenuItem Text="Enhance Adherence Counselling" Value="mnuEAC" NavigateUrl="~/Adherence/EnhanceAdherence.aspx?add=0" />
-                        <asp:MenuItem Text="Transition" Value="mnuTransition" NavigateUrl="~/HIVCE/Transition.aspx?add=0">
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Morisky Adherence Screening" Value="mnuMorisky" NavigateUrl="~/HIVCE/MoriskyAdherence.aspx?add=0">
-                        </asp:MenuItem>
+                        <asp:MenuItem Text="Transition from Paediatric to Adolescent Services" Value="mnuTransition"
+                            NavigateUrl="~/HIVCE/Transition.aspx?add=0"></asp:MenuItem>
                         <asp:MenuItem Text="<span class='hrFor2ndMenu'></span>"></asp:MenuItem>
                         <asp:MenuItem Text="Pharmacy" Value="mnuPharmacy" NavigateUrl="../PharmacyDispense/frmPharmacyDispense_PatientOrder.aspx" />
                         <asp:MenuItem Text="Order Labs" Value="mnuLabOrderDynm" />

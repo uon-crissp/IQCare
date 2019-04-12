@@ -140,10 +140,7 @@ public partial class Laboratory_frmLabOrderList : LogPage
             e.Row.Attributes.Add("onmouseover", "this.style.cursor='hand';this.style.BackColor='#666699';");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='';");
             string url = string.Format("{0}LabID={1}", "LabOrder.aspx?name=" + "Edit" + "&", e.Row.Cells[0].Text + "&");
-            e.Row.Attributes.Add("onclick", "window.location.href=('" + url + "')");   ////Page.ClientScript.GetPostBackEventReference(grdSearchResult, "Select$" + e.Row.RowIndex.ToString()));
-
-         //   e.Row.Attributes.Add("onclick", string.Format("{0}LabID={1}PatientId={2}", "LabOrder.aspx?name=" + "Edit" + "&", Page.ClientScript.GetPostBackEventReference(grdLabOrderList, "Select$" + e.Row.RowIndex.ToString()) + "&", Request.QueryString["PatientId"].ToString()));
-            // Page.ClientScript.GetPostBackEventReference(grdLabOrderList, "Select$" + e.Row.RowIndex.ToString()));
+            e.Row.Attributes.Add("onclick", "window.location.href=('" + url + "')");
         }
     }
 

@@ -227,56 +227,56 @@ function BindMoriskyData() {
 
 function BindMoriskyxControls(response) {
 
-    if (jQuery.isEmptyObject(response.MPA.ISFM) == false) {
-        if (response.MPA.ISFM > 0) {
+    if (jQuery.isEmptyObject(response.ISFM) == false) {
+        if (response.ISFM > 0) {
             $("#chkForgotMed").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISCM) == false) {
-        if (response.MPA.ISCM > 0) {
+    if (jQuery.isEmptyObject(response.ISCM) == false) {
+        if (response.ISCM > 0) {
             $("#chkCarelessMed").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISWTM) == false) {
-        if (response.MPA.ISWTM > 0) {
+    if (jQuery.isEmptyObject(response.ISWTM) == false) {
+        if (response.ISWTM > 0) {
             $("#chkWorseTakingMed").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISFBM) == false) {
-        if (response.MPA.ISFBM > 0) {
+    if (jQuery.isEmptyObject(response.ISFBM) == false) {
+        if (response.ISFBM > 0) {
             $("#chkFeelBetterMed").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISYM) == false) {
-        if (response.MPA.ISYM > 0) {
+    if (jQuery.isEmptyObject(response.ISYM) == false) {
+        if (response.ISYM > 0) {
             $("#chkYesterdayMed").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISSUC) == false) {
-        if (response.MPA.ISSUC > 0) {
+    if (jQuery.isEmptyObject(response.ISSUC) == false) {
+        if (response.ISSUC > 0) {
             $("#chkSymptomUnderControl").bootstrapSwitch('state', true);
         }
     }
 
-    if (jQuery.isEmptyObject(response.MPA.ISSTP) == false) {
-        if (response.MPA.ISSTP > 0) {
+    if (jQuery.isEmptyObject(response.ISSTP) == false) {
+        if (response.ISSTP > 0) {
             $("#chkStickingTreatmentPlan").bootstrapSwitch('state', true);
         }
     }
 
-    $("input:radio[name=rbRM][value=" + response.MPA.RM + "]").attr('checked', 'checked');
+    $("input:radio[name=rbRM][value=" + response.RM + "]").attr('checked', 'checked');
     $("input:radio[name=rbRM]").iCheck('update');
 
-    $("#txtMMAS4Score").val(response.MPA.MMAS4S);
-    $("#txtMMAS4Rating").val(response.MPA.MMAS4R);
-    $("#txtMMAS8Score").val(response.MPA.MMAS8S);
-    $("#txtMMAS8Rating").val(response.MPA.MMAS8R);
-    $("#txtMMAS8Suggestion").val(response.MPA.MMAS8SG);
+    $("#txtMMAS4Score").val(response.MMAS4S);
+    $("#txtMMAS4Rating").val(response.MMAS4R);
+    $("#txtMMAS8Score").val(response.MMAS8S);
+    $("#txtMMAS8Rating").val(response.MMAS8R);
+    $("#txtMMAS8Suggestion").val(response.MMAS8SG);
 	
     $.hivce.loader('hide');
 }

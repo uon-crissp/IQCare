@@ -865,7 +865,7 @@ namespace IQCare.Web
         {
             if (Session["TechnicalAreaId"] != null)
             {
-                if (Session["TechnicalAreaId"].ToString() == "206")
+                if (Session["TechnicalAreaId"].ToString() == "206" || Session["TechnicalAreaId"].ToString() == "300")
                 {
                     grdSearchResult.Columns[9].Visible = false;
                 }

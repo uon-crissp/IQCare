@@ -850,7 +850,7 @@ namespace BusinessProcess.Laboratory
                 theReturnDT = (DataSet)LabManager.ReturnObject(ClsUtility.theParams, "Pr_InsertSpecimenTableValues", ClsDBUtility.ObjectEnum.DataSet, SpecimenTable, "@TableVar");
 
 
-                TotalNoRowsAffected = theReturnDT.Tables[1].Rows.Count;
+                TotalNoRowsAffected = 1;//theReturnDT.Tables[1].Rows.Count;
 
                 LabManager = null;
                 DataMgr.CommitTransaction(this.Transaction);
@@ -932,6 +932,17 @@ namespace BusinessProcess.Laboratory
                 ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, PatientID.ToString());
                 ClsUtility.AddParameters("@Locationid", SqlDbType.Int, LocationID.ToString());
                 return (DataSet)labFieldsManager.ReturnObject(ClsUtility.theParams, "Pr_Laboratory_GetLabHistory", ClsDBUtility.ObjectEnum.DataSet);
+            }
+        }
+
+        public DataSet GetPendingLabOrders()
+        {
+            lock (this)
+            {
+                ClsObject labFieldsManager = new ClsObject();
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@DBKey", SqlDbType.VarChar, ApplicationAccess.DBSecurity);
+                return (DataSet)labFieldsManager.ReturnObject(ClsUtility.theParams, "Pr_Laboratory_GetPendingLabOrders", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
     }

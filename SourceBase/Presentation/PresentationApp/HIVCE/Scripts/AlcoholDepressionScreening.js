@@ -780,7 +780,8 @@ function PostData(rowData) {
                 //console.log(response);
                 var responseSuccess = response.Success;
                 if (responseSuccess == "true") {
-                    customAlert("Alcohol Depression Screening " + dataSuccessMessage.toLowerCase());
+                    customAlert("Alcohol, GBV and Depression Screening " + dataSuccessMessage.toLowerCase());
+                    window.location.assign("../ClinicalForms/frmPatient_History.aspx?&sts=0");
                 }
                 else {
                     if (responseSuccess == "false") {

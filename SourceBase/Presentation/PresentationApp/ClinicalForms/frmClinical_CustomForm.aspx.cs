@@ -2007,7 +2007,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                                     }
                                 }
                             }
-                            chkbox.Width = 210;
+                            //chkbox.Width = 210;
                             PnlMulti.Controls.Add(new LiteralControl("<br>"));
 
                         }
@@ -2163,7 +2163,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                             }
                             PnlMulti.Controls.Add(chkbox);
                             //ApplyBusinessRules(chkbox, ControlID);
-                            chkbox.Width = 300;
+                            //chkbox.Width = 300;
                             PnlMulti.Controls.Add(new LiteralControl("<br>"));
 
                         }

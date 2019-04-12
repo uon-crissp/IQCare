@@ -168,10 +168,6 @@ namespace PresentationApp.Laboratory
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Laboratory >> ";
-            //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Laboratory Results";
-            //(Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "Laboratory Results";
-
             #region "Refresh Patient Records"
             IPatientHome PManager;
             PManager = (IPatientHome)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientHome, BusinessProcess.Clinical");
@@ -205,8 +201,6 @@ namespace PresentationApp.Laboratory
                     DataSet theDS = PatientManager.GetPatientHistory(Convert.ToInt32(PId));
                     ViewState["theCFDT"] = theDS.Tables[3].Copy();
                     FormIQCare(theDS);
-
-
                 }
             }
 
@@ -225,8 +219,8 @@ namespace PresentationApp.Laboratory
         protected void Page_PreRender(object sender, EventArgs e)
         {
 
-
         }
+
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod(EnableSession = true)]
         public static void SaveCurrentTab(string controlId, int currentTabIndex)
@@ -236,6 +230,7 @@ namespace PresentationApp.Laboratory
             //else
             //    tabControl.ActiveTabIndex = 0;
         }
+
         protected void TreeViewExisForm_SelectedNodeChanged(object sender, EventArgs e)
         {
             try
@@ -2505,25 +2500,25 @@ namespace PresentationApp.Laboratory
                 thespecdr["Flag"] = "1";
                 SpecList.Rows.Add(thespecdr);
                 SpecList.AcceptChanges();
-                //List<FillSpecimen> SpecList = new List<FillSpecimen>();
-                //SpecList.Add(new FillSpecimen(Convert.ToInt32(ddlspecimentype.SelectedValue), Convert.ToInt32(ddlSpecSource.SelectedValue), Convert.ToInt32(ddlspecno.SelectedValue), Convert.ToInt32(ddlrecivedby.SelectedValue), ddlspecimentype.SelectedItem.Text, ddlSpecSource.SelectedItem.Text, ddlspecno.SelectedItem.Text, ddlrecivedby.SelectedItem.Text, Convert.ToDateTime(txtSpecRecdt.DbSelectedDate), txtOtherSource.Text));
+
                 gridSpecList.DataSource = SpecList;
                 gridSpecList.DataBind();
                 Session["SpecRecpDT"] = SpecList;
                 ClearSpecimen();
             }
         }
+
         private void ClearSpecimen()
         {
             ddlspecimentype.SelectedIndex = 0;
             ddlSpecSource.SelectedIndex = 0;
-            ddlfromfacility.SelectedIndex = 0;
+            //ddlfromfacility.SelectedIndex = 0;
             ddlspecno.SelectedIndex = 0;
-            ddlrecivedby.SelectedIndex = 0;
+            //ddlrecivedby.SelectedIndex = 0;
             txtOtherSource.Text = "";
-            txtSpecRecdt.DbSelectedDate = "";
-
+            //txtSpecRecdt.DbSelectedDate = "";
         }
+
         private void AuthenticationRight(int FeatureID,  int iTabID, Button btnsave, Button btnPrint)
         {
             AuthenticationManager Authentication = new AuthenticationManager();

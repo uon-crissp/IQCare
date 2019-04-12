@@ -726,13 +726,13 @@
                                                                                                 class="form-control"></asp:TextBox>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Refill" HeaderStyle-Width="120px">
+                                                                                    <asp:TemplateField HeaderText="Already Disp" HeaderStyle-Width="120px">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtRefillQty1" runat="server" Width="90%" Text='<%# Bind("QtyDispensed") %>'
                                                                                                 class="form-control" disabled="disabled"></asp:TextBox>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="Qty Disp" HeaderStyle-Width="120px">
+                                                                                    <asp:TemplateField HeaderText="Qty to Disp" HeaderStyle-Width="120px">
                                                                                         <ItemTemplate>
                                                                                             <asp:TextBox ID="txtQtyDispensed" runat="server" Width="90%" Text="" class="form-control"></asp:TextBox>
                                                                                             <asp:RangeValidator ID="RangeValidatorQtyDisp" runat="server" ErrorMessage="Error"

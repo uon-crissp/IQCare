@@ -35,7 +35,7 @@
                             <div class="box-footer" align="center">
                                 <input type="hidden" runat="server" id="hidId" clientidmode="Static" />
                                 <input type="hidden" runat="server" id="hidDOB" clientidmode="Static" value="0" />
-                                <button type="button" class="btn btn-primary" onclick="SaveMoriskyData();">
+                                <button type="button" class="btn btn-primary" onclick="SaveData();">
                                     Save<span class="glyphicon glyphicon-floppy-disk" style="padding-left: 5px;"></span></button>
                                 <button type="button" class="btn btn-primary" onclick="ResetData();">
                                     Reset<span class="glyphicon glyphicon-remove-circle" style="padding-left: 5px;"></span></button>

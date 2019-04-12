@@ -29,14 +29,7 @@ public partial class frmAddTechnicalArea : BasePage
         }
 
         (Master.FindControl("levelTwoNavigationUserControl1").FindControl("PanelPatiInfo") as Panel).Visible = false;
-        //appDateimg2.Attributes.Add("onclick", "w_displayDatePicker('" + txtenrollmentDate.ClientID + "');");
-        //imgDtReEnroll.Attributes.Add("onclick", "w_displayDatePicker('" + txtReEnrollmentDate.ClientID + "');");
-        //txtenrollmentDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,'3')");
-        //txtenrollmentDate.Attributes.Add("onblur", "DateFormat(this,this.value,event,true,'3'); isCheckValidDate('" + Application["AppCurrentDate"] + "', '" + txtenrollmentDate.ClientID + "', '" + txtenrollmentDate.ClientID + "');");
-        // txtReEnrollmentDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,'3')");
-        //txtReEnrollmentDate.Attributes.Add("onblur", "DateFormat(this,this.value,event,true,'3'); isCheckValidDate('" + Application["AppCurrentDate"] + "', '" + txtReEnrollmentDate.ClientID + "', '" + txtReEnrollmentDate.ClientID + "');");
 
-        //   txtenrollmentDate.Attributes.Add("onblur", "DateFormat(this,this.value,event,true,'3');");
         Ajax.Utility.RegisterTypeForAjax(typeof(frmAddTechnicalArea));
         //appDateimg2.Visible = true;
         txtenrollmentDate.Disabled = false;
@@ -74,7 +67,6 @@ public partial class frmAddTechnicalArea : BasePage
 
                 flag = 1;
                 LoadModuleIdentifiers(Convert.ToInt32(moduleId));
-
             }
         }
         else
@@ -107,11 +99,6 @@ public partial class frmAddTechnicalArea : BasePage
             lblsex.Text = Gender;
             lbldob.Text = GetValuefromHT["DOB"].ToString();
 
-            //DateTime today = DateTime.Today;
-            //int age = today.Year - Convert.ToDateTime(GetValuefromHT["DOB"].ToString()).Year;
-            //Session["PatientAge"] = age;
-            //int ageMonth = today.Month - Convert.ToDateTime(GetValuefromHT["DOB"].ToString()).Month;
-            //Session["PatientAgeMonths"] = ageMonth;
             CalculateYourAge(Convert.ToDateTime(GetValuefromHT["DOB"].ToString()));
 
             ViewState["RegistrationDate"] = GetValuefromHT["RegistrationDate"].ToString();

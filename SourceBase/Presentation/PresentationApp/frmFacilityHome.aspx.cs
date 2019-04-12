@@ -27,8 +27,6 @@ namespace IQCare.Web
             }
             try
             {
-                // (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Facility Home";
-                //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Visible = false;
                 if (!IsPostBack)
                 {
                     Init_page();
@@ -37,32 +35,26 @@ namespace IQCare.Web
             }
             catch (Exception ex)
             {
-
                 CLogger.WriteLog(ELogLevel.ERROR, ex.ToString());
                 if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
                 {
                     IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='" + Page.ResolveUrl("~/frmFindAddCustom.aspx") + "?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'");
-                    //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
                 }
                 else
                 {
                     if (Session["TechnicalAreaId"] != null || Convert.ToInt16(Session["TechnicalAreaId"]) != 0)
                     {
                         IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='" + Page.ResolveUrl("~/frmFacilityHome.aspx;'"));
-                        //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFacilityHome.aspx'</script>");
-
                     }
                     else
                     {
-
                         IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='" + Page.ResolveUrl("~/frmLogin.aspx;'"));
-                        //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmLogin.aspx'</script>");
                     }
                 }
                 ex = null;
             }
-
         }
+
         private void Init_page()
         {
             Session["PatientId"] = 0;
@@ -268,8 +260,11 @@ namespace IQCare.Web
                     //Setting the Hyperlinks for various features...................
                     if (Convert.ToInt32(drMods["ModuleID"].ToString()) == 206)
                     {
-                        row["ModuleUrl"] = String.Format("PharmacyDispense/frmPharmacy_Dashboard.aspx");
-                        //row["ModuleUrl"] = String.Format("frmFindAddCustom.aspx?srvNm={0}&mod={1}", drMods["ModuleName"].ToString(), drMods["ModuleID"]);
+                        row["ModuleUrl"] = String.Format("PharmacyDispense/frmPharmacyDispense_FindPatient.aspx");
+                    }
+                    else if (drMods["ModuleName"].ToString().ToUpper() == "LABORATORY")
+                    {
+                        row["ModuleUrl"] = String.Format("Laboratory/frmLaboratoryHome.aspx");
                     }
                     else if (drMods["ModuleName"].ToString().ToUpper() == "WARDS")
                     {
@@ -284,8 +279,9 @@ namespace IQCare.Web
                         row["ModuleUrl"] = String.Format("frmFindAddCustom.aspx?srvNm={0}&mod={1}", drMods["ModuleName"].ToString(), 0);
                     }
                     else
+                    {
                         row["ModuleUrl"] = String.Format("frmFindAddCustom.aspx?srvNm={0}&mod={1}", drMods["ModuleName"].ToString(), drMods["ModuleID"]);
-
+                    }
 
                     theDT.Rows.Add(row);
                     colorIndex++;

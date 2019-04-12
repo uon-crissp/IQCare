@@ -73,7 +73,7 @@ namespace PresentationApp.PharmacyDispense
                 }
 
 
-                if (Session["StoreID"] == null || Session["StoreID"] == "" || Convert.ToInt16(Session["StoreID"]) == 0)
+                if (Session["StoreID"] == null || Session["StoreID"].ToString() == "" || Convert.ToInt16(Session["StoreID"]) == 0)
                 {
                     HttpContext.Current.Session["StoreID"] = 0;
                 }
@@ -105,9 +105,15 @@ namespace PresentationApp.PharmacyDispense
                     {
                         lblDispenseDate.CssClass = "";
                         lblDispensedBy.CssClass = "";
-                        if (gvDispenseDrugs.Columns[11].HeaderText == "Qty Disp")
+
+                        if (gvDispenseDrugs.Columns[10].HeaderText == "Already Disp")
+                            gvDispenseDrugs.Columns[10].Visible = false;
+                        else if (gvDispenseDrugs.Columns[11].HeaderText == "Already Disp")
                             gvDispenseDrugs.Columns[11].Visible = false;
-                        else if (gvDispenseDrugs.Columns[12].HeaderText == "Qty Disp")
+
+                        if (gvDispenseDrugs.Columns[11].HeaderText == "Qty to Disp")
+                            gvDispenseDrugs.Columns[11].Visible = false;
+                        else if (gvDispenseDrugs.Columns[12].HeaderText == "Qty to Disp")
                             gvDispenseDrugs.Columns[12].Visible = false;
                         ddlDispensedBy.Enabled = false;
                         txtDispenseDate.Disabled = true;
@@ -581,18 +587,12 @@ namespace PresentationApp.PharmacyDispense
                         }
                         else
                         {
-                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertRegimen", "alert('You have picked a different regimen. This patient is currently on " + txtLastReg.Text + "');", true);
-                            /* Changed By: Gaurav
-                             * Dated: 5 May 2016
-                             * Purpose: Alert changed to confirm msg.
-                             */
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertRegimen", "AlertRegimen('" + txtLastReg.Text + "');", true);
                         }
                     }
                 }
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "ClearTextBox", "ClearTextBox('" + txtDrug.ClientID + "');", true);
-                checkARTDrugs();
             }
         }
 
@@ -678,7 +678,6 @@ namespace PresentationApp.PharmacyDispense
                 }
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "ClearTextBox", "ClearTextBox('" + txtDrug.ClientID + "');", true);
-                checkARTDrugs();
             }
         }
 
@@ -869,7 +868,6 @@ namespace PresentationApp.PharmacyDispense
             {
                 if (FieldValidation() == false)
                 {
-                    checkARTDrugs();
                     return;
                 }
 
@@ -1352,7 +1350,6 @@ namespace PresentationApp.PharmacyDispense
 
             gvDispenseDrugs.DataSource = dt;
             gvDispenseDrugs.DataBind();
-            checkARTDrugs();
         }
 
         protected void btnFullyDispensed_Click(object sender, EventArgs e)
@@ -1588,39 +1585,8 @@ namespace PresentationApp.PharmacyDispense
                 {
                     btnSave.Enabled = Authentication.HasFunctionRight(ApplicationAccess.Dispense, FunctionAccess.Update, (DataTable)Session["UserRight"]);
                 }
-                //if (Request.QueryString["name"] == "Delete")
-                //{
-                //    if (Authentication.HasFunctionRight(ApplicationAccess.AdultPharmacy, FunctionAccess.View, (DataTable)Session["UserRight"]) == false)
-                //    {
-                //        string theUrl = "";
-                //        theUrl = string.Format("{0}", "../ClinicalForms/frmClinical_DeleteForm.aspx");
-                //        Response.Redirect(theUrl);
-                //    }
-
-                //    btnSave.Text = "Delete";
-                //    btnSave.Enabled = Authentication.HasFunctionRight(ApplicationAccess.AdultPharmacy, FunctionAccess.Delete, (DataTable)Session["UserRight"]);
-                //}
-                //Privilages for Care End
-                //if (Convert.ToString(Session["CareEndFlag"]) == "1" && Convert.ToString(Session["CareendedStatus"]) == "1")
-                //{
-                //    btnSave.Enabled = true;
-                //}
             }
 
-        }
-
-        private void checkARTDrugs()
-        {
-            string sshowreg = "false";
-            foreach (GridViewRow gvRow in gvDispenseDrugs.Rows)
-            {
-                Label lblregimen = (Label)gvRow.FindControl("lblRegimen");
-                if (lblregimen.Text != "")
-                {
-                    sshowreg = "true";
-                }
-            }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "regimendd", "showRegimenDDown('" + sshowreg + "');", true);
         }
 
         protected void btnPriorPrescription_Click(object sender, EventArgs e)
@@ -1639,7 +1605,6 @@ namespace PresentationApp.PharmacyDispense
                 {
                     ddlregimenLine.SelectedValue = Convert.ToString(dt.Rows[0]["RegimenLine"] == null ? "" : dt.Rows[0]["RegimenLine"]);
                 }
-                checkARTDrugs();
             }
             else
             {

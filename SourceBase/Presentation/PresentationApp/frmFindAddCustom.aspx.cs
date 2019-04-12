@@ -42,7 +42,7 @@ namespace IQCare.Web
                 string urlParam = String.Format("openWaitingList('./frmWaitingList.aspx?mod={0}');return false;", Session["TechnicalAreaId"]);
 
                 btnWaitingList.OnClientClick = urlParam;
-                if (Request.QueryString["srvNm"] == "Pharmacy Dispense") //&& Request.QueryString["mod"] == "206"
+                if (Request.QueryString["srvNm"] == "Pharmacy Dispense" || Request.QueryString["srvNm"] == "Laboratory") //&& Request.QueryString["mod"] == "206"
                 {
                     ((Button)FindPatient.FindControl("btnAdd")).Enabled = false;
                     (FindPatient.FindControl("ddCareEndedStatus") as DropDownList).Visible = false;
@@ -192,32 +192,24 @@ namespace IQCare.Web
                     Session["PatientVisitID"] = 0;
                     theUrl = "./PharmacyDispense/frmPharmacyDispense_PatientOrder.aspx";
                 }
-                else if (theDS.Tables[3].Rows.Count > 0)//check if patient is care ended for reenrollment
+                else if (Session["TechnicalAreaId"].ToString() == "300")
                 {
-                    //theUrl = string.Format("{0}?PatientId={1}&mod={2}", "./frmAddTechnicalArea.aspx", patientID, Request.QueryString["mod"]);
-                    /*
-                     * Code is commented for Care end patient, when patient is under Care End It should redirected to patient home page.
-                     * Dated: 14 jan 2015
-                     */
-
-                    //theUrl = string.Format("{0}?mod={1}", "./frmAddTechnicalArea.aspx", Request.QueryString["mod"]);
+                    theUrl = "./Laboratory/frm_LabTestResults.aspx";
+                }
+                else if (theDS.Tables[3].Rows.Count > 0)//check if patient is care ended, redirect to homepage
+                {
                     theUrl = "./ClinicalForms/frmPatient_Home.aspx";
                 }
                 else if (theDS.Tables[2].Rows.Count > 0 && theDS.Tables[2].Rows[0]["StartDate"].ToString() != "")
                 {
-
                     theUrl = "./ClinicalForms/frmPatient_Home.aspx";
-
                 }
                 else
                 {
-                    //theUrl = string.Format("{0}?PatientId={1}&mod={2}", "./frmAddTechnicalArea.aspx", patientID, Request.QueryString["mod"]);
                     theUrl = string.Format("{0}?mod={1}", "./frmAddTechnicalArea.aspx", Request.QueryString["mod"]);
-
                 }
+
                 Response.Redirect(theUrl, false);
-
-
             }
         }
 

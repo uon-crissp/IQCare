@@ -25,24 +25,9 @@ namespace Interface.Laboratory
         DataSet GetPreDefinedLablist(int SystemId);
         DataSet GetPatientLabTestID(BIQTouchLabFields objLabFields);
         DataSet GetLabHistory(int PatientID, int LocationID);
-
-        /// <summary>
-        /// Gets the ordered labs.
-        /// </summary>
-        /// <param name="LabId">The lab identifier.</param>
-        /// <returns></returns>
         DataSet GetOrderedLabs(int LabId);
         DataSet GetPreviousOrderedLabs(int PatientId);
-        /// <summary>
-        /// Saves the dynamic lab results.
-        /// </summary>
-        /// <param name="labID">The lab identifier.</param>
-        /// <param name="userID">The user identifier.</param>
-        /// <param name="ReportedByName">Name of the reported by.</param>
-        /// <param name="reportedByDate">The reported by date.</param>
-        /// <param name="LabResults">The lab results.</param>
         void SaveDynamicLabResults(int labID, int userID, int ReportedByName, DateTime reportedByDate, DataTable LabResults);
-        #region IQTouch Methord Declaration
         DataSet IQTouchGetPatientLabTestID(BIQTouchLabFields labFields);
         DataSet IQTouchGetlabDemo(BIQTouchLabFields labFields);
         DataSet IQTouchLaboratory_GetLabOrder(BIQTouchLabFields labFields);
@@ -50,13 +35,12 @@ namespace Interface.Laboratory
         DataSet IQTouchLaboratoryGetArvMutationDetails(BIQTouchLabFields labFields);
         DataSet IQTouchLaboratoryGetGenXpertDetails(BIQTouchLabFields objLabFields, int TestId);
         int IQTouchSaveLabOrderTests(BIQTouchLabFields labFields, List<BIQTouchLabFields> labIds, List<BIQTouchLabFields> ArvMutationFields, DataTable DTGenXpert, DataTable theCustomFieldData, DataTable dtspecimen);
-        #endregion
         int SaveUpdateSpecimenDetails(DataTable SpecimenTable, int UserID);
         DataTable GetLabSpecimen(int LabId);
         int SaveUpdateTestInitDetails(DataTable TestInitTable, int UserID);
-
-
+        DataSet GetPendingLabOrders();
     }
+
     #region IQTouchLabTest Property Decaration Class
     [Serializable()]
     public class BIQTouchLabFields

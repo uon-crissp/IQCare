@@ -30,21 +30,16 @@ namespace PresentationApp.PharmacyDispense
                 if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
                 {
                     IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'");
-                    //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
                 }
                 else
                 {
                     if (Session["TechnicalAreaId"] != null || Convert.ToInt16(Session["TechnicalAreaId"]) != 0)
                     {
                         IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFacilityHome.aspx';");
-                        //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFacilityHome.aspx'</script>");
-
                     }
                     else
                     {
-
                         IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmLogin.aspx';");
-                        //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmLogin.aspx'</script>");
                     }
                 }
                 ex = null;
@@ -54,13 +49,9 @@ namespace PresentationApp.PharmacyDispense
 
         private void Init_Page()
         {
-           //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Pharmacy Dispense";
-           //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Visible = false;
            (Master.FindControl("levelTwoNavigationUserControl1").FindControl("UserControl_Alerts1") as UserControl).Visible = false;
            (Master.FindControl("levelTwoNavigationUserControl1").FindControl("PanelPatiInfo") as Panel).Visible = false;
-           //(Master.FindControl("patientBanner") as Control).Visible = false;
            (Master.FindControl("level2Navigation") as Control).Visible = false;
-           //(Master.FindControl("imageFlipLevel2") as Control).Visible = false;
            (Master.FindControl("pnlExtruder") as Panel).Visible = false;
            (Master.FindControl("level2Navigation") as Control).Visible = true;
            (Master.FindControl("levelTwoNavigationUserControl1").FindControl("patientLevelMenu") as Menu).Visible = false;
@@ -73,8 +64,8 @@ namespace PresentationApp.PharmacyDispense
            {
                this.PopulateData();
            }
-            
         }
+
         int LocationID
         {
             get
@@ -91,12 +82,9 @@ namespace PresentationApp.PharmacyDispense
             grdPatientPrescriptions.DataBind();
         }
 
-        /// <summary>
-        /// Populates the data.
-        /// </summary>
         void PopulateData()
         {
-           DataSet dt = PrescriptionManager.GetPharmacyPrescriptions(this.LocationID);
+            DataSet dt = PrescriptionManager.GetPharmacyPrescriptions(this.LocationID);
 
             grdPatientPrescriptions.DataSource = dt.Tables[0];
             grdPatientPrescriptions.DataBind();
@@ -117,8 +105,6 @@ namespace PresentationApp.PharmacyDispense
 
         }
 
-    
-
         protected void grdPatientPrescriptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             AuthenticationManager Authentication = new AuthenticationManager();
@@ -131,11 +117,15 @@ namespace PresentationApp.PharmacyDispense
                     ModuleId = "0," + Session["TechnicalAreaId"].ToString();
                 }
                 else
+                {
                     ModuleId = "0";
-
+                }
             }
             else
+            {
                 ModuleId = "0";
+            }
+
             theDV.RowFilter = "ModuleId in (" + ModuleId + ")";
             DataTable theDT = new DataTable();
             theDT = theDV.ToTable();
@@ -144,6 +134,7 @@ namespace PresentationApp.PharmacyDispense
             int patientID = int.Parse(grdPatientPrescriptions.SelectedDataKey.Values["Ptn_pk"].ToString());
             Session["PatientVisitID"] = int.Parse(grdPatientPrescriptions.SelectedDataKey.Values["VisitID"].ToString());
             base.Session["PatientId"] = patientID;
+
             if (Authentication.HasFeatureRight(ApplicationAccess.Dispense, theDT) == false)
             {
                 theUrl = "frmPharmacy_ReferenceMaterials.aspx";
@@ -170,42 +161,26 @@ namespace PresentationApp.PharmacyDispense
             Response.Redirect(theUrl,false);
         }
 
-
-
         protected void rbtlst_findBill_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rbtlst_findPrescription.SelectedValue == "Patient")
             {
                 string theUrl;
-                //theUrl = string.Format("{0}?FormName={1}&mnuClicked={2}", "../frmFindAddPatient.aspx", "pharmacyDispense", "pharmacyDispense");
                 theUrl = string.Format("../frmFindAddCustom.aspx?srvNm={0}&mod={1}", "Pharmacy Dispense", "206");
                 Response.Redirect(theUrl,false);
             }
-
             else
             {
                 loadPrescriptions();
             }
         }
-
         
         protected void grdPatientPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(grdPatientPrescriptions, "Select$" + e.Row.RowIndex);
-                //e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(grdPatientPrescriptions, e.Row.RowIndex.ToString());
             }
-
-            //theUrl = string.Format("{0}?RefId={1}&&PatientId={2}", "./ClinicalForms/frmFamilyInformation.aspx", e.Row.Cells[0].Text, Session["PtnRedirect"].ToString());
-            //e.Row.Attributes.Add("onclick", "window.location.href=('" + theUrl + "')"); 
-
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    //Session["PatientId"] = 3;
-            //    string url = "frmPharmacyDispense_PatientOrder.aspx?patientID=3";
-            //    e.Row.Attributes.Add("onclick", "fnGoToURL('" + url + "');");
-            //}
         }
 
         protected void grdPatientPrescriptions_DataBound(object sender, EventArgs e)

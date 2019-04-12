@@ -18,7 +18,7 @@
         function ClientTimeSelected(sender, args) {
             isTimeSelected = true;
         }
-        
+
         function clientActiveTabChanged(sender, args) {
 
             //PageMethods.SaveCurrentTab(sender.get_id(), sender.get_activeTabIndex());
@@ -46,7 +46,7 @@
         function SetActiveTab(index) {
             var tabContainer = $get('<%=tabControl.ClientID%>');
             setTimeout(function () {
-            }, 2000); 
+            }, 2000);
             tabContainer.control.set_activeTabIndex(index);
         }
         //DropDown list
@@ -55,34 +55,61 @@
             var text = e.options[e.selectedIndex].innerText;
             var YN = "";
             if (text == str) {
-                $("#" + disableCntrl).prop("disabled", false);                
+                $("#" + disableCntrl).prop("disabled", false);
             }
             else {
                 $("[id$='" + disableCntrl + "']").val("0");
                 //$("#" + disableCntrl).attr('selectedIndex', 0);
                 $("#" + disableCntrl).prop("disabled", true);
-                
+
             }
         }
 
-        function fnCustSpecihide(e, div) {            
+        function fnCustSpecihide(e, div) {
             if ($(e).is(':checked') == true) {
-                $(div).show();                
+                $(div).show();
             }
             else {
-                $(div).hide();                
+                $(div).hide();
             }
         }
         function fnConfirmEnable(e, disableCntrl) {
-            if ($(e).is(':checked') == true) {                
+            if ($(e).is(':checked') == true) {
                 $(disableCntrl).prop("disabled", false);
             }
-            else {                
+            else {
                 $(disableCntrl).prop("disabled", true);
             }
         }
     </script>
     <style type="text/css">
+        .tvNodeLevel1
+        {
+            font-size: 18px;
+            height: 25px;
+            width: 100px;
+            padding-left: 5px;
+            color: #222;
+        }
+        .tvNodeLevel2
+        {
+            font-size: 15px;
+            margin: 0px;
+            padding-left: 10px;
+            color: #222;
+            height: 25px;
+            width: 100px;
+            text-decoration: none;
+        }
+        .tvNodeLevel3
+        {
+            font-size: 12px;
+            margin: 0px;
+            padding-left: 15px;
+            color: #222;
+            height: 25px;
+            width: 100px;
+        }
         .RadGrid .item-style td
         {
             padding-top: 0;
@@ -90,162 +117,122 @@
             height: 25px;
             vertical-align: middle;
         }
-        fieldset.scheduler-border {
+        fieldset.scheduler-border
+        {
             border: 1px groove #eee !important;
             padding: 0 0.4em 0.4em 0.4em !important;
             margin: 0 0 0.5em 0 !important;
-            -webkit-box-shadow:  0px 0px 0px 0px #000;
-                    box-shadow:  0px 0px 0px 0px #000;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
         }
-
-        legend.scheduler-border {
+        
+        legend.scheduler-border
+        {
             font-size: 1.1em !important;
             font-weight: bold !important;
             text-align: left !important;
-            width:auto; /* Or auto */
-            padding:0 5px; /* To give a bit of padding on the left and right */
-            border-bottom:none;
-
+            width: auto; /* Or auto */
+            padding: 0 5px; /* To give a bit of padding on the left and right */
+            border-bottom: none;
         }
     </style>
-    <%--<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-        <AjaxSettings>         
-            <telerik:AjaxSetting AjaxControlID="TabTestResult">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="RadGridLabTest" />                  
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="RadGridLabTest">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="RadGridLabResult" />                    
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="RadGridLabResult">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="ddlList" />
-                    <telerik:AjaxUpdatedControl ControlID="RadGridArvMutation" />                    
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="RadGridArvMutation">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rcbFooterArvType" />
-                    <%--<telerik:AjaxUpdatedControl ControlID="rcbFooterMutation" />  --%>                   
-               <%-- </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="rcbFooterArvType">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rcbFooterMutation" />
-                    
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="rcbFooterMutation">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="rcbFooterCulture" />                    
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-        </AjaxSettings>     
-        
-    </telerik:RadAjaxManager>--%>
-    
     <div class="container-fluid">
         <div class="border formbg">
-            <br />            
+            <br />
             <act:TabContainer ID="tabControl" runat="server" ActiveTabIndex="0" AutoPostBack="true"
                 Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" CssClass="ajax__myTab">
-                <act:TabPanel ID="TabPnlPendLabs"  runat="server" HeaderText="Existing Pending Lab Orders"
+                <act:TabPanel ID="TabPnlPendLabs" runat="server" HeaderText="Existing Pending Lab Orders"
                     TabIndex="0">
                     <ContentTemplate>
-                    
-                        <div class="border center formbg">
-                            <table class="center formbg" cellspacing="6" cellpadding="0" width="100%" border="0">
-                                <tr>
-                                    <td class="form" align="center" colspan="2">
-                                        <div class="treeview">
-                                            <h1>
-                                                <asp:TreeView ID="TreeViewExisForm" ForeColor="#000000" runat="server" Width="100%"
-                                                    OnSelectedNodeChanged="TreeViewExisForm_SelectedNodeChanged">
-                                                </asp:TreeView>
-                                            </h1>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="row">
+                            <br />
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="margin-left: 300px;">
+                                <asp:TreeView ID="TreeViewExisForm" ForeColor="#000000" runat="server" Width="100%" OnSelectedNodeChanged="TreeViewExisForm_SelectedNodeChanged">
+                                    <LevelStyles>
+                                        <asp:TreeNodeStyle CssClass="tvNodeLevel1" />
+                                        <asp:TreeNodeStyle CssClass="tvNodeLevel2" />
+                                        <asp:TreeNodeStyle CssClass="tvNodeLevel3" />
+                                    </LevelStyles>
+                                    <HoverNodeStyle Font-Underline="False" />
+                                    <SelectedNodeStyle Font-Underline="True" HorizontalPadding="0px" VerticalPadding="0px" />
+                                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px"
+                                        NodeSpacing="0px" VerticalPadding="0px" />
+                                </asp:TreeView>
+                            </div>
                         </div>
                         <br />
-                        
                     </ContentTemplate>
                 </act:TabPanel>
-                <act:TabPanel ID="TabSpecReceipt" runat="server" HeaderText="Specimen Receipt"
-                    TabIndex="1">
-                    <ContentTemplate>                       
-                                <div class="border center formbg pad5">
-                                    <div class="border whitebg pad5">
-                                        <table class="table-condensed" width="100%">
-                                            <tr class="border">
-                                                <td align="center" valign="middle" width="80%">
-                                                    <UcLabDetails:Uc1 ID="UCSpecLabDetails" runat="server" />
-                                                </td>
-                                                <td align="right" valign="middle" width="20%">
-                                                <asp:Button ID="btnPendingOrders" runat="server" CssClass="btn btn-primary" Font-Bold="True" Text="View Pending Orders"
-                                                Style="height: 30px; width: 100%; text-align: center;" />
-                                                <asp:Label ID="Label5" CssClass="glyphicon glyphicon-download" Style="margin-left: -3%;
-                                                            margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
+                <act:TabPanel ID="TabSpecReceipt" runat="server" HeaderText="Specimen Receipt" TabIndex="1">
+                    <ContentTemplate>
+                        <div class="border center formbg pad5">
+                            <div class="border whitebg pad5">
+                                <table class="table-condensed" width="100%">
+                                    <tr class="border">
+                                        <td align="center" valign="middle" width="80%">
+                                            <UcLabDetails:Uc1 ID="UCSpecLabDetails" runat="server" />
+                                        </td>
+                                        <td align="right" valign="middle" width="20%">
+                                            <asp:Button ID="btnPendingOrders" runat="server" CssClass="btn btn-primary" Font-Bold="True"
+                                                Text="View Pending Orders" Style="height: 30px; width: 100%; text-align: center;" />
+                                            <asp:Label ID="Label5" CssClass="glyphicon glyphicon-download" Style="margin-left: -3%;
+                                                margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
                                             <act:ModalPopupExtender ID="btnPendingOrders_ModalPopupExtender" runat="server" TargetControlID="btnPendingOrders"
                                                 PopupControlID="tblPendingOrders" BackgroundCssClass="modalBackground" CancelControlID="btnPendingOrdersClose">
                                             </act:ModalPopupExtender>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <div class="border">
-                                            <table class="table-condensed" width="100%">
-                                                <tr>
-                                                    <td style="width: 100%">
-                                                        <table width="100%" border="0">
-                                                            <tr>
-                                                                <td style="width: 14%;" align="right">
-                                                                    <label id="lblparity" class="required" runat="server">
-                                                                        Specimen Type:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 16%;" align="left">
-                                                                    <asp:DropDownList ID="ddlspecimentype" runat="server" Width="140px">
-                                                                        <asp:ListItem Text="Select Specimen Type" Value="0" Selected="True"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td style="width: 14%;" align="right">
-                                                                    <label id="lblGravidae" class="required" runat="server">
-                                                                        Source:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 18%;" align="left">
-                                                                    <asp:DropDownList ID="ddlSpecSource" runat="server" Width="100%">
-                                                                        <asp:ListItem Text="Select Source" Value="0" Selected="True"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td style="width: 14%;" align="right">
-                                                                    <label id="Label7" runat="server">
-                                                                        Other Source:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 23%;" align="left">
-                                                                    <asp:TextBox ID="txtOtherSource" runat="server" Width="100%"></asp:TextBox>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="100%">
-                                                        <table width="100%" border="0">
-                                                            <tr>
-                                                                <td style="width: 17%;" align="right">
-                                                                    <label id="Label1" class="required" runat="server">
-                                                                        Specimen Received DateTime:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 24%;" align="left">
-                                                                    <telerik:RadDateTimePicker ID="txtSpecRecdt" runat="server" Skin="Office2007" Width="200px"
-                                                                        Culture="en-US" >
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="border">
+                                    <table class="table-condensed" width="100%">
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <table width="100%" border="0">
+                                                    <tr>
+                                                        <td style="width: 14%;" align="right">
+                                                            <label id="lblparity" class="required" runat="server">
+                                                                Specimen Type:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 16%;" align="left">
+                                                            <asp:DropDownList ID="ddlspecimentype" runat="server" Width="140px">
+                                                                <asp:ListItem Text="Select Specimen Type" Value="0" Selected="True"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                        <td style="width: 14%;" align="right">
+                                                            <label id="lblGravidae" class="required" runat="server">
+                                                                Source:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 18%;" align="left">
+                                                            <asp:DropDownList ID="ddlSpecSource" runat="server" Width="100%">
+                                                                <asp:ListItem Text="Select Source" Value="0" Selected="True"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                        <td style="width: 14%;" align="right">
+                                                            <label id="Label7" runat="server">
+                                                                Other Source:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 23%;" align="left">
+                                                            <asp:TextBox ID="txtOtherSource" runat="server" Width="100%"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%">
+                                                <table width="100%" border="0">
+                                                    <tr>
+                                                        <td style="width: 17%;" align="right">
+                                                            <label id="Label1" class="required" runat="server">
+                                                                Specimen Received DateTime:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 24%;" align="left">
+                                                            <telerik:raddatetimepicker id="txtSpecRecdt" runat="server" skin="Office2007" width="200px"
+                                                                culture="en-US">
                                                                         <ClientEvents OnDateSelected="DateSelected" />
                                                                         <TimeView StartTime="08:00:00" Interval="00:15:00" EndTime="20:15:00" Columns="7"
                                                                             OnClientTimeSelecting="ClientTimeSelected" CellSpacing="-1">
@@ -265,75 +252,75 @@
                                                                             <EnabledStyle Resize="None" />
                                                                         </DateInput>
                                                                         <DatePopupButton CssClass="" HoverImageUrl="" ImageUrl="" /> 
-                                                                    </telerik:RadDateTimePicker>
-                                                                </td>
-                                                                <td style="width: 17%;" align="right">
-                                                                    <label id="Label8" class="required" runat="server">
-                                                                        From:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 17%;" align="left">
-                                                                    <asp:DropDownList ID="ddlfromfacility" runat="server" Width="100%">
-                                                                        <asp:ListItem Text="Select Facility" Value="0" Selected="True"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="100%">
-                                                        <table width="100%" border="0">
-                                                            <tr>
-                                                                <td style="width: 16%;" align="right">
-                                                                    <label id="Label3" class="required" runat="server">
-                                                                        Number of specimen samples:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 24%;" align="left">
-                                                                    <asp:DropDownList ID="ddlspecno" runat="server" Width="75px">
-                                                                        <asp:ListItem Text="Number" Value="0" Selected="True"></asp:ListItem>
-                                                                        <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                                                                        <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                                                                        <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td style="width: 17%;" align="right">
-                                                                    <label id="Label9" class="required" runat="server">
-                                                                        Received by:
-                                                                    </label>
-                                                                </td>
-                                                                <td style="width: 17%;" align="left">
-                                                                    <asp:DropDownList ID="ddlrecivedby" runat="server" Width="100%">
-                                                                        <asp:ListItem Text="Select Received by" Value="0" Selected="True"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <table class="table-condensed" width="100%" id="Table3">
-                                                <tr id="Tr3" runat="server" align="center">
-                                                    <td id="Td3" runat="server">
-                                                        <asp:Button ID="btnSpecSubmit" runat="server" Text="Submit" OnClick="btnSpecSubmit_Click"
-                                                            CssClass="btn btn-primary" Height="30px" Width="9%" Style="text-align: left;" />
-                                                        <asp:Label ID="Label19" CssClass="glyphicon glyphicon-download" Style="margin-left: -3%;
-                                                            margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
-                                                        <asp:Button ID="btnSpecClear" runat="server" Text="Clear" OnClick="btnSpecSubmit_Click"
-                                                            CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                        <asp:Label ID="Label20" CssClass="glyphicon glyphicon-refresh" Style="margin-left: -3%;
-                                                            margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <table class="table-condensed" width="100%">
-                                                <tbody>
-                                                    <tr id="Tr7">
-                                                        <td align="left">
-                                                            <telerik:RadGrid AutoGenerateColumns="False" ID="gridSpecList" runat="server" Width="100%"
-                                                                CellPadding="0" Skin="Office2010Silver" Culture="(Default)" GroupPanelPosition="Top"
-                                                                ResolvedRenderMode="Classic" OnItemDataBound="gridSpecList_ItemDataBound" OnDeleteCommand="gridSpecList_DeleteCommand">
+                                                                    </telerik:raddatetimepicker>
+                                                        </td>
+                                                        <td style="width: 17%;" align="right">
+                                                            <label id="Label8" class="required" runat="server">
+                                                                From:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 17%;" align="left">
+                                                            <asp:DropDownList ID="ddlfromfacility" runat="server" Width="100%">
+                                                                <asp:ListItem Text="Select Facility" Value="0" Selected="True"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%">
+                                                <table width="100%" border="0">
+                                                    <tr>
+                                                        <td style="width: 16%;" align="right">
+                                                            <label id="Label3" class="required" runat="server">
+                                                                Number of specimen samples:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 24%;" align="left">
+                                                            <asp:DropDownList ID="ddlspecno" runat="server" Width="75px">
+                                                                <asp:ListItem Text="Number" Value="0" Selected="True"></asp:ListItem>
+                                                                <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                                <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                        <td style="width: 17%;" align="right">
+                                                            <label id="Label9" class="required" runat="server">
+                                                                Received by:
+                                                            </label>
+                                                        </td>
+                                                        <td style="width: 17%;" align="left">
+                                                            <asp:DropDownList ID="ddlrecivedby" runat="server" Width="100%">
+                                                                <asp:ListItem Text="Select Received by" Value="0" Selected="True"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="table-condensed" width="100%" id="Table3">
+                                        <tr id="Tr3" runat="server" align="center">
+                                            <td id="Td3" runat="server">
+                                                <asp:Button ID="btnSpecSubmit" runat="server" Text="Submit" OnClick="btnSpecSubmit_Click"
+                                                    CssClass="btn btn-primary" Height="30px" Width="9%" Style="text-align: left;" />
+                                                <asp:Label ID="Label19" CssClass="glyphicon glyphicon-download" Style="margin-left: -3%;
+                                                    margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
+                                                <asp:Button ID="btnSpecClear" runat="server" Text="Clear" OnClick="btnSpecSubmit_Click"
+                                                    CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
+                                                <asp:Label ID="Label20" CssClass="glyphicon glyphicon-refresh" Style="margin-left: -3%;
+                                                    margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="table-condensed" width="100%">
+                                        <tbody>
+                                            <tr id="Tr7">
+                                                <td align="left">
+                                                    <telerik:radgrid autogeneratecolumns="False" id="gridSpecList" runat="server" width="100%"
+                                                        cellpadding="0" skin="Office2010Silver" culture="(Default)" grouppanelposition="Top"
+                                                        resolvedrendermode="Classic" onitemdatabound="gridSpecList_ItemDataBound" ondeletecommand="gridSpecList_DeleteCommand">
                                                                 <MasterTableView NoMasterRecordsText="No Records Found" DataKeyNames="ID" CellSpacing="0"
                                                                     CellPadding="0">
                                                                     <Columns>
@@ -396,44 +383,41 @@
                                                                         </telerik:GridButtonColumn>
                                                                     </Columns>
                                                                 </MasterTableView>
-                                                            </telerik:RadGrid>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="border center formbg">
-                                    <table class="table-condensed" width="100%">
-                                        <tr id="Tr4" align="center">
-                                            <td id="Td4" class="form">
-                                                <asp:Button ID="btnSpecimenSave" runat="server" Text="Save" OnClick="btnSpecimenSave_Click"
-                                                    CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                <asp:Label ID="lblSave" CssClass="glyphicon glyphicon-floppy-disk" Style="margin-left: -3%;
-                                                    margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
-                                                <asp:Button ID="btncloseSpecimen" runat="server" Text="Close" OnClick="btncloseSpecimen_Click"
-                                                    CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                <label class="glyphicon glyphicon-remove-circle" style="margin-left: -3%; margin-right: 2%;
-                                                    vertical-align: sub; color: #fff;">
-                                                </label>
-                                                <asp:Button ID="btnSpecimenPrint" runat="server" OnClientClick="WindowPrint()"
-                                                    Text="Print" CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                <label class="glyphicon glyphicon-print" style="margin-left: -3%; vertical-align: sub;
-                                                    color: #fff;">
-                                                </label>
-                                            </td>
-                                        </tr>
+                                                            </telerik:radgrid>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
-                                </div>                            
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="border center formbg">
+                            <table class="table-condensed" width="100%">
+                                <tr id="Tr4" align="center">
+                                    <td id="Td4" class="form">
+                                        <asp:Button ID="btnSpecimenSave" runat="server" Text="Save" OnClick="btnSpecimenSave_Click"
+                                            CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
+                                        <asp:Label ID="lblSave" CssClass="glyphicon glyphicon-floppy-disk" Style="margin-left: -3%;
+                                            margin-right: 2%; vertical-align: sub; color: #fff;" runat="server"></asp:Label>
+                                        <asp:Button ID="btncloseSpecimen" runat="server" Text="Close" OnClick="btncloseSpecimen_Click"
+                                            CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
+                                        <label class="glyphicon glyphicon-remove-circle" style="margin-left: -3%; margin-right: 2%;
+                                            vertical-align: sub; color: #fff;">
+                                        </label>
+                                        <asp:Button ID="btnSpecimenPrint" runat="server" OnClientClick="WindowPrint()" Text="Print"
+                                            CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
+                                        <label class="glyphicon glyphicon-print" style="margin-left: -3%; vertical-align: sub;
+                                            color: #fff;">
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </ContentTemplate>
                 </act:TabPanel>
-                
-                <act:TabPanel ID="TabTestResult" runat="server" HeaderText="Test Results"
-                    TabIndex="3">
+                <act:TabPanel ID="TabTestResult" runat="server" HeaderText="Test Results" TabIndex="3">
                     <ContentTemplate>
-                    
                         <div class="border center formbg  pad5">
                             <div class="border whitebg pad5">
                                 <table class="table-condensed">
@@ -445,11 +429,11 @@
                                         </tr>
                                         <tr id="Tr6">
                                             <td align="left">
-                                                <telerik:RadGrid AutoGenerateColumns="False" ID="RadGridLabTest" runat="server" Width="100%"
-                                                    PageSize="5" ShowFooter="True" CellPadding="0" Skin="Office2010Silver" OnItemCreated="RadGridLabTest_ItemCreated"
-                                                    OnNeedDataSource="RadGridLabTest_NeedDataSource" OnItemCommand="RadGridLabTest_ItemCommand"
-                                                    OnDeleteCommand="RadGridLabTest_DeleteCommand" Culture="(Default)" GroupPanelPosition="Top"
-                                                    ResolvedRenderMode="Classic">
+                                                <telerik:radgrid autogeneratecolumns="False" id="RadGridLabTest" runat="server" width="100%"
+                                                    pagesize="5" showfooter="True" cellpadding="0" skin="Office2010Silver" onitemcreated="RadGridLabTest_ItemCreated"
+                                                    onneeddatasource="RadGridLabTest_NeedDataSource" onitemcommand="RadGridLabTest_ItemCommand"
+                                                    ondeletecommand="RadGridLabTest_DeleteCommand" culture="(Default)" grouppanelposition="Top"
+                                                    resolvedrendermode="Classic">
                                                     <ClientSettings>
                                                         <Selecting AllowRowSelect="True"></Selecting>
                                                         <Resizing AllowColumnResize="True" EnableRealTimeResize="True"></Resizing>
@@ -712,7 +696,7 @@
                                                             </telerik:RadGrid>
                                                         </NestedViewTemplate>
                                                     </MasterTableView>
-                                                </telerik:RadGrid>
+                                                </telerik:radgrid>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -742,65 +726,58 @@
                                 </tr>
                             </table>
                         </div>
-                        <%--</ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="tabControl" EventName="ActiveTabChanged" />
-                                <asp:AsyncPostBackTrigger ControlID="BtnSaveLabResults" EventName="Click" />
-                                <asp:AsyncPostBackTrigger ControlID="BtnCloseLabResults" EventName="Click" />
-                            </Triggers>
-                        </asp:UpdatePanel>--%>
                     </ContentTemplate>
                 </act:TabPanel>
             </act:TabContainer>
         </div>
     </div>
-    <asp:HiddenField ID="txthdnfield" runat="server" />    
+    <asp:HiddenField ID="txthdnfield" runat="server" />
     <asp:Table ID="tblPendingOrders" runat="server" Width="400px" Height="300px" BackColor="White"
-            CssClass="table-condensed">
-            <asp:TableRow>
-                <asp:TableCell Height="20px" BackColor="#205E8D">
-                    <asp:Table ID="Table11" runat="server" Width="100%">
-                        <asp:TableRow>
-                            <asp:TableCell HorizontalAlign="Center" VerticalAlign="Middle" ForeColor="White"
-                                Font-Bold="true">
+        CssClass="table-condensed">
+        <asp:TableRow>
+            <asp:TableCell Height="20px" BackColor="#205E8D">
+                <asp:Table ID="Table11" runat="server" Width="100%">
+                    <asp:TableRow>
+                        <asp:TableCell HorizontalAlign="Center" VerticalAlign="Middle" ForeColor="White"
+                            Font-Bold="true">
                                 Pending Orders
-                            </asp:TableCell>
-                            <asp:TableCell HorizontalAlign="Right" VerticalAlign="Middle">
-                                <asp:ImageButton ID="btnPendingOrdersClose" runat="server" ImageUrl="~/Images/closeButton1.png"
-                                    Height="20px" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell Height="100%">
-                    <div class="grid" id="divBills" style="width: 100%;">
-                        <div class="rounded">
-                            <div class="mid-outer">
-                                <div class="mid-inner">
-                                    <div class="mid" style="height: 400px; overflow: auto">
-                                        <div id="div1" class="GridView whitebg">
-                                            <asp:GridView ID="gvLaborders" runat="server" AutoGenerateColumns="False"
-                                                Width="100%" BorderColor="white" PageIndex="1" BorderWidth="1" GridLines="None"
-                                                CssClass="table table-bordered table-hover" CellPadding="0" CellSpacing="0">
-                                                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>                                                                                  
-                                            </asp:GridView>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bottom-outer">
-                                <div class="bottom-inner">
-                                    <div class="bottom">
+                        </asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right" VerticalAlign="Middle">
+                            <asp:ImageButton ID="btnPendingOrdersClose" runat="server" ImageUrl="~/Images/closeButton1.png"
+                                Height="20px" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell Height="100%">
+                <div class="grid" id="divBills" style="width: 100%;">
+                    <div class="rounded">
+                        <div class="mid-outer">
+                            <div class="mid-inner">
+                                <div class="mid" style="height: 400px; overflow: auto">
+                                    <div id="div1" class="GridView whitebg">
+                                        <asp:GridView ID="gvLaborders" runat="server" AutoGenerateColumns="False" Width="100%"
+                                            BorderColor="white" PageIndex="1" BorderWidth="1" GridLines="None" CssClass="table table-bordered table-hover"
+                                            CellPadding="0" CellSpacing="0">
+                                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                        </asp:GridView>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="bottom-outer">
+                            <div class="bottom-inner">
+                                <div class="bottom">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
+                </div>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     <asp:UpdateProgress ID="sProgress" runat="server" DisplayAfter="5">
         <ProgressTemplate>
             <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; vertical-align: middle;">

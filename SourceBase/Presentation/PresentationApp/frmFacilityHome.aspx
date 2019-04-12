@@ -22,14 +22,13 @@
                     <div class="col-md-3 titletext" id="servicebutton" runat="server" style='padding-bottom: 20px;'>
                         <asp:LinkButton ID="ButtonService" runat="server" CssClass="btn btn-primary" Height="100" 
                             Width="100%" CommandName="LoadServiceCommand" CommandArgument='<%# Eval("ModuleId") %>'
-                            Text='<%# showIcon(Eval("Icon").ToString()) + "  " + Eval("ModuleName") %>' style='<%# "display:inline-block;height:100px;width:100%;font-size:20px;padding-top:30px;padding-left:5px;background-color:" + DataBinder.Eval(Container.DataItem, "BackColor") + ";"%>'>
+                            Text='<%# Eval("ModuleName") %>' style='<%# "display:inline-block;height:100px;width:100%;font-size:20px;padding-top:30px;padding-left:5px;background-color:" + DataBinder.Eval(Container.DataItem, "BackColor") + ";"%>'>
                         </asp:LinkButton>
                         <br />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-        <%-- <asp:UpdatePanel ID="divDetailsCompnent" UpdateMode="Conditional" runat="server">--%>
         <asp:Button ID="btnShowItems" runat="server" Text="Test popup" Width="120px" Style="display: none;" />
          <asp:Panel ID="divItems" CssClass="container-fluid" runat="server" Style="display: none; width: 185%; border: solid 1px #808080; background-color: #205E8D;">
            <asp:Panel ID="divItemTitle" runat="server" Style="border: solid 0px #808080; margin: 0px 0px 0px 0px;
@@ -86,6 +85,5 @@
             X="350" Y="250" DropShadow="true" Enabled="true" PopupDragHandleControlID="divItemTitle"
             TargetControlID="btnShowItems">
         </ajaxToolkit:ModalPopupExtender>
-        <%--</asp:UpdatePanel>--%>
     </div>
 </asp:Content>
