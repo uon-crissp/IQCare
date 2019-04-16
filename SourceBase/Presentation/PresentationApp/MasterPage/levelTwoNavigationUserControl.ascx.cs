@@ -414,7 +414,6 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
             {
                 RemoveMenuItemByValue(patientLevelMenu.Items, "mnuARTTherapy");
             }
-
             if (Authentication.HasFeatureRight(ApplicationAccess.Dashboard, theDT) == false)
             {
                 RemoveMenuItemByValue(PharmacyDispensingMenu.Items, "Dashboard");

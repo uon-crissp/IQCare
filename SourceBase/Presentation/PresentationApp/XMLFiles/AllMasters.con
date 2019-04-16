@@ -590,6 +590,8 @@
                 <xs:element name="AdminCustomlistFlag" type="xs:int" minOccurs="0" />
                 <xs:element name="IsPatientDataRequired" type="xs:boolean" minOccurs="0" />
                 <xs:element name="FeatureURL" type="xs:string" minOccurs="0" />
+                <xs:element name="FormType" type="xs:string" minOccurs="0" />
+                <xs:element name="FeatureCategoryId" type="xs:int" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -15438,6 +15440,11 @@
     <NAME>FamilyHistoryOf</NAME>
     <Deleteflag>0</Deleteflag>
   </Mst_Code>
+  <Mst_Code>
+    <CodeId>1195</CodeId>
+    <NAME>FeatureCategory</NAME>
+    <Deleteflag>0</Deleteflag>
+  </Mst_Code>
   <Mst_HIVAIDSCareTypes>
     <Id>1</Id>
     <NAME>Home-based care</NAME>
@@ -18228,6 +18235,16 @@
     <CodeName>SpecimenType</CodeName>
   </Mst_Decode>
   <Mst_Decode>
+    <Id>1733</Id>
+    <NAME>Retention</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>9</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
     <Id>1352</Id>
     <NAME>Indrawing</NAME>
     <CodeId>1146</CodeId>
@@ -18806,6 +18823,16 @@
     <CodeName>NigeriaPESkin</CodeName>
   </Mst_Decode>
   <Mst_Decode>
+    <Id>1732</Id>
+    <NAME>Targeted Strategies</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>8</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
     <Id>1569</Id>
     <NAME>Oropharyngeal (OP) swab</NAME>
     <CodeId>1178</CodeId>
@@ -18834,6 +18861,16 @@
     <Deleteflag>0</Deleteflag>
     <SystemId>1</SystemId>
     <CodeName>IPTContraindication</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1731</Id>
+    <NAME>Pharmacy</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>7</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
   </Mst_Decode>
   <Mst_Decode>
     <Id>1409</Id>
@@ -19986,6 +20023,16 @@
     <CodeName>NigeriaPEGeneral</CodeName>
   </Mst_Decode>
   <Mst_Decode>
+    <Id>1730</Id>
+    <NAME>Laboratory</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>6</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
     <Id>1598</Id>
     <NAME>Prior IPT Use</NAME>
     <CodeId>1184</CodeId>
@@ -20098,6 +20145,16 @@
     <Deleteflag>0</Deleteflag>
     <SystemId>1</SystemId>
     <CodeName>IPT</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1729</Id>
+    <NAME>Specialized Care</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>5</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
   </Mst_Decode>
   <Mst_Decode>
     <Id>1407</Id>
@@ -21577,6 +21634,15 @@
     <CodeName>NigeriaPESkin</CodeName>
   </Mst_Decode>
   <Mst_Decode>
+    <Id>1706</Id>
+    <NAME>Hypertension</NAME>
+    <CodeId>1194</CodeId>
+    <SRNO>4</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <CodeName>FamilyHistoryOf</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
     <Id>1603</Id>
     <NAME>Other Specify</NAME>
     <CodeId>1185</CodeId>
@@ -21679,24 +21745,6 @@
     <Deleteflag>0</Deleteflag>
     <SystemId>1</SystemId>
     <CodeName>Patient Classification</CodeName>
-  </Mst_Decode>
-  <Mst_Decode>
-    <Id>1706</Id>
-    <NAME>Hypertension</NAME>
-    <CodeId>1194</CodeId>
-    <SRNO>4</SRNO>
-    <UpdateFlag>0</UpdateFlag>
-    <Deleteflag>0</Deleteflag>
-    <CodeName>FamilyHistoryOf</CodeName>
-  </Mst_Decode>
-  <Mst_Decode>
-    <Id>1705</Id>
-    <NAME>Diabetes</NAME>
-    <CodeId>1194</CodeId>
-    <SRNO>3</SRNO>
-    <UpdateFlag>0</UpdateFlag>
-    <Deleteflag>0</Deleteflag>
-    <CodeName>FamilyHistoryOf</CodeName>
   </Mst_Decode>
   <Mst_Decode>
     <Id>1668</Id>
@@ -21870,6 +21918,15 @@
     <Deleteflag>0</Deleteflag>
     <SystemId>1</SystemId>
     <CodeName>IPTDiscontinued</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1705</Id>
+    <NAME>Diabetes</NAME>
+    <CodeId>1194</CodeId>
+    <SRNO>3</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <CodeName>FamilyHistoryOf</CodeName>
   </Mst_Decode>
   <Mst_Decode>
     <Id>1405</Id>
@@ -23863,6 +23920,36 @@
     <CodeName>NigeriaPESkin</CodeName>
   </Mst_Decode>
   <Mst_Decode>
+    <Id>1726</Id>
+    <NAME>Clinical Review</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>2</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1727</Id>
+    <NAME>Psychosocial Support</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>2</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1728</Id>
+    <NAME>Nutrition</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>2</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
     <Id>1601</Id>
     <NAME>PA Poor Adherence</NAME>
     <CodeId>1185</CodeId>
@@ -24456,6 +24543,16 @@
     <Deleteflag>0</Deleteflag>
     <SystemId>1</SystemId>
     <CodeName>IPTDiscontinued</CodeName>
+  </Mst_Decode>
+  <Mst_Decode>
+    <Id>1725</Id>
+    <NAME>Nursing</NAME>
+    <CodeId>1195</CodeId>
+    <SRNO>1</SRNO>
+    <UpdateFlag>0</UpdateFlag>
+    <Deleteflag>0</Deleteflag>
+    <SystemId>0</SystemId>
+    <CodeName>FeatureCategory</CodeName>
   </Mst_Decode>
   <Mst_Decode>
     <Id>1411</Id>
@@ -137286,6 +137383,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>169</TabID>
@@ -137309,6 +137408,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>170</TabID>
@@ -137332,6 +137433,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>171</TabID>
@@ -137355,6 +137458,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>172</TabID>
@@ -137378,6 +137483,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>173</TabID>
@@ -137401,6 +137508,8 @@
     <CountryId>161</CountryId>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Clinical Review</FormType>
+    <FeatureCategoryId>1726</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>174</TabID>
@@ -137423,6 +137532,8 @@
     <Published>2</Published>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Psychosocial Support</FormType>
+    <FeatureCategoryId>1727</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>175</TabID>
@@ -137445,6 +137556,8 @@
     <Published>2</Published>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Psychosocial Support</FormType>
+    <FeatureCategoryId>1727</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>176</TabID>
@@ -137467,6 +137580,8 @@
     <Published>2</Published>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Psychosocial Support</FormType>
+    <FeatureCategoryId>1727</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>177</TabID>
@@ -137489,6 +137604,8 @@
     <Published>2</Published>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Psychosocial Support</FormType>
+    <FeatureCategoryId>1727</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <Mst_FormBuilderTab>
     <TabID>178</TabID>
@@ -137511,6 +137628,8 @@
     <Published>2</Published>
     <ModuleId>203</ModuleId>
     <MultiVisit>0</MultiVisit>
+    <FormType>Psychosocial Support</FormType>
+    <FeatureCategoryId>1727</FeatureCategoryId>
   </Mst_FormBuilderTab>
   <VW_UserDesignationTransaction>
     <UserID>1</UserID>

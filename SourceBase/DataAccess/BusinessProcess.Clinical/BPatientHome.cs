@@ -271,10 +271,6 @@ namespace BusinessProcess.Clinical
             }
         }
 
-        /**************************************/
-        //John Macharia
-        //5th Sep 2012
-        /*************************************/
         public DataSet GetPatientSummaryInformation(int PatientId, int ModuleId)
         {
             lock (this)
@@ -285,12 +281,10 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@ModuleId", SqlDbType.Int, ModuleId.ToString());
                 ClsUtility.AddParameters("@DBKey", SqlDbType.VarChar, ApplicationAccess.DBSecurity);
 
-                //return (DataSet)PatientManager.ReturnObject(ClsUtility.theParams, "pr_Clinical_GetPatientSummaryInfo_Futures", ClsDBUtility.ObjectEnum.DataSet);
                 return (DataSet)PatientManager.ReturnObject(ClsUtility.theParams, "pr_Clinical_GetPatientSummaryByPatientID", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
-        //John End
-        #region "Billing Module"
+
         public DataTable GetPatientWaitList(int PatientId)
         {
             lock (this)
@@ -335,8 +329,18 @@ namespace BusinessProcess.Clinical
 
             }
         }
-        #endregion
 
+        public DataTable GetCustomFormId(string Formname)
+        {
+            lock (this)
+            {
+                ClsObject PatientManager = new ClsObject();
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@Formname", SqlDbType.Int, Formname.ToString());
+
+                return (DataTable)PatientManager.ReturnObject(ClsUtility.theParams, "pr_Admin_GetCustomFormId", ClsDBUtility.ObjectEnum.DataTable);
+            }
+        }
     }
     
 }

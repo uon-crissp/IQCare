@@ -56,10 +56,10 @@ public partial class frmPatient_Home : BasePage
         IPatientHome PatientManager;
         PatientManager = (IPatientHome)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientHome, BusinessProcess.Clinical");
         System.Data.DataSet theDS = PatientManager.GetPatientDetails(Convert.ToInt32(Session["PatientId"]), Convert.ToInt32(Session["SystemId"]), Convert.ToInt32(Session["TechnicalAreaId"]));
-        PatientManager = null;
 
+        PatientManager = null;
         #region "Patient Data"
-        Session["PatientInformation"] = theDS.Tables[0];
+            Session["PatientInformation"] = theDS.Tables[0];
         #endregion
         if (theDS.Tables[41].Rows.Count > 0)
         {
@@ -221,37 +221,6 @@ public partial class frmPatient_Home : BasePage
 
                 }
             }
-
-
-
-            ////if (((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() == "PMTCT Care Ended") && (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() == "Care Ended"))
-            ////    || ((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() == "") && (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() == "Care Ended"))
-            ////    || ((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() == "PMTCT Care Ended") && (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() == "")))
-            ////{
-            ////    lblptnstatus.Text = "Care Ended";
-            ////    (Master.FindControl("lblpntStatus") as Label).Text = "1";
-            ////}
-
-            ////else if (((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() != "PMTCT Care Ended") || (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() != "Care Ended"))
-            ////           || ((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() == "PMTCT Care Ended") && (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() != "Care Ended"))
-            ////           || ((theDS.Tables[19].Rows[0]["PMTCTStatus"].ToString() != "PMTCT Care Ended") && (theDS.Tables[19].Rows[0]["ART/PalliativeCare"].ToString() == "Care Ended")))
-            ////{
-            ////    lblptnstatus.Text = "Active";
-            ////    (Master.FindControl("lblpntStatus") as Label).Text = "0";
-
-            ////}
-            //if (Convert.ToInt32(theDS.Tables[19].Rows[0]["Status"]) == 0)
-            //{
-            //    lblptnstatus.Text = "Active";
-            //    (Master.FindControl("lblpntStatus") as Label).Text = "0";
-
-            //}
-            //else
-            //{
-            //    lblptnstatus.Text = "Care Ended";
-            //    (Master.FindControl("lblpntStatus") as Label).Text = "1";
-            //}           
-
         }
 
         if (theDS.Tables[0].Rows.Count > 0)
@@ -335,18 +304,11 @@ public partial class frmPatient_Home : BasePage
                     if (Convert.ToInt32(theDV[0]["TestResults"]) == 1)
                     {
                         lblSyphilis.Text = "Positive";
-
-
                     }
                     else if (Convert.ToInt32(theDV[0]["TestResults"]) == 0)
                     {
-
                         lblSyphilis.Text = "Negative";
                     }
-
-
-
-
                 }
             }
             theDV.RowFilter = "Parameterid = 6 AND TestResults is not null";
@@ -1042,7 +1004,17 @@ public partial class frmPatient_Home : BasePage
                 grdCotriadherence.DataSource = theDS.Tables[47];
                 grdCotriadherence.DataBind();
             }
-            
+
+
+            if (Session["TechnicalAreaName"].ToString() == "CCC Clinic")
+            {
+                TabCCCMenu.Visible = true;
+            }
+            else
+            {
+                TabCCCMenu.Visible = false;
+                TabPatientInfo.Attributes.Add("class", "col-md-12 border border-primary");
+            }
     }
 
     private void createChartCD4(WebChartViewer viewer, Double[] CD4, Double[] ViralLoad, DateTime[] YearCD4, DateTime[] YearVL, DateTime[] Year)

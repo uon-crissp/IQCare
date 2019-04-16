@@ -1220,6 +1220,13 @@
     <Compile Include="ClinicalForms\UserControl\ucCaseSummary.ascx.designer.cs">
       <DependentUpon>ucCaseSummary.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\UserControl\ucCCCMenu.ascx.cs">
+      <DependentUpon>ucCCCMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\ucCCCMenu.ascx.designer.cs">
+      <DependentUpon>ucCCCMenu.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\UserControl\ucEvaluation.ascx.cs">
       <DependentUpon>ucEvaluation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4901,6 +4908,7 @@
     <Content Include="ClinicalForms\UserControl\ucANCScreeningAndTests.ascx" />
     <Content Include="ClinicalForms\UserControl\ucANCVisitDetails.ascx" />
     <Content Include="ClinicalForms\UserControl\ucCaseSummary.ascx" />
+    <Content Include="ClinicalForms\UserControl\ucCCCMenu.ascx" />
     <Content Include="ClinicalForms\UserControl\ucEvaluation.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_MotherProfileExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\mbExtruder.css" />
@@ -6628,7 +6636,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

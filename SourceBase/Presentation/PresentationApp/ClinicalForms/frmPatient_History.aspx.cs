@@ -329,12 +329,18 @@ public partial class frmPatient_History : BasePage
                     PtnSts = Session["PatientStatus"].ToString();
                 }
                 DataSet theDS = PatientManager.GetPatientHistory(Convert.ToInt32(PId));
-                //this.lblpatientname.Text = theDS.Tables[0].Rows[0]["Name"].ToString();
-                //this.lblpatientenrolment.Text = theDS.Tables[0].Rows[0]["PatientId"].ToString();
-                //this.lblexisclinicid.Text = theDS.Tables[0].Rows[0]["PatientClinicID"].ToString();
                 ViewState["theCFDT"] = theDS.Tables[3].Copy();
                 Session["FormStatus"] = "Pending";
                 FormIQCare(theDS);
+
+                if (Session["TechnicalAreaName"].ToString() == "CCC Clinic")
+                {
+                    ucCCCMenu1.Visible = true;
+                }
+                else
+                {
+                    ucCCCMenu1.Visible = false;
+                }
             }
         }
 

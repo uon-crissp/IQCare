@@ -1,6 +1,8 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPage/IQCare.master" AutoEventWireup="true"
     Inherits="frmPatient_History" Title="Untitled Page" CodeBehind="frmPatient_History.aspx.cs" %>
 
+<%@ Register src="UserControl/ucCCCMenu.ascx" tagname="ucCCCMenu" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="Server">
     <style type="text/css">
         .tvNodeLevel1
@@ -45,9 +47,13 @@
                         <div class="row text-center">
                             <asp:Label ID="lblDate" CssClass="smallerlabel" runat="server" Text=""></asp:Label>
                         </div>
-                        <div class="row">
+                        <div class="row" style="overflow: hidden; margin-left: 5px;">
                             <br />
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="margin-left: 300px;">
+                            <div id="TabCCCMenu" runat="server" class="col-md-3">
+                                <uc1:ucCCCMenu ID="ucCCCMenu1" runat="server"/>
+                            </div>
+                            <div id="TabExistingForms" runat="server" class="col-md-9">
+                                <h3>Existing Forms:</h3>
                                 <asp:TreeView ID="TreeViewExisForm" ForeColor="#000000" runat="server" Width="100%"
                                     OnSelectedNodeChanged="TreeViewExisForm_SelectedNodeChanged">
                                     <LevelStyles>
