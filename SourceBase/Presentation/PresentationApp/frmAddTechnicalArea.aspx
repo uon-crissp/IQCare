@@ -106,23 +106,6 @@
                                  &nbsp;
                                 </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                        &nbsp;
-                                    </div>
-                                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
-                                        <label class="required" id="Label2" runat="server">
-                                            Patient Type:</label>
-                                            
-                                        <asp:DropDownList CssClass="form-control" ID="ddlPatientType" ClientIDMode="Static" runat="server" Style="z-index: 2"
-                                                          AutoPostBack="False" >
-                                        
-                                        </asp:DropDownList>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                        &nbsp;
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                  <div class="col-md-3 col-sm-12 col-xs-12 form-group">

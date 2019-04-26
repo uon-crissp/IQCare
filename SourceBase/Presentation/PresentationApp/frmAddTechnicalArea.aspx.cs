@@ -37,8 +37,6 @@ public partial class frmAddTechnicalArea : BasePage
         btnReEnollPatient.Visible = false;
         if (!IsPostBack)
         {
-
-
             BindDropdown();
             LoadPatientDetail();
 
@@ -71,7 +69,6 @@ public partial class frmAddTechnicalArea : BasePage
         }
         else
         {
-
             int moduleId = 0;
             if (object.Equals(Request.QueryString["mod"], null) == false && Convert.ToInt32(Request.QueryString["mod"]) > 0)
             {
@@ -85,6 +82,7 @@ public partial class frmAddTechnicalArea : BasePage
                 LoadModuleIdentifiers(Convert.ToInt32(moduleId));
         }
     }
+
     private void LoadPatientDetail()
     {
         ViewState["AutoPopulated"] = "False";
@@ -118,11 +116,7 @@ public partial class frmAddTechnicalArea : BasePage
             lbldob.Text = theDS.Tables[0].Rows[0]["dob"].ToString();
             lblIQno.Text = theDS.Tables[0].Rows[0]["IQNumber"].ToString();
             Session["PatientSex"] = theDS.Tables[0].Rows[0]["sex"].ToString();
-            Session["PatientAge"] = theDS.Tables[0].Rows[0]["AGE"].ToString(); // +"." + theDS.Tables[0].Rows[0]["AgeInMonths"].ToString();
-            if (Convert.ToInt16(theDS.Tables[0].Rows[0]["PatientTypeId"]) > 0)
-            {
-                ddlPatientType.Items.FindByValue(theDS.Tables[0].Rows[0]["PatientTypeId"].ToString()).Selected = true;
-            }
+            Session["PatientAge"] = theDS.Tables[0].Rows[0]["AGE"].ToString();
         }
         if (theDS.Tables[2].Rows.Count > 0)
         {
@@ -137,6 +131,7 @@ public partial class frmAddTechnicalArea : BasePage
 
         }
     }
+
     //Calculate Year and Month by Rahmat(06-Feb-2018)
     private void CalculateYourAge(DateTime Dob)
     {
@@ -204,11 +199,7 @@ public partial class frmAddTechnicalArea : BasePage
             BindManager.BindCombo(ddlTecharea, BindModuleByBusinessRules(theDT, DSModules.Tables[1]), "ModuleName", "ModuleID");
             ptnMgr = null;
         }
-        if (dtPatientType.Rows.Count > 0)
-        {
-            BindManager.BindCombo(ddlPatientType, dtPatientType, "Name", "Id");
 
-        }
         ptnMgr = null;
     }
     public DataTable BindModuleByBusinessRules(DataTable dt, DataTable dtbusinessrules)
@@ -1213,7 +1204,7 @@ public partial class frmAddTechnicalArea : BasePage
             if (blankstatus > 0)
             {
                 sqlselect = "UPDATE mst_Patient WITH(ROWLOCK) SET mst_Patient.Status=0, ";
-                sqlselect = sqlselect + "PatientType = " + Convert.ToInt32(ddlPatientType.SelectedValue) + ",";
+                sqlselect = sqlselect + "PatientType = 0,";
 
                 DataTable DTModuleIdents = (DataTable)ViewState["ModuleIdentifiers"];
 

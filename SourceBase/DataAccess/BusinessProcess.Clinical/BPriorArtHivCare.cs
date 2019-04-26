@@ -815,8 +815,6 @@ namespace BusinessProcess.Clinical
 
 
         }
-
-        
         
         public DataSet GetARTHistoryData(int PatientId, int VisitId, int LocationId)
         {

@@ -326,6 +326,7 @@ public partial class frmPatientCustomRegistration : LogPage
             this.txtlastName.Text = theDS.Tables[0].Rows[0]["LastName"].ToString();
             this.txtmiddleName.Text = theDS.Tables[0].Rows[0]["MiddleName"].ToString();
             this.txtfirstName.Text = theDS.Tables[0].Rows[0]["FirstName"].ToString();
+            this.txtIDNo.Text = theDS.Tables[0].Rows[0]["ID/PassportNo"].ToString();
             this.TxtDOB.Text = ((DateTime)theDS.Tables[0].Rows[0]["RegDOB"]).ToString(Session["AppDateFormat"].ToString());
             if (Convert.ToInt32(theDS.Tables[0].Rows[0]["DobPrecision"]) == 1)
             {
@@ -403,7 +404,7 @@ public partial class frmPatientCustomRegistration : LogPage
         StringBuilder SbmstpatValues = new StringBuilder();
         SbmstpatColumns.Append("Update [MST_PATIENT]Set ");
         SbmstpatColumns.Append("FirstName=encryptbykey(key_guid('Key_CTC'),'" + txtfirstName.Text + "'), MiddleName=encryptbykey(key_guid('Key_CTC'),'" + txtmiddleName.Text + "'),");
-        SbmstpatColumns.Append("LastName=encryptbykey(key_guid('Key_CTC'),'" + txtlastName.Text + "'), LocationID='" + Session["AppLocationId"] + "', RegistrationDate='" + txtRegDate.Value + "',[ID/PassportNo]='0',");
+        SbmstpatColumns.Append("LastName=encryptbykey(key_guid('Key_CTC'),'" + txtlastName.Text + "'), LocationID='" + Session["AppLocationId"] + "', RegistrationDate='" + txtRegDate.Value + "',[ID/PassportNo]='" + txtIDNo.Text + "',");
         SbmstpatColumns.Append("Sex='" + ddgender.SelectedValue + "',DOB='" + TxtDOB.Text + "',DobPrecision='" + DOBPrecision + "',MaritalStatus='" + ddmaritalStatus.SelectedValue + "',VillageName='" + ddvillageName.SelectedValue + "',DistrictName='" + dddistrictName.SelectedValue + "',Province='" + ddProvince.SelectedValue + "',");
         SbmstpatColumns.Append("LocalCouncil='" + txtlocalCouncil.Text + "',Address=encryptbykey(key_guid('Key_CTC'),'" + txtaddress.Text + "'),Phone=encryptbykey(key_guid('Key_CTC'),'" + txtphone.Text + "'),");
         SbmstpatColumns.Append("CountryId='" + Session["AppCountryId"] + "', PosId='" + Session["AppPosID"] + "', SatelliteId='" + Session["AppSatelliteId"] + "', ");
@@ -625,7 +626,7 @@ public partial class frmPatientCustomRegistration : LogPage
         SbmstpatColumns.Append("Status, FirstName, MiddleName, LastName, LocationID, RegistrationDate, Sex, DOB, [ID/PassportNo], DobPrecision, MaritalStatus, VillageName, DistrictName, Province, LocalCouncil, Address, Phone, CountryId,  PosId, SatelliteId, UserID, CreateDate,");
         SbmstpatValues.Append("Values(");
         SbmstpatValues.Append("'0', encryptbykey(key_guid('Key_CTC'),'" + txtfirstName.Text + "'), encryptbykey(key_guid('Key_CTC'),'" + txtmiddleName.Text + "'), encryptbykey(key_guid('Key_CTC'),'" + txtlastName.Text + "')");
-        SbmstpatValues.Append(", '" + Session["AppLocationId"] + "', '" + txtRegDate.Value + "', '" + ddgender.SelectedValue + "', '" + TxtDOB.Text + "', '0','" + DOBPrecision + "', '" + ddmaritalStatus.SelectedValue + "', '" + ddvillageName.SelectedValue + "','" + dddistrictName.SelectedValue + "','" + ddProvince.SelectedValue + "',");
+        SbmstpatValues.Append(", '" + Session["AppLocationId"] + "', '" + txtRegDate.Value + "', '" + ddgender.SelectedValue + "', '" + TxtDOB.Text + "', '" + txtIDNo.Text + "','" + DOBPrecision + "', '" + ddmaritalStatus.SelectedValue + "', '" + ddvillageName.SelectedValue + "','" + dddistrictName.SelectedValue + "','" + ddProvince.SelectedValue + "',");
         SbmstpatValues.Append("'" + txtlocalCouncil.Text + "',encryptbykey(key_guid('Key_CTC'),'" + txtaddress.Text + "'),encryptbykey(key_guid('Key_CTC'),'" + txtphone.Text + "'),");
         SbmstpatValues.Append("'" + Session["AppCountryId"] + "', '" + Session["AppPosID"] + "', '" + Session["AppSatelliteId"] + "', '" + Session["AppUserId"] + "', getdate(),");
 

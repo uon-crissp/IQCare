@@ -1024,7 +1024,11 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
         DataTable dtrules = new DataTable();
         if (theDS.Tables[1].Rows.Count > 0)
         {
-            dtrules = BindFormBusinessRules(theDS.Tables[1], theDS.Tables[3]);
+            try
+            {
+                dtrules = BindFormBusinessRules(theDS.Tables[1], theDS.Tables[3]);
+            }
+            catch { }
         }
 
         int rowNo = 0;

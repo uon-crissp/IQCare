@@ -128,9 +128,10 @@
                     <tr>
                         <td style="padding: 5px">
                             <li>
-                                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">Defaulter Tracing</asp:LinkButton></li>
+                                <asp:LinkButton ID="lnkDefaulterTracing" runat="server" 
+                                    onclick="lnkDefaulterTracing_Click">Defaulter Tracing</asp:LinkButton></li>
                             <li>
-                                <asp:LinkButton ID="LinkButton2" runat="server" onclick="LinkButton2_Click">Care Ending</asp:LinkButton></li>
+                                <asp:LinkButton ID="lnkCareEnd" runat="server" onclick="lnkCareEnd_Click">Care Ending</asp:LinkButton></li>
                         </td>
                     </tr>
                 </table>

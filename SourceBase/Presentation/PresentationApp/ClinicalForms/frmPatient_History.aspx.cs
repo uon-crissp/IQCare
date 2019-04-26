@@ -124,9 +124,8 @@ public partial class frmPatient_History : BasePage
                     {
                         if (Convert.ToInt32(theDR["Module"]) > 2)
                         {
-
                             DataSet formLinking = PatientManager.GetLinkedForms_FormLinking(Convert.ToInt32(Session["TechnicalAreaId"]), Convert.ToInt32(theDR["FeatureID"]));
-
+                            
                             if (formLinking.Tables[0].Rows.Count > 0)
                             {
                                 if (DQ != "")
@@ -222,24 +221,6 @@ public partial class frmPatient_History : BasePage
                                     theFrmRoot.ImageUrl = "~/Images/No_16x.ico";
                                 }
                             }
-                            /*if (Session["Paperless"].ToString() == "1")
-                            {
-                                
-
-                            }
-
-
-                            else
-                            {
-                                if (DQ != "")
-                                {
-                                    theFrmRoot.ImageUrl = "~/images/15px-Yes_check.svg.png";
-                                }
-                                else
-                                {
-                                    theFrmRoot.ImageUrl = "~/Images/No_16x.ico";
-                                }
-                            }*/
                         }
                         else
                         {
@@ -249,32 +230,12 @@ public partial class frmPatient_History : BasePage
                         }
                     }
 
-                    //if (theFrmRoot.Text.Contains("HIVCE -"))
-                    //{
-                    //    if (theFrmRoot.Text.Contains("HIVCE - ART"))
-                    //    {
-                    //        theFrmRoot.NavigateUrl = "~/HIVCE/ARTReadinessAssessment.aspx";
-                    //    }
-                    //    if (theFrmRoot.Text.Contains("HIVCE - Transition"))
-                    //    {
-                    //        theFrmRoot.NavigateUrl = "~/HIVCE/Transition.aspx";
-                    //    }
-
-                    //}
-                    //else
-                    //{
                     theFrmRoot.NavigateUrl = "";
-                    //}
-
-
-
                     theFrmRoot.Value = Convert.ToInt32(PId) + "%" + theDR["OrderNo"].ToString() + "%" + theDR["LocationID"].ToString() + "%" + PtnARTStatus + "%" + theDR["Module"].ToString() + "%" + theDR["FormName"].ToString();
                     theMRoot.ChildNodes.Add(theFrmRoot);
                 }
             }
-
         }
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -452,7 +413,7 @@ public partial class frmPatient_History : BasePage
                 break;
 
             case "Express":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 203)
                 {
                     url = string.Format("{0}", "./frmClinical_KNH_ExpressForm.aspx");
                     Response.Redirect(url);
@@ -475,28 +436,28 @@ public partial class frmPatient_History : BasePage
                 }
                 break;
             case "Paediatric Initial Evaluation Form":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 203)
                 {
                     url = string.Format("{0}", "./frmClinical_KNH_Paediatric_IE.aspx");
                     Response.Redirect(url);
                 }
                 break;
             case "Adult Initial Evaluation Form":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 203)
                 {
                     url = string.Format("{0}", "./frmClinical_KNH_AdultIE.aspx");
                     Response.Redirect(url);
                 }
                 break;
             case "Adult Follow up Form":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 203)
                 {
                     url = string.Format("{0}", "./frmClinical_RevisedAdultfollowup.aspx");
                     Response.Redirect(url);
                 }
                 break;
             case "Paediatric Follow up Form":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 203)
                 {
                     url = string.Format("{0}", "./frmClinical_KNH_PediatricFollowup.aspx");
                     Response.Redirect(url);

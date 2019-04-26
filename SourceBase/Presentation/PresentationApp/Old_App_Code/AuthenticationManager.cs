@@ -15,8 +15,8 @@ public class AuthenticationManager
 {
     
     #region "Application Parameters"
-    public static string AppVersion = "4.2.0";
-    public static string ReleaseDate = "15-Mar-2019";
+    public static string AppVersion = "4.2.1";
+    public static string ReleaseDate = "15-Apr-2019";
     #endregion
 
 

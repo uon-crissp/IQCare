@@ -333,6 +333,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <label for="inputEmail3" class="control-label">
+                                                    ID Number:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <asp:TextBox ID="txtIDNo" MaxLength="50" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-xs-4 col-md-5">
                                         <div class="row">
@@ -539,7 +548,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="box box-primary" style="background-color: #fff;">
+                        <div class="box box-primary" style="background-color: #fff;">
                             <div class="box-header with-border">
                                 <h3 class="box-title">
                                     Next of Kin / Treatment Supporter</h3>

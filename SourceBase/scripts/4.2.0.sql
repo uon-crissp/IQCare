@@ -1877,6 +1877,10 @@ WHERE isnull(b.DeleteFlag,0) = 0
 GO
 --==
 
+update mst_Drug set DeleteFlag=1
+go
+--==
+
 INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM04ACY003', N'Acyclovir 400mg Tabs', 0, 1, CAST(N'2012-01-07 14:11:19.000' AS DateTime), CAST(N'2019-03-07 12:01:00.153' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(4 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(43.00 AS Decimal(18, 2)), 30, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-19 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 36)
 GO
 INSERT [dbo].[mst_Drug] ([DrugID], [DrugName], [DeleteFlag], [UserID], [CreateDate], [UpdateDate], [DispensingMargin], [DispensingUnitPrice], [FDACode], [Manufacturer], [MaxStock], [MinStock], [PurchaseUnitPrice], [QtyPerPurchaseUnit], [SellingUnitPrice], [DispensingUnit], [PurchaseUnit], [EffectiveDate], [Sequence], [ItemInstructions], [QtyUnitDisp], [VolUnit], [MedicationAmt], [PerlblVolUnits], [DosesDispenseUnit], [syrup], [RxNorm], [MorDose], [MidDose], [EvenDose], [NightDose], [DrugAbbreviation], [DrugType]) VALUES (N'PM02FLU002', N'Fluconazole 200mg Tablets', 0, 1, CAST(N'2012-01-10 16:53:43.000' AS DateTime), CAST(N'2019-03-07 12:07:06.360' AS DateTime), CAST(0 AS Decimal(18, 0)), CAST(6 AS Decimal(18, 0)), N'', 1, 0, 0, CAST(599.00 AS Decimal(18, 2)), 100, CAST(1.00 AS Decimal(18, 2)), 51, 37, CAST(N'2012-01-18 00:00:00.000' AS DateTime), NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, N'', 36)

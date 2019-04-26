@@ -53,27 +53,27 @@ namespace PresentationApp.ClinicalForms.UserControl
 
         protected void lnkAdvancedCare_Click(object sender, EventArgs e)
         {
-            OpenForm("Nutrition");
+            OpenForm("Consultant");
         }
 
         protected void lnkPyschiatric_Click(object sender, EventArgs e)
         {
-            OpenForm("Nutrition");
+            OpenForm("Mental Health");
         }
 
         protected void lnkPhysiotheraphy_Click(object sender, EventArgs e)
         {
-            OpenForm("Nutrition");
+            OpenForm("Physiotherapy");
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void lnkDefaulterTracing_Click(object sender, EventArgs e)
         {
-            OpenForm("Nutrition");
+            OpenForm("Tracking");
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+        protected void lnkCareEnd_Click(object sender, EventArgs e)
         {
-            OpenForm("Nutrition");
+            OpenForm("CareEnd_");
         }
     }
 }

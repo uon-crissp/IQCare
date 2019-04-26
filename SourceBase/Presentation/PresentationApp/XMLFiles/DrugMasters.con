@@ -2812,42 +2812,142 @@
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>548</StrengthId>
-    <StrengthName>150/75/400/275</StrengthName>
+    <StrengthName>10.3g/500ml</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>549</StrengthId>
-    <StrengthName>60mg/30mg/150mg</StrengthName>
+    <StrengthName>2mg/5ml</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>550</StrengthId>
-    <StrengthName>60MG/60MG</StrengthName>
+    <StrengthName>150/75/400/275mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>551</StrengthId>
-    <StrengthName>300mg/100mg</StrengthName>
+    <StrengthName>150/75/275mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>552</StrengthId>
-    <StrengthName>300mg/300mg/50mg</StrengthName>
+    <StrengthName>150/75mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>553</StrengthId>
-    <StrengthName>120mg/60mg</StrengthName>
+    <StrengthName>60/30/150mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>554</StrengthId>
-    <StrengthName>600mg/300mg</StrengthName>
+    <StrengthName>60/60mg</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_Strength>
     <StrengthId>555</StrengthId>
-    <StrengthName>300mg/300mg/400mg</StrengthName>
+    <StrengthName>240mg/5ml</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>556</StrengthId>
+    <StrengthName>Pack</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>557</StrengthId>
+    <StrengthName>100mg/270mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>558</StrengthId>
+    <StrengthName>350/100mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>559</StrengthId>
+    <StrengthName>200000 IU</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>560</StrengthId>
+    <StrengthName>228mg/5ml</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>561</StrengthId>
+    <StrengthName>Vitamin A</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>562</StrengthId>
+    <StrengthName>182.4/0.4mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>563</StrengthId>
+    <StrengthName>15mg/5ml</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>564</StrengthId>
+    <StrengthName>300mg/100mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>565</StrengthId>
+    <StrengthName>0</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>566</StrengthId>
+    <StrengthName>Apply</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>567</StrengthId>
+    <StrengthName>Susp</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>568</StrengthId>
+    <StrengthName>80ml</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>569</StrengthId>
+    <StrengthName>Cough Syrup</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>570</StrengthId>
+    <StrengthName>Eye Drop</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>571</StrengthId>
+    <StrengthName>1.33mg/33.3mg</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>572</StrengthId>
+    <StrengthName>80mg/20mg,ml</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>573</StrengthId>
+    <StrengthName>2% Oint</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>574</StrengthId>
+    <StrengthName>Tablet</StrengthName>
+    <DeleteFlag>false</DeleteFlag>
+  </Mst_Strength>
+  <Mst_Strength>
+    <StrengthId>575</StrengthId>
+    <StrengthName>40/10MG</StrengthName>
     <DeleteFlag>false</DeleteFlag>
   </Mst_Strength>
   <Mst_FrequencyUnits>
@@ -2945,7 +3045,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>10</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SB028</DrugId>
     <DrugName>Acetaminophen-Panadol 500mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -2993,8 +3093,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>18</Drug_PK>
-    <DrugId>PM04ACY003</DrugId>
-    <DrugName>Acyclovir 400mg Tabs</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Acyclovir-Acyclovir 400mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -3035,7 +3135,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>25</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG070</DrugId>
     <DrugName>Albendazole-Albenza 200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3168,7 +3268,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>48</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF042</DrugId>
     <DrugName>Amoxicillin-Amoxil 250mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3221,7 +3321,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>57</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF019</DrugId>
     <DrugName>Azithromycin-Zithromax 500mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3313,7 +3413,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>74</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SB010</DrugId>
     <DrugName>Diclofenac sodium-Voltaren 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3489,7 +3589,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>104</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SB014</DrugId>
     <DrugName>Ibuprofen-Brufen Syrup 100mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3893,12 +3993,13 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>174</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SE011B</DrugId>
     <DrugName>Enalapril-Vasotec   5mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>175</Drug_PK>
+    <DrugId />
     <DrugName>Mometasone furoate-Elocon Cream 1mg/g</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3916,7 +4017,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>178</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SE011A</DrugId>
     <DrugName>Enalapril-Innovace 5mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3940,7 +4041,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>182</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SE074</DrugId>
     <DrugName>Hydrochlorothiazide-Hydrochlorothiazide 50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -3980,7 +4081,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>189</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SE027</DrugId>
     <DrugName>Losartan-Cozaar   50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -4196,7 +4297,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>226</Drug_PK>
-    <DrugId>PM02FLU002</DrugId>
+    <DrugId>0</DrugId>
     <DrugName>Fluconazole-Fluconazole 200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -4251,7 +4352,7 @@
   <Mst_Drug>
     <Drug_PK>235</Drug_PK>
     <DrugId>0</DrugId>
-    <DrugName>Isoniazid (INH) 300mg Tabs</DrugName>
+    <DrugName>Isoniazid-INH 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -4284,6 +4385,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>241</Drug_PK>
+    <DrugId />
     <DrugName>Medroxyprogesterone acetate-Depo-Provera 150mg/ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -4495,7 +4597,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>280</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SC066A</DrugId>
     <DrugName>Gabapentin-Neurontin 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5456,7 +5558,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>443</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF037</DrugId>
     <DrugName>Ciprofloxacin-Cipro 250mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5498,7 +5600,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>450</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF092</DrugId>
     <DrugName>Clarithromycin-Biaxin 500mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5516,7 +5618,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>453</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF039</DrugId>
     <DrugName>Clindamycin hydrochloride-Dalacin C 150mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5534,7 +5636,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>456</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SD022</DrugId>
     <DrugName>Omeprazole-Prilosec 20mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5557,8 +5659,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>460</Drug_PK>
-    <DrugId>PM01DAP001</DrugId>
-    <DrugName>Dapsone 100mg Tabs</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Dapsone-Dapsone 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -5616,7 +5718,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>470</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF046</DrugId>
     <DrugName>Doxycycline-Vibramycin 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5628,7 +5730,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>472</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF050</DrugId>
     <DrugName>Erythromycin base-Erythromycin 250mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5820,7 +5922,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>504</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF095</DrugId>
     <DrugName>Levofloxacin-Levaquin 500mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -5844,7 +5946,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>508</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SF062</DrugId>
     <DrugName>Metronidazole-Flagyl 500mg/100ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -6542,11 +6644,13 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>635</Drug_PK>
+    <DrugId>SN008</DrugId>
     <DrugName>Multivitamin-Multivitamin 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>636</Drug_PK>
+    <DrugId>SN009</DrugId>
     <DrugName>Multivitamin-Multivitamin Syrup 100ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -6813,7 +6917,6 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>682</Drug_PK>
-    <DrugId />
     <DrugName>Ferrous sulfate-Ferrous sulfate 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -6949,7 +7052,6 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>706</Drug_PK>
-    <DrugId />
     <DrugName>Folic acid-Folic acid 5mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7030,7 +7132,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>720</Drug_PK>
-    <DrugId>PM14PYR001</DrugId>
+    <DrugId />
     <DrugName>Pyridoxine hcl-Pyridoxine (Vitamin B6) 50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7249,7 +7351,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>759</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SC049</DrugId>
     <DrugName>Domperidone-Gastractiv 10mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7378,7 +7480,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>781</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SC033</DrugId>
     <DrugName>Carbamazepine-Tegretol 200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7560,7 +7662,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>813</Drug_PK>
-    <DrugId>PM02AMP001</DrugId>
+    <DrugId>0</DrugId>
     <DrugName>Amphotericin B-AmBisome  50mg/12.5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7584,7 +7686,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>817</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG041</DrugId>
     <DrugName>Griseofulvin-Fulvicin-U/F 250mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7778,7 +7880,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>853</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG034</DrugId>
     <DrugName>Clotrimazole-Clotrimaderm Cream 1%/g</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7802,7 +7904,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>857</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG035</DrugId>
     <DrugName>Clotrimazole-Clotrimazole 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -7897,12 +7999,13 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>873</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SM042</DrugId>
     <DrugName>Cetirizine hydrochloride-Zyrtec 10mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>874</Drug_PK>
+    <DrugId>SM046</DrugId>
     <DrugName>Cetirizine hydrochloride-Childrens Zyrtec  5mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -8469,8 +8572,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>971</Drug_PK>
-    <DrugId>PM01CTX002</DrugId>
-    <DrugName>Co-trimoxazole 240mg/5ml Suspension</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Sulfa/TMX-Cotrimoxazole 200mg/40mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -8486,6 +8589,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>974</Drug_PK>
+    <DrugId>SG099</DrugId>
     <DrugName>Sulfa/TMX-Cotrimoxazole 800mg/160mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -8510,7 +8614,7 @@
   <Mst_Drug>
     <Drug_PK>978</Drug_PK>
     <DrugId>0</DrugId>
-    <DrugName>Co-trimoxazole 480mg Tabs</DrugName>
+    <DrugName>Sulfa/TMX-Septrin 400mg/80mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -8612,6 +8716,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>996</Drug_PK>
+    <DrugId />
     <DrugName>Vitamin B1/Vitamin B6/Vitamin B12-Neurobion 200mcg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -8754,8 +8859,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1022</Drug_PK>
-    <DrugId>PM01CTX006</DrugId>
-    <DrugName>Co-trimoxazole 960mg Tabs</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Sulfa/TMX-Cotrimoxazole 960mg 800mg/160mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9169,8 +9274,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1095</Drug_PK>
-    <DrugId>PM04ABA001</DrugId>
-    <DrugName>Abacavir (ABC) 300mg Tabs</DrugName>
+    <DrugId>SG087</DrugId>
+    <DrugName>Abacavir-ABC300 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9239,6 +9344,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1107</Drug_PK>
+    <DrugId />
     <DrugName>Zidovudine-Retrovir 10mg/1ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9254,12 +9360,14 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1110</Drug_PK>
+    <DrugId />
     <DrugName>Zidovudine-Retrovir 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1111</Drug_PK>
-    <DrugName>Zidovudine-AZT 50mg/5ml</DrugName>
+    <DrugId />
+    <DrugName>Zidovudine-Retrovir 50mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9276,6 +9384,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1114</Drug_PK>
+    <DrugId />
     <DrugName>Zidovudine-AZT100 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9286,8 +9395,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1116</Drug_PK>
-    <DrugId>PM04ZDV005</DrugId>
-    <DrugName>Zidovudine (AZT) 300mg Tabs</DrugName>
+    <DrugId />
+    <DrugName>Zidovudine-AZT300 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9456,14 +9565,13 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1146</Drug_PK>
-    <DrugId>PM04ABA004</DrugId>
-    <DrugName>Abacavir/Lamivudine (ABC/3TC) 60/30mg FDC Tabs</DrugName>
+    <DrugId />
+    <DrugName>Abacavir-ABC60/3TC30 60mg/30mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1147</Drug_PK>
-    <DrugId />
-    <DrugName>Abacavir/Lamivudine (ABC/3TC) 60/30mg FDC Tabs</DrugName>
+    <DrugName>Lamivudine/Abacavir-ABC60/3TC30 60mg/30mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9492,20 +9600,20 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1152</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG062</DrugId>
     <DrugName>Nevirapine-Viramune 50mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1153</Drug_PK>
-    <DrugId>PM04NEV002</DrugId>
-    <DrugName>Nevirapine (NVP) 10mg/ml Susp</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Nevirapine-NVP10mg/ml 10mg/ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1154</Drug_PK>
-    <DrugId>PM04NEV003</DrugId>
-    <DrugName>Nevirapine (NVP) 200mg Tabs</DrugName>
+    <DrugId>SG061</DrugId>
+    <DrugName>Nevirapine-NVP200 200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9534,37 +9642,37 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1159</Drug_PK>
-    <DrugId>PM04LAM007</DrugId>
-    <DrugName>Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 60/30/50mg FDC Tabs</DrugName>
+    <DrugId />
+    <DrugName>Zidovudine/Lamivudine/Nevirapine-AZT60/3TC30/NVP50 60mg/30mg/50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1160</Drug_PK>
-    <DrugId>PM04ZDV006</DrugId>
-    <DrugName>Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 300/150/200mg FDC Tabs</DrugName>
+    <DrugId />
+    <DrugName>Zidovudine/Lamivudine/Nevirapine-AZT300/3TC150/NVP200  300mg/150mg/200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1161</Drug_PK>
-    <DrugId>PM04LAM008</DrugId>
-    <DrugName>Zidovudine/Lamivudine (AZT/3TC) 60/30mg FDC Tabs</DrugName>
+    <DrugId />
+    <DrugName>Zidovudine/Lamivudine-AZT60/3TC30 60mg/30mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1162</Drug_PK>
-    <DrugId>PM04LAM005</DrugId>
-    <DrugName>Zidovudine/Lamivudine (AZT/3TC) 300/150mg FDC Tabs</DrugName>
+    <DrugId>SG004</DrugId>
+    <DrugName>Zidovudine/Lamivudine-AZT300/3TC150 300mg/150mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1163</Drug_PK>
-    <DrugId>PMTEN003</DrugId>
-    <DrugName>Tenofovir/Lamivudine/Efavirenz (TDF/3TC/EFV) 300/300/600mg FDC Tabs</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Tenofovir DF/Lamivudine/Efavirenz-TDF300/3TC300/EFV600 300mg/300mg/600mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1164</Drug_PK>
-    <DrugId>PM04TEN001</DrugId>
+    <DrugId>0</DrugId>
     <DrugName>Tenofovir DF/Lamivudine-TDF300/3TC300 300mg/300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9594,7 +9702,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1169</Drug_PK>
-    <DrugId>0</DrugId>
+    <DrugId>SG095</DrugId>
     <DrugName>Stavudine/Lamivudine/Nevirapine-Triomune-30 300mg/150mg/200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9606,8 +9714,8 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1171</Drug_PK>
-    <DrugId>PM04EFA005</DrugId>
-    <DrugName>Efavirenz (EFV) 200mg Tabs</DrugName>
+    <DrugId />
+    <DrugName>Efavirenz-EFV 200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9617,13 +9725,14 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1173</Drug_PK>
+    <DrugId />
     <DrugName>Efavirenz-EFV 50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1174</Drug_PK>
-    <DrugId>PM04EF4004</DrugId>
-    <DrugName>Efavirenz (EFV) 600mg Tabs</DrugName>
+    <DrugId>SG010</DrugId>
+    <DrugName>Efavirenz-EFV 600mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9641,7 +9750,7 @@
   <Mst_Drug>
     <Drug_PK>1177</Drug_PK>
     <DrugId>0</DrugId>
-    <DrugName>Dolutegravir-DTG 50 mg</DrugName>
+    <DrugName>Efavirenz-Sustiva 100mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9770,12 +9879,13 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1199</Drug_PK>
-    <DrugId>PM04LAM003</DrugId>
-    <DrugName>Lamivudine (3TC) 150mg Tabs</DrugName>
+    <DrugId>1234</DrugId>
+    <DrugName>Lamivudine-3TC 150mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1200</Drug_PK>
+    <DrugId />
     <DrugName>Lamivudine-3TC 300mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9811,8 +9921,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1206</Drug_PK>
-    <DrugId />
-    <DrugName>Stavudine/Lamivudine/Nevirapine (d4T/3TC/NVP) 30/150/200mg FDC Tabs</DrugName>
+    <DrugName>Stavudine/Lamivudine/Nevirapine-Emtri 30mg/150mg/200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9835,23 +9944,24 @@
   <Mst_Drug>
     <Drug_PK>1210</Drug_PK>
     <DrugId>0</DrugId>
-    <DrugName>Lopinavir/ritonavir (LPV/r) 200/50mg Tabs</DrugName>
+    <DrugName>Lopinavir/Ritonavir-Kaletra 200mg/50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1211</Drug_PK>
-    <DrugId>PM04STA009</DrugId>
+    <DrugId>0</DrugId>
     <DrugName>Stavudine/Lamivudine/Nevirapine-d4T30/3TC150/NVP200 300mg/150mg/200mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1212</Drug_PK>
+    <DrugId />
     <DrugName>Lopinavir/Ritonavir-LPV 100mg/25mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1213</Drug_PK>
-    <DrugId>PM04LPN001</DrugId>
+    <DrugId>SG086A</DrugId>
     <DrugName>Lopinavir/Ritonavir-LPV 200mg/50mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9869,7 +9979,7 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1216</Drug_PK>
-    <DrugId>PM04SAT006</DrugId>
+    <DrugId>0</DrugId>
     <DrugName>Stavudine/Lamivudine-Lamivir-S 30 30mg/150mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
@@ -9881,14 +9991,14 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1218</Drug_PK>
-    <DrugId>PM04LPN002</DrugId>
-    <DrugName>Lopinavir/ritonavir (LPV/r) 80/20mg/ml Liquid</DrugName>
+    <DrugId>0</DrugId>
+    <DrugName>Lopinavir/Ritonavir-Kaletra 80mg/20mg/ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1219</Drug_PK>
     <DrugId>0</DrugId>
-    <DrugName>Lopinavir/Ritonavir-Lopinavir/Ritonavir 40mg/10mg Pellets</DrugName>
+    <DrugName>Lopinavir/Ritonavir-LPV80/r20 80mg/20mg/ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
@@ -9899,392 +10009,1089 @@
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1221</Drug_PK>
-    <DrugName>Rifampicin/Isoniazid/Pyrazinamide/Ethambutol-RHZE-RiHaZe 150/75/400/275</DrugName>
+    <DrugName>Darunavir-piyush .025mg/1.75mg/10000 [iU]/mL</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1222</Drug_PK>
-    <DrugName>Ethambutol-Ethambutol 100mg</DrugName>
+    <DrugName>Hydroxyurea-trade test .025mg/1.75mg/10000 [iU]/mL</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1223</Drug_PK>
-    <DrugName>Isoniazid/Pyrazinamide/Rifampin-RHZ 60mg/30mg/150mg</DrugName>
+    <DrugName>Piyustesting-Testing .025mg/2.5mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1224</Drug_PK>
-    <DrugName>Rifampicin/Isoniazid-RH 60MG/60MG</DrugName>
+    <DrugId>SB031</DrugId>
+    <DrugName>Acetaminophen-Syrup Paracetamol /5ml 100ml 120mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1225</Drug_PK>
-    <DrugName>Albendazole-Abendazole 400mg</DrugName>
+    <DrugId>SC004A</DrugId>
+    <DrugName>Amitriptyline hydrochloride-Alprazolam 0.25mg .025mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1226</Drug_PK>
-    <DrugId />
-    <DrugName>Atazanavir/Ritonavir 300/100mg Tabs</DrugName>
+    <DrugId>SD003</DrugId>
+    <DrugName>Aluminium hydroxide;Magnesium hydroxide;simethicon-Antacid mixture 200ml 500mg/ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1227</Drug_PK>
-    <DrugName>Metronidazole-Metronidazole 400mg</DrugName>
+    <DrugId>SD015</DrugId>
+    <DrugName>Hyoscine butylbromide-Hyoscine butyl bromide 10mg 10mg/g</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1228</Drug_PK>
-    <DrugId />
-    <DrugName>Ampicillin/Cloxacillin-Ampiclox 500mg</DrugName>
+    <DrugId>SD023</DrugId>
+    <DrugName>Oral rehydration Salts-Oral Rehydration Salts .01g/100ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1229</Drug_PK>
-    <DrugId />
-    <DrugName>Chlorpheniramine Maleate-Chlorpheniramine 4mg 4mg</DrugName>
+    <DrugId>SE032</DrugId>
+    <DrugName>Nifedipine-Nifedipine 20mgs 20mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1230</Drug_PK>
-    <DrugName>Abacavir/Lamivudine-Abacavir/Lamivudine 60mg/30mg</DrugName>
+    <DrugId>SF005</DrugId>
+    <DrugName>Amoxicillin;Clavulanate-Amoxicillin/Clavulanic acid 70mls 228mg/5mls</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1231</Drug_PK>
-    <DrugName>Emtricitabine/Tenofovir (FTC/TDF) 200mg/300mg FDC Tabs</DrugName>
+    <DrugId />
+    <DrugName>Amoxicillin;Clavulanate-Co-amoxyclav 625mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1232</Drug_PK>
-    <DrugName>Tenofovir DF/Lamivudine/Dolutegravir-TENOFOVIR/LAMIVUDINE/DOLUTEGRAVIR 300mg/300mg/50mg</DrugName>
+    <DrugId>SF011</DrugId>
+    <DrugName>Amoxicillin-Amoxycillin 100ml 250mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1233</Drug_PK>
-    <DrugName>Abacavir/Lamivudine-ABC/3TC 120mg/60mg</DrugName>
+    <DrugId>SF022</DrugId>
+    <DrugName>Cefuroxime axetil-Cefuroxime  250mg</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1234</Drug_PK>
-    <DrugName>Abacavir/Lamivudine-ABC/3TC 600mg/300mg</DrugName>
+    <DrugName>Cefuroxime axetil-Cefuroxime  250mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1235</Drug_PK>
-    <DrugName>Tenofovir DF/Lamivudine/Efavirenz-TDF/3TC/EFV 300mg/300mg/400mg</DrugName>
+    <DrugId>SF023</DrugId>
+    <DrugName>Cefuroxime axetil-Cefuroxime  Syrup 250mg/5ml</DrugName>
     <DeleteFlag>1</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
     <Drug_PK>1236</Drug_PK>
+    <DrugName>Erythromycin base-Erythromycin  125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1237</Drug_PK>
+    <DrugId>SF049</DrugId>
+    <DrugName>Erythromycin ethylsuccinate-Erythromycin  125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1238</Drug_PK>
+    <DrugId />
+    <DrugName>Erythromycin ethylsuccinate-Erythromycin Syrup 125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1239</Drug_PK>
+    <DrugId>SF060</DrugId>
+    <DrugName>Metronidazole-Metronidazole - Flagyl 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1240</Drug_PK>
+    <DrugId />
+    <DrugName>Clotrimazole-Clotrimazole vaginal tabs .1%</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1241</Drug_PK>
+    <DrugId>SG039</DrugId>
+    <DrugName>Fluconazole-Fluconazole susp 50mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1242</Drug_PK>
+    <DrugId>SJ031</DrugId>
+    <DrugName>Prednisolone-Prednisolone 5mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1243</Drug_PK>
+    <DrugId>SN010</DrugId>
+    <DrugName>Multivitamin-Vitamin B1+B2+B12 1%</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1244</Drug_PK>
+    <DrugId>SR008</DrugId>
+    <DrugName>Oral rinse-Povidone Iodine .1%</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1245</Drug_PK>
+    <DrugId />
+    <DrugName>Mometasome-Mometasone cream  10mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1246</Drug_PK>
+    <DrugId>SM001a</DrugId>
+    <DrugName>Ambroxol-Ambroxol syrup  .01g/100ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1247</Drug_PK>
+    <DrugId>SM012A</DrugId>
+    <DrugName>Chlorpheniramine w;betametasone-Chlorpheniramine  syrup .01g/100ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1248</Drug_PK>
+    <DrugId>SM026</DrugId>
+    <DrugName>Salbutamol 4mg-Salbutamol Tab 4mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1249</Drug_PK>
+    <DrugId>SN002</DrugId>
+    <DrugName>Ferrous or ferric salts-Ferrous or ferric 25 - 50mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1250</Drug_PK>
+    <DrugId>SJ043</DrugId>
+    <DrugName>Atorvastatin-Atorvastatin 20mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1251</Drug_PK>
+    <DrugId />
+    <DrugName>Abacavir-Abacavir 60mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1252</Drug_PK>
+    <DrugId />
+    <DrugName>Stavudine-Stavudine 1mg/1ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1253</Drug_PK>
+    <DrugId />
+    <DrugName>Stavudine/Lamivudine-Stavudine Lamivudine 6mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1254</Drug_PK>
+    <DrugName>Stavudine/Lamivudine-Stavudine Lamivudine 30mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1255</Drug_PK>
+    <DrugId />
+    <DrugName>Lamivudine/Stavudine-Stavudine 12mg/Lamivudine 60mg 12mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1256</Drug_PK>
+    <DrugName>Lamivudine/Stavudine-Stavudine 12mg/Lamivudine 60mg 60mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1257</Drug_PK>
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T 6mg/3TC 30mg/NVP 50mg 6mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1258</Drug_PK>
+    <DrugId />
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T 6mg/3TC 30mg/NVP 50mg 30mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1259</Drug_PK>
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T 6mg/3TC 30mg/NVP 50mg 50mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1260</Drug_PK>
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T(12mg)/3TC(60mg)/NVP(100mg) 12mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1261</Drug_PK>
+    <DrugId />
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T(12mg)/3TC(60mg)/NVP(100mg) 60mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1262</Drug_PK>
+    <DrugName>Stavudine/Lamivudine/Nevirapine-D4T(12mg)/3TC(60mg)/NVP(100mg) 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1263</Drug_PK>
+    <DrugId />
+    <DrugName>Abacavir/Lamivudine-Abc/3tc 300mg/150mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1264</Drug_PK>
+    <DrugId />
+    <DrugName>Paracetamol-Paracetamol 500mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1265</Drug_PK>
+    <DrugId />
+    <DrugName>Paracetamol-Paracetamol 120mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1267</Drug_PK>
+    <DrugName>Fluconazole-Fluconazole Inj. 2mg/1ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1268</Drug_PK>
+    <DrugId />
+    <DrugName>Chlorpheniramine-Chlorpheniramine 4mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1269</Drug_PK>
+    <DrugId />
+    <DrugName>ORS-Oral Rehydration Salts 10.3g/500ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1270</Drug_PK>
+    <DrugId />
+    <DrugName>Cefuroxime axetil-Cefuroxime 125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1271</Drug_PK>
+    <DrugId />
+    <DrugName>Metronidazole-Metronidazole 100mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1272</Drug_PK>
+    <DrugId />
+    <DrugName>Chlorpheniramine-Chlorpheniramine 2mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1273</Drug_PK>
+    <DrugId />
+    <DrugName>Capreomycin-Capreomycin.inj 1gm</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1274</Drug_PK>
+    <DrugName>Kanamycin-Kanamycin inj 1gm</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1275</Drug_PK>
+    <DrugId />
+    <DrugName>PAS-PAS 4g</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1276</Drug_PK>
+    <DrugId />
+    <DrugName>Prothionamide-Prothionamide 250mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1277</Drug_PK>
+    <DrugId />
+    <DrugName>Streptomycin-Streptomycin inj 1gm</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1278</Drug_PK>
+    <DrugId />
+    <DrugName>RHZE-RHZE 150/75/400/275mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1279</Drug_PK>
+    <DrugId />
+    <DrugName>RHE-RHE 150/75/275mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1280</Drug_PK>
+    <DrugId />
+    <DrugName>RH-RH 150/75mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1281</Drug_PK>
+    <DrugId />
+    <DrugName>Ethambutol-Ethambutol 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1282</Drug_PK>
+    <DrugId />
+    <DrugName>RHZ-RHZ 60/30/150mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1283</Drug_PK>
+    <DrugId />
+    <DrugName>RH-RH 60/60mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1284</Drug_PK>
+    <DrugId />
+    <DrugName>RH-RH 60mg/30mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1285</Drug_PK>
+    <DrugId />
+    <DrugName>Ritonavir-Ritonavir Solution 80mg/ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1286</Drug_PK>
+    <DrugId />
+    <DrugName>Linezolid-Linezolid 60mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1287</Drug_PK>
+    <DrugId>SF043</DrugId>
+    <DrugName>Sulfa;TMX-Cotrimoxazole 240mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1288</Drug_PK>
+    <DrugId />
+    <DrugName>Patient Pack (CAT 1 &amp; II)-Patient Pack Pack</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1289</Drug_PK>
+    <DrugName>Ethambutol-Kemsa 400mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1290</Drug_PK>
+    <DrugId />
+    <DrugName>Pyrazinamide-Kemsa 500mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1291</Drug_PK>
+    <DrugId />
+    <DrugName>Isoniazid-Kemsa 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1292</Drug_PK>
+    <DrugId />
+    <DrugName>Pyridoxine hcl-Kemsa 50mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1293</Drug_PK>
+    <DrugName>Omeprazole-Kemsa 20mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1294</Drug_PK>
+    <DrugId />
+    <DrugName>Isoniazid-Kemsa 300mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1295</Drug_PK>
+    <DrugId />
+    <DrugName>Levofloxacin-Kemsa 250mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1296</Drug_PK>
+    <DrugId />
+    <DrugName>Levofloxacin-Kemsa 500mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1301</Drug_PK>
+    <DrugId />
+    <DrugName>Metronidazole-Metronidazole 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1302</Drug_PK>
+    <DrugId />
+    <DrugName>Metronidazole-Metronidazole 400mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1303</Drug_PK>
+    <DrugName>Artenusate/Amodiaquine-Artenusanate/Amodiaquine 100mg/270mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1304</Drug_PK>
+    <DrugName>Salbutamol-Salbutamol Sulphate Inhaler 100mcg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1305</Drug_PK>
+    <DrugName>Budesonide-Budesomide - Glucocorticoid 200mcg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1306</Drug_PK>
+    <DrugId />
+    <DrugName>Albendazole-Albendazole 400mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1307</Drug_PK>
+    <DrugName>Magnesium trisilicate-Compound Magnessium Trisilicate  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1308</Drug_PK>
+    <DrugId />
+    <DrugName>Paracetamol;chlorpheniramine;pseudoephedrine-ColdFlu  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1309</Drug_PK>
+    <DrugName>KY Gel-K-Y Gel  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1310</Drug_PK>
+    <DrugName>Tetracycline HCL-Tetracycline HCl BP 3%</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1311</Drug_PK>
+    <DrugId />
+    <DrugName>Attapulgite/Furazolidone-Diadis 350/100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1312</Drug_PK>
+    <DrugId />
+    <DrugName>Vitamin A-Vitamin A 200000 IU</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1313</Drug_PK>
+    <DrugName>Amoxicillin;Clavulanate-augmentin 228mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1314</Drug_PK>
+    <DrugId />
+    <DrugName>Throatsil-Throatsil Tabs 3.75mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1315</Drug_PK>
+    <DrugId />
+    <DrugName>Metronidazole-Flagly 200mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1316</Drug_PK>
+    <DrugId />
+    <DrugName>Metronidazole-Flagly 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1317</Drug_PK>
+    <DrugId />
+    <DrugName>Budesonide-Budecort Inhaler 200mcg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1318</Drug_PK>
+    <DrugName>Hifer-Hifer .01g/100ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1319</Drug_PK>
+    <DrugName>Salbutamol Syrup-Ventolin 2mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1320</Drug_PK>
+    <DrugName>Sodium Valproate-Epilim Syrup 200mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1321</Drug_PK>
+    <DrugName>Losartan-losartan coozar 50mg/ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1322</Drug_PK>
+    <DrugName>Ambroxol Hydrochloride-Ambrox 15mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1323</Drug_PK>
+    <DrugName>Ambroxol Hydrochloride 15 mg/5ml-Ambrox 15mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1324</Drug_PK>
+    <DrugName>Ferrous fumerate+Folic Acid-IFAS 182.4/0.4mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1325</Drug_PK>
+    <DrugId />
+    <DrugName>Atazanavir ATV/Ritonavir-Atazanavir/Ritonavir 300mg/100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1326</Drug_PK>
+    <DrugName>Acyclovir-Acyclovir Eye Ointment BP 3%  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1327</Drug_PK>
+    <DrugName>Amoxicillin-Amoxicillin Syrup 125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1328</Drug_PK>
+    <DrugName>Azithromycin-Azithromycin  200mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1329</Drug_PK>
+    <DrugName>Bromazepam-Bromazepam 3mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1330</Drug_PK>
+    <DrugName>Calamine Lotion-Calamine Lotion Apply</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1331</Drug_PK>
+    <DrugName>Cefadroxil-Cefadroxil susp Susp</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1332</Drug_PK>
+    <DrugName>Clindamycin syrup-Clindamycin Syrup 80ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1333</Drug_PK>
+    <DrugName>Brozedex-Brozedex  Cough Syrup</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1334</Drug_PK>
+    <DrugName>CTZ-Cotrimoxazole 240mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1335</Drug_PK>
+    <DrugName>Stavudine-D4T 1mg/ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1336</Drug_PK>
+    <DrugName>Stavudine-D4T 40mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1337</Drug_PK>
+    <DrugName>Didanosine-Didanosine 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1338</Drug_PK>
+    <DrugName>Didanosine-Didanosine 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1339</Drug_PK>
+    <DrugName>Didanosine-Didanosine 250mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1340</Drug_PK>
+    <DrugName>Didanosine-Didanosine 400mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1341</Drug_PK>
+    <DrugName>Didanosine-Didanosine 50mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1342</Drug_PK>
+    <DrugName>Dexamethasone-Dexamethasone .5mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1343</Drug_PK>
+    <DrugName>Dexamethasone-Dexamethasone Eye Drop Eye Drop</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1344</Drug_PK>
+    <DrugName>Folic acid-Ferrous/Follic  200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1345</Drug_PK>
+    <DrugName>Flucloxacilin-Flucloxacillin Susp 125mg/5ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1346</Drug_PK>
+    <DrugName>Fluconazole-Fluconazole 10mg/ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1347</Drug_PK>
+    <DrugName>Fluconazole-Fluconazole Syrup 10mg/ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1348</Drug_PK>
+    <DrugName>Haematinic Syrup-Haematinic Syrup Susp</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1349</Drug_PK>
+    <DrugName>Hydrocortisone-Hydrocortisone 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1350</Drug_PK>
+    <DrugName>Hrdrocortisone Inj-Hydrocortisone Inj 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1351</Drug_PK>
+    <DrugName>Ketoconazole topical-Ketoconazole 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1352</Drug_PK>
+    <DrugName>Lopinavir;Ritonavir-Lopinavir/Rtvr 1.33mg/33.3mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1353</Drug_PK>
+    <DrugName>Lopinavir;Ritonavir-Lpvr/Rtvr 80mg/20mg,ml</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1354</Drug_PK>
+    <DrugName>Mupirocin-Mupirocin 2% Oint</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1355</Drug_PK>
+    <DrugName>Raltegravir-Raltegravir 400mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1356</Drug_PK>
+    <DrugName>Tramadol-Tramadol 50mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1357</Drug_PK>
+    <DrugName>Antacid Susp-Antacid Susp Susp</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1358</Drug_PK>
+    <DrugName>Antacid Tablets-Antacid Tablets Tablet</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1359</Drug_PK>
+    <DrugId />
+    <DrugName>KHB-KHB  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1360</Drug_PK>
+    <DrugId />
+    <DrugName>Determine-Determine  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1361</Drug_PK>
+    <DrugId />
+    <DrugName>First Response-First Response  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1362</Drug_PK>
+    <DrugId />
+    <DrugName>Unigold-Unigold  </DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1363</Drug_PK>
+    <DrugName>Lopinavir;Ritonavir-LPV/r 40/10MG</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1364</Drug_PK>
+    <DrugName>Etravirine-Etravirine 200mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1365</Drug_PK>
+    <DrugName>Etravirine-Etravirine 100mg</DrugName>
+    <DeleteFlag>1</DeleteFlag>
+  </Mst_Drug>
+  <Mst_Drug>
+    <Drug_PK>1366</Drug_PK>
     <DrugId>PM04ACY003</DrugId>
     <DrugName>Acyclovir 400mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1237</Drug_PK>
+    <Drug_PK>1367</Drug_PK>
     <DrugId>PM02FLU002</DrugId>
     <DrugName>Fluconazole 200mg Tablets</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1238</Drug_PK>
+    <Drug_PK>1368</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Fluconazole 50mg Tablets</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1239</Drug_PK>
+    <Drug_PK>1369</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Isoniazid (INH) 300mg Tabs (pack of 100)</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1240</Drug_PK>
+    <Drug_PK>1370</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Isoniazid-INH 100mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1241</Drug_PK>
+    <Drug_PK>1371</Drug_PK>
     <DrugId>PM01DAP001</DrugId>
     <DrugName>Dapsone 100mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1242</Drug_PK>
+    <Drug_PK>1372</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Ethambutol 400mg Tab</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1243</Drug_PK>
+    <Drug_PK>1373</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Pyrazinamide 500mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1244</Drug_PK>
+    <Drug_PK>1374</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Rifabutin 150mg Tab</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1245</Drug_PK>
+    <Drug_PK>1375</Drug_PK>
     <DrugId>PM14PYR001</DrugId>
     <DrugName>Pyridoxine (Vitamin B6) 50mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1246</Drug_PK>
+    <Drug_PK>1376</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Amphotericin B 50mg IV Injection</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1247</Drug_PK>
+    <Drug_PK>1377</Drug_PK>
     <DrugId>PM01CTX002</DrugId>
     <DrugName>Cotrimoxazole 240mg/5ml Suspension</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1248</Drug_PK>
+    <Drug_PK>1378</Drug_PK>
     <DrugId>PM01CTX006</DrugId>
     <DrugName>Cotrimoxazole 960mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1249</Drug_PK>
+    <Drug_PK>1379</Drug_PK>
     <DrugId>PM04ABA001</DrugId>
     <DrugName>Abacavir (ABC) 300mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1250</Drug_PK>
+    <Drug_PK>1380</Drug_PK>
     <DrugId />
     <DrugName>Atazanavir/Ritonavir-(ATV/r) 300/100mg Tablets</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1251</Drug_PK>
+    <Drug_PK>1381</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Atazanavir (ATV) 100mg caps</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1252</Drug_PK>
+    <Drug_PK>1382</Drug_PK>
     <DrugName>Zidovudine (AZT) liquid 10mg/ml</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1253</Drug_PK>
+    <Drug_PK>1383</Drug_PK>
     <DrugId>PM04ZDV005</DrugId>
     <DrugName>Zidovudine (AZT) 300mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1254</Drug_PK>
+    <Drug_PK>1384</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Tenofovir DF-TDF300 300mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1255</Drug_PK>
+    <Drug_PK>1385</Drug_PK>
     <DrugName>Darunavir (DRV) 150mg tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1256</Drug_PK>
+    <Drug_PK>1386</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Darunavir (DRV) 600mg Tablets</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1257</Drug_PK>
+    <Drug_PK>1387</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Darunavir (DRV) 75mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1258</Drug_PK>
+    <Drug_PK>1388</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Ritonavir-RTV100 100mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1259</Drug_PK>
+    <Drug_PK>1389</Drug_PK>
     <DrugId>PM04ABA004</DrugId>
     <DrugName>Abacavir/Lamivudine (ABC/3TC) 600/300mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1260</Drug_PK>
+    <Drug_PK>1390</Drug_PK>
     <DrugId />
     <DrugName>Abacavir/Lamivudine (ABC/3TC) 60/30mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1261</Drug_PK>
+    <Drug_PK>1391</Drug_PK>
     <DrugId>PM04NEV002</DrugId>
     <DrugName>Nevirapine (NVP) 10mg/ml Susp</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1262</Drug_PK>
+    <Drug_PK>1392</Drug_PK>
     <DrugId>PM04NEV003</DrugId>
     <DrugName>Nevirapine (NVP) 200mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1263</Drug_PK>
+    <Drug_PK>1393</Drug_PK>
     <DrugId>PM04LAM007</DrugId>
     <DrugName>Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 60/30/50mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1264</Drug_PK>
+    <Drug_PK>1394</Drug_PK>
     <DrugId>PM04ZDV006</DrugId>
     <DrugName>Zidovudine/Lamivudine/Nevirapine (AZT/3TC/NVP) 300/150/200mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1265</Drug_PK>
+    <Drug_PK>1395</Drug_PK>
     <DrugId>PM04LAM008</DrugId>
     <DrugName>Zidovudine/Lamivudine (AZT/3TC) 60/30mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1266</Drug_PK>
+    <Drug_PK>1396</Drug_PK>
     <DrugId>PM04LAM005</DrugId>
     <DrugName>Zidovudine/Lamivudine (AZT/3TC) 300/150mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1267</Drug_PK>
+    <Drug_PK>1397</Drug_PK>
     <DrugId>PMTEN003</DrugId>
     <DrugName>Tenofovir/Lamivudine/Efavirenz (TDF/3TC/EFV) 300/300/600mg FDC Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1268</Drug_PK>
+    <Drug_PK>1398</Drug_PK>
     <DrugId>PM04TEN001</DrugId>
     <DrugName>Tenofovir DF/Lamivudine-TDF300/3TC300 300mg/300mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1269</Drug_PK>
+    <Drug_PK>1399</Drug_PK>
     <DrugId>PM04EFA005</DrugId>
     <DrugName>Efavirenz (EFV) 200mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1270</Drug_PK>
+    <Drug_PK>1400</Drug_PK>
     <DrugId>PM04EF4004</DrugId>
     <DrugName>Efavirenz (EFV) 600mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1271</Drug_PK>
+    <Drug_PK>1401</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Dolutegravir-DTG 50 mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1272</Drug_PK>
+    <Drug_PK>1402</Drug_PK>
     <DrugName>Lamivudine (3TC) liquid 10mg/ml (240ml bottles)</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1273</Drug_PK>
+    <Drug_PK>1403</Drug_PK>
     <DrugId>PM04LAM003</DrugId>
     <DrugName>Lamivudine (3TC) 150mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1274</Drug_PK>
+    <Drug_PK>1404</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Lopinavir/ritonavir (LPV/r) 200/50mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1275</Drug_PK>
+    <Drug_PK>1405</Drug_PK>
     <DrugName>Lopinavir/Ritonavir-LPV/r 100mg/25mg tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1276</Drug_PK>
+    <Drug_PK>1406</Drug_PK>
     <DrugId>PM04LPN002</DrugId>
     <DrugName>Lopinavir/ritonavir (LPV/r) 80/20mg/ml Liquid</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1277</Drug_PK>
+    <Drug_PK>1407</Drug_PK>
     <DrugId>0</DrugId>
     <DrugName>Lopinavir/Ritonavir (LPV/r) 40mg/10mg Caps</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1278</Drug_PK>
+    <Drug_PK>1408</Drug_PK>
     <DrugName>Tenofovir/Emtricitabine (TDF/FTC) 300mg/200mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1279</Drug_PK>
+    <Drug_PK>1409</Drug_PK>
     <DrugName>Tenofovir/Lamivudine/Dolutegravir (TDF/3TC/DTG) 300mg/300mg/50mg FDC tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1280</Drug_PK>
+    <Drug_PK>1410</Drug_PK>
     <DrugName>Abacavir/Lamivudine-ABC/3TC 120mg/60mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1281</Drug_PK>
+    <Drug_PK>1411</Drug_PK>
     <DrugName>Tenofovir DF/Lamivudine/Efavirenz-TDF/3TC/EFV 300mg/300mg/400mg</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1282</Drug_PK>
+    <Drug_PK>1412</Drug_PK>
     <DrugName>Pyridoxine 25mg tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1283</Drug_PK>
+    <Drug_PK>1413</Drug_PK>
     <DrugName>Etravirine (ETV) 200mg tablets</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1284</Drug_PK>
+    <Drug_PK>1414</Drug_PK>
     <DrugName>Raltegravir (RAL) 400mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1285</Drug_PK>
+    <Drug_PK>1415</Drug_PK>
     <DrugName>Darunavir (DRV) susp 100mg/ml</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1286</Drug_PK>
+    <Drug_PK>1416</Drug_PK>
     <DrugName>Raltegravir (RAL) 100mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1287</Drug_PK>
+    <Drug_PK>1417</Drug_PK>
     <DrugName>Raltegravir (RAL) 25mg Tabs</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1288</Drug_PK>
+    <Drug_PK>1418</Drug_PK>
     <DrugName>Ritonavir (RTV) liquid 80mg/ml</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1289</Drug_PK>
+    <Drug_PK>1419</Drug_PK>
     <DrugName>Isoniazid (INH) 10mg/ml</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
   <Mst_Drug>
-    <Drug_PK>1290</Drug_PK>
+    <Drug_PK>1420</Drug_PK>
     <DrugName>Isoniazid (INH) 300mg Tabs (pack of 672)</DrugName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_Drug>
@@ -10296,7 +11103,7 @@
   <Mst_Generic>
     <GenericId>22</GenericId>
     <GenericName>Atazanavir</GenericName>
-    <GenericAbbrevation>ATV</GenericAbbrevation>
+    <GenericAbbrevation>ATR</GenericAbbrevation>
   </Mst_Generic>
   <Mst_Generic>
     <GenericId>39</GenericId>
@@ -10327,11 +11134,6 @@
   <Mst_Generic>
     <GenericId>167</GenericId>
     <GenericName>Isoniazid</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>182</GenericId>
-    <GenericName>Lopinavir/Ritonavir</GenericName>
-    <GenericAbbrevation>LOPr</GenericAbbrevation>
   </Mst_Generic>
   <Mst_Generic>
     <GenericId>212</GenericId>
@@ -10367,102 +11169,6 @@
   <Mst_Generic>
     <GenericId>472</GenericId>
     <GenericName>Allopurinol</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>595</GenericId>
-    <GenericName>ACE inhibitors</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>596</GenericId>
-    <GenericName>Aminoglycosides</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>597</GenericId>
-    <GenericName>ARBs (angiotensin II receptor blockers)</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>598</GenericId>
-    <GenericName>Aspirin</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>599</GenericId>
-    <GenericName>Cephalosporins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>600</GenericId>
-    <GenericName>Choloroquine</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>601</GenericId>
-    <GenericName>Erythromycins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>602</GenericId>
-    <GenericName>Heparins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>603</GenericId>
-    <GenericName>Morphine</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>604</GenericId>
-    <GenericName>Nitrofurans</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>605</GenericId>
-    <GenericName>ACE inhibitors</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>606</GenericId>
-    <GenericName>Non-steroidal anti-inflammatory drugs</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>607</GenericId>
-    <GenericName>ACE inhibitors</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>608</GenericId>
-    <GenericName>Penicillamine</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>609</GenericId>
-    <GenericName>Penicillins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>610</GenericId>
-    <GenericName>Phenolphthaleins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>611</GenericId>
-    <GenericName>Procainamide</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>612</GenericId>
-    <GenericName>Quinidine</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>613</GenericId>
-    <GenericName>Statins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>614</GenericId>
-    <GenericName>Statins</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>615</GenericId>
-    <GenericName>Sulfonamides</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>616</GenericId>
-    <GenericName>Tenofovir</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>617</GenericId>
-    <GenericName>Tetracyline</GenericName>
-  </Mst_Generic>
-  <Mst_Generic>
-    <GenericId>618</GenericId>
-    <GenericName>Others</GenericName>
   </Mst_Generic>
   <Mst_DrugType>
     <DrugTypeId>1</DrugTypeId>
@@ -10929,6 +11635,169 @@
     <DrugTypeName>Cold medicine</DrugTypeName>
     <DeleteFlag>0</DeleteFlag>
   </Mst_DrugType>
+  <Mst_DrugType>
+    <DrugTypeId>97</DrugTypeId>
+    <DrugTypeName>Oral Rehydration Solution</DrugTypeName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_DrugType>
+  <Mst_DrugType>
+    <DrugTypeId>98</DrugTypeId>
+    <DrugTypeName>Lipid lowering agents</DrugTypeName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_DrugType>
+  <Mst_DrugType>
+    <DrugTypeId>99</DrugTypeId>
+    <DrugTypeName>Lozenges</DrugTypeName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_DrugType>
+  <Mst_DrugType>
+    <DrugTypeId>100</DrugTypeId>
+    <DrugTypeName>Cough Syrup</DrugTypeName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_DrugType>
+  <Mst_DrugType>
+    <DrugTypeId>101</DrugTypeId>
+    <DrugTypeName>HTC Test Kits</DrugTypeName>
+    <DeleteFlag>0</DeleteFlag>
+  </Mst_DrugType>
+  <Mst_Frequency>
+    <Id>3</Id>
+    <NAME>q4hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>4</Id>
+    <NAME>q6hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>5</Id>
+    <NAME>TID</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>15</Id>
+    <NAME>1OD</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>16</Id>
+    <NAME>2OD</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>17</Id>
+    <NAME>q72hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>18</Id>
+    <NAME>q1hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>19</Id>
+    <NAME>q2hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>20</Id>
+    <NAME>AID</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>21</Id>
+    <NAME>As directed</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>22</Id>
+    <NAME>2-3 times a week</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>23</Id>
+    <NAME>X1</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>24</Id>
+    <NAME>Now</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>26</Id>
+    <NAME>qweek</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>27</Id>
+    <NAME>qmonth</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>28</Id>
+    <NAME>3OD</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>29</Id>
+    <NAME>1BD</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>30</Id>
+    <NAME>QHS</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>31</Id>
+    <NAME>bid</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>10</Id>
+    <NAME>24 tabs over 60hrs</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>11</Id>
+    <NAME>BIW</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>12</Id>
+    <NAME>q8hrs</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>13</Id>
+    <NAME>q12hr</NAME>
+    <Deleteflag>1</Deleteflag>
+    <multiplier>0</multiplier>
+  </Mst_Frequency>
   <Mst_Frequency>
     <Id>1</Id>
     <NAME>OD</NAME>
@@ -10944,205 +11813,72 @@
     <multiplier>2</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>3</Id>
-    <NAME>q4hr</NAME>
+    <Id>8</Id>
+    <NAME>TD</NAME>
     <SRNO>3</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>8</multiplier>
+    <multiplier>3</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>4</Id>
-    <NAME>q6hr</NAME>
+    <Id>35</Id>
+    <NAME>2am 1pm</NAME>
     <SRNO>4</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>4</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>5</Id>
-    <NAME>TID</NAME>
-    <SRNO>5</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>3</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
     <Id>6</Id>
     <NAME>QID</NAME>
-    <SRNO>6</SRNO>
+    <SRNO>5</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>4</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>7</Id>
-    <NAME>PRN</NAME>
-    <SRNO>7</SRNO>
+    <Id>9</Id>
+    <NAME>5 times daily</NAME>
+    <SRNO>6</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
+    <multiplier>5</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>8</Id>
-    <NAME>TD</NAME>
+    <Id>32</Id>
+    <NAME>Nocte</NAME>
+    <SRNO>7</SRNO>
+    <Deleteflag>0</Deleteflag>
+    <multiplier>1</multiplier>
+  </Mst_Frequency>
+  <Mst_Frequency>
+    <Id>14</Id>
+    <NAME>3 Times a week</NAME>
     <SRNO>8</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>0</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>9</Id>
-    <NAME>5 times daily</NAME>
+    <Id>33</Id>
+    <NAME>STAT Dose</NAME>
     <SRNO>9</SRNO>
     <Deleteflag>0</Deleteflag>
-    <multiplier>5</multiplier>
+    <multiplier>1</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>10</Id>
-    <NAME>24 tabs over 60hrs</NAME>
+    <Id>7</Id>
+    <NAME>PRN</NAME>
     <SRNO>10</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>0</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>11</Id>
-    <NAME>BIW</NAME>
+    <Id>34</Id>
+    <NAME>Weekly</NAME>
     <SRNO>11</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>0</multiplier>
   </Mst_Frequency>
   <Mst_Frequency>
-    <Id>12</Id>
-    <NAME>q8hrs</NAME>
-    <SRNO>12</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>13</Id>
-    <NAME>q12hr</NAME>
-    <SRNO>13</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>14</Id>
-    <NAME>3xweek</NAME>
-    <SRNO>14</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>15</Id>
-    <NAME>1OD</NAME>
-    <SRNO>15</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>16</Id>
-    <NAME>2OD</NAME>
-    <SRNO>16</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>17</Id>
-    <NAME>q72hr</NAME>
-    <SRNO>17</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>18</Id>
-    <NAME>q1hr</NAME>
-    <SRNO>18</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>19</Id>
-    <NAME>q2hr</NAME>
-    <SRNO>19</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>20</Id>
-    <NAME>AID</NAME>
-    <SRNO>20</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>21</Id>
-    <NAME>As directed</NAME>
-    <SRNO>21</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>22</Id>
-    <NAME>2-3 times a week</NAME>
-    <SRNO>22</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>23</Id>
-    <NAME>X1</NAME>
-    <SRNO>23</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>24</Id>
-    <NAME>Now</NAME>
-    <SRNO>24</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
     <Id>25</Id>
-    <NAME>monthly</NAME>
-    <SRNO>25</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>26</Id>
-    <NAME>qweek</NAME>
-    <SRNO>26</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>27</Id>
-    <NAME>qmonth</NAME>
-    <SRNO>27</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>28</Id>
-    <NAME>3OD</NAME>
-    <SRNO>28</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>29</Id>
-    <NAME>1BD</NAME>
-    <SRNO>29</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>30</Id>
-    <NAME>QHS</NAME>
-    <SRNO>30</SRNO>
-    <Deleteflag>0</Deleteflag>
-    <multiplier>0</multiplier>
-  </Mst_Frequency>
-  <Mst_Frequency>
-    <Id>31</Id>
-    <NAME>bid</NAME>
-    <SRNO>31</SRNO>
+    <NAME>Monthly</NAME>
+    <SRNO>12</SRNO>
     <Deleteflag>0</Deleteflag>
     <multiplier>0</multiplier>
   </Mst_Frequency>
@@ -11197,7 +11933,7 @@
   </Mst_DrugSchedule>
   <Mst_DrugSchedule>
     <ID>8</ID>
-    <Name>At Birth</Name>
+    <Name>At birth</Name>
     <DeleteFlag>0</DeleteFlag>
     <UserID>1</UserID>
     <CreateDate>2011-07-12T15:33:19+03:00</CreateDate>
