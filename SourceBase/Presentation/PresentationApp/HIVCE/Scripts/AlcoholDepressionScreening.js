@@ -5,7 +5,7 @@ var arrCRAFFTScore = [];
 var arrCAGEAIDScore = [];
 $(document).ready(function () {
 
-    $.hivce.loader('show');
+    //$.hivce.loader('show');
     $("#hidId").val(0);
 
     $("textarea").maxlength({
@@ -22,6 +22,7 @@ $(document).ready(function () {
 
     InitAlcoholDepressionScreeningControls();
 
+    //$.hivce.loader('hide'); //Added KK
 });
 
 function InitAlcoholDepressionScreeningControls() {
@@ -208,7 +209,7 @@ function displayPHQ() {
     var chkFeelingDown = GetSwitchValue("chkFeelingDown");
     var chkLittleInterest = GetSwitchValue("chkLittleInterest");
 
-    if (chkFeelingDown == 1 && chkLittleInterest == 1) {
+    if (chkFeelingDown == 1 || chkLittleInterest == 1) {
         $("#borderedTable").css("visibility", "visible");
         $("#borderedTable").css("display", "block");
     }
@@ -433,7 +434,7 @@ function GetADSData() {
                 }
             }
             else {
-                $.hivce.loader('hide');
+                //$.hivce.loader('hide');
             }
         },
         error: function (msg) {
@@ -513,7 +514,7 @@ function BindADSData(response) {
     displayPHQ();
     enableDisableDisclouserStatus();
 
-    $.hivce.loader('hide');
+    //$.hivce.loader('hide');
 }
 
 function enableDisableDisclouserStatus() {
@@ -717,7 +718,7 @@ function PrepareAlcoholDepressionScreeningData() {
 
 function SaveData() {
 
-    $.hivce.loader('show');
+    //$.hivce.loader('show');
     var rowData2 = PrepareAlcoholDepressionScreeningData();
     PostData(rowData2);
 }
@@ -792,7 +793,7 @@ function PostData(rowData) {
                     }
                 }
 
-                $.hivce.loader('hide');
+                //$.hivce.loader('hide');
             },
             error: function (msg) {
                 //ShowErrorMessage(msg);
@@ -802,7 +803,7 @@ function PostData(rowData) {
 }
 
 function ResetForm() {
-    $.hivce.loader('show');
+    //$.hivce.loader('show');
     debugger;
     GetADSData();
 

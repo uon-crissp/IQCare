@@ -294,7 +294,7 @@ public partial class frmPatient_History : BasePage
                 Session["FormStatus"] = "Pending";
                 FormIQCare(theDS);
 
-                if (Session["TechnicalAreaName"].ToString() == "CCC Clinic")
+                if (Session["TechnicalAreaName"].ToString() == "ART Clinic")
                 {
                     ucCCCMenu1.Visible = true;
                 }

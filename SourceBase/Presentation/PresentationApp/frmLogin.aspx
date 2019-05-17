@@ -141,10 +141,7 @@
                                 <div class="col-md-2">
                                 </div>
                                 <div class="form-group col-md-10">
-                                    <div class="btn btn-primary glyphicon glyphicon-search">
-                                        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" BackColor="Transparent"
-                                            BorderWidth="0" />
-                                    </div>
+                                     <asp:Button CssClass="btn btn-primary glyphicon glyphicon-search" ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" Height="40px" Width="120px"/>
                                 </div>
                                 <div class="col-md-2">
                                 </div>

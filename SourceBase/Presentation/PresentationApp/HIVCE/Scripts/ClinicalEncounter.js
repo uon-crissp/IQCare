@@ -51,6 +51,8 @@ $(document).ready(function () {
             }
 
         }
+
+        $.hivce.loader('hide'); //Added KK
     });
 
     $("textarea").maxlength({

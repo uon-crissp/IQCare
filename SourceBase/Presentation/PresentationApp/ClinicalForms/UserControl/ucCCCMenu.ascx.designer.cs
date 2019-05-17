@@ -13,6 +13,15 @@ namespace PresentationApp.ClinicalForms.UserControl {
     public partial class ucCCCMenu {
         
         /// <summary>
+        /// lnkClinicalEncounter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkClinicalEncounter;
+        
+        /// <summary>
         /// lnkNutrition control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace PresentationApp.ClinicalForms.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkPhysiotheraphy;
+        
+        /// <summary>
+        /// lnkOTZ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkOTZ;
         
         /// <summary>
         /// lnkDefaulterTracing control.

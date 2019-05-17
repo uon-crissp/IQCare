@@ -194,7 +194,7 @@
             </div>--%>
             <!-- /.box-header -->
             <div class="box-body">
-                <div class="row">
+                <div class="row" style="display: none">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group" id="div1">
                         <!-- Anthropometric Measurements -->
                         <div class="box box-primary">
@@ -284,7 +284,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-10 col-sm-12 col-xs-12 form-group" id="divRadioNutritionGroup">
+                    <div class="col-md-2 form-group">
+                        <label>Nutritional Assessment :</label>                    
+                    </div>
+                    <div class="col-md-10 form-group" id="divRadioNutritionGroup">
                         <label class="control-label radio-inline">
                             <input type="radio" name="NutritionGroup" value="939" />
                             Normal</label>

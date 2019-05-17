@@ -893,19 +893,19 @@
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>17</SubTestId>
-    <SubTestName>Sputum AFB1</SubTestName>
+    <SubTestName>Sputum AFB 1</SubTestName>
     <TestId>17</TestId>
     <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>18</SubTestId>
-    <SubTestName>Sputum AFB2</SubTestName>
+    <SubTestName>Sputum AFB 2</SubTestName>
     <TestId>18</TestId>
     <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>19</SubTestId>
-    <SubTestName>Sputum AFB3</SubTestName>
+    <SubTestName>Sputum AFB 3</SubTestName>
     <TestId>19</TestId>
     <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
@@ -991,7 +991,7 @@
     <SubTestId>33</SubTestId>
     <SubTestName>CXR</SubTestName>
     <TestId>33</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>34</SubTestId>
@@ -1033,61 +1033,61 @@
     <SubTestId>40</SubTestId>
     <SubTestName>Temp</SubTestName>
     <TestId>40</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>41</SubTestId>
     <SubTestName>HR</SubTestName>
     <TestId>41</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>42</SubTestId>
     <SubTestName>RR</SubTestName>
     <TestId>42</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>43</SubTestId>
     <SubTestName>BP Systolic</SubTestName>
     <TestId>43</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>44</SubTestId>
     <SubTestName>Weight</SubTestName>
     <TestId>44</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>45</SubTestId>
     <SubTestName>Height</SubTestName>
     <TestId>45</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>46</SubTestId>
     <SubTestName>Pain</SubTestName>
     <TestId>46</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>47</SubTestId>
     <SubTestName>Surface Area</SubTestName>
     <TestId>47</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>48</SubTestId>
     <SubTestName>BP Diastolic</SubTestName>
     <TestId>48</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>49</SubTestId>
     <SubTestName>Hb</SubTestName>
     <TestId>49</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>50</SubTestId>
@@ -1105,7 +1105,7 @@
     <SubTestId>52</SubTestId>
     <SubTestName>test</SubTestName>
     <TestId>52</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>53</SubTestId>
@@ -1279,7 +1279,7 @@
     <SubTestId>81</SubTestId>
     <SubTestName>Hepatitis C antibody</SubTestName>
     <TestId>81</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>82</SubTestId>
@@ -1429,7 +1429,7 @@
     <SubTestId>107</SubTestId>
     <SubTestName>ViralLoad Undetectable</SubTestName>
     <TestId>3</TestId>
-    <DeleteFlag>1</DeleteFlag>
+    <DeleteFlag>0</DeleteFlag>
   </Lnk_TestParameter>
   <Lnk_TestParameter>
     <SubTestId>108</SubTestId>
@@ -1633,11 +1633,6 @@
     <SubTestId>141</SubTestId>
     <SubTestName>Calcium  (mmol/L)</SubTestName>
     <TestId>102</TestId>
-  </Lnk_TestParameter>
-  <Lnk_TestParameter>
-    <SubTestId>142</SubTestId>
-    <SubTestName>SPO2(%)</SubTestName>
-    <TestId>122</TestId>
   </Lnk_TestParameter>
   <Lnk_LabValue>
     <SubTestID>1</SubTestID>
@@ -2636,6 +2631,71 @@
     <ParameterId>101</ParameterId>
     <Result>Negative</Result>
   </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>63</ResultId>
+    <Result>MTB Positive R Indeterminate</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>64</ResultId>
+    <Result>MTB positive RR</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>65</ResultId>
+    <Result>MTB Positive RS</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>66</ResultId>
+    <Result>Invalid/Error</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>67</ResultId>
+    <Result>MTB Negative</Result>
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>68</ResultId>
+    <ParameterId>14</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>69</ResultId>
+    <ParameterId>15</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>70</ResultId>
+    <ParameterId>17</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>71</ResultId>
+    <ParameterId>18</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>72</ResultId>
+    <ParameterId>19</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>73</ResultId>
+    <ParameterId>97</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>74</ResultId>
+    <ParameterId>98</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>75</ResultId>
+    <ParameterId>99</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
+  <Lnk_ParameterResult>
+    <ResultId>76</ResultId>
+    <ParameterId>114</ParameterId>
+    <Result />
+  </Lnk_ParameterResult>
   <LabTestOrder>
     <SubTestId>1</SubTestId>
     <SubTestName>CD4</SubTestName>
@@ -2651,6 +2711,12 @@
   <LabTestOrder>
     <SubTestId>3</SubTestId>
     <SubTestName>Viral Load</SubTestName>
+    <TestId>3</TestId>
+    <DeleteFlag>0</DeleteFlag>
+  </LabTestOrder>
+  <LabTestOrder>
+    <SubTestId>107</SubTestId>
+    <SubTestName>ViralLoad Undetectable</SubTestName>
     <TestId>3</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
@@ -2776,19 +2842,19 @@
   </LabTestOrder>
   <LabTestOrder>
     <SubTestId>17</SubTestId>
-    <SubTestName>Sputum AFB1</SubTestName>
+    <SubTestName>Sputum AFB 1</SubTestName>
     <TestId>17</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <LabTestOrder>
     <SubTestId>18</SubTestId>
-    <SubTestName>Sputum AFB2</SubTestName>
+    <SubTestName>Sputum AFB 2</SubTestName>
     <TestId>18</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>
   <LabTestOrder>
     <SubTestId>19</SubTestId>
-    <SubTestName>Sputum AFB3</SubTestName>
+    <SubTestName>Sputum AFB 3</SubTestName>
     <TestId>19</TestId>
     <DeleteFlag>0</DeleteFlag>
   </LabTestOrder>

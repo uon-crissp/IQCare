@@ -1226,6 +1226,22 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
         {
             divIEFV();
         }
+        else if (ModuleId.ToString() == "8")
+        {
+            divPMTCT();
+            DivDynModule();
+            ClinicID();
+            divKHN(); divNigARTCard(); divPEP();
+            divKenyaBlueCard();
+        }
+        else if (ModuleId.ToString() == "10")
+        {
+            divPMTCT();
+            DivDynModule();
+            ClinicID();
+            divKHN(); divNigARTCard(); divPEP();
+            divKenyaBlueCard();
+        }
         else if (ModuleId.ToString() == "202")
         {
             divPMTCT();

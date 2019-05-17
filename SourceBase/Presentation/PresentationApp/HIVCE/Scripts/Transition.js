@@ -50,6 +50,8 @@
     });
 
     GetData();
+
+    $.hivce.loader('hide'); //Added KK
 });
 
 function DisableDate(ctrlName) {

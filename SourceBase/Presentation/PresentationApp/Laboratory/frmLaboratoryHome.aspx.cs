@@ -30,7 +30,7 @@ namespace PresentationApp.Laboratory
         {
             Session["PatientId"] = int.Parse(gvLabOrders.SelectedDataKey.Values["Ptn_pk"].ToString());
             Session["PatientVisitID"] = int.Parse(gvLabOrders.SelectedDataKey.Values["VisitID"].ToString());
-            Response.Redirect("frm_LabTestResults.aspx");
+            Response.Redirect("frm_Laboratory.aspx");
         }
 
         protected void gvLabOrders_DataBound(object sender, EventArgs e)

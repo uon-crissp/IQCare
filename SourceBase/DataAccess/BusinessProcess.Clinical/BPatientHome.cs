@@ -196,22 +196,6 @@ namespace BusinessProcess.Clinical
 
         }
 
-        
-
-
-
-        
-
-        //public DataSet GetPatientDetailsCTC(string patientid, int VisitID)
-        //{
-        //    ClsUtility.Init_Hashtable();
-        //    ClsUtility.AddParameters("@patientid", SqlDbType.Int, patientid.ToString());
-        //    ClsUtility.AddParameters("@visitID", SqlDbType.Int, VisitID.ToString());
-        //    ClsUtility.AddParameters("@password", SqlDbType.VarChar, ApplicationAccess.DBSecurity);
-        //    ClsObject UserManager = new ClsObject();
-        //    return (DataSet)UserManager.ReturnObject(ClsUtility.theParams, "pr_Clinical_PatientDetailsCTC_Constella", ClsDBUtility.ObjectEnum.DataSet);
-        //}
-
         public DataTable GetPatientDebitNoteSummary(int PatientID)
         {
             lock (this)
@@ -339,6 +323,25 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@Formname", SqlDbType.Int, Formname.ToString());
 
                 return (DataTable)PatientManager.ReturnObject(ClsUtility.theParams, "pr_Admin_GetCustomFormId", ClsDBUtility.ObjectEnum.DataTable);
+            }
+        }
+
+        public int GetClinicalEncounterVisitID(int PatientId)
+        {
+            lock (this)
+            {
+                try
+                {
+                    ClsUtility.Init_Hashtable();
+                    ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, PatientId.ToString());
+                    ClsObject FamilyInfo = new ClsObject();
+                    DataTable dt = (DataTable)FamilyInfo.ReturnObject(ClsUtility.theParams, "pr_Clinical_GetClinicalEncounterVisitID", ClsDBUtility.ObjectEnum.DataTable);
+                    return Convert.ToInt32(dt.Rows[0][0]);
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
     }

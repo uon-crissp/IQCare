@@ -320,8 +320,8 @@
                                                                     <%-- <asp:DropDownList ID="ddlList" runat="server"></asp:DropDownList>--%>
                                                                     <asp:Label ID="lblUnitName" runat="server" Text='<%# Eval("UnitName") %>'></asp:Label>
                                                                    
-                                                                    <asp:Label ID="LblResultReportBy" CssClass="pad10" Font-Bold="true" runat="server" Text='<%# Eval("ReportedbyName") %>'></asp:Label>
-                                                                    <asp:Label ID="LblResultReportDate" runat="server" Font-Bold="true" Text='<%# Eval("ResReportedbyDate") %>'></asp:Label>
+                                                                    <%--<asp:Label ID="LblResultReportBy" CssClass="pad10" Font-Bold="true" runat="server" Text='<%# Eval("ReportedbyName") %>'></asp:Label>
+                                                                    <asp:Label ID="LblResultReportDate" runat="server" Font-Bold="true" Text='<%# Eval("ResReportedbyDate") %>'></asp:Label>--%>
                                                                     <asp:Label ID="lblControlType" runat="server" Text='<%# Eval("Control_type") %>'
                                                                         Visible="false"></asp:Label>
                                                                     <asp:Label ID="lblundetectable" runat="server" Text='<%# Eval("undetectable") %>'

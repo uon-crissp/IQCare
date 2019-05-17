@@ -17,11 +17,11 @@
         <tr>
             <td>
                 <h2 id="tHeading">
-                    Find / Add Patient</h2>
+                    Find / Add</h2>
             </td>
             <td style="float: right">
-                <h5 id="lblServiceArea" style="font-weight: bold;" runat="server">
-                </h5>
+                <h1 id="lblServiceArea" style="font-weight: bold;" runat="server">
+                </h1>
             </td>
         </tr>
     </table>

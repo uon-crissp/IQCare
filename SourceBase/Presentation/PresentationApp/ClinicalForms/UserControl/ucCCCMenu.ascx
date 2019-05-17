@@ -23,7 +23,8 @@
                     </tr>
                     <tr>
                         <td style="padding: 5px">
-                            <li><a href="../HIVCE/ClinicalEncounter.aspx?add=0">Clinical Encounter</a></li>
+                            <li><asp:LinkButton ID="lnkClinicalEncounter" runat="server" 
+                                    onclick="lnkClinicalEncounter_Click">Clinical Encounter</asp:LinkButton></li>
                         </td>
                     </tr>
                     <tr>
@@ -110,13 +111,7 @@
                     </tr>
                     <tr>
                         <td style="padding: 5px">
-                            <li><a href="">OTZ</a><br />
-                            </li>
-                            <li><a href="">Differentiated Care</a><br />
-                            </li>
-                            <li><a href="">PAMA Care</a><br />
-                            </li>
-                            <li><a href="">Viremia Clinic</a><br />
+                            <li><asp:LinkButton ID="lnkOTZ" runat="server" onclick="lnkOTZ_Click">OTZ</asp:LinkButton>
                             </li>
                         </td>
                     </tr>

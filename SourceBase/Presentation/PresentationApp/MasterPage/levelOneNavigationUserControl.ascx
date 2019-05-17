@@ -19,12 +19,13 @@
         <div class="collapse navbar-collapse">
             <asp:Menu ID="mainMenu" runat="server" EnableViewState="false" IncludeStyleBlock="false"
                 Orientation="Horizontal" RenderingMode="List" CssClass="text-muted" StaticMenuStyle-CssClass="nav"
-                StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown-menu">
+                StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown-menu"
+                OnMenuItemClick="mainMenu_MenuItemClick1">
                 <Items>
                     <asp:MenuItem Text="<i class='fa fa-cubes fa-1x text-muted' aria-hidden='true'></i> <span class='fa-1x text-muted'><strong>  Select Service</strong></span>"
                         NavigateUrl="~/frmFacilityHome.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="<i class='fa fa-search fa-1x text-muted' aria-hidden='true'></i> <span class='fa-1x text-muted'><strong>  Find/Add Patient</strong></span>"
-                        NavigateUrl="~/frmFindAddPatient.aspx"></asp:MenuItem>
+                    <asp:MenuItem Value="mnuFindPatient" Text="<i class='fa fa-search fa-1x text-muted' aria-hidden='true'></i> <span class='fa-1x text-muted'><strong>  Find/Add Patient</strong></span>">
+                    </asp:MenuItem>
                     <asp:MenuItem Text="<i class='fa fa-bar-chart fa-1x text-muted' aria-hidden='true'></i> <span class='fa-1x text-muted'> <strong>Reports</strong></span>"
                         Selectable="False">
                         <asp:MenuItem Text="Custom Reports" Value="Custom Reports" NavigateUrl="~/Reports/frmReportCustom.aspx">

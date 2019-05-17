@@ -147,7 +147,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
                 MsgBuilder theBuilder = new MsgBuilder();
                 theBuilder.DataElements["FormName"] = "This";
                 IQCareMsgBox.ShowConfirm("DeleteForm", theBuilder, btnsave);
-
             }
             else if (Convert.ToInt32(Session["PatientVisitId"]) > 0)
             {

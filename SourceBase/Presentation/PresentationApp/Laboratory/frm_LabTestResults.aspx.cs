@@ -108,9 +108,11 @@ namespace PresentationApp.Laboratory
             theDVCodeID.RowFilter = "Name='" + FieldName + "'";
             DataView theDV = new DataView(theDSXML.Tables["Mst_Decode"]);
             theDV.RowFilter = "CodeID=" + ((DataTable)theDVCodeID.ToTable()).Rows[0]["CodeID"].ToString();
+            theDV.Sort = "SRNo ASC";
             DataTable theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
             BindManager.BindCombo(ddl, theDT, "Name", "ID");
         }
+
         private void BindList(String EmployeeId)
         {
             DataSet theDSXML = new DataSet();
@@ -121,7 +123,7 @@ namespace PresentationApp.Laboratory
             if (theDSXML.Tables["Mst_Decode"] != null)
             {
                 BindComboXML(theDSXML, "SpecimenType", ddlspecimentype);
-                BindComboXML(theDSXML, "SpecimenSource", ddlSpecSource);
+                //BindComboXML(theDSXML, "SpecimenSource", ddlSpecSource);
                 //BindComboXML(theDSXML, "SpecimenState", ddlState);
                 //BindComboXML(theDSXML, "SpecimenStatus", ddlTestStatus);
                 //ddlTestStatus.Attributes.Add("OnChange", "SetEnableDisable('" + ddlTestStatus.ClientID + "','Reject','" + ddlrejreason.ClientID + "');");
@@ -134,7 +136,7 @@ namespace PresentationApp.Laboratory
             //}
             IUser UserManager = (IUser)ObjectFactory.CreateInstance("BusinessProcess.Security.BUser,BusinessProcess.Security");
             DataTable theFacDT = UserManager.GetFacilityList();
-            BindManager.BindCombo(ddlfromfacility, theFacDT, "FacilityName", "FacilityId");
+            //BindManager.BindCombo(ddlfromfacility, theFacDT, "FacilityName", "FacilityId");
             //BindUserDropdown(ddlrecivedby, string.Empty);
             BindUserDropdown(ddlrecivedby, Session["AppUserId"].ToString());
 
@@ -527,7 +529,7 @@ namespace PresentationApp.Laboratory
             //}
             IUser UserManager = (IUser)ObjectFactory.CreateInstance("BusinessProcess.Security.BUser,BusinessProcess.Security");
             DataTable theFacDT = UserManager.GetFacilityList();
-            theBindManager.BindCombo(ddlfromfacility, theFacDT, "FacilityName", "FacilityId");
+            //theBindManager.BindCombo(ddlfromfacility, theFacDT, "FacilityName", "FacilityId");
 
         }
 
@@ -2461,7 +2463,7 @@ namespace PresentationApp.Laboratory
                 string LabNumber = UCSpecLabDetails.txtlabnumber.Text;
                 string[] lab = LabNumber.Split('-');
                 string LabFilNo = lab[1].TrimStart('0');
-                string CustomSpecNo = LabFilNo + "-" + Convert.ToInt32(ddlspecimentype.SelectedValue) + Convert.ToInt32(ddlSpecSource.SelectedValue);
+                string CustomSpecNo = LabFilNo + "-" + Convert.ToInt32(ddlspecimentype.SelectedValue);
                 if (Session["SpecRecpDT"] == null)
                     Session["SpecRecpDT"] = CreateSpecimentable();
                 DataTable SpecList = (DataTable)Session["SpecRecpDT"];
@@ -2484,16 +2486,16 @@ namespace PresentationApp.Laboratory
                 }
                 DataRow thespecdr = SpecList.NewRow();
                 thespecdr["ID"] = lastrow + 1;
-                thespecdr["SpecCustomNumber"] = LabFilNo + "-" + Convert.ToInt32(ddlspecimentype.SelectedValue) + Convert.ToInt32(ddlSpecSource.SelectedValue);
+                thespecdr["SpecCustomNumber"] = LabFilNo + "-" + Convert.ToInt32(ddlspecimentype.SelectedValue);
                 thespecdr["LabID"] = LabFilNo;
                 thespecdr["SpecimenTypeID"] = Convert.ToInt32(ddlspecimentype.SelectedValue);
                 thespecdr["Specimentype"] = ddlspecimentype.SelectedItem.Text;
-                thespecdr["SourceID"] = Convert.ToInt32(ddlSpecSource.SelectedValue);
-                thespecdr["SpecimenSource"] = ddlSpecSource.SelectedItem.Text;
-                thespecdr["SpecimenOtherSource"] = txtOtherSource.Text;
+                thespecdr["SourceID"] = "0";
+                thespecdr["SpecimenSource"] = "-";
+                thespecdr["SpecimenOtherSource"] = "-";
                 thespecdr["SpecimenDate"] = Convert.ToDateTime(txtSpecRecdt.DbSelectedDate);
-                thespecdr["FacilityID"] = Convert.ToInt32(ddlfromfacility.SelectedValue);
-                thespecdr["FacilityName"] = ddlfromfacility.SelectedItem.Text;
+                thespecdr["FacilityID"] = "0";
+                thespecdr["FacilityName"] = "-";
                 thespecdr["Specimennumbers"] = Convert.ToInt32(ddlspecno.SelectedValue);
                 thespecdr["SpecimenRecvdbyId"] = Convert.ToInt32(ddlrecivedby.SelectedValue);
                 thespecdr["SpecimenRecvdby"] = ddlrecivedby.SelectedItem.Text;
@@ -2511,11 +2513,11 @@ namespace PresentationApp.Laboratory
         private void ClearSpecimen()
         {
             ddlspecimentype.SelectedIndex = 0;
-            ddlSpecSource.SelectedIndex = 0;
+            //ddlSpecSource.SelectedIndex = 0;
             //ddlfromfacility.SelectedIndex = 0;
             ddlspecno.SelectedIndex = 0;
             //ddlrecivedby.SelectedIndex = 0;
-            txtOtherSource.Text = "";
+            //txtOtherSource.Text = "";
             //txtSpecRecdt.DbSelectedDate = "";
         }
 
@@ -2637,38 +2639,12 @@ namespace PresentationApp.Laboratory
                 IQCareMsgBox.Show("BlankDropDown", theBuilder, this);
                 return false;
             }
-            if (ddlSpecSource.SelectedIndex == 0)
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["Control"] = "Specimen Source";
-                IQCareMsgBox.Show("BlankDropDown", theBuilder, this);
-                return false;
-            }
             if (txtSpecRecdt.DbSelectedDate.ToString() == "")
             {
                 MsgBuilder theBuilder = new MsgBuilder();
                 theBuilder.DataElements["Control"] = "Specimen Received Date";
                 IQCareMsgBox.Show("BlankTextBox", theBuilder, this);
                 //txtvisitDate.Focus();
-                return false;
-            }
-            if (Convert.ToDateTime(Application["AppCurrentDate"].ToString()).AddDays(1) < Convert.ToDateTime(txtSpecRecdt.DbSelectedDate))
-            {
-                IQCareMsgBox.Show("SpecimenDate", this);
-                return false;
-            }
-            if (ddlfromfacility.SelectedIndex == 0)
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["Control"] = "Facility From";
-                IQCareMsgBox.Show("BlankDropDown", theBuilder, this);
-                return false;
-            }
-            if (ddlspecno.SelectedIndex == 0)
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["Control"] = "Number of Specimen";
-                IQCareMsgBox.Show("BlankDropDown", theBuilder, this);
                 return false;
             }
             if (ddlrecivedby.SelectedIndex == 0)
@@ -2681,6 +2657,7 @@ namespace PresentationApp.Laboratory
             IQCareMsgBox.HideMessage(this);
             return true;
         }
+
         private Boolean LabResultFieldValidation()
         {
             foreach (GridNestedViewItem nestedView in RadGridLabTest.MasterTableView.GetItems(GridItemType.NestedView))
@@ -2918,7 +2895,8 @@ namespace PresentationApp.Laboratory
         protected void btncloseSpecimen_Click(object sender, EventArgs e)
         {
             clearsession();
-            Response.Redirect(Request.RawUrl);
+            //Response.Redirect(Request.RawUrl);
+            Response.Redirect("frmLaboratoryHome.aspx");
         }
 
         private void SaveSpecimen()
@@ -2941,6 +2919,9 @@ namespace PresentationApp.Laboratory
                         SaveCancel("Specimen Receipt");
                         tabControl.ActiveTabIndex = 2;
                         fillLabDetails();
+
+                        clearsession();
+                        Response.Redirect("frmLaboratoryHome.aspx");
                     }
                 }
             }
@@ -2973,15 +2954,12 @@ namespace PresentationApp.Laboratory
         {
             int PatientID = Convert.ToInt32(Session["PatientId"]);
             IQCareMsgBox.NotifyAction(tabname + " Tab saved successfully.", "Laboratory Results", false, this, "");
-            
         }
         private void SaveResultCancel(string tabname)
         {           
             clearsession();
             IQCareMsgBox.NotifyAction(tabname + " Tab saved successfully.", "Laboratory Results", true, this,false, "window.location.href='frm_LabTestResults.aspx'");
-            
         }
-
         
         private void ClearTestInit()
         {
@@ -2996,92 +2974,6 @@ namespace PresentationApp.Laboratory
             ////txtTestInitdt.DbSelectedDate = "";
             //txtrejreason.Text = "";
         }
-
-        //protected void btnTestInitClear_Click(object sender, EventArgs e)
-        //{
-        //    ClearTestInit();
-        //}
-
-        //protected void btnSaveTestInit_Click(object sender, EventArgs e)
-        //{
-        //    DataTable thesvspcDt = (DataTable)Session["TestInitpDT"];
-        //    if (thesvspcDt.Rows.Count > 0)
-        //    {
-        //        bool exists = thesvspcDt.AsEnumerable().Where(c => c.Field<string>("Flag").Equals("1")).Count() > 0;
-        //        if (exists)
-        //        {
-        //            DataTable tblFiltered = thesvspcDt.AsEnumerable()
-        //           .Where(row => row.Field<string>("Flag") == "1")
-        //           .CopyToDataTable();
-        //            thesvspcDt = new DataTable();
-        //            thesvspcDt = RemoveColumnsTestInitTable(tblFiltered);
-        //            ILabFunctions theILabManager = (ILabFunctions)ObjectFactory.CreateInstance("BusinessProcess.Laboratory.BLabFunctions, BusinessProcess.Laboratory");
-        //            int result = theILabManager.SaveUpdateTestInitDetails(thesvspcDt, Convert.ToInt32(Session["AppUserId"]));
-        //            if (result > 0)
-        //            {
-        //                SaveCancel("Test Inititiation");
-        //                tabControl.ActiveTabIndex = 3;
-        //            }
-        //        }
-        //    }
-
-        //}
-
-        //protected void btnCloseTestInit_Click(object sender, EventArgs e)
-        //{
-        //    clearsession();
-        //    Response.Redirect(Request.RawUrl);
-        //}
-
-        //protected void grdTestInit_ItemDataBound(object sender, GridItemEventArgs e)
-        //{
-        //    GridDataItem dataItem = e.Item as GridDataItem;
-
-        //    if (dataItem != null)
-        //    {
-        //        Label lblFalg = (Label)dataItem.FindControl("lblTestInitFlag");
-        //        if (lblFalg.Text == "1")
-        //        {
-        //            (dataItem["Delete"].Controls[0] as ImageButton).ImageUrl = "~/Images/del.gif";
-        //        }
-        //        else
-        //        {
-        //            dataItem["Delete"].Controls[0].Visible = false;
-        //        }
-        //    }
-        //}
-
-        //protected void ddltestname_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //}
-
-
-        //protected void grdTestInit_DeleteCommand(object sender, GridCommandEventArgs e)
-        //{
-        //    GridDataItem dataItm = e.Item as GridDataItem;
-        //    RadGrid radTestInit = (RadGrid)sender;
-
-        //    Label lblID = (Label)dataItm.FindControl("lblTestInitID");
-        //    string id = lblID.Text;
-        //    DataTable table = (DataTable)Session["TestInitpDT"];
-        //    table.PrimaryKey = new DataColumn[] { table.Columns["ID"] };
-
-        //    if (table.Rows.Find(id) != null)
-        //    {
-        //        DataRow dr = table.Rows.Find(id);
-        //        table.Rows.Find(id).Delete();
-        //        table.AcceptChanges();
-        //        Session["TestInitpDT"] = table;
-        //        grdTestInit.DataSource = table;
-        //        grdTestInit.DataBind();
-        //    }
-        //    else
-        //    {
-        //        grdTestInit.DataSource = (DataTable)Session["TestInitpDT"];
-        //        grdTestInit.DataBind();
-
-        //    }
-        //}
 
         protected void gridSpecList_DeleteCommand(object sender, GridCommandEventArgs e)
         {

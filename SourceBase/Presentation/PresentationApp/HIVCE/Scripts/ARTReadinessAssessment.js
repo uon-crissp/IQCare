@@ -44,6 +44,7 @@
 
 
     GetData();
+    $.hivce.loader('hide'); //Added KK
 });
 
 function GetData() {

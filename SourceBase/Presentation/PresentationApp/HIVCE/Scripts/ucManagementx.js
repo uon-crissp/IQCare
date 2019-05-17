@@ -1756,13 +1756,13 @@ function CheckMXBlankValues() {
                 errorField += 'CTX/Dapson: Adherence ';
             }
 
-            var hidARTStartDate = $("#hidARTStartDate").val();
-            if (ddlARVAdhere == null && hidARTStartDate.length > 0) {
-                if (errorField.length > 1) {
-                    errorField += ', ';
-                }
-                errorField += 'ARV: Adherence ';
-            }
+//            var hidARTStartDate = $("#hidARTStartDate").val();
+//            if (ddlARVAdhere == null && hidARTStartDate.length > 0) {
+//                if (errorField.length > 1) {
+//                    errorField += ', ';
+//                }
+//                errorField += 'ARV: Adherence ';
+//            }
         }
     }
 

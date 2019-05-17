@@ -212,7 +212,8 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                     <label for="inputEmail3" class="control-label">
                                         Neonatal History Notes:</label>
-                                    <textarea class="form-control" rows="6" placeholder="Neonatal History Notes" id="txtNeonatalNotes" maxlength="1000"></textarea>
+                                    <textarea class="form-control" rows="6" placeholder="Neonatal History Notes" id="txtNeonatalNotes"
+                                        maxlength="1000"></textarea>
                                 </div>
                                 <!-- /.box -->
                             </div>
@@ -426,7 +427,8 @@
                         <input id="chkAlternativeMedicine" name="switch-size" type="checkbox" checked data-size="small"
                             data-on-text="Yes" data-off-text="No">
                         </br> if yes explain </br>
-                        <textarea class="form-control" rows="2" placeholder="Alternative Medicines" id="txtAlternativeMedicine" maxlength="1000"></textarea>
+                        <textarea class="form-control" rows="2" placeholder="Alternative Medicines" id="txtAlternativeMedicine"
+                            maxlength="1000"></textarea>
                     </div>
                 </div>
                 <!-- /.row -->

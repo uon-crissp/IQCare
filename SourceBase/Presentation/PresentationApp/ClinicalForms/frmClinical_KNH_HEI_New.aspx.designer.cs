@@ -634,33 +634,6 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.GridView GrdNNHistory;
         
         /// <summary>
-        /// pnl1MHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl1MHistory;
-        
-        /// <summary>
-        /// imgDAToxities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgDAToxities;
-        
-        /// <summary>
-        /// pnl2MHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl2MHistory;
-        
-        /// <summary>
         /// Label15 control.
         /// </summary>
         /// <remarks>
@@ -904,15 +877,6 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.GridView GrdMMHistory;
         
         /// <summary>
-        /// CPEMHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEMHistory;
-        
-        /// <summary>
         /// Table4 control.
         /// </summary>
         /// <remarks>
@@ -1010,6 +974,33 @@ namespace PresentationApp.ClinicalForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfComplaints;
+        
+        /// <summary>
+        /// divSpecifyComplaints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSpecifyComplaints;
+        
+        /// <summary>
+        /// Label26 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label26;
+        
+        /// <summary>
+        /// txtPresentingComplaints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPresentingComplaints;
         
         /// <summary>
         /// ddlGeneralExamination control.

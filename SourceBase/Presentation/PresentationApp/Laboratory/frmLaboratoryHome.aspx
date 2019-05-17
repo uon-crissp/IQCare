@@ -2,6 +2,12 @@
     CodeBehind="frmLaboratoryHome.aspx.cs" Inherits="PresentationApp.Laboratory.frmLaboratoryHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
+    <style type="text/css">
+        .myRowStyle
+        {
+            cursor:pointer;
+        }
+    </style>
     <script src="../Incl/quicksearch.js" type="text/javascript" defer="defer"></script>
     <script type="text/javascript">
         $(function () {
@@ -64,6 +70,7 @@
                                                             CellSpacing="0" DataKeyNames="Ptn_pk, VisitID" 
                                                             onselectedindexchanged="gvLabOrders_SelectedIndexChanged" 
                                                             ondatabound="gvLabOrders_DataBound" onrowdatabound="gvLabOrders_RowDataBound">
+                                                            <RowStyle CssClass="myRowStyle" />
                                                             <Columns>
                                                                 <asp:BoundField HeaderText="PtnPK" DataField="Ptn_pk" Visible="False" />
                                                                 <asp:BoundField HeaderText="Patient ID" DataField="PatientID" HeaderStyle-Width="10%" />

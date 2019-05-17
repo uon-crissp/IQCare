@@ -39,17 +39,10 @@ namespace PresentationApp.ClinicalForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Clinical Forms >> ";
-            //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "HEI Form";
-            //(Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "HEI Form";
             if (Session["isHEIVisible"] != null || Convert.ToBoolean(Session["isHEIVisible"]) == false)
             {
                 Session["isHEIVisible"] = true;
             }
-            //txtBMI.Style.Add("display", "none");
-            //lblBMI.Style.Add("display", "none"); ;
-            //lblBMIClassification.Style.Add("display", "none");
-
 
             if (!IsPostBack)
             {
@@ -108,58 +101,20 @@ namespace PresentationApp.ClinicalForms
         {
             Session["isHEIVisible"] = false;
         }
+
         protected void tabControl_ActiveTabChanged(object sender, EventArgs e)
         {
             AjaxControlToolkit.TabPanel activeTab = tabControl.ActiveTab;
             if (activeTab == TabClinicalHistory)
             {
-                IQCareMsgBox.NotifyActionTab("Please Update Immunization and Vitamin A, if requires in subsequent visit.", "HEI Form", false, this, tabControl, "0");
+                //IQCareMsgBox.NotifyActionTab("Please Update Immunization and Vitamin A, if requires in subsequent visit.", "HEI Form", false, this, tabControl, "0");
                 //Below two line uncomment by Rahmat on 09-Jan-2017 for enable save button
                 btnHIVHistorySave.Enabled = true;
                 btncloseHIVHistory.Enabled = true;
             }
+
             Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "Complaints", "SetAnyComplaints();GExaminationBusinessRule();", true);
-
-            //Boolean b2 = false;
-            //b2 = CheckListBoxChecked(cblSkin);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkSkin','divSkin');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkSkin','divSkin');", true);
-            ////
-            //b2 = CheckListBoxChecked(cblENT);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkENT','divENT');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkENT','divENT');", true);
-            ////
-            //b2 = CheckListBoxChecked(cblChest);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkChest','divChest');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkChest','divChest');", true);
-            ////
-            //b2 = CheckListBoxChecked(cblCVS);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkCVS','divCVS');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkCVS','divCVS');", true);
-            ////
-            //b2 = CheckListBoxChecked(cblAbdomen);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkAbdomen','divAbdomen');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkAbdomen','divAbdomen');", true);
-            ////
-            //b2 = CheckListBoxChecked(cblCNS);
-            //if (b2 == true)
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationTrue('chkCNS','divCNS');", true);
-            //else
-            //    Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "GE", "GExaminationFalse('chkCNS','divCNS');", true);
-            
-
         }
-
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
@@ -182,11 +137,6 @@ namespace PresentationApp.ClinicalForms
                 }
             }
 
-            //if (ddlPlan.SelectedItem != null && ddlPlan.SelectedItem.Text != "Select")
-            //{
-            //    ScriptManager.RegisterStartupScript(this, GetType(), "spnRegimen", "show('spnRegimen');", true);
-            //}
-
             if (ddlARVProphylaxis.SelectedItem != null && ddlARVProphylaxis.SelectedItem.Text == "Other Specify")
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "spnotherARVProphy", "show('spnotherARVProphy');", true);
@@ -200,10 +150,6 @@ namespace PresentationApp.ClinicalForms
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "spnANCFollowup", "show('spnANCFollowup');", true);
             }
-            //if (ddlReferred.SelectedItem != null && ddlReferred.SelectedItem.Text == "Other")
-            //{
-            //    ScriptManager.RegisterStartupScript(this, GetType(), "spnReferredto", "show('spnReferredto');", true);
-            //}
             if (ddlVisitType.SelectedItem != null)
             {
                 if (ddlVisitType.SelectedItem.Text == "Express")
@@ -215,9 +161,6 @@ namespace PresentationApp.ClinicalForms
                     showhideFullVisit();
                 }
             }
-
-
-
         }
 
         private Hashtable htableKNHHEIParameters()
@@ -503,34 +446,6 @@ namespace PresentationApp.ClinicalForms
                         else if (theDS.Tables[1].Rows[0]["OnART"].ToString() == "0")
                         { rdoARTEnrolNo.Checked = true; };
                     }
-                    //if (theDS.Tables[1].Rows[0]["ImmunisationDate"] != System.DBNull.Value)
-                    //{
-                    //    this.txtDateImmunised.Value = String.Format("{0:dd-MMM-yyyy}", theDS.Tables[1].Rows[0]["ImmunisationDate"]);
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["ImmunisationPeriod"] != System.DBNull.Value)
-                    //{
-                    //    ddlImmunisationPeriod.SelectedValue = theDS.Tables[1].Rows[0]["ImmunisationPeriod"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["ImmunisationGiven"] != System.DBNull.Value)
-                    //{
-                    //    ddImmunisationgiven.SelectedValue = theDS.Tables[1].Rows[0]["ImmunisationGiven"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["Plan"] != System.DBNull.Value)
-                    //{
-                    //    ddlPlan.SelectedValue = theDS.Tables[1].Rows[0]["Plan"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["PlanRegimen"] != System.DBNull.Value)
-                    //{
-                    //    ddlRegimen.SelectedValue = theDS.Tables[1].Rows[0]["PlanRegimen"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["Examinations"] != System.DBNull.Value)
-                    //{
-                    //    txtExamination.Text = theDS.Tables[1].Rows[0]["Examinations"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["MilestonesPeads"] != System.DBNull.Value)
-                    //{
-                    //    ddlStatus.SelectedValue = theDS.Tables[1].Rows[0]["MilestonesPeads"].ToString();
-                    //}
                     if (theDS.Tables[1].Rows[0]["VitaminA"] != System.DBNull.Value)
                     {
                         if (theDS.Tables[1].Rows[0]["VitaminA"].ToString() == "1")
@@ -542,22 +457,6 @@ namespace PresentationApp.ClinicalForms
                     {
                         txtAreaWorkPlan.Value = theDS.Tables[1].Rows[0]["WorkPlan"].ToString();
                     }
-                    //if (theDS.Tables[1].Rows[0]["ReferralPeads"] != System.DBNull.Value)
-                    //{
-                    //    ddlReferred.SelectedValue = theDS.Tables[1].Rows[0]["ReferralPeads"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["Referredtoother"] != System.DBNull.Value)
-                    //{
-                    //    txtOtherReferredto.Text = theDS.Tables[1].Rows[0]["Referredtoother"].ToString();
-                    //}
-                    //if (theDS.Tables[1].Rows[0]["WardAdmissionPead"] != System.DBNull.Value)
-                    //{
-                    //    if (theDS.Tables[1].Rows[0]["WardAdmissionPead"].ToString() == "1")
-                    //    { rdoadmittowardyes.Checked = true; }
-
-                    //    else if (theDS.Tables[1].Rows[0]["WardAdmissionPead"].ToString() == "0")
-                    //    { rdoadmittowardno.Checked = true; };
-                    //}
                     if (theDS.Tables[1].Rows[0]["TCA"] != System.DBNull.Value)
                     {
                         if (theDS.Tables[1].Rows[0]["TCA"].ToString() == "1")
@@ -775,6 +674,9 @@ namespace PresentationApp.ClinicalForms
                 //    theDVDecode.RowFilter = "CodeName='FeedingOption' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1) and NAME IN ('Exclusive breast feeding - (EBF)','Replacement feeding - (EBMS)','Mixed feeding (MF)','less than 6/12 EBF','less than 6/12 ERF','less than 6/12 Mixed feeding','greater than 6/12 breast feeding','greater than 6/12 Not breastfeeding')";
                 //}
                 //Change by Rahmat[01Mar2018] after discussed by Devang and Wamathaga.
+                PatientManager = (IPatientHome)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientHome, BusinessProcess.Clinical");
+                thePatientDS = PatientManager.GetPatientDetails(Convert.ToInt32(Session["PatientId"]), Convert.ToInt32(Session["SystemId"]), Convert.ToInt32(Session["TechnicalAreaId"]));
+
                 if ((Convert.ToInt32(thePatientDS.Tables[0].Rows[0]["AgeInMonths"]) < 6))
                 {
                     theDVDecode.RowFilter = "CodeName='FeedingOption' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1) and NAME IN ('Exclusive Breast Feeding','Replacement Feeding','Mixed Feeding','Other')";
@@ -800,7 +702,7 @@ namespace PresentationApp.ClinicalForms
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
                     //BindManager.BindCombo(ddlTBAssesment, theDTCode, "Name", "Id");
                     BindManager.BindCheckedList(cblTBAssesment, theDTCode, "Name", "ID");
-                    cblTBAssesment.Attributes.Add("OnClick", "fnUncheckallVitals('" + cblTBAssesment.ClientID + "');");
+                    //cblTBAssesment.Attributes.Add("OnClick", "fnUncheckallVitals('" + cblTBAssesment.ClientID + "');");
 
                 }
 
@@ -953,33 +855,10 @@ namespace PresentationApp.ClinicalForms
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
                     BindManager.BindCombo(ddlStatus, theDTCode, "Name", "Id");
-
                 }
-
-                ////Diagnosis
-                //theDVDecode = new DataView(theDS.Tables["Mst_ModDecode"]);
-                //theDVDecode.RowFilter = "CodeName='DiagnosisPeads' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1)";
-                //theDVDecode.Sort = "SRNo";
-                //if (theDVDecode.Table != null)
-                //{
-                //    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
-                //    BindManager.CreateCheckedList(PnlDiagnosis, theDTCode, "SetValue('theHitCntrl','System.Web.UI.WebControls.CheckBox%');", "onclick");
-
-                //}
-
-                ////Referred to
-                //theDVDecode = new DataView(theDS.Tables["Mst_ModDecode"]);
-                //theDVDecode.RowFilter = "CodeName='ReferralPeads' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1)";
-                //theDVDecode.Sort = "SRNo";
-                //if (theDVDecode.Table != null)
-                //{
-                //    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
-                //    BindManager.BindCombo(ddlReferred, theDTCode, "Name", "Id");
-
-                //}
                 //Result
-                theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=10";
+                theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='HIVStatus_Child'";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -987,7 +866,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //PatientReferred
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1099 and Name in('VCT','HBTC','OPD','MCH','TB Clinic','IPD','CCC','Self referral','Other Specify','Peer','Outreach','Community')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='PatientReferred' and Name in('VCT','HBTC','OPD','MCH','TB Clinic','IPD','CCC','Self referral','Other Specify','Peer','Outreach','Community')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -995,7 +874,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //General Examination
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1044 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='GeneralConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1003,16 +882,15 @@ namespace PresentationApp.ClinicalForms
                 }
                 //Skin
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1049 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='SkinConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
                     BindManager.BindCheckedList(cblSkin, theDTCode, "Name", "Id");
-                    //BindManager.BindCombo(ddlSkin, theDTCode, "Name", "Id");
                 }
                 //ENT
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1179 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='ENTConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1020,7 +898,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //Chest
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1047 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='ChestLungsConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1028,7 +906,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //CVS
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1045 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='CardiovascularConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1036,7 +914,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //Abdomen
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1050 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='AbdomenConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1044,7 +922,7 @@ namespace PresentationApp.ClinicalForms
                 }
                 //CNS
                 theDVDecode = new DataView(theDS.Tables["Mst_Decode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1066 and Name not in('Other')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='CNSConditions' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
@@ -1052,15 +930,15 @@ namespace PresentationApp.ClinicalForms
                 }
                 //Milestone Assessed
                 theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=34 and SystemId in(0,1) AND NAME NOT IN ('Birth')";
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='Immunisationperiod' and SystemId in(0,1) AND NAME NOT IN ('Birth')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
                     BindManager.BindCombo(ddlMilestoneAssessed, theDTCode, "Name", "Id");
                 }
                 //TB Findings
-                theDVDecode = new DataView(theDS.Tables["mst_BlueDecode"]);
-                theDVDecode.RowFilter = "DeleteFlag=0 and CodeID=1 and Name not in('Other')";
+                theDVDecode = new DataView(theDS.Tables["mst_Decode"]);
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='TBFindings' and Name not in('Other')";
                 if (theDVDecode.Table != null)
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);

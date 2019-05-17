@@ -311,4 +311,26 @@ public partial class MasterPage_levelOneNavigationUserControl : System.Web.UI.Us
             return;
         
     }
+
+    protected void mainMenu_MenuItemClick1(object sender, MenuEventArgs e)
+    {
+        if (e.Item.Value.ToString().Contains("mnuFindPatient"))
+        {
+            string servicename = "";
+            string serviceid = "0";
+
+            try
+            {
+                servicename = Session["TechnicalAreaName"].ToString();
+                serviceid = Session["TechnicalAreaId"].ToString();
+
+                string theUrl = String.Format("~/frmFindAddCustom.aspx?srvNm={0}&mod={1}", servicename, serviceid);
+                Response.Redirect(ResolveUrl(theUrl));
+            }
+            catch
+            {
+                IQCareMsgBox.NotifyAction("Please select service", "No Service Selected", false, this.Page, "");
+            }
+        }
+    }
 }

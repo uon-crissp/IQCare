@@ -64,14 +64,14 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, hashTable["patientID"].ToString());
                 ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
                 ClsUtility.AddParameters("@LocationId", SqlDbType.Int, hashTable["locationID"].ToString());
-                ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
                 ClsUtility.AddParameters("@tabname", SqlDbType.VarChar, tabname);
                 if (tabname == "Triage")
                 {
                     //ClsUtility.AddParameters("@starttime", SqlDbType.VarChar, hashTable["starttime"].ToString());
                     if (hashTable["LMP"].ToString() != "")
                     {
-                        ClsUtility.AddParameters("@LMP", SqlDbType.DateTime, hashTable["LMP"].ToString());
+                        ClsUtility.AddParameters("@LMP", SqlDbType.VarChar, hashTable["LMP"].ToString());
                     }
                     ClsUtility.AddParameters("@ChildAccompaniedByCaregiver", SqlDbType.Int, hashTable["ChildAccompaniedByCaregiver"].ToString());
                     ClsUtility.AddParameters("@TreatmentSupporterRelationship", SqlDbType.Int, hashTable["TreatmentSupporterRelationship"].ToString());
@@ -155,12 +155,12 @@ namespace BusinessProcess.Clinical
                     ClsUtility.AddParameters("@ReasonfornotIssuingCondoms", SqlDbType.VarChar, hashTable["ReasonfornotIssuingCondoms"].ToString());
 
 
-                    ClsUtility.AddParameters("@CurrentPEPregimenstartdate", SqlDbType.DateTime, hashTable["CurrentPEPregimenstartdate"].ToString());
+                    ClsUtility.AddParameters("@CurrentPEPregimenstartdate", SqlDbType.VarChar, hashTable["CurrentPEPregimenstartdate"].ToString());
 
                 }
                 //ClsUtility.AddParameters("@signature", SqlDbType.Int, hashTable["signature"].ToString());
                 ClsUtility.AddParameters("@DataQlty", SqlDbType.Int, hashTable["qltyFlag"].ToString());
-                ClsUtility.AddParameters("@StartTime", SqlDbType.DateTime, hashTable["starttime"].ToString());
+                ClsUtility.AddParameters("@StartTime", SqlDbType.VarChar, hashTable["starttime"].ToString());
 
                 ClsObject VisitManager = new ClsObject();
                 VisitManager.Connection = this.Connection;
@@ -263,7 +263,7 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, hashTable["patientID"].ToString());
                 ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
                 ClsUtility.AddParameters("@LocationId", SqlDbType.Int, hashTable["locationID"].ToString());
-                ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
                 ClsUtility.AddParameters("@StartTime", SqlDbType.VarChar, hashTable["startTime"].ToString());
                 ClsUtility.AddParameters("@DataQlty", SqlDbType.Int, hashTable["qltyFlag"].ToString());
                 ClsUtility.AddParameters("@UserID", SqlDbType.Int, hashTable["userID"].ToString());
@@ -410,11 +410,11 @@ namespace BusinessProcess.Clinical
                         ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
                         if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+                            ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
                         }
                         if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+                            ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
                         }
                         ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
                         ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
@@ -616,11 +616,11 @@ namespace BusinessProcess.Clinical
                         ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
                         if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+                            ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
                         }
                         if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+                            ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
                         }
                         ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
                         ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
@@ -655,12 +655,12 @@ namespace BusinessProcess.Clinical
 
                 ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, hashTable["patientID"].ToString());
                 ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
-                ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
                 ClsUtility.AddParameters("@startTime", SqlDbType.VarChar, hashTable["startTime"].ToString());
                 ClsUtility.AddParameters("@userID", SqlDbType.Int, hashTable["userID"].ToString());
                 if (hashTable["OtherCurrentLongTermMedications"].ToString() != "")
                 {
-                    ClsUtility.AddParameters("@OtherCurrentLongTermMedications", SqlDbType.DateTime, hashTable["OtherCurrentLongTermMedications"].ToString());
+                    ClsUtility.AddParameters("@OtherCurrentLongTermMedications", SqlDbType.VarChar, hashTable["OtherCurrentLongTermMedications"].ToString());
                 }
                 //-------------------Physical Exam
                 ClsUtility.AddParameters("@OtherMedicalConditionNotes", SqlDbType.VarChar, hashTable["OtherMedicalConditionNotes"].ToString());
@@ -699,7 +699,7 @@ namespace BusinessProcess.Clinical
                 }
                 if (hashTable["MenarcheDate"].ToString() != "")
                 {
-                    ClsUtility.AddParameters("@MenarcheDate", SqlDbType.DateTime, hashTable["MenarcheDate"].ToString());
+                    ClsUtility.AddParameters("@MenarcheDate", SqlDbType.VarChar, hashTable["MenarcheDate"].ToString());
                 }
 
                 ClsObject VisitManager = new ClsObject();
@@ -734,11 +734,11 @@ namespace BusinessProcess.Clinical
                         ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
                         if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+                            ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
                         }
                         if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+                            ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
                         }
                         ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
                         ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
@@ -773,7 +773,7 @@ namespace BusinessProcess.Clinical
                 //-----------------Drug Allergies Toxicities
                 ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, hashTable["patientID"].ToString());
                 ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
-                ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
                 ClsUtility.AddParameters("@startTime", SqlDbType.VarChar, hashTable["startTime"].ToString());
                 ClsUtility.AddParameters("@userID", SqlDbType.Int, hashTable["userID"].ToString());
                 ClsUtility.AddParameters("@LocationId", SqlDbType.Int, hashTable["locationID"].ToString());
@@ -823,11 +823,11 @@ namespace BusinessProcess.Clinical
                         ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
                         if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+                            ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
                         }
                         if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
                         {
-                            ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+                            ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
                         }
                         ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
                         ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
@@ -863,10 +863,10 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
                 ClsUtility.AddParameters("@LocationId", SqlDbType.Int, hashTable["locationID"].ToString());
                 ClsUtility.AddParameters("@UserId", SqlDbType.Int, hashTable["userID"].ToString());
-                ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+                ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
                 if (hashTable["LMP"].ToString() != "")
                 {
-                    ClsUtility.AddParameters("@LMP", SqlDbType.DateTime, hashTable["LMP"].ToString());
+                    ClsUtility.AddParameters("@LMP", SqlDbType.VarChar, hashTable["LMP"].ToString());
                 }
                 if (hashTable["ChildAccompaniedByCaregiver"].ToString() != "")
                     ClsUtility.AddParameters("@ChildAccompaniedByCaregiver", SqlDbType.Int, hashTable["ChildAccompaniedByCaregiver"].ToString());
@@ -892,7 +892,7 @@ namespace BusinessProcess.Clinical
                 if (hashTable["BPSystolic"].ToString() != "")
                     ClsUtility.AddParameters("@BPSystolic", SqlDbType.Decimal, hashTable["BPSystolic"].ToString());
 
-                ClsUtility.AddParameters("@StartTime", SqlDbType.DateTime, hashTable["starttime"].ToString());
+                ClsUtility.AddParameters("@StartTime", SqlDbType.VarChar, hashTable["starttime"].ToString());
                 ClsUtility.AddParameters("@NurseComments", SqlDbType.VarChar, hashTable["NurseComments"].ToString());
                 ClsUtility.AddParameters("@SpecialistClinicReferral", SqlDbType.VarChar, hashTable["SpecialistClinicReferral"].ToString());
                 ClsUtility.AddParameters("@OtherReferral", SqlDbType.VarChar, hashTable["OtherReferral"].ToString());
@@ -1024,9 +1024,9 @@ namespace BusinessProcess.Clinical
                 ClsUtility.AddParameters("@ReasonfornotIssuingCondoms", SqlDbType.VarChar, hashTable["ReasonfornotIssuingCondoms"].ToString());
 
 
-                ClsUtility.AddParameters("@CurrentPEPregimenstartdate", SqlDbType.DateTime, hashTable["CurrentPEPregimenstartdate"].ToString());
-                ClsUtility.AddParameters("@CurrentPEPregimenEnddate", SqlDbType.DateTime, hashTable["CurrentPEPregimenEnddate"].ToString());
-                ClsUtility.AddParameters("@StartTime", SqlDbType.DateTime, hashTable["starttime"].ToString());
+                ClsUtility.AddParameters("@CurrentPEPregimenstartdate", SqlDbType.VarChar, hashTable["CurrentPEPregimenstartdate"].ToString());
+                ClsUtility.AddParameters("@CurrentPEPregimenEnddate", SqlDbType.VarChar, hashTable["CurrentPEPregimenEnddate"].ToString());
+                ClsUtility.AddParameters("@StartTime", SqlDbType.VarChar, hashTable["starttime"].ToString());
 
                 ClsObject VisitManager = new ClsObject();
                 VisitManager.Connection = this.Connection;
@@ -1132,11 +1132,11 @@ namespace BusinessProcess.Clinical
         //            ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
         //            if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
         //            {
-        //                ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+        //                ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
         //            }
         //            if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
         //            {
-        //                ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+        //                ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
         //            }
         //            ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
         //            ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
@@ -1161,7 +1161,7 @@ namespace BusinessProcess.Clinical
 //        ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, hashTable["patientID"].ToString());
 //        ClsUtility.AddParameters("@Visit_Pk", SqlDbType.Int, hashTable["visitID"].ToString());
 //        ClsUtility.AddParameters("@LocationId", SqlDbType.Int, hashTable["locationID"].ToString());
-//        ClsUtility.AddParameters("@visitdate", SqlDbType.DateTime, hashTable["visitDate"].ToString());
+//        ClsUtility.AddParameters("@visitdate", SqlDbType.VarChar, hashTable["visitDate"].ToString());
 //        ClsUtility.AddParameters("@signature", SqlDbType.Int, hashTable["signature"].ToString());
 //        ClsUtility.AddParameters("@DataQlty", SqlDbType.Int, hashTable["qltyFlag"].ToString());
 //        ClsUtility.AddParameters("@tabname", SqlDbType.VarChar, tabname);
@@ -1174,7 +1174,7 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@PrimaryCareGiver", SqlDbType.VarChar, hashTable["PrimaryCareGiver"].ToString());
 //            if (hashTable["ConfirmHIVPosDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@ConfirmHIVPosDate", SqlDbType.DateTime, hashTable["ConfirmHIVPosDate"].ToString());
+//                ClsUtility.AddParameters("@ConfirmHIVPosDate", SqlDbType.VarChar, hashTable["ConfirmHIVPosDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@DisclosureStatus", SqlDbType.Int, hashTable["DisclosureStatus"].ToString());
 //            ClsUtility.AddParameters("@FatherAlive2", SqlDbType.Int, hashTable["FatherAlive2"].ToString());
@@ -1190,15 +1190,15 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@CurrentARTRegimen", SqlDbType.Int, hashTable["CurrentARTRegimen"].ToString());
 //            if (hashTable["CurrentARTRegimenDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@CurrentARTRegimenDate", SqlDbType.DateTime, hashTable["CurrentARTRegimenDate"].ToString());
+//                ClsUtility.AddParameters("@CurrentARTRegimenDate", SqlDbType.VarChar, hashTable["CurrentARTRegimenDate"].ToString());
 //            }
 //            if (hashTable["DateOfDeathMother"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@DateOfDeathMother", SqlDbType.DateTime, hashTable["DateOfDeathMother"].ToString());
+//                ClsUtility.AddParameters("@DateOfDeathMother", SqlDbType.VarChar, hashTable["DateOfDeathMother"].ToString());
 //            }
 //            if (hashTable["DateOfDeathFather"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@DateOfDeathFather", SqlDbType.DateTime, hashTable["DateOfDeathFather"].ToString());
+//                ClsUtility.AddParameters("@DateOfDeathFather", SqlDbType.VarChar, hashTable["DateOfDeathFather"].ToString());
 //            }
 //            ClsUtility.AddParameters("@ChildReferredFrom", SqlDbType.VarChar, hashTable["ChildReferredFrom"].ToString());
 //            ClsUtility.AddParameters("@ReasonNotDisclosed", SqlDbType.VarChar, hashTable["ReasonNotDisclosed"].ToString());
@@ -1259,22 +1259,22 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@PreviousAdmissionDiagnosis", SqlDbType.VarChar, hashTable["PreviousAdmissionDiagnosis"].ToString());
 //            if (hashTable["PreviousAdmissionStart"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PreviousAdmissionStart", SqlDbType.DateTime, hashTable["PreviousAdmissionStart"].ToString());
+//                ClsUtility.AddParameters("@PreviousAdmissionStart", SqlDbType.VarChar, hashTable["PreviousAdmissionStart"].ToString());
 //            }
 //            if (hashTable["PreviousAdmissionEnd"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PreviousAdmissionEnd", SqlDbType.DateTime, hashTable["PreviousAdmissionEnd"].ToString());
+//                ClsUtility.AddParameters("@PreviousAdmissionEnd", SqlDbType.VarChar, hashTable["PreviousAdmissionEnd"].ToString());
 //            }
 //            ClsUtility.AddParameters("@OtherChronicCondition", SqlDbType.VarChar, hashTable["OtherChronicCondition"].ToString());
 //            //------TB History
 //            ClsUtility.AddParameters("@TBHistory", SqlDbType.Int, hashTable["TBHistory"].ToString());
 //            if (hashTable["TBrxCompleteDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@TBrxCompleteDate", SqlDbType.DateTime, hashTable["TBrxCompleteDate"].ToString());
+//                ClsUtility.AddParameters("@TBrxCompleteDate", SqlDbType.VarChar, hashTable["TBrxCompleteDate"].ToString());
 //            }
 //            if (hashTable["TBRetreatmentDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@TBRetreatmentDate", SqlDbType.DateTime, hashTable["TBRetreatmentDate"].ToString());
+//                ClsUtility.AddParameters("@TBRetreatmentDate", SqlDbType.VarChar, hashTable["TBRetreatmentDate"].ToString());
 //            }
 //            //--------Immunisation Status
 //            ClsUtility.AddParameters("@ImmunisationStatus", SqlDbType.Int, hashTable["ImmunisationStatus"].ToString());
@@ -1286,18 +1286,18 @@ namespace BusinessProcess.Clinical
 //            //ClsUtility.AddParameters("@HIVRelatedHistory", SqlDbType.Int, hashTable["HIVRelatedHistory"].ToString());
 //            if (hashTable["PMTCT1StartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PMTCT1StartDate", SqlDbType.DateTime, hashTable["PMTCT1StartDate"].ToString());
+//                ClsUtility.AddParameters("@PMTCT1StartDate", SqlDbType.VarChar, hashTable["PMTCT1StartDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@PMTCT1Regimen", SqlDbType.VarChar, hashTable["PMTCT1Regimen"].ToString());
 //            ClsUtility.AddParameters("@PEP1Regimen", SqlDbType.VarChar, hashTable["PEP1Regimen"].ToString());
 //            if (hashTable["PEP1StartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PEP1StartDate", SqlDbType.DateTime, hashTable["PEP1StartDate"].ToString());
+//                ClsUtility.AddParameters("@PEP1StartDate", SqlDbType.VarChar, hashTable["PEP1StartDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@HAART1Regimen", SqlDbType.VarChar, hashTable["HAART1Regimen"].ToString());
 //            if (hashTable["HAART1StartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@HAART1StartDate", SqlDbType.DateTime, hashTable["HAART1StartDate"].ToString());
+//                ClsUtility.AddParameters("@HAART1StartDate", SqlDbType.VarChar, hashTable["HAART1StartDate"].ToString());
 //            }
 //            if (hashTable["InitialCD4"].ToString() != "")
 //            {
@@ -1305,7 +1305,7 @@ namespace BusinessProcess.Clinical
 //            }
 //            if (hashTable["InitialCD4Date"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@InitialCD4Date", SqlDbType.DateTime, hashTable["InitialCD4Date"].ToString());
+//                ClsUtility.AddParameters("@InitialCD4Date", SqlDbType.VarChar, hashTable["InitialCD4Date"].ToString());
 //            }
 //            if (hashTable["HighestCD4Ever"].ToString() != "")
 //            {
@@ -1313,7 +1313,7 @@ namespace BusinessProcess.Clinical
 //            }
 //            if (hashTable["HighestCD4EverDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@HighestCD4EverDate", SqlDbType.DateTime, hashTable["HighestCD4EverDate"].ToString());
+//                ClsUtility.AddParameters("@HighestCD4EverDate", SqlDbType.VarChar, hashTable["HighestCD4EverDate"].ToString());
 //            }
 //            if (hashTable["CD4atARTInitiation"].ToString() != "")
 //            {
@@ -1321,7 +1321,7 @@ namespace BusinessProcess.Clinical
 //            }
 //            if (hashTable["CD4atARTInitiationDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@CD4atARTInitiationDate", SqlDbType.DateTime, hashTable["CD4atARTInitiationDate"].ToString());
+//                ClsUtility.AddParameters("@CD4atARTInitiationDate", SqlDbType.VarChar, hashTable["CD4atARTInitiationDate"].ToString());
 //            }
 //            if (hashTable["MostRecentCD4"].ToString() != "")
 //            {
@@ -1329,7 +1329,7 @@ namespace BusinessProcess.Clinical
 //            }
 //            if (hashTable["MostRecentCD4Date"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@MostRecentCD4Date", SqlDbType.DateTime, hashTable["MostRecentCD4Date"].ToString());
+//                ClsUtility.AddParameters("@MostRecentCD4Date", SqlDbType.VarChar, hashTable["MostRecentCD4Date"].ToString());
 //            }
 //            if (hashTable["PreviousViralLoad"].ToString() != "")
 //            {
@@ -1337,7 +1337,7 @@ namespace BusinessProcess.Clinical
 //            }
 //            if (hashTable["PreviousViralLoadDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PreviousViralLoadDate", SqlDbType.DateTime, hashTable["PreviousViralLoadDate"].ToString());
+//                ClsUtility.AddParameters("@PreviousViralLoadDate", SqlDbType.VarChar, hashTable["PreviousViralLoadDate"].ToString());
 //            }
 //            if (hashTable["InitialCD4Percent"].ToString() != "")
 //            {
@@ -1376,11 +1376,11 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@TBRegimen", SqlDbType.Int, hashTable["TBRegimen"].ToString());
 //            if (hashTable["TBRegimenStartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@TBRegimenStartDate", SqlDbType.DateTime, hashTable["TBRegimenStartDate"].ToString());
+//                ClsUtility.AddParameters("@TBRegimenStartDate", SqlDbType.VarChar, hashTable["TBRegimenStartDate"].ToString());
 //            }
 //            if (hashTable["TBRegimenEndDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@TBRegimenEndDate", SqlDbType.DateTime, hashTable["TBRegimenEndDate"].ToString());
+//                ClsUtility.AddParameters("@TBRegimenEndDate", SqlDbType.VarChar, hashTable["TBRegimenEndDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@TBTreatmentOutcomesPeads", SqlDbType.Int, hashTable["TBTreatmentOutcomesPeads"].ToString());
 //            ClsUtility.AddParameters("@OtherTBRegimen", SqlDbType.VarChar, hashTable["OtherTBRegimen"].ToString());
@@ -1391,19 +1391,19 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@MissedTBdoses", SqlDbType.Int, hashTable["MissedTBdoses"].ToString());
 //            if (hashTable["INHStartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@INHStartDate", SqlDbType.DateTime, hashTable["INHStartDate"].ToString());
+//                ClsUtility.AddParameters("@INHStartDate", SqlDbType.VarChar, hashTable["INHStartDate"].ToString());
 //            }
 //            if (hashTable["INHEndDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@INHEndDate", SqlDbType.DateTime, hashTable["INHEndDate"].ToString());
+//                ClsUtility.AddParameters("@INHEndDate", SqlDbType.VarChar, hashTable["INHEndDate"].ToString());
 //            }
 //            if (hashTable["PyridoxineStartDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PyridoxineStartDate", SqlDbType.DateTime, hashTable["PyridoxineStartDate"].ToString());
+//                ClsUtility.AddParameters("@PyridoxineStartDate", SqlDbType.VarChar, hashTable["PyridoxineStartDate"].ToString());
 //            }
 //            if (hashTable["PyridoxineEndDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@PyridoxineEndDate", SqlDbType.DateTime, hashTable["PyridoxineEndDate"].ToString());
+//                ClsUtility.AddParameters("@PyridoxineEndDate", SqlDbType.VarChar, hashTable["PyridoxineEndDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@OtherTBsideEffects", SqlDbType.VarChar, hashTable["OtherTBsideEffects"].ToString());
 //            ClsUtility.AddParameters("@ReferredForAdherence", SqlDbType.Int, hashTable["ReferredForAdherence"].ToString());
@@ -1414,7 +1414,7 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@TBnotScreenedSpecify", SqlDbType.VarChar, hashTable["TBnotScreenedSpecify"].ToString());
 //            if (hashTable["StopINHDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@StopINHDate", SqlDbType.DateTime, hashTable["StopINHDate"].ToString());
+//                ClsUtility.AddParameters("@StopINHDate", SqlDbType.VarChar, hashTable["StopINHDate"].ToString());
 //            }
 //        }
 //        if (tabname == "Examination")
@@ -1424,20 +1424,20 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@LongTermMedications", SqlDbType.Int, hashTable["LongTermMedications"].ToString());
 //            if (hashTable["SulfaTMPDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@SulfaTMPDate", SqlDbType.DateTime, hashTable["SulfaTMPDate"].ToString());
+//                ClsUtility.AddParameters("@SulfaTMPDate", SqlDbType.VarChar, hashTable["SulfaTMPDate"].ToString());
 //            }
 //            if (hashTable["AntifungalsDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@AntifungalsDate", SqlDbType.DateTime, hashTable["AntifungalsDate"].ToString());
+//                ClsUtility.AddParameters("@AntifungalsDate", SqlDbType.VarChar, hashTable["AntifungalsDate"].ToString());
 //            }
 //            if (hashTable["AnticonvulsantsDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@AnticonvulsantsDate", SqlDbType.DateTime, hashTable["AnticonvulsantsDate"].ToString());
+//                ClsUtility.AddParameters("@AnticonvulsantsDate", SqlDbType.VarChar, hashTable["AnticonvulsantsDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@OtherLongTermMedications", SqlDbType.VarChar, hashTable["OtherLongTermMedications"].ToString());
 //            if (hashTable["OtherCurrentLongTermMedications"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@OtherCurrentLongTermMedications", SqlDbType.DateTime, hashTable["OtherCurrentLongTermMedications"].ToString());
+//                ClsUtility.AddParameters("@OtherCurrentLongTermMedications", SqlDbType.VarChar, hashTable["OtherCurrentLongTermMedications"].ToString());
 //            }
 //            //-------------------Physical Exam
 //            ClsUtility.AddParameters("@OtherMedicalConditionNotes", SqlDbType.VarChar, hashTable["OtherMedicalConditionNotes"].ToString());
@@ -1470,7 +1470,7 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@Menarche", SqlDbType.Int, hashTable["Menarche"].ToString());
 //            if (hashTable["MenarcheDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@MenarcheDate", SqlDbType.DateTime, hashTable["MenarcheDate"].ToString());
+//                ClsUtility.AddParameters("@MenarcheDate", SqlDbType.VarChar, hashTable["MenarcheDate"].ToString());
 //            }
 //        }
 //        if (tabname == "Management")
@@ -1510,11 +1510,11 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@PMTCToffered", SqlDbType.Int, hashTable["PMTCToffered"].ToString());
 //            if (hashTable["EDD"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@EDD", SqlDbType.DateTime, hashTable["EDD"].ToString());
+//                ClsUtility.AddParameters("@EDD", SqlDbType.VarChar, hashTable["EDD"].ToString());
 //            }
 //            if (hashTable["LMP"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@LMP", SqlDbType.DateTime, hashTable["LMP"].ToString());
+//                ClsUtility.AddParameters("@LMP", SqlDbType.VarChar, hashTable["LMP"].ToString());
 //            }
 //            ClsUtility.AddParameters("@LMPNotaccessedReason", SqlDbType.Int, hashTable["LMPNotaccessedReason"].ToString());
 //            ClsUtility.AddParameters("@SexualOrientation", SqlDbType.Int, hashTable["SexualOrientation"].ToString());
@@ -1549,7 +1549,7 @@ namespace BusinessProcess.Clinical
 //            ClsUtility.AddParameters("@STItreatmentPlan", SqlDbType.VarChar, hashTable["STItreatmentPlan"].ToString());
 //            if (hashTable["HPVDoseDate"].ToString() != "")
 //            {
-//                ClsUtility.AddParameters("@HPVDoseDate", SqlDbType.DateTime, hashTable["HPVDoseDate"].ToString());
+//                ClsUtility.AddParameters("@HPVDoseDate", SqlDbType.VarChar, hashTable["HPVDoseDate"].ToString());
 //            }
 //            ClsUtility.AddParameters("@OfferedHPVaccine", SqlDbType.Int, hashTable["OfferedHPVaccine"].ToString());
 
@@ -1575,11 +1575,11 @@ namespace BusinessProcess.Clinical
 //                ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, tblMultiselect.Rows[i]["FieldName"].ToString());
 //                if (tblMultiselect.Rows[i]["DateField1"].ToString() != "")
 //                {
-//                    ClsUtility.AddParameters("@datefield1", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField1"].ToString());
+//                    ClsUtility.AddParameters("@datefield1", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField1"].ToString());
 //                }
 //                if (tblMultiselect.Rows[i]["DateField2"].ToString() != "")
 //                {
-//                    ClsUtility.AddParameters("@datefield2", SqlDbType.DateTime, tblMultiselect.Rows[i]["DateField2"].ToString());
+//                    ClsUtility.AddParameters("@datefield2", SqlDbType.VarChar, tblMultiselect.Rows[i]["DateField2"].ToString());
 //                }
 //                ClsUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
 //                ClsUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());

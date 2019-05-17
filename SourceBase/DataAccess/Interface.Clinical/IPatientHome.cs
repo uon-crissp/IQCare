@@ -26,5 +26,6 @@ namespace Interface.Clinical
         DataTable GetPatientWaitList(int PatientId);
         void SavePatientWaitList(DataTable WaitingList, int ModuleID, int UserID, int PatientID);
         DataTable GetCustomFormId(string Formname);
+        int GetClinicalEncounterVisitID(int PatientId);
       }
 }

@@ -92,16 +92,10 @@ function InitTriageControls(response) {
         $("#lblBPMMHG").removeClass().addClass("control-label");
     }
 
-//    $("#txtNursesComment").on('blur', function () {
-//        debugger;
-//        //$("span.bootstrap-maxlength").empty();
-//        //$("span.bootstrap-maxlength").removeClass("bootstrap-maxlength labelTextBox label");
-//        //$("span.bootstrap-maxlength").removeAttr("style").attr("style", "display:none");
-//    });
-
     BindTriageCombo(response);
     BindControls(response);
 
+    $.hivce.loader('hide'); //Added KK
 }
 
 function EnableDisableReferredFrom() {
@@ -114,7 +108,6 @@ function EnableDisableReferredFrom() {
         else {
             $("#txtReferredFrom").prop('disabled', true);
         }
-
     }
 }
 
@@ -895,7 +888,8 @@ function SaveTriageData(IsFind) {
                         isPreviousTabSave = true;
                     }
                     else {
-                        customAlert(initialTypeMessage);
+                        PostTriageData(IsFind);
+                        isPreviousTabSave = true;
                     }
                 }
             }

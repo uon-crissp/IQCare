@@ -1006,7 +1006,7 @@ public partial class frmPatient_Home : BasePage
             }
 
 
-            if (Session["TechnicalAreaName"].ToString() == "CCC Clinic")
+            if (Session["TechnicalAreaName"].ToString() == "ART Clinic")
             {
                 TabCCCMenu.Visible = true;
             }
@@ -1482,16 +1482,14 @@ public partial class frmPatient_Home : BasePage
                 Session["lblpntstatus"] = Convert.ToInt32((Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblpntStatus") as Label).Text);
                 LoadSummaryGridView();
                 getCurrency();
-
             }
         }
         catch (Exception err)
         {
-            //string x = err.ToString();
             MsgBuilder theBuilder = new MsgBuilder();
-            theBuilder.DataElements["MessageText"] = "User is not registered for the selected Service Area.";
+            theBuilder.DataElements["MessageText"] = "User is not registered for the selected Service Area. Please select another Service Area";
             IQCareMsgBox.Show("#C1", theBuilder, this);
-            Response.Redirect("~/frmAddTechnicalArea.aspx", true);
+            //Response.Redirect("~/frmAddTechnicalArea.aspx", true);
         }
 
     }

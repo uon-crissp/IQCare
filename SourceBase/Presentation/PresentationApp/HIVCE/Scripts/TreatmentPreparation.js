@@ -84,6 +84,7 @@
     $("[name='switch-size-Art']").bootstrapSwitch();
     GetData();
 
+    $.hivce.loader('hide'); //Added KK
 });
 
 function GetData() {

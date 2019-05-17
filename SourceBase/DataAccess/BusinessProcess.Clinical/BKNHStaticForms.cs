@@ -911,7 +911,6 @@ namespace BusinessProcess.Clinical
                 return (DataSet)FamilyInfo.ReturnObject(ClsUtility.theParams, "pr_Clinical_GetAlerts", ClsDBUtility.ObjectEnum.DataSet);
             }
         }
-
     }
    
 }

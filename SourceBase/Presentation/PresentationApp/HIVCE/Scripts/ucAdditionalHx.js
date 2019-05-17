@@ -153,6 +153,7 @@ function InitAdditionalHxControls(response) {
 
     BindAddHxCombo(response);
 
+    $.hivce.loader('hide'); //Added KK
 }
 
 function DisableFamilyPopupButton() {
@@ -1389,7 +1390,7 @@ function BindADXControls(response) {
 
     if (age > 5) {
         $("#divG1").removeClass("box box-default box-solid").addClass("box box-default box-solid collapsed-box");
-        $("#divG1I").removeClass("fa fa-minus").addClass("fa fa-plus");
+        $("#divG1I").removeClass("fa fa-minus");
     }
 
     if (age > 5) {
@@ -1403,7 +1404,7 @@ function BindADXControls(response) {
 
     if (age < 9 || age > 20) {
         $("#divTanners").removeClass("box box-default box-solid").addClass("box box-default box-solid collapsed-box");
-        $("#divTannersI").removeClass("fa fa-minus").addClass("fa fa-plus");
+        $("#divTannersI").removeClass("fa fa-minus");
         $("#btnAddTannerStaging").prop('disabled', true);
     }
     if (age < 12) {

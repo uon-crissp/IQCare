@@ -262,6 +262,8 @@
     <div class="box-body">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                <p><strong><font color="red">Please Order for a Gene-Xpert test: </font> <a href="../Laboratory/frm_Laboratory.aspx" target="_blank">Click here to order</a></strong></p>
+
                 <table id="dtlPresentingComplaints" class="table table-bordered table-striped">
                     <thead>
                         <tr>

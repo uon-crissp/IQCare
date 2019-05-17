@@ -37,6 +37,5 @@ namespace Interface.Clinical
         DataSet GetAdultFollowUpFormAutoPopulatingData(int ptn_pk);
         DataSet GetAlerts(int PatientId);
         DataSet GetZScoreNewImplementation(int ptn_pk, string gender, string height);
-
     }
 }

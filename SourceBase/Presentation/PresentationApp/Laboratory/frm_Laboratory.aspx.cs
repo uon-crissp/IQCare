@@ -504,11 +504,13 @@ namespace PresentationApp.Laboratory
                     }
                     if (dt.Rows[0]["PreClinicLabDate"] != DBNull.Value)
                         txtLabtobeDone.Value = String.Format("{0:dd-MMM-yyyy}", Convert.ToDateTime(dt.Rows[0]["PreClinicLabDate"]));
-                    ddlreportedby.SelectedValue = dt.Rows[0]["ReportedbyName"].ToString();
+                    //ddlreportedby.SelectedValue = dt.Rows[0]["ReportedbyName"].ToString();
                     if (dt.Rows[0]["ReportedbyDate"] != DBNull.Value)
                     {
                         txtrepordtedbydate.Value = String.Format("{0:dd-MMM-yyyy}", Convert.ToDateTime(dt.Rows[0]["ReportedbyDate"]));
                     }
+
+                    ddlreportedby.SelectedIndex = 0;
                 }
 
                 //btnSave.Enabled = true;
@@ -563,52 +565,52 @@ namespace PresentationApp.Laboratory
             }
             else
             {
-                if (ddlreportedby.SelectedIndex == 0)
-                {
-                    MsgBuilder theBuilder = new MsgBuilder();
-                    theBuilder.DataElements["MessageText"] = "Reported by Name Cannot be blank";
-                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                    Label lblError = new Label();
-                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                    return false;
+                //if (ddlreportedby.SelectedIndex == 0)
+                //{
+                //    MsgBuilder theBuilder = new MsgBuilder();
+                //    theBuilder.DataElements["MessageText"] = "Reported by Name Cannot be blank";
+                //    IQCareMsgBox.Show("#C1", theBuilder, this);
+                //    Label lblError = new Label();
+                //    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                //    return false;
 
-                    //MsgBuilder theBuilder = new MsgBuilder();
-                    //theBuilder.DataElements["Control"] = "Reported by Name";
-                    //IQCareMsgBox.ShowforUpdatePanel("BlankTextBox", theBuilder, this);
-                    //ddlreportedby.Focus();
-                    //return false;
-                }
-                if (txtrepordtedbydate.Value.ToString() == "")
-                {
-                    MsgBuilder theBuilder = new MsgBuilder();
-                    theBuilder.DataElements["MessageText"] = "Lab Reported By Date Cannot be blank";
-                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                    Label lblError = new Label();
-                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                    return false;
+                //    //MsgBuilder theBuilder = new MsgBuilder();
+                //    //theBuilder.DataElements["Control"] = "Reported by Name";
+                //    //IQCareMsgBox.ShowforUpdatePanel("BlankTextBox", theBuilder, this);
+                //    //ddlreportedby.Focus();
+                //    //return false;
+                //}
+                //if (txtrepordtedbydate.Value.ToString() == "")
+                //{
+                //    MsgBuilder theBuilder = new MsgBuilder();
+                //    theBuilder.DataElements["MessageText"] = "Lab Reported By Date Cannot be blank";
+                //    IQCareMsgBox.Show("#C1", theBuilder, this);
+                //    Label lblError = new Label();
+                //    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                //    return false;
 
-                    //MsgBuilder theBuilder = new MsgBuilder();
-                    //theBuilder.DataElements["Control"] = "Lab Reported By Date";
-                    //IQCareMsgBox.ShowforUpdatePanel("BlankTextBox", theBuilder, this);
-                    //txtrepordtedbydate.Focus();
-                    //return false;
-                }
-                else if (txtrepordtedbydate.Value.ToString() != "")
-                {
-                    if (Convert.ToDateTime(theUtils.MakeDate(txtrepordtedbydate.Value)) > DateTime.Today)
-                    {
-                        MsgBuilder theBuilder = new MsgBuilder();
-                        theBuilder.DataElements["MessageText"] = "Reported by date cannot be greater than today";
-                        IQCareMsgBox.Show("#C1", theBuilder, this);
-                        Label lblError = new Label();
-                        lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                        return false;
+                //    //MsgBuilder theBuilder = new MsgBuilder();
+                //    //theBuilder.DataElements["Control"] = "Lab Reported By Date";
+                //    //IQCareMsgBox.ShowforUpdatePanel("BlankTextBox", theBuilder, this);
+                //    //txtrepordtedbydate.Focus();
+                //    //return false;
+                //}
+                //else if (txtrepordtedbydate.Value.ToString() != "")
+                //{
+                //    if (Convert.ToDateTime(theUtils.MakeDate(txtrepordtedbydate.Value)) > DateTime.Today)
+                //    {
+                //        MsgBuilder theBuilder = new MsgBuilder();
+                //        theBuilder.DataElements["MessageText"] = "Reported by date cannot be greater than today";
+                //        IQCareMsgBox.Show("#C1", theBuilder, this);
+                //        Label lblError = new Label();
+                //        lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                //        return false;
 
-                        //IQCareMsgBox.ShowforUpdatePanel("LabReportedDateToday", this);
-                        //txtrepordtedbydate.Focus();
-                        //return false;
-                    }
-                }
+                //        //IQCareMsgBox.ShowforUpdatePanel("LabReportedDateToday", this);
+                //        //txtrepordtedbydate.Focus();
+                //        //return false;
+                //    }
+                //}
 
             }
 
@@ -2341,8 +2343,8 @@ namespace PresentationApp.Laboratory
                 return;
             }
             else
+                btnsave.Enabled = false;
                 SaveLabOrder();
-            // BtnBack_Click(sender, e);
         }
         private void DeleteForm()
         {

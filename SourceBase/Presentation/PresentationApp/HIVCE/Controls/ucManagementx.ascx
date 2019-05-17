@@ -231,7 +231,7 @@
                     </div>
                     <%--</div>
                 <div class="row" id="div3">--%>
-                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                    <div class="col-md-3 col-sm-12 col-xs-12 form-group" style="display: none">
                         <label for="inputEmail3" class="control-label requiredFieldColor">
                             ARV: Adherence:
                         </label>
@@ -239,7 +239,7 @@
                             style="width: 100%;">
                         </select>
                     </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                    <div class="col-md-3 col-sm-12 col-xs-12 form-group" style="display: none">
                         <label for="inputEmail3" class="control-label">
                             Why Poor/Fair:
                         </label>
@@ -248,10 +248,37 @@
                         </select>
                     </div>
                 </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box sub box level 2 -->
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box sub box level G1 -->
+</div>
+<div class="box box-default box-solid">
+    <div class="box-header with-border" id="div3">
+        <h3 class="box-title">
+            Prescription
+        </h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+        <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body" id="div6">
+        <!-- / sub box level 2 -->
+        <div class="box box-default box-solid">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <!-- /.box-body -->
                 <div class="row" id="div4">
                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                         <label for="inputEmail3" class="control-label requiredFieldColor">
-                            Substitutions/Interruptions:
+                            Treatment Plan:
                         </label>
                         <select class="form-control select2" data-placeholder="Select" id="ddlsubsituationInterruption"
                             style="width: 100%;">
@@ -259,7 +286,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-12 form-group" id="divRegimenCodes">
                         <label for="inputEmail3" class="control-label requiredFieldColor">
-                            Regimen Code:
+                            Regimen:
                         </label>
                         <select class="form-control select2" data-placeholder="Select" id="ddlRegimenCode"
                             style="width: 100%;">
@@ -293,7 +320,7 @@
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12 form-group" id="divThreapyChangeComments">
                         <textarea class="form-control" rows="2" placeholder="Comments" id="txtAreaChangeDiscussMDT"
-                             maxlength="1000"></textarea>
+                            maxlength="1000"></textarea>
                     </div>
                 </div>
                 <div class="row" id="divARTStop">
@@ -313,13 +340,11 @@
                         </select>
                     </div>
                 </div>
-                <!-- /.box-body -->
             </div>
             <!-- /.box sub box level 2 -->
         </div>
         <!-- /.box-body -->
     </div>
-    <!-- /.box sub box level G1 -->
 </div>
 <!-- / sub box level G1 -->
 <div class="box box-default box-solid">
@@ -387,6 +412,8 @@
         </div>
         <!-- /.box-body -->
     </div>
+</div>
+<div class="box box-default box-solid" style="display: none">
     <div class="box-header with-border" id="divMgrDiagnosisH">
         <h3 class="box-title">
             Diagnosis
@@ -450,7 +477,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <textarea class="form-control" rows="5" placeholder="ICD Comments" id="txtICDComments" maxlength="1000"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="ICD Comments" id="txtICDComments"
+                            maxlength="1000"></textarea>
                     </div>
                 </div>
             </div>
@@ -458,6 +486,8 @@
         </div>
         <!-- /.box-body -->
     </div>
+</div>
+<div class="box box-default box-solid">
     <div class="box-header with-border" id="divMgrRAWH">
         <h3 class="box-title">
             Reminders and workplan
@@ -478,7 +508,8 @@
                 <!-- /.box-body -->
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <textarea class="form-control" rows="5" placeholder="Reminders and Workplan" id="txtAreaReminders" maxlength="1000"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="Reminders and Workplan" id="txtAreaReminders"
+                            maxlength="1000"></textarea>
                     </div>
                 </div>
             </div>
@@ -486,6 +517,8 @@
         </div>
         <!-- /.box-body -->
     </div>
+</div>
+<div class="box box-default box-solid">
     <div class="box-header with-border" id="divMgrReferralsH">
         <h3 class="box-title">
             Referrals
@@ -506,7 +539,8 @@
                 <!-- /.box-body -->
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <textarea class="form-control" rows="5" placeholder="Referrals" id="txtAreaReferrals" maxlength="1000"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="Referrals" id="txtAreaReferrals"
+                            maxlength="1000"></textarea>
                     </div>
                 </div>
             </div>
@@ -582,20 +616,11 @@
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                         &nbsp;
                     </div>
-                    <%--<div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                        <label for="inputEmail3" class="control-label">
-                            Signature
-                        </label>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                        <select class="form-control select2" data-placeholder="Select" id="ddlMgtSignature">
-                        </select>
-                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                        <label for="inputEmail3" class="control-label requiredFieldColor">
-                            * Next Appointment Date</label>
+                        <label for="inputEmail3" class="control-label">
+                            Next Appointment Date</label>
                     </div>
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                         <div class="input-group date">
@@ -622,20 +647,11 @@
                             id="btnAddNextAppointment" onclick="AddAppointment('0');">
                             Add</button>
                     </div>
-                    <%--<div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                        <label for="inputEmail3" class="control-label">
-                            Signature
-                        </label>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                        <select class="form-control select2" data-placeholder="Select" id="ddlMgtSignature">
-                        </select>
-                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                        <label for="inputEmail3" class="control-label requiredFieldColor">
-                            * Drug Refill Appointment</label>
+                        <label for="inputEmail3" class="control-label">
+                            Drug Refill Appointment</label>
                     </div>
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                         <div class="input-group date">
@@ -651,7 +667,8 @@
                             disabled="disabled" />
                     </div>
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                        <select class="form-control select2" data-placeholder="Select" id="ddlDRAPurpose" disabled="disabled">
+                        <select class="form-control select2" data-placeholder="Select" id="ddlDRAPurpose"
+                            disabled="disabled">
                         </select>
                     </div>
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
@@ -662,15 +679,6 @@
                             id="btnAddDrugRefillAppointment" onclick="AddAppointment('1');">
                             Add</button>
                     </div>
-                    <%--<div class="col-md-1 col-sm-12 col-xs-12 form-group">
-                        <label for="inputEmail3" class="control-label">
-                            Signature
-                        </label>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                        <select class="form-control select2" data-placeholder="Select" id="ddlMgtSignature">
-                        </select>
-                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
@@ -704,27 +712,6 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
-            </div>
-            <!-- /.box sub box level 2 -->
-        </div>
-        <!-- /.box-body -->
-    </div>
-    <div class="box-body">
-        <!-- / sub box level 2 -->
-        <div class="box box-default box-solid">
-            <!-- /.box-header -->
-            <div class="box-body">
-                <!-- /.box-body -->
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <button type="button" class="btn btn-primary" onclick="OpenCEPopup('<%= ResolveUrl("~/PharmacyDispense/frmPharmacyDispense_PatientOrder.aspx") %>');">
-                            Prescription<span class="glyphicon glyphicon-pencil" style="padding-left: 5px;"></span></button>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                        <button type="button" class="btn btn-primary" onclick="OpenCEPopup('<%= ResolveUrl("~/Laboratory/frm_Laboratory.aspx") %>');">
-                            Laboratory<span class="glyphicon glyphicon-tags" style="padding-left: 5px;"></span></button>
-                    </div>
-                </div>
             </div>
             <!-- /.box sub box level 2 -->
         </div>

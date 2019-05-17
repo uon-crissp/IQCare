@@ -29,15 +29,9 @@ namespace PresentationApp.ClinicalForms.UserControl
             loadDrugAllergies();
             loadARVHistory();
             loadPatientDetails();
-            /*
-             * Commented as requested by Wamathaga - Work-Plan
-             * Details: Work plan slider only shows when you enable KNH and are logged in as admin. It should show for all.
-             */
-            //if (Convert.ToBoolean(Session["isKNHEnabled"]))
-            //{
             loadWorkPlan();
             //Nutrition();
-            //}
+
             if (Convert.ToBoolean(Session["isMEIVisible"]))
             {
                 LoadMotherProfile();
@@ -66,10 +60,10 @@ namespace PresentationApp.ClinicalForms.UserControl
                     BindGridDrudAllergy(theDS.Tables[0]);
 
                     theDS.Dispose();
-
                 }
             }
         }
+
         public void loadARVHistory()
         {
             DataSet theDS1 = new DataSet();
@@ -83,11 +77,12 @@ namespace PresentationApp.ClinicalForms.UserControl
                 this.UserControl_VitalsExtruder1.UserControl_ARVHistoryExtruder1.lblLastRegimen.Text = theDS1.Tables[1].Rows[0][0].ToString();
                 this.UserControl_VitalsExtruder1.UserControl_ARVHistoryExtruder1.lblPrevRegimen.Text = theDS1.Tables[2].Rows[0][0].ToString();
                 this.UserControl_VitalsExtruder1.UserControl_ARVHistoryExtruder1.lblChangeRegimentDt.Text = theDS1.Tables[3].Rows[0][0].ToString();
-                
             }
+
             ARVHistoryDS = WorkPlan.GetPatientDrugHistory(Convert.ToInt32(Session["PatientId"]));
             BindGridARV(ARVHistoryDS.Tables[0]);
         }
+
         public void loadPatientDetails()
         {
 

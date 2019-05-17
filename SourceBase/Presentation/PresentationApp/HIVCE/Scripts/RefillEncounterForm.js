@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     GetRefillEnounterFormData();
 
+    $.hivce.loader('hide'); //Added KK
 });
 
 function GetRefillEnounterFormData() {

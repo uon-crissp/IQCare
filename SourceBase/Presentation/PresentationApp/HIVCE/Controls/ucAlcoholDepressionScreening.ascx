@@ -357,8 +357,8 @@
             <tr>
                 <td colspan="2" style="border-top: 0px;">
                     Many people do not realize that violence can lead to all kinds of health problems.
-                    Because violence is so common in many women’s lives, and because there is help available
-                    for women being abused, we now ask all female patients about their experiences with
+                    Because violence is so common nowadays, and because there is help available
+                    for people being abused, we now ask all patients about their experiences with
                     violence.
                 </td>
             </tr>
@@ -617,7 +617,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                 <label for="inputEmail3" class="control-label">
-                    How often do you have a drink containing alcohol?</label>
+                    <font color="blue"> How often do you have a drink containing alcohol?</font></label>
                 <div id="divDCA">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group" style="margin-bottom: 5px;">
@@ -658,7 +658,7 @@
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                 <label for="inputEmail3" class="control-label">
-                    How often do you use drugs?</label>
+                    <font color="blue"> How often do you use drugs?</font></label>
                 <div id="divUDrugs">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group" style="margin-bottom: 5px;">
@@ -699,7 +699,7 @@
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                 <label for="inputEmail3" class="control-label">
-                    How often do you smoke?</label>
+                    <font color="blue"> How often do you smoke?</font></label>
                 <div id="divSmoke">
                     <div class="row">
                         <div class="col-md-10 col-sm-12 col-xs-12 form-group" style="margin-bottom: 5px;">

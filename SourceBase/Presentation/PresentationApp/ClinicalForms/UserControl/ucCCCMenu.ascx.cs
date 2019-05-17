@@ -73,7 +73,23 @@ namespace PresentationApp.ClinicalForms.UserControl
 
         protected void lnkCareEnd_Click(object sender, EventArgs e)
         {
-            OpenForm("CareEnd_");
+            OpenForm("CareEnd");
+        }
+
+        protected void lnkClinicalEncounter_Click(object sender, EventArgs e)
+        {
+            IPatientHome PatientManager;
+            PatientManager = (IPatientHome)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientHome, BusinessProcess.Clinical");
+
+            int patientid = Convert.ToInt32(Session["PatientId"]);
+            HttpContext.Current.Session["PatientVisitId"] = PatientManager.GetClinicalEncounterVisitID(patientid);
+            string url = string.Format("{0}", "~/HIVCE/ClinicalEncounter.aspx");
+            Response.Redirect(url);
+        }
+
+        protected void lnkOTZ_Click(object sender, EventArgs e)
+        {
+            OpenForm("OTZ");
         }
     }
 }

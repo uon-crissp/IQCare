@@ -139,8 +139,9 @@
     <div class="container-fluid">
         <div class="border formbg">
             <br />
-            <act:TabContainer ID="tabControl" runat="server" ActiveTabIndex="0" AutoPostBack="true"
-                Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" CssClass="ajax__myTab">
+            <act:TabContainer ID="tabControl" runat="server" ActiveTabIndex="1" AutoPostBack="true"
+                Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" 
+                CssClass="ajax__myTab">
                 <act:TabPanel ID="TabPnlPendLabs" runat="server" HeaderText="Existing Pending Lab Orders"
                     TabIndex="0">
                     <ContentTemplate>
@@ -163,7 +164,7 @@
                         <br />
                     </ContentTemplate>
                 </act:TabPanel>
-                <act:TabPanel ID="TabSpecReceipt" runat="server" HeaderText="Specimen Receipt" TabIndex="1">
+                <act:TabPanel ID="TabSpecReceipt" runat="server" HeaderText="Phlebotomy" TabIndex="1">
                     <ContentTemplate>
                         <div class="border center formbg pad5">
                             <div class="border whitebg pad5">
@@ -184,119 +185,74 @@
                                     </tr>
                                 </table>
                                 <div class="border">
-                                    <table class="table-condensed" width="100%">
+                                    <table class="table-condensed">
                                         <tr>
-                                            <td style="width: 100%">
-                                                <table width="100%" border="0">
-                                                    <tr>
-                                                        <td style="width: 14%;" align="right">
-                                                            <label id="lblparity" class="required" runat="server">
-                                                                Specimen Type:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 16%;" align="left">
-                                                            <asp:DropDownList ID="ddlspecimentype" runat="server" Width="140px">
-                                                                <asp:ListItem Text="Select Specimen Type" Value="0" Selected="True"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                        <td style="width: 14%;" align="right">
-                                                            <label id="lblGravidae" class="required" runat="server">
-                                                                Source:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 18%;" align="left">
-                                                            <asp:DropDownList ID="ddlSpecSource" runat="server" Width="100%">
-                                                                <asp:ListItem Text="Select Source" Value="0" Selected="True"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                        <td style="width: 14%;" align="right">
-                                                            <label id="Label7" runat="server">
-                                                                Other Source:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 23%;" align="left">
-                                                            <asp:TextBox ID="txtOtherSource" runat="server" Width="100%"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                            <td align="right">
+                                                <label id="lblparity" class="formgroup" runat="server">
+                                                    Specimen Type:
+                                                </label>
+                                            </td>
+                                            <td align="left">
+                                                <asp:DropDownList ID="ddlspecimentype" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Text="Select Specimen Type" Value="0" Selected="True"></asp:ListItem>
+                                                </asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td width="100%">
-                                                <table width="100%" border="0">
-                                                    <tr>
-                                                        <td style="width: 17%;" align="right">
-                                                            <label id="Label1" class="required" runat="server">
-                                                                Specimen Received DateTime:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 24%;" align="left">
-                                                            <telerik:raddatetimepicker id="txtSpecRecdt" runat="server" skin="Office2007" width="200px"
-                                                                culture="en-US">
-                                                                        <ClientEvents OnDateSelected="DateSelected" />
-                                                                        <TimeView StartTime="08:00:00" Interval="00:15:00" EndTime="20:15:00" Columns="7"
-                                                                            OnClientTimeSelecting="ClientTimeSelected" CellSpacing="-1">
-                                                                        </TimeView>
-                                                                        <TimePopupButton CssClass="" HoverImageUrl="" ImageUrl="" />
-                                                                        <Calendar EnableWeekends="True" FastNavigationNextText="&amp;lt;&amp;lt;" UseColumnHeadersAsSelectors="False"
-                                                                            UseRowHeadersAsSelectors="False">
-                                                                        </Calendar>
-                                                                        <DateInput DateFormat="dd-MMM-yyyy hh:mm tt" DisplayDateFormat="dd-MMM-yyyy hh:mm tt"
-                                                                            LabelWidth="64px" Width="">
-                                                                            <EmptyMessageStyle Resize="None" />
-                                                                            <ReadOnlyStyle Resize="None" />
-                                                                            <FocusedStyle Resize="None" />
-                                                                            <DisabledStyle Resize="None" />
-                                                                            <InvalidStyle Resize="None" />
-                                                                            <HoveredStyle Resize="None" />
-                                                                            <EnabledStyle Resize="None" />
-                                                                        </DateInput>
-                                                                        <DatePopupButton CssClass="" HoverImageUrl="" ImageUrl="" /> 
-                                                                    </telerik:raddatetimepicker>
-                                                        </td>
-                                                        <td style="width: 17%;" align="right">
-                                                            <label id="Label8" class="required" runat="server">
-                                                                From:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 17%;" align="left">
-                                                            <asp:DropDownList ID="ddlfromfacility" runat="server" Width="100%">
-                                                                <asp:ListItem Text="Select Facility" Value="0" Selected="True"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                            <td align="right">
+                                                <label id="Label1" class="required" runat="server">
+                                                    Date Received:
+                                                </label>
+                                            </td>
+                                            <td align="left">
+                                                <telerik:raddatetimepicker id="txtSpecRecdt" runat="server" skin="Office2007" width="100%" CssClass="form-control"
+                                                    culture="en-US">
+                                                            <ClientEvents OnDateSelected="DateSelected" />
+                                                            <TimeView StartTime="08:00:00" Interval="00:15:00" EndTime="20:15:00" Columns="7"
+                                                                OnClientTimeSelecting="ClientTimeSelected" CellSpacing="-1">
+                                                            </TimeView>
+                                                            <TimePopupButton CssClass="" HoverImageUrl="" ImageUrl="" />
+                                                            <Calendar EnableWeekends="True" FastNavigationNextText="&amp;lt;&amp;lt;" UseColumnHeadersAsSelectors="False"
+                                                                UseRowHeadersAsSelectors="False">
+                                                            </Calendar>
+                                                            <DateInput DateFormat="dd-MMM-yyyy hh:mm tt" DisplayDateFormat="dd-MMM-yyyy hh:mm tt"
+                                                                LabelWidth="64px" Width="">
+                                                                <EmptyMessageStyle Resize="None" />
+                                                                <ReadOnlyStyle Resize="None" />
+                                                                <FocusedStyle Resize="None" />
+                                                                <DisabledStyle Resize="None" />
+                                                                <InvalidStyle Resize="None" />
+                                                                <HoveredStyle Resize="None" />
+                                                                <EnabledStyle Resize="None" />
+                                                            </DateInput>
+                                                            <DatePopupButton CssClass="" HoverImageUrl="" ImageUrl="" /> 
+                                                        </telerik:raddatetimepicker>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td width="100%">
-                                                <table width="100%" border="0">
-                                                    <tr>
-                                                        <td style="width: 16%;" align="right">
-                                                            <label id="Label3" class="required" runat="server">
-                                                                Number of specimen samples:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 24%;" align="left">
-                                                            <asp:DropDownList ID="ddlspecno" runat="server" Width="75px">
-                                                                <asp:ListItem Text="Number" Value="0" Selected="True"></asp:ListItem>
-                                                                <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                                                                <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                                                                <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                        <td style="width: 17%;" align="right">
-                                                            <label id="Label9" class="required" runat="server">
-                                                                Received by:
-                                                            </label>
-                                                        </td>
-                                                        <td style="width: 17%;" align="left">
-                                                            <asp:DropDownList ID="ddlrecivedby" runat="server" Width="100%">
-                                                                <asp:ListItem Text="Select Received by" Value="0" Selected="True"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                            <td align="right">
+                                                <label id="Label3" class="required" runat="server" CssClass="form-control">
+                                                    Number of specimen samples:
+                                                </label>
+                                            </td>
+                                            <td align="left">
+                                                <asp:DropDownList ID="ddlspecno" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Text="1" Value="1" Selected="True"></asp:ListItem>
+                                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <label id="Label9" class="required" runat="server">
+                                                    Received by:
+                                                </label>
+                                            </td>
+                                            <td align="left">
+                                                <asp:DropDownList ID="ddlrecivedby" runat="server" Width="100%" CssClass="form-control">
+                                                    <asp:ListItem Text="Select Received by" Value="0" Selected="True"></asp:ListItem>
+                                                </asp:DropDownList>
                                             </td>
                                         </tr>
                                     </table>

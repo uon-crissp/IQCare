@@ -85,24 +85,6 @@ namespace IQCare.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlServices;
         
         /// <summary>
-        /// lblCareendedstatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCareendedstatus;
-        
-        /// <summary>
-        /// ddCareEndedStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddCareEndedStatus;
-        
-        /// <summary>
         /// txtlastname control.
         /// </summary>
         /// <remarks>
@@ -164,6 +146,24 @@ namespace IQCare.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender FTEFName;
+        
+        /// <summary>
+        /// lblCareendedstatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCareendedstatus;
+        
+        /// <summary>
+        /// ddCareEndedStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddCareEndedStatus;
         
         /// <summary>
         /// txtDOB control.

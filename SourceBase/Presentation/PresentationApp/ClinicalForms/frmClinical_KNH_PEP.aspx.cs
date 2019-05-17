@@ -1703,7 +1703,6 @@ namespace PresentationApp.ClinicalForms
             Hashtable theHT = HTTriage();         
            
 
-
             KNHPEP = (IPatientKNHPEP)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientKNHPEP, BusinessProcess.Clinical");
             DataSet DsReturns = KNHPEP.SaveUpdateKNHPEPTriage(theHT, getCheckBoxListItemValues(cblMedicalConditions), getCheckBoxListItemValues(this.idVitalSign.cblReferredTo));
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "PEPTriageSaveUpdate", "alert('Data on Triage tab saved successfully.');", true);
@@ -1757,10 +1756,8 @@ namespace PresentationApp.ClinicalForms
         private void SaveCancel(string tabname)
         {
             int PatientID = Convert.ToInt32(Session["PatientId"]);
-            IQCareMsgBox.NotifyAction(tabname + " Tab saved successfully.", Header.InnerText, true, this, "");           
-
+            IQCareMsgBox.NotifyAction(tabname + " Tab saved successfully.", "PEP", false, this, "");           
         }
-
     
         protected void btncomplete_Click(object sender, EventArgs e)
         {
