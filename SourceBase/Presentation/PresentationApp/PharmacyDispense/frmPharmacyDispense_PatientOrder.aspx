@@ -481,7 +481,8 @@
                                         Appointment Date</label>
                                     <div style="width: 100%; margin: 0px auto;">
                                         <div style="float: left">
-                                            <asp:TextBox ID="txtNextApptDate" runat="server" Width="100%" CssClass="form-control"></asp:TextBox></div>
+                                            <asp:TextBox ID="txtNextApptDate" runat="server" Width="100%" 
+                                                CssClass="form-control"></asp:TextBox></div>
                                         <div style="float: left">
                                             <img id="Img2" onclick="w_displayDatePicker('<%=txtNextApptDate.ClientID%>');" height="22"
                                                 alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0"
@@ -511,7 +512,8 @@
                                 <div class="col-md-4 form-group">
                                     <font color="#0000E0"><label for="inputEmail3" class="control-label">
                                         Treatment Program</label></font>
-                                    <asp:DropDownList ID="ddlTreatmentProg" runat="server" CssClass="form-control" Width="98%">
+                                    <asp:DropDownList ID="ddlTreatmentProg" runat="server" CssClass="form-control" 
+                                        Width="98%" onselectedindexchanged="ddlTreatmentProg_SelectedIndexChanged" AutoPostBack="true">
                                     </asp:DropDownList>
                                 </div>
                             </div>

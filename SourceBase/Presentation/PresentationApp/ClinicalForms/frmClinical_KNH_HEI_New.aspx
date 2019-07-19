@@ -169,13 +169,14 @@
             var radioYes = document.getElementById('<%=rdoMotherRegisYes.ClientID%>');
             var radioNo = document.getElementById('<%=rdoMotherRegisNo.ClientID%>');
             if (radioYes.checked == true || radioNo.checked == false) {
-                document.getElementById('<%=btnFind.ClientID%>').style.visibility = 'visible';
-                document.getElementById('<%=lblBtnFind.ClientID%>').style.visibility = 'visible';
+                document.getElementById('<%=lblMotherId.ClientID%>').style.visibility = 'visible';
+                document.getElementById('<%=txtMotherId.ClientID%>').style.visibility = 'visible';
             } else {
-                document.getElementById('<%=btnFind.ClientID%>').style.visibility = 'hidden';
-                document.getElementById('<%=lblBtnFind.ClientID%>').style.visibility = 'hidden';
+                document.getElementById('<%=lblMotherId.ClientID%>').style.visibility = 'hidden';
+                document.getElementById('<%=txtMotherId.ClientID%>').style.visibility = 'hidden';
             }
         }
+
         function disable_enable_Dropdown(urChkBox, urDiv) {
             var urChkBox1 = document.getElementById(urChkBox).checked;
             if (urChkBox1 == true) {
@@ -185,17 +186,20 @@
                 document.getElementById(urDiv).style.display = "none";
             }
         }
+
         function getCBValue(urChkBox, urHidenField) {
             var urChkBox1 = document.getElementById(urChkBox).checked;
             if (urChkBox1 == true) {
                 document.getElementById('<%=hfComplaints.ClientID%>').value = 1;
+                document.getElementById('<%=divSpecifyComplaints.ClientID%>').style.display = "block";
             }
             else {
                 document.getElementById('<%=hfComplaints.ClientID%>').value = 0;
+                document.getElementById('<%=divSpecifyComplaints.ClientID%>').style.display = "none";
             }
         }
+
         function SetAnyComplaints() {
-            //alert('T');
             if (document.getElementById('<%=hfComplaints.ClientID%>').value == "True") {
                 document.getElementById('chkComplaints').checked = true;
             }
@@ -203,6 +207,7 @@
                 document.getElementById('chkComplaints').checked = false;
             }
         }
+
         function GExaminationTrue(myChkBox, myDiv) {
             document.getElementById(myChkBox).checked = true;
             document.getElementById(myDiv).style.display = "block";
@@ -903,7 +908,8 @@
                             <div class="row" style="margin-left: 2px;">
                                 <br />
                                 <act:TabContainer ID="tabControl" runat="server" CssClass="ajax__myTab" ActiveTabIndex="0"
-                                    Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" AutoPostBack="true">
+                                    Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" 
+                                    AutoPostBack="true">
                                     <act:TabPanel ID="TabPnlTriage" runat="server" HeaderText="Triage and Neonatal History">
                                         <ContentTemplate>
                                             <div style="margin-left: 8px;">
@@ -922,7 +928,7 @@
                                                                     onblur="DateFormat(this,this.value,event,false,3)" onkeyup="DateFormat(this,this.value,event,false,3);"
                                                                     onfocus="javascript:vDateType='3'" maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy"
                                                                     style="width: 120px;" />
-                                                                &nbsp;</div>
+                                                            &nbsp;&nbsp;</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1 col-sm-12 col-xs-12 form-group text-right">
@@ -993,7 +999,6 @@
                                                             <asp:UpdatePanel ID="UpdatePanelBMIz" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:Label ID="Label22" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                     <asp:Label ID="lblBMIzClassification" runat="server" Font-Bold="True"></asp:Label>
                                                                 </ContentTemplate>
                                                                 <Triggers>
@@ -1013,9 +1018,7 @@
                                                             <asp:UpdatePanel ID="UpdatePanelWA" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:Label ID="Label3" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                     <asp:Label ID="lblWAClassification" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                 </ContentTemplate>
                                                                 <Triggers>
                                                                     <asp:AsyncPostBackTrigger ControlID="txtHeight" EventName="TextChanged" />
@@ -1045,7 +1048,6 @@
                                                             <asp:UpdatePanel ID="UpdatePanelWH" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:Label ID="Label21" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                     <asp:Label ID="lblWHClassification" runat="server" Font-Bold="True"></asp:Label>
                                                                 </ContentTemplate>
                                                                 <Triggers>
@@ -1063,9 +1065,7 @@
                                                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:Label ID="Label24" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                     <asp:Label ID="Label25" runat="server" Font-Bold="True"></asp:Label>
-                                                                    &nbsp;
                                                                 </ContentTemplate>
                                                                 <Triggers>
                                                                     <asp:AsyncPostBackTrigger ControlID="txtHeight" EventName="TextChanged" />
@@ -1217,7 +1217,7 @@
                                                         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                                                             <div style="width: 100%; margin: 0px auto;">
                                                                 <div style="float: left">
-                                                                    <asp:TextBox ID="txtBirthWeight" runat="server" MaxLength="3" Columns="4" CssClass="form-control"
+                                                                    <asp:TextBox ID="txtBirthWeight" runat="server" MaxLength="4" Columns="5" CssClass="form-control"
                                                                         Width="80px"></asp:TextBox></div>
                                                             </div>
                                                         </div>
@@ -1273,7 +1273,7 @@
                                                         </h3>
                                                     </div>
                                                     <div class="row">
-                                                    <br />
+                                                        <br />
                                                         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                                                             <label id="Label38" runat="server" for="inputEmail3" class="control-label">
                                                                 Type of Test:</label>
@@ -1306,7 +1306,7 @@
                                                                         maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                         onblur="DateFormat(this,this.value,event,false,3)" onfocus="javascript:vDateType='3'"
                                                                         onkeyup="DateFormat(this,this.value,event,false,3);" />
-                                                                    &nbsp;</div>
+                                                                &nbsp;&nbsp;</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
@@ -1322,8 +1322,7 @@
                                                         <div id="divbtnPriorART" align="center" class="whitebg">
                                                             <asp:Button ID="btnAddNNatal" runat="server" OnClick="btnAddNNatal_Click" Text="Add"
                                                                 CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                            <label class="glyphicon" style="margin-left: -3%; vertical-align: sub;
-                                                                color: #fff;">
+                                                            <label class="glyphicon" style="margin-left: -3%; vertical-align: sub; color: #fff;">
                                                             </label>
                                                         </div>
                                                     </div>
@@ -1366,7 +1365,7 @@
                                                         </h3>
                                                     </div>
                                                     <div class="row">
-                                                    <br />
+                                                        <br />
                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                                                             <label id="Label15" runat="server" class="control-label required">
                                                                 State of mother:</label>
@@ -1382,17 +1381,16 @@
                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdoMotherRegisYes" type="radio" value="Yes" runat="server" name="MotherRegister"
                                                                 onclick="disable_enable_btnFind()" />
-                                                            &nbsp;<label for="rdoMotherRegisYes">Yes</label>
+                                                            &nbsp; <label for="rdoMotherRegisYes">Yes</label>
                                                             <input id="rdoMotherRegisNo" runat="server" name="MotherRegister" type="radio" value="No"
                                                                 onclick="disable_enable_btnFind()" />
-                                                            &nbsp;<label for="rdoMotherRegisNo">No</label>
+                                                            &nbsp; <label for="rdoMotherRegisNo">No</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <asp:Button ID="btnFind" Text="Find Patient" runat="server" Width="85%" CssClass="btn btn-primary"
-                                                                Height="30px" Style="text-align: left; visibility: hidden;" OnClick="btnFind_Click" />
-                                                            <label id="lblBtnFind" runat="server" class="glyphicon glyphicon-search" style="vertical-align: sub;
-                                                                margin-left: -20%; color: #fff; visibility: hidden;">
+                                                            <label id="lblMotherId" runat="server">
+                                                                Mother's IP No:
                                                             </label>
+                                                            <asp:TextBox ID="txtMotherId" runat="server" CssClass="form-control"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -1411,9 +1409,9 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdMotherRDrugYes" type="radio" runat="server" name="MotherRDrug" />
-                                                            &nbsp;<label for="rdMotherRDrugYes">Yes</label>
+                                                            &nbsp; <label for="rdMotherRDrugYes">Yes</label>
                                                             <input id="rdMotherRDrugNo" runat="server" name="MotherRDrug" type="radio" />
-                                                            &nbsp;<label for="rdMotherRDrugNo">No</label>
+                                                            &nbsp; <label for="rdMotherRDrugNo">No</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -1439,9 +1437,9 @@
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdoARTEnrolYes" type="radio" value="Yes" runat="server" name="ARTEnrol" />
-                                                            &nbsp;<label for="rdoARTEnrolYes">Yes</label>
+                                                            &nbsp; <label for="rdoARTEnrolYes">Yes</label>
                                                             <input id="rdoARTEnrolNo" runat="server" name="ARTEnrol" type="radio" value="No" />
-                                                            &nbsp;<label for="rdoARTEnrolNo">No</label>
+                                                            &nbsp; <label for="rdoARTEnrolNo">No</label>
                                                         </div>
                                                         <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                                                         </div>
@@ -1456,7 +1454,7 @@
                                                         </h3>
                                                     </div>
                                                     <div class="row" style="margin-left: 5px;">
-                                                    <br />
+                                                        <br />
                                                         <table width="100%" border="0">
                                                             <tr>
                                                                 <td>
@@ -1497,7 +1495,7 @@
                                                                                         maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                         onblur="DateFormat(this,this.value,event,false,3)" onkeyup="DateFormat(this,this.value,event,false,3);"
                                                                                         onfocus="javascript:vDateType='3'" />
-                                                                                    &nbsp;</div>
+                                                                                &nbsp;&nbsp;</div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
@@ -1516,14 +1514,13 @@
                                                                     <div id="div1" class="whitebg" align="center">
                                                                         <asp:Button ID="btnMMother" Text="Add" runat="server" OnClick="btnMMother_Click"
                                                                             CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
-                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub;
-                                                                            color: #fff;">
+                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub; color: #fff;">
                                                                         </label>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="pad5 formbg border" colspan="2">
+                                                                <td class="pad5 formbg border">
                                                                     <br />
                                                                     <div class="grid" id="div2" style="width: 98%;">
                                                                         <div class="rounded">
@@ -1606,11 +1603,12 @@
                                                         <asp:HiddenField ID="hfComplaints" runat="server" Value="0" />
                                                     </div>
                                                 </div>
-                                                <div class="row" id="divSpecifyComplaints" style="display:none" runat="server">
+                                                <div class="row" id="divSpecifyComplaints" style="display: none" runat="server">
                                                     <div class="col-md-12 form-group">
                                                         <label id="Label26" runat="server" for="inputEmail3" class="control-label">
                                                             Specify complaints :</label>
-                                                        <asp:TextBox ID="txtPresentingComplaints" CssClass="form-group" runat="server" Height="30px"></asp:TextBox>
+                                                        <textarea id="txtComplaints" cols="20" rows="5" runat="server" placeholder="Specify complaints"
+                                                            style="float: left; margin-left: 13px; width: 97%; resize: none" class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="box-header with-border" style="background-color: #DCDCDC;">
@@ -1814,15 +1812,14 @@
                                                                                 maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                 onblur="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
                                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" />
-                                                                        </div>
+                                                                            &nbsp;&nbsp;&nbsp;&nbsp;</input></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                                                                     <div id="div7" align="left">
                                                                         <asp:Button ID="btnAddImmunization" Text="Add" runat="server" OnClick="btnAddImmunization_Click"
                                                                             CssClass="btn btn-primary" Height="30px" Style="text-align: left;" />
-                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub;
-                                                                            color: #fff;">
+                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub; color: #fff;">
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -1859,11 +1856,21 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box-header with-border" style="background-color: #DCDCDC;">
+                                                    <h3 class="box-title">
+                                                        Neonatal History</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="box box-default box-solid">
+                                                        <div class="box-body">
                                                             <div class="row" style="padding-left: 1%">
                                                                 <label for="inputEmail3" class="control-label">
                                                                     Neonatal History Notes :</label>
                                                                 <asp:TextBox ID="txtNeonatalHistoryNotes" TextMode="MultiLine" Width="98%" runat="server"
-                                                                    MaxLength="1000" Rows="4" Style="resize: none" CssClass="form-control" placeholder="Neonatal History Notes"></asp:TextBox>
+                                                                    MaxLength="1000" Rows="5" Style="resize: none" CssClass="form-control" placeholder="Neonatal History Notes"></asp:TextBox>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-3 col-sm-12 col-xs-12 form-group">
@@ -1871,14 +1878,15 @@
                                                                         <asp:Label ID="Label23" runat="server" Font-Bold="True" Text="Has Vitamin A been given?:"></asp:Label></label>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                                                                    <input id="rdoHasVitaminGivenYes" name="Vitamingiven" type="radio" runat="server" /></input><label>Yes</label>
-                                                                    <input id="rdoHasVitaminGivenNo" name="Vitamingiven" type="radio" runat="server" /></input><label>No</label>
+                                                                    <input id="rdoHasVitaminGivenYes" name="Vitamingiven" type="radio" runat="server" />
+                                                                    <label>Yes</label>
+                                                                    <input id="rdoHasVitaminGivenNo" runat="server" name="Vitamingiven" type="radio" />
+                                                                    <label>No</label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <%--MileStone--%>
                                                 <div class="box-header with-border" style="background-color: #DCDCDC;">
                                                     <h3 class="box-title">
                                                         Milestones</h3>
@@ -1928,7 +1936,7 @@
                                                                                 maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                 onblur="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
                                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" />
-                                                                        </div>
+                                                                            &nbsp;&nbsp;&nbsp;&nbsp;</input></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-1 col-sm-12 col-xs-12 form-group">
@@ -1946,8 +1954,7 @@
                                                                     <div id="div4" class="whitebg" align="center">
                                                                         <asp:Button ID="btnAddMilestone" Text="Add" runat="server" OnClick="btnAddMilestone_Click"
                                                                             CssClass="btn btn-primary" Height="30px" Width="90%" Style="text-align: left;" />
-                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub;
-                                                                            color: #fff;">
+                                                                        <label class="glyphicon" style="margin-left: -3%; vertical-align: sub; color: #fff;">
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -1993,7 +2000,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <%--TB Assessment--%>
                                                 <div class="box-header with-border" style="background-color: #DCDCDC;">
                                                     <h3 class="box-title">
                                                         TB Assessment</h3>
@@ -2027,7 +2033,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <%--Reminder Work Plan--%>
                                                 <div class="box-header with-border" style="background-color: #DCDCDC;">
                                                     <h3 class="box-title">
                                                         Reminders and workplan</h3>
@@ -2036,7 +2041,7 @@
                                                     <div class="box box-default box-solid">
                                                         <div class="box-body">
                                                             <div class="row">
-                                                                <textarea id="txtAreaWorkPlan" cols="20" rows="2" runat="server" placeholder="Enter workplan details"
+                                                                <textarea id="txtAreaWorkPlan" cols="20" rows="5" runat="server" placeholder="Enter workplan details"
                                                                     style="float: left; margin-left: 13px; width: 97%; resize: none" class="form-control"></textarea>
                                                             </div>
                                                         </div>
@@ -2051,12 +2056,12 @@
                                                 <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table1" runat="server">
                                                     <tr id="Tr4" runat="server" align="center">
                                                         <td id="Td4" runat="server" class="form">
-                                                            <asp:Button ID="btnHIVHistorySave" runat="server" Text="Save" Enabled="false" OnClick="btnHIVHistorySave_Click"
+                                                            <asp:Button ID="btnHIVHistorySave" runat="server" Text="Save" Enabled="False" OnClick="btnHIVHistorySave_Click"
                                                                 CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
                                                             <label class="glyphicon glyphicon-floppy-disk" style="margin-left: -3%; margin-right: 2%;
                                                                 vertical-align: sub; color: #fff;">
                                                             </label>
-                                                            <asp:Button ID="btncloseHIVHistory" runat="server" Text="Close" Enabled="false" OnClick="btncloseHIVHistory_Click"
+                                                            <asp:Button ID="btncloseHIVHistory" runat="server" Text="Close" Enabled="False" OnClick="btncloseHIVHistory_Click"
                                                                 CssClass="btn btn-primary" Height="30px" Width="8%" Style="text-align: left;" />
                                                             <label class="glyphicon glyphicon-remove-circle" style="margin-left: -3%; margin-right: 2%;
                                                                 vertical-align: sub; color: #fff;">

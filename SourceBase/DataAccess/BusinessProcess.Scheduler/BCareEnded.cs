@@ -71,8 +71,6 @@ namespace BusinessProcess.Scheduler
         }
         public int SaveGetDynamicControlDatat(string sqlquery, string PatientId, string CareEndedDate)
         {
-
-
             try
             {
                 this.Connection = DataMgr.GetConnection();

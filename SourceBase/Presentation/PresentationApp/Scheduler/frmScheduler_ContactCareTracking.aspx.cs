@@ -47,12 +47,12 @@ public partial class Scheduler_frmScheduler_ContactCareTracking : BasePage
         }
         else if (Authentiaction.HasFunctionRight(ApplicationAccess.CareTracking, FunctionAccess.Add, (DataTable)Session["UserRight"]) == false)
         {
-            btnsave.Disabled = true;
+            //btnsave.Disabled = true;
             btnComplete.Disabled = true;
         }
         else if (Authentiaction.HasFunctionRight(ApplicationAccess.CareTracking, FunctionAccess.Update, (DataTable)Session["UserRight"]) == false)
         {
-            btnsave.Disabled = true;
+            //btnsave.Disabled = true;
             btnComplete.Disabled = true;
         }
         else if (Authentiaction.HasFunctionRight(ApplicationAccess.CareTracking, FunctionAccess.Print, (DataTable)Session["UserRight"]) == false)
@@ -81,7 +81,7 @@ public partial class Scheduler_frmScheduler_ContactCareTracking : BasePage
         }
         else if (VisitID >= 1)
         {
-            btnsave.Disabled = true;
+            //btnsave.Disabled = true;
             btnComplete.Disabled = true;
         }
         //else
@@ -536,29 +536,10 @@ public partial class Scheduler_frmScheduler_ContactCareTracking : BasePage
     }
     private void SaveCancel()
     {
-
-        //--- For Cancel event, on saving the form ---
-        //string script = "<script language = 'javascript' defer ='defer' id = 'confirm'>\n";
-        //script += "var ans;\n";
-        //script += "ans=window.confirm('Care Tracking Form saved successfully. Do you want to close?');\n";
-        //script += "if (ans==true)\n";
-        //script += "{\n";
-        //if (Request.QueryString["opento"] == "popup")
-        //{
-        //    script += "self.close();\n";
-        //}
-        //else
-        //{
-        //    script += "window.location.href='../ClinicalForms/frmPatient_Home.aspx?PatientId=" + Session["PatientId"] + "';\n";
-        //}
-        //script += "}\n";
-        //script += "</script>\n";
-        //RegisterStartupScript("confirm", script);
         IQCareMsgBox.NotifyAction("Care Tracking Form saved successfully. Do you want to close?", "Care Tracking Form", false, this, "window.location.href='../ClinicalForms/frmPatient_Home.aspx?PatientId=" + Session["PatientId"] + "';");
         btnsave.Disabled = true;
         btnComplete.Disabled = true;
         printval = 1;
-
     }
     #region "GetDynamicControl"
 

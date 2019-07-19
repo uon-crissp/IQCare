@@ -614,14 +614,8 @@ namespace PresentationApp.PharmacyDispense
                     DataTable dt = dataRow.CopyToDataTable<DataRow>();
                     ddlregimenLine.SelectedValue = dt.Rows[0]["RegimenLineID"].ToString();
                     ddlTreatmentProg.SelectedValue = dt.Rows[0]["Purpose"].ToString();
-
-                    string showregimen = "true";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "regimendd", "showRegimenDDown('" + showregimen + "');", true);
-
                 }
-
             }
-
         }
 
         protected void btnHidAddDrug_Click(object sender, EventArgs e)
@@ -806,7 +800,7 @@ namespace PresentationApp.PharmacyDispense
                     {
                         if (Session["SCMModule"] != null)
                         {
-                            if ((Session["SCMModule"] == "PMSCM") && ddlDispensingStore.CssClass != "hidden")
+                            if ((Session["SCMModule"].ToString() == "PMSCM") && ddlDispensingStore.CssClass != "hidden")
                             {
                                 if (ddlDispensingStore.SelectedValue == "0")
                                 {
@@ -1294,21 +1288,7 @@ namespace PresentationApp.PharmacyDispense
                         if (txtQtyPrescribed.Text.Length == 0) txtQtyPrescribed.Text = "0";
                         if (txtRefillQty1.Text.Length == 0) txtRefillQty1.Text = "0";
                     }
-                    string showregimen = "false";
-                    for (int i = 0; i < theDS.Tables[0].Rows.Count; i++)
-                    {
-                        if (theDS.Tables[0].Rows[i]["UserID"].ToString() != Session["AppUserId"].ToString())
-                        {
-                            gvDispenseDrugs.Rows[i].Cells[16].ControlStyle.CssClass = "hidden";
-                        }
-                        if (theDS.Tables[0].Rows[i]["GenericAbbrevation"].ToString() != "")
-                        {
-                            showregimen = "true";
-                        }
-                    }
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "regimendd", "showRegimenDDown('" + showregimen + "');", true);
                 }
-
             }
             else
             {
@@ -1618,6 +1598,20 @@ namespace PresentationApp.PharmacyDispense
                 chkavdrugs = 1;
             else
                 chkavdrugs = 0;
+        }
+
+        protected void ddlTreatmentProg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime NextAppDate = Convert.ToDateTime(txtNextApptDate.Text);
+                DateTime Today = Convert.ToDateTime(DateTime.Now.ToString("dd-MMM-yyyy"));
+                txtDaysToNextAppt.Text = (NextAppDate - Today).TotalDays.ToString();
+            }
+            catch
+            { 
+            
+            }
         }
     }
 }

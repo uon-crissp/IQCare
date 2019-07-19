@@ -679,22 +679,22 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoMotherRegisNo;
         
         /// <summary>
-        /// btnFind control.
+        /// lblMotherId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMotherId;
         
         /// <summary>
-        /// lblBtnFind control.
+        /// txtMotherId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblBtnFind;
+        protected global::System.Web.UI.WebControls.TextBox txtMotherId;
         
         /// <summary>
         /// Label13 control.
@@ -994,13 +994,13 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label26;
         
         /// <summary>
-        /// txtPresentingComplaints control.
+        /// txtComplaints control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPresentingComplaints;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtComplaints;
         
         /// <summary>
         /// ddlGeneralExamination control.

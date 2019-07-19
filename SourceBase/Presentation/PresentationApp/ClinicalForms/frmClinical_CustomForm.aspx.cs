@@ -97,16 +97,6 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             OnBlur();
         }
 
-        //tabcontainer.AutoPostBack = true;
-        //tabcontainer.ActiveTabChanged += new EventHandler(tabcontainer_ActiveTabChanged);
-        //if (!(ViewState["ActiveTabIndex"] == null) && (!(sender == null)))
-        //{
-        //    if (sender.GetType().ToString().Equals("AjaxControlToolkit.TabContainer"))
-        //    {
-        //        ((AjaxControlToolkit.TabContainer)sender).ActiveTabIndex = Convert.ToInt16(ViewState["ActiveTabIndex"]);
-        //    }
-        //}
-
         if (IsPostBack != true)
         {
             htcontrolstatus.Clear();

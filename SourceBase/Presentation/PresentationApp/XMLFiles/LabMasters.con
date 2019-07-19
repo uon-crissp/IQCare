@@ -2651,51 +2651,6 @@
     <ResultId>67</ResultId>
     <Result>MTB Negative</Result>
   </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>68</ResultId>
-    <ParameterId>14</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>69</ResultId>
-    <ParameterId>15</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>70</ResultId>
-    <ParameterId>17</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>71</ResultId>
-    <ParameterId>18</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>72</ResultId>
-    <ParameterId>19</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>73</ResultId>
-    <ParameterId>97</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>74</ResultId>
-    <ParameterId>98</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>75</ResultId>
-    <ParameterId>99</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
-  <Lnk_ParameterResult>
-    <ResultId>76</ResultId>
-    <ParameterId>114</ParameterId>
-    <Result />
-  </Lnk_ParameterResult>
   <LabTestOrder>
     <SubTestId>1</SubTestId>
     <SubTestName>CD4</SubTestName>

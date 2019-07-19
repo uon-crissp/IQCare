@@ -1376,7 +1376,7 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
             //    lblpatientname.Text = dtPatientInfo.Rows[0]["LastName"].ToString() + ", " + dtPatientInfo.Rows[0]["FirstName"].ToString();
             //else
             //    lblpatientname.Text = dtPatientInfo.Rows[0]["LastName"].ToString() + ", " + dtPatientInfo.Rows[0]["MiddleName"].ToString() + " , " + dtPatientInfo.Rows[0]["FirstName"].ToString();
-            lblIQnumber.Text = dtPatientInfo.Rows[0]["IQNumber"].ToString();
+            //lblIQnumber.Text = dtPatientInfo.Rows[0]["IQNumber"].ToString();
             lblAge.Text = Convert.ToString(dtPatientInfo.Rows[0]["AGE"] == null ? "0" : dtPatientInfo.Rows[0]["AGE"]);
             lblGender.Text = dtPatientInfo.Rows[0]["SexNM"].ToString();
 

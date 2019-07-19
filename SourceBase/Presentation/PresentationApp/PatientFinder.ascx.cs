@@ -682,7 +682,8 @@ namespace IQCare.Web
         protected void grdSearchResult_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string commandName = e.CommandName;
-            int rowIndex, patientId, locationId;
+            int rowIndex, patientId, locationId, moduleid;
+            string Modulename;
             if (!this.IncludeEnrollement && commandName == "Expand")
             {
                 commandName = "PatientClick";
@@ -729,9 +730,14 @@ namespace IQCare.Web
                 grdSearchResult.SelectedIndex = rowIndex;
                 patientId = int.Parse(grdSearchResult.SelectedDataKey.Values["patientid"].ToString());
                 locationId = int.Parse(grdSearchResult.SelectedDataKey.Values["locationid"].ToString());
-                var list = new List<KeyValuePair<string, int>>();
-                list.Add(new KeyValuePair<string, int>("PatientID", patientId));
-                list.Add(new KeyValuePair<string, int>("LocationID", locationId));
+                moduleid = int.Parse(grdSearchResult.SelectedDataKey.Values["moduleid"].ToString());
+                Modulename = grdSearchResult.SelectedRow.Cells[8].Text;
+
+                var list = new List<KeyValuePair<string, string>>();
+                list.Add(new KeyValuePair<string, string>("PatientID", patientId.ToString()));
+                list.Add(new KeyValuePair<string, string>("LocationID", locationId.ToString()));
+                list.Add(new KeyValuePair<string, string>("ModuleID", moduleid.ToString()));
+                list.Add(new KeyValuePair<string, string>("ModuleName", Modulename));
                 this.OnPatientSelected(this, new CommandEventArgs("SelectedPatient", list));
                 this.PopulatePatientList();
                 return;

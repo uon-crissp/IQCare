@@ -310,16 +310,16 @@
     <asp:Panel ID="PanelPatiInfo" class="border center formbg" runat="server" Width="100%"
         Style="margin-left: 25px;">
         <div class="row" align="center">
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group text-nowrap">
+            <div class="col-md-4 form-group text-nowrap">
                 <label class="control-label">
                     Patient Name:</label>
                 <asp:Label ID="lblpatientname" runat="server"></asp:Label>
             </div>
-            <div class="col-md-2 col-sm-12 col-xs-12 form-group align-right text-nowrap">
+<%--            <div class="col-md-2 col-sm-12 col-xs-12 form-group align-right text-nowrap">
                 <label class="control-label">
                     IQ Number:</label>
                 <asp:Label ID="lblIQnumber" runat="server"></asp:Label>
-            </div>
+            </div>--%>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group align-right text-nowrap">
                 <label class="control-label">
                     Age:</label>

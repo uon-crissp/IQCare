@@ -1353,12 +1353,12 @@ namespace PresentationApp.Laboratory
                         return;
                     }
                 }
+
                 DataTable TestIntList = CreateTestInittable();
                 int result = theILabManager.IQTouchSaveLabOrderTests(objLabFields, list, listArv, dtGenXpert, theCustomDataDT, TestIntList);
+
                 if (result > 0)
                 {
-
-
                     if (Request.QueryString["opento"] == "ArtForm")
                     {
                         if (Convert.ToInt32(Session["ArtEncounterPatientVisitId"]) > 0)
@@ -1368,11 +1368,9 @@ namespace PresentationApp.Laboratory
                         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "goBack", "Close();", true);
                         return;
                     }
+
                     SaveCancel();
-
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -2343,8 +2341,11 @@ namespace PresentationApp.Laboratory
                 return;
             }
             else
+            {
                 btnsave.Enabled = false;
                 SaveLabOrder();
+                btnsave.Enabled = true;
+            }
         }
         private void DeleteForm()
         {

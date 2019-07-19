@@ -60,8 +60,7 @@ namespace IQCare.Web
                 CLogger.WriteLog(ELogLevel.ERROR, ex.ToString());
                 if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
                 {
-                    IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'");
-                    //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
+                    IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=" + Session["TechnicalAreaId"] + "'");
                 }
                 else
                 {
@@ -108,7 +107,7 @@ namespace IQCare.Web
                 CLogger.WriteLog(ELogLevel.ERROR, ex.ToString());
                 if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
                 {
-                    IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'");
+                    IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=" + Session["TechnicalAreaId"].ToString() + "'");
                     //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
                 }
                 else
@@ -133,21 +132,29 @@ namespace IQCare.Web
         }
         void FindPatient_SelectedPatientChanged(object sender, CommandEventArgs e)
         {
-            int LocationID, PatientID;
+            int LocationID, PatientID, ModuleId;
+            string sPatientService;
 
-            List<KeyValuePair<string, int>> param = e.CommandArgument as List<KeyValuePair<string, int>>;
-            PatientID = param.Find(l => l.Key == "PatientID").Value;
-            LocationID = param.Find(l => l.Key == "LocationID").Value;
+            string sActiveService = Session["TechnicalAreaName"].ToString();
+            int iCurrentModule = Convert.ToInt16(Session["TechnicalAreaId"]);
 
-            if (LocationID == Convert.ToInt32(base.Session["AppLocationId"]))
+            List<KeyValuePair<string, string>> param = e.CommandArgument as List<KeyValuePair<string, string>>;
+            PatientID = Convert.ToInt32(param.Find(l => l.Key == "PatientID").Value);
+            LocationID = Convert.ToInt32(param.Find(l => l.Key == "LocationID").Value);
+            ModuleId = Convert.ToInt32(param.Find(l => l.Key == "ModuleID").Value);
+            sPatientService = param.Find(l => l.Key == "ModuleName").Value;
+
+            if (iCurrentModule == ModuleId || sActiveService.ToLower().Contains("pharmacy") || sActiveService.ToLower().Contains("laboratory"))
+            {
+                openPatientDetails(PatientID);
+            }
+            else if (ModuleId == 0)
             {
                 openPatientDetails(PatientID);
             }
             else
             {
-                //string script = "alert('This Patient belongs to a different Location. Please log-in with the patient\\'s location.'); ";
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "FindPatientAlert", script, true);
-                IQCareMsgBox.NotifyAction("This Patient belongs to a different Location. Please log-in with the patient\\'s location.", "Find Patient", false, this, "");
+                IQCareMsgBox.NotifyAction("This Patient is currently in \'" + sPatientService + "\' service area. If you you wish to serve them in \'" + sActiveService + "\', open the patient record in \'" + sPatientService + "\' then transfer to this service area.", "Different Service Area", false, this, "");
             }
         }
 

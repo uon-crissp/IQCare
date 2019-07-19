@@ -398,7 +398,7 @@ namespace IQCare.Web.Billing
             CLogger.WriteLog(ELogLevel.ERROR, ex.ToString());
             if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
             {
-                this.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'");
+                IQCareMsgBox.NotifyAction("Application has an issue, Please contact Administrator!", "Application Error", true, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=" + Session["TechnicalAreaId"] + "'");
                 //Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
             }
             else

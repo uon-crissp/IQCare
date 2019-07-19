@@ -474,7 +474,7 @@
                         </div>
                         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                             <label for="inputEmail3" class="control-label">
-                                Reason not on Family Planning:</label>
+                                <font color="blue">Reason not on Family Planning:</font></label>
                             <select class="form-control select2" data-placeholder="Select" id="ddlNoFPReason"
                                 style="width: 100%;">
                             </select>

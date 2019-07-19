@@ -275,8 +275,8 @@ namespace BusinessProcess.Administration
                 ClsUtility.AddParameters("@GenericId", SqlDbType.Int, GenericId.ToString());
                 return (DataTable)DrugStrengthManager.ReturnObject(ClsUtility.theParams, "pr_Admin_GetFrequencyByGenericID_Constella", ClsDBUtility.ObjectEnum.DataTable);
             }
-
         }
+
         public DataTable GetScheduleByDrugID(int DrugId)
         {
             lock (this)

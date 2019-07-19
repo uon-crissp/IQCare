@@ -742,12 +742,12 @@ function CheckTriBlankValues() {
 
         var ddlTransferFrom = $("#ddlFacility").select2("val");
 
-        if (ddlTransferFrom == null) {
-            if (errorField.length > 1) {
-                errorField += ', ';
-            }
-            errorField += 'Facility transfer from ';
-        }
+//        if (ddlTransferFrom == null) {
+//            if (errorField.length > 1) {
+//                errorField += ', ';
+//            }
+//            errorField += 'Facility transfer from ';
+//        }
 
         if ($("#dtDateStatedArt").val().length == 0) {
             if (errorField.length > 1) {

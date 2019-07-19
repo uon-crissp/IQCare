@@ -43,7 +43,7 @@ public abstract class BasePage : Page
         CLogger.WriteLog(ELogLevel.ERROR, ex.ToString());
         if (Session["PatientId"] == null || Convert.ToInt32(Session["PatientId"]) != 0)
         {
-            Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=0'</script>");
+            Response.Write("<script>alert('Application has an issue, Please contact Administrator!') ; window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=" + Session["TechnicalAreaId"].ToString() + "'</script>");
         }
         else
         {

@@ -23,7 +23,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
     String TransferId = "";
     DataSet theFacilityDS;
 
-
     private Boolean validate()
     {
         DataSet theDS = new DataSet();
@@ -37,6 +36,7 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             IQCareMsgBox.Show("BlankDropDown", theBuilder, this);
             return false;
         }
+
         //Transfer Date cannot be Blank - 1
         if (txtTransferDate.Value == "")
         {
@@ -47,40 +47,41 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             return false;
         }
 
-        //Transfer Date cannot be less than Latest Visit Dates - 2
-        if (Convert.ToDateTime(txtTransferDate.Value) < Convert.ToDateTime(theDS.Tables[3].Rows[0]["VisitDate"].ToString()))
-        {
-            IQCareMsgBox.Show("TransferDate", this);
-            txtTransferDate.Focus();
-            return false;
-        }
+        ////Transfer Date cannot be less than Latest Visit Dates - 2
+        //if (Convert.ToDateTime(txtTransferDate.Value) < Convert.ToDateTime(theDS.Tables[3].Rows[0]["VisitDate"].ToString()))
+        //{
+        //    IQCareMsgBox.Show("TransferDate", this);
+        //    txtTransferDate.Focus();
+        //    return false;
+        //}
 
-        //Cannot Tranfer a patient more than one satellite on same date - 3
-        if (Convert.ToInt32(theDS.Tables[0].Rows[0]["DateExist"]) > 0)
-        {
-            IQCareMsgBox.Show("TransferDate_2", this);
-            txtTransferDate.Focus();
-            return false;
-        }
+        ////Cannot Tranfer a patient more than one satellite on same date - 3
+        //if (Convert.ToInt32(theDS.Tables[0].Rows[0]["DateExist"]) > 0)
+        //{
+        //    IQCareMsgBox.Show("TransferDate_2", this);
+        //    txtTransferDate.Focus();
+        //    return false;
+        //}
 
-        //Transfer date should be greater than the previous date - 4
-        if (Convert.ToInt32(theDS.Tables[1].Rows[0]["Exist"]) == 1)
-        {
-            if (Convert.ToDateTime(theDS.Tables[1].Rows[0]["TransferredDate"]) > Convert.ToDateTime(txtTransferDate.Value))
-            {
-                IQCareMsgBox.Show("TransferDate_3", this);
-                txtTransferDate.Focus();
-                return false;
-            }
-        }
+        ////Transfer date should be greater than the previous date - 4
+        //if (Convert.ToInt32(theDS.Tables[1].Rows[0]["Exist"]) == 1)
+        //{
+        //    if (Convert.ToDateTime(theDS.Tables[1].Rows[0]["TransferredDate"]) > Convert.ToDateTime(txtTransferDate.Value))
+        //    {
+        //        IQCareMsgBox.Show("TransferDate_3", this);
+        //        txtTransferDate.Focus();
+        //        return false;
+        //    }
+        //}
 
-        //Transfer Date Cannot Greater than the Current Date - 5
-        if (Convert.ToDateTime(txtTransferDate.Value) > Convert.ToDateTime(Application["AppCurrentDate"]))
-        {
-            IQCareMsgBox.Show("TransferDate_1", this);
-            txtTransferDate.Focus();
-            return false;
-        }
+        ////Transfer Date Cannot Greater than the Current Date - 5
+        //if (Convert.ToDateTime(txtTransferDate.Value) > Convert.ToDateTime(Application["AppCurrentDate"]))
+        //{
+        //    IQCareMsgBox.Show("TransferDate_1", this);
+        //    txtTransferDate.Focus();
+        //    return false;
+        //}
+
         //Current Satellite and New Satellite cannot be same.
         if (txtLocationName.Text == ddSatellite.SelectedItem.Text)
         {
@@ -88,6 +89,7 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             ddSatellite.SelectedValue = "0";
             return false;
         }
+
         return true;
     }
 
@@ -115,41 +117,41 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             return false;
         }
 
-        //Transfer Date cannot be greater than Enrolment Registration Date - 2
-        if (Convert.ToDateTime(TxtTransDateEdit.Text) < Convert.ToDateTime(theDS.Tables[3].Rows[0]["VisitDate"].ToString()))
-        {
-            IQCareMsgBox.Show("TransferDate", this);
-            txtTransferDate.Focus();
-            return false;
-        }
+        ////Transfer Date cannot be greater than Enrolment Registration Date - 2
+        //if (Convert.ToDateTime(TxtTransDateEdit.Text) < Convert.ToDateTime(theDS.Tables[3].Rows[0]["VisitDate"].ToString()))
+        //{
+        //    IQCareMsgBox.Show("TransferDate", this);
+        //    txtTransferDate.Focus();
+        //    return false;
+        //}
 
-        //Cannot Tranfer a patient more than one satellite on same date - 3
-        if (Convert.ToInt32(theDS.Tables[0].Rows[0]["DateExist"]) > 0)
-        {
-            IQCareMsgBox.Show("TransferDate_2", this);
-            TxtTransDateEdit.Focus();
-            return false;
-        }
+        ////Cannot Tranfer a patient more than one satellite on same date - 3
+        //if (Convert.ToInt32(theDS.Tables[0].Rows[0]["DateExist"]) > 0)
+        //{
+        //    IQCareMsgBox.Show("TransferDate_2", this);
+        //    TxtTransDateEdit.Focus();
+        //    return false;
+        //}
 
-        //Transfer date should be greater than the previous date - 4
+        ////Transfer date should be greater than the previous date - 4
 
 
-        //Transfer Date Cannot Greater than the Current Date - 5
-        if (Convert.ToDateTime(TxtTransDateEdit.Text) > Convert.ToDateTime(Application["AppCurrentDate"].ToString()))
-        {
-            IQCareMsgBox.Show("TransferDate_1", this);
-            txtTransferDate.Focus();
-            return false;
-        }
-        //Validation between two dates
-        DataSet theDS1 = new DataSet();
-        theDS1 = PatientTransferMgr.GetDateValidateBetween(PatientId, ViewState["TransferDate"].ToString());
-        if (Convert.ToInt32(theDS1.Tables[1].Rows[0]["ID"]) > Convert.ToInt32(TransferId))
-        {
-            IQCareMsgBox.Show("TransferDate_3", this);
-            TxtTransDateEdit.Focus();
-            return false;
-        }
+        ////Transfer Date Cannot Greater than the Current Date - 5
+        //if (Convert.ToDateTime(TxtTransDateEdit.Text) > Convert.ToDateTime(Application["AppCurrentDate"].ToString()))
+        //{
+        //    IQCareMsgBox.Show("TransferDate_1", this);
+        //    txtTransferDate.Focus();
+        //    return false;
+        //}
+        ////Validation between two dates
+        //DataSet theDS1 = new DataSet();
+        //theDS1 = PatientTransferMgr.GetDateValidateBetween(PatientId, ViewState["TransferDate"].ToString());
+        //if (Convert.ToInt32(theDS1.Tables[1].Rows[0]["ID"]) > Convert.ToInt32(TransferId))
+        //{
+        //    IQCareMsgBox.Show("TransferDate_3", this);
+        //    TxtTransDateEdit.Focus();
+        //    return false;
+        //}
 
         //Current Satellite and New Satellite cannot be same.
         if (txtFromSatellite.Text == ddSatelliteEdit.SelectedItem.Text)
@@ -162,16 +164,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
         return true;
     }
 
-    /*  private void BindTextBox()
-      {
-          DataSet theDS = new DataSet();
-          IPatientTransfer PatientTransferMgr = (IPatientTransfer)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientTransfer, BusinessProcess.Clinical");
-          theDS = PatientTransferMgr.GetSatelliteLocation(PatientId, LocationId, SatelliteId, TransferId, 0);
-          txtLocationName.Text = theDS.Tables[2].Rows[0]["CurrentSatellite"].ToString();
-          txtTransferDate.Value = theDS.Tables[2].Rows[0]["TransferredDate"].ToString();
-          //ddSatellite.SelectedValue = theDS.Tables[2].Rows[0]["TransfertoSatellite"].ToString();
-          ddSatellite.SelectedValue = "0";
-      }*/
     private void BindTransferDetail()
     {
 
@@ -191,9 +183,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             tredit.Visible = false;
             theDS = PatientTransferMgr.GetSatelliteLocation(PatientId, TransferId, 0, Session["SystemId"].ToString());
             txtLocationName.Text = theDS.Tables[0].Rows[0]["CurrentSatName"].ToString();
-            //this.lblpatientname.Text = theDS.Tables[0].Rows[0]["PatientName"].ToString();
-            //this.lblpatientenrolment.Text = theDS.Tables[0].Rows[0]["PatientID"].ToString();
-            //this.lblexisclinicid.Text = theDS.Tables[0].Rows[0]["PatientClinicID"].ToString();
             DataView theDV = new DataView(theDS.Tables[1]);
             if (theDV.Table != null)
             {
@@ -202,19 +191,12 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
                 theDV.Dispose();
                 theDT.Clear();
             }
-
         }
-        /*Current Location*/
-        //ViewState["FromID"] = theDS.Tables[0].Rows[0]["ID"].ToString();
-        //txtLocationName.Text = theDS.Tables[0].Rows[0]["Name"].ToString();
 
         if (btnSave.Text == "Update")
         {
             tredit.Visible = true;
             theDS = PatientTransferMgr.GetSatelliteLocation(PatientId, TransferId, 1, Session["SystemId"].ToString());
-            // this.lblpatientname.Text = theDS.Tables[0].Rows[0]["PatientName"].ToString();
-            // this.lblpatientenrolment.Text = theDS.Tables[0].Rows[0]["PatientID"].ToString();
-            // this.lblexisclinicid.Text = theDS.Tables[0].Rows[0]["PatientClinicID"].ToString();
             txtLocationNameEdit.Text = theDS.Tables[0].Rows[0]["CurrentSatName"].ToString();
             txtLocationNameEdit.Enabled = false;
             txtFromSatellite.Text = theDS.Tables[2].Rows[0]["TransferfromSatellite"].ToString();
@@ -234,22 +216,8 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             }
             ddSatelliteEdit.SelectedValue = theDS.Tables[2].Rows[0][3].ToString();
         }
-
-
-        /* else
-         {
-             theDV = new DataView(theDS.Tables[1]);
-             theDV.RowFilter = "DeleteFlag=0";
-             if (theDV.Table != null)
-             {
-                 theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
-                 BindManager.BindCombo(ddSatellite, theDT, "Name", "ID");
-                 theDV.Dispose();
-                 theDT.Clear();
-             }
-         }
-         */
     }
+
     private void BindGrid()
     {
         if (ViewState["Sorted"] != null)
@@ -318,19 +286,12 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
         GrdTransfer.DataBind();
 
     }
+
     private void SaveUpdateMsg()
     {
-        IQCareMsgBox.NotifyAction("Patient Transferred Successfully", "Patient Transfer", false, this, "window.location.href='.././frmFindAddPatient.aspx';");
-        //string script = "<script language = 'javascript' defer ='defer' id = 'confirm'>\n";
-        //script += "var ans=true;\n";
-        //script += "alert('Patient Transferred Successfully');\n";
-        //script += "if (ans==true)\n";
-        //script += "{\n";
-        //script += "window.location.href='.././frmFindAddPatient.aspx';\n";
-        //script += "}\n";
-        //script += "</script>\n";
-        //RegisterStartupScript("confirm", script);
+        IQCareMsgBox.NotifyAction("Patient Transferred Successfully", "Patient Transfer", false, this, "window.location.href='../frmFindAddCustom.aspx?srvNm=" + Session["TechnicalAreaName"] + "&mod=" + Session["TechnicalAreaId"] + "'");
     }
+
     protected void Page_Init(object sender, EventArgs e)
     {
         if (Session["AppLocation"] == null || Session.Count == 0 || Session["AppUserID"].ToString() == "")
@@ -338,19 +299,8 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             IQCareMsgBox.Show("SessionExpired", this);
             Response.Redirect("~/frmlogin.aspx",true);
         }
-        /*  AuthenticationManager Authentication = new AuthenticationManager();
-           if (Authentication.HasFunctionRight(ApplicationAccess.Transfer, FunctionAccess.Add, (DataTable)Session["UserRight"]) == false)
-           {
-               btnSave.Enabled = false;
-               btnReset.Enabled = false;
-           }
-           else if (Authentication.HasFunctionRight(ApplicationAccess.Transfer, FunctionAccess.View, (DataTable)Session["UserRight"]) == false)
-           {
-               btnSave.Enabled = false;
-               btnReset.Enabled = false;
-           }
-         */
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["AppLocation"] == null || Session.Count == 0 || Session["AppUserID"].ToString() == "")
@@ -358,16 +308,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             IQCareMsgBox.Show("SessionExpired", this);
             Response.Redirect("~/frmlogin.aspx",true);
         }
-
-
-        //(Master.FindControl("lblRoot") as Label).Text = "Clinical Forms >>";
-        //(Master.FindControl("lblMark") as Label).Visible = false;
-        //(Master.FindControl("lblheader") as Label).Text = "Location Transfer";
-        //(Master.FindControl("lblformname") as Label).Text = "Patient Transfer";
-        //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Clinical Forms >> ";
-        //(Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Location Transfer";
-        //(Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "Patient Transfer";
-
 
         txtTransferDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,'3')");
         txtTransferDate.Attributes.Add("OnBlur", "DateFormat(this,this.value,event,true,'3')");
@@ -401,7 +341,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
         }
         if (!IsPostBack)
         {
-
             IFacilitySetup FacilityMaster = (IFacilitySetup)ObjectFactory.CreateInstance("BusinessProcess.Administration.BFacility, BusinessProcess.Administration");
             theFacilityDS = FacilityMaster.GetSystemBasedLabels(Convert.ToInt32(Session["SystemId"]), 56, 0);
             ViewState["FacilityDS"] = theFacilityDS;
@@ -412,7 +351,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             ViewState["Save"] = null;
             BindTransferDetail();
             BindGrid();
-            //SaveUpdateMsg();
         }
     }
     protected void btnSave_Click(object sender, EventArgs e)
@@ -428,7 +366,7 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
             }
             IPatientTransfer PatientTransferMgr = (IPatientTransfer)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientTransfer, BusinessProcess.Clinical");
             DataTable theDT = PatientTransferMgr.GetSatelliteID(PatientId);
-            string FromLocationID = theDT.Rows[0]["LocationID"].ToString();
+            string FromLocationID = Session["TechnicalAreaId"].ToString();
             int Transfer = (int)PatientTransferMgr.SaveUpdate(ID, PatientId, FromLocationID, ddSatellite.SelectedValue, txtTransferDate.Value, Convert.ToInt32(Session["AppUserId"]), Createdate, 0);
             ViewState["Save"] = "";
             SaveUpdateMsg();
@@ -476,14 +414,7 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
         string theUrl = string.Format("{0}", "frmPatient_Home.aspx");
         Response.Redirect(theUrl);
     }
-    /*  private void RecordSave_Update()
-      {
-          string script = "<script language = 'javascript' defer ='defer' id = 'aftersavefunction'>\n";
-          script += "document.getElementById('" + theBtn.ClientID + "').click();\n";
-          script += "</script>\n";
-          RegisterStartupScript("aftersavefunction", script);
-          return;
-      }*/
+
     protected void GrdTransfer_Sorting(object sender, GridViewSortEventArgs e)
     {
         IQCareUtils clsUtil = new IQCareUtils();
@@ -517,7 +448,6 @@ public partial class ClinicalForms_frmClinical_Transfer : BasePage
     private void SetPageLabels()
     {
         DataTable theDT = ((DataSet)ViewState["FacilityDS"]).Tables[0];
-        //lblFileRef.InnerHtml = theDT.Rows[0]["Label"].ToString();
     }
 
 }

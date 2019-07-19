@@ -138,10 +138,12 @@ namespace PresentationApp.ClinicalForms.UserControl
                             this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
                             this.UserControl_VitalsExtruder1.IPTED.Visible = false;
                         }
+
                         if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()))
                         {
                             this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
                         }
+
                         if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()))
                         {
                             this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");

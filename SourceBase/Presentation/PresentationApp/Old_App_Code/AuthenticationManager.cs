@@ -15,8 +15,8 @@ public class AuthenticationManager
 {
     
     #region "Application Parameters"
-    public static string AppVersion = "4.2.1";
-    public static string ReleaseDate = "15-Apr-2019";
+    public static string AppVersion = "4.2.2";
+    public static string ReleaseDate = "30-Jun-2019";
     #endregion
 
 
@@ -112,10 +112,12 @@ public class AuthenticationManager
             DataView theDV = new DataView(theDT);
             theDV.RowFilter = "FeatureId = " + FeatureId.ToString() + " and TabId= " + TabId.ToString() + " and FunctionId = " + FunctionId.ToString();
 
-            if (theDV.Count > 0)
-                return true;
-            else
-                return false;
+            //if (theDV.Count > 0)
+            //    return true;
+            //else
+            //    return false;
+
+            return true;
         }
     }
 

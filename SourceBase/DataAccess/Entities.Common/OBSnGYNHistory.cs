@@ -65,10 +65,10 @@ namespace Entities.Common
         public int NoFamilyPlanning { get; set; }
 
         [DataMember(Name = "Gravidae", Order = 19)]
-        public int Gravidae { get; set; }
+        public string Gravidae { get; set; }
 
         [DataMember(Name = "Parity", Order = 20)]
-        public int Parity { get; set; }
+        public string Parity { get; set; }
 
         [DataMember(Name = "ANC", Order = 27)]
         public int ANC { get; set; }

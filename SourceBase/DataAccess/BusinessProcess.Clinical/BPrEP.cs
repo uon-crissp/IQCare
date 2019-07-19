@@ -856,11 +856,11 @@ namespace BusinessProcess.Clinical
                     dtData = data.Tables[10];
                     if (dtData.Rows[0]["Gravidae"].ToString().Length > 0)
                     {
-                        objPrEP.OBSnGYNHistory.Gravidae = Convert.ToInt32(dtData.Rows[0]["Gravidae"].ToString());
+                        objPrEP.OBSnGYNHistory.Gravidae = dtData.Rows[0]["Gravidae"].ToString();
                     }
                     if (dtData.Rows[0]["Parity"].ToString().Length > 0)
                     {
-                        objPrEP.OBSnGYNHistory.Parity = Convert.ToInt32(dtData.Rows[0]["Parity"].ToString());
+                        objPrEP.OBSnGYNHistory.Parity = dtData.Rows[0]["Parity"].ToString();
                     }
                 }
 

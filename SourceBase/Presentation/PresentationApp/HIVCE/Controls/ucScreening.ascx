@@ -101,7 +101,7 @@
     <div class="box-body">
         <div class="row">
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                Eligible for IPT this Visit
+                Update IPT information?
             </div>
             <div class="col-md-10 col-sm-12 col-xs-12 form-group">
                 <input id="chkEligibleForIPT" name="switch-size" type="checkbox" data-size="small"

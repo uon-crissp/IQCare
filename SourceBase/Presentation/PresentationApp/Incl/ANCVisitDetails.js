@@ -303,6 +303,17 @@ function AddVisitAnthropometric() {
     var rbANC = $("input:radio[name=rbPS]:checked").val();
     var anc = (rbANC === undefined) ? '' : rbANC;
 
+    var diastolicBP = $("#txtMM").val();
+    var systolicBP = $("#txtHG").val();
+
+    if (diastolicBP.length == 0) {
+        diastolicBP = 0;
+    }
+
+    if (systolicBP.length == 0) {
+        systolicBP = 0;
+    }
+
     arrVisitAnthropometric.push({
         VDD: GetDateData("dtVDDate", true)
         , State: anc
@@ -311,8 +322,8 @@ function AddVisitAnthropometric() {
         , Height: $("#txtHeight").val()
         , Weight: $("#txtWeight").val()
         , MUAC: $("#txtMUAC").val()
-        , BPD: $("#txtMM").val()
-        , BPS: $("#txtHG").val()
+        , BPD: diastolicBP
+        , BPS: systolicBP
         , displayDate: $("#dtVDDate").val()
     });
 
@@ -368,11 +379,11 @@ function AddAppointment(ref) {
     }
 
     var currDt = new Date();
-    if ($("#dtNextAppointmentDate").val() < currDt.format('dd-MMM-yyyy')) {
+    var appdate = new Date($("#dtNextAppointmentDate").val());
+    if (appdate <= currDt) {
         customAlert("Appointment date should be greater then Today's date");
         return;
     }
-
 
     //dtDate
     debugger;

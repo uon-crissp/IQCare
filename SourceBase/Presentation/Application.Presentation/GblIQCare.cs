@@ -19,8 +19,8 @@ namespace Application.Presentation
         public static DateTime dtmAppVersion;
 
         #region "Application Paramete>rs"
-        public static string AppVersion = "4.2.1";
-        public static string ReleaseDate = "15-Apr-2019";
+        public static string AppVersion = "4.2.2";
+        public static string ReleaseDate = "30-Jun-2019";
         #endregion
 
         #region "Public Variables"

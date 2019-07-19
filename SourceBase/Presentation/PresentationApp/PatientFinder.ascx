@@ -263,11 +263,8 @@
                                         <asp:HiddenField ID="resultOpenITem" runat="server" />
                                         <asp:GridView ID="grdSearchResult" runat="server" Width="100%" OnRowDataBound="grdSearchResult_RowDataBound"
                                             PageSize="1" CssClass="table table-bordered table-hover" AutoGenerateColumns="False"
-                                            CellPadding="0" BorderWidth="0px" GridLines="None" AllowSorting="True" DataKeyNames="patientid,locationid"
+                                            CellPadding="0" BorderWidth="0px" GridLines="None" AllowSorting="True" DataKeyNames="patientid,locationid,moduleid"
                                             OnRowCommand="grdSearchResult_RowCommand" OnRowCreated="grdSearchResult_RowCreated">
-                                            <%--<HeaderStyle CssClass="searchresultfixedheader" Height="20px" VerticalAlign="Middle"
-                                                HorizontalAlign="Left"></HeaderStyle>
-                                            <RowStyle CssClass="row" Height="30" />--%>
                                             <Columns>
                                                 <asp:TemplateField>
                                                     <HeaderTemplate>
@@ -330,14 +327,14 @@
                                                         </asp:Panel>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:BoundField DataField="IQNumber" HeaderText="IQ Number" />
+                                                <asp:BoundField DataField="IQNumber" HeaderText="Patient Number" />
                                                 <asp:BoundField DataField="firstname" HeaderText="First Name" />
                                                 <asp:BoundField DataField="middlename" HeaderText="Middle Name" />
                                                 <asp:BoundField DataField="lastname" HeaderText="Last Name" />
                                                 <asp:BoundField DataField="dob" HeaderText="DOB" DataFormatString="{0:dd-MMM-yyyy}" />
                                                 <asp:BoundField DataField="sex" HeaderText="Sex" />
                                                 <asp:BoundField DataField="RegistrationDate" DataFormatString="{0:dd-MMM-yyyy}" HeaderText="Reg Date" />
-                                                <asp:BoundField DataField="FacilityName" HeaderText="Facility" />
+                                                <asp:BoundField DataField="ModuleName" HeaderText="Current Service Area" />
                                                 <asp:BoundField DataField="Status" HeaderText="Status" />
                                             </Columns>
                                         </asp:GridView>

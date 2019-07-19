@@ -24,6 +24,18 @@ namespace BusinessProcess.Clinical
             }
 
         }
+
+        public DataSet GetHEIAutoPopulateData(int patientID)
+        {
+            lock (this)
+            {
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@ptn_pk", SqlDbType.Int, patientID.ToString());
+                ClsObject UserManager = new ClsObject();
+                return (DataSet)UserManager.ReturnObject(ClsUtility.theParams, "pr_clinical_LoadKNHPMTCTHEI_PrepopulateData", ClsDBUtility.ObjectEnum.DataSet);
+            }
+        }
+
         public int Save_Update_KNHHEI(int patientID, int VisitID, int LocationID, Hashtable ht, DataSet theDSchklist, int userID, int DataQualityFlag)
         {
             int retval = 0;
@@ -416,6 +428,19 @@ namespace BusinessProcess.Clinical
 
             }
             return retval;
+        }
+
+        public int SaveMotherToChildLinkage(int patientID, string MotherEnrollmentID)
+        {
+            lock (this)
+            {
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@ptn_pk", SqlDbType.VarChar, patientID.ToString());
+                ClsUtility.AddParameters("@MotherId", SqlDbType.VarChar, MotherEnrollmentID.ToString());
+                ClsObject UserManager = new ClsObject();
+                UserManager.ReturnObject(ClsUtility.theParams, "pr_SaveMotherToChildLinkage", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
+                return 1;
+            }
         }
     }
 }

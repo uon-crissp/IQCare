@@ -116,6 +116,82 @@ namespace PresentationApp.ClinicalForms
             Page.ClientScript.RegisterStartupScript(HttpContext.Current.GetType(), "Complaints", "SetAnyComplaints();GExaminationBusinessRule();", true);
         }
 
+        private void PopulateHistoricalInformation()
+        {
+            IKNHHEI KNHManager;
+            KNHManager = (IKNHHEI)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHHEI, BusinessProcess.Clinical");
+            PatientID = Convert.ToInt32(Session["PatientId"]);
+            DataSet dsHistData = KNHManager.GetHEIAutoPopulateData(PatientID);
+            DataTable dtHistData = dsHistData.Tables[0];
+            DataTable dtInfantInfo = dsHistData.Tables[1];
+
+            if (dtHistData.Rows.Count > 0)
+            {
+                //Maternal History data
+                try
+                {
+                    ddlStateofMother.SelectedValue = dtHistData.Rows[0]["StateOfMother"].ToString();
+                    if (dtHistData.Rows[0]["MotherRegisteredClinic"].ToString() == "1")
+                    {
+                        rdoMotherRegisYes.Checked = true;
+                    }
+                    else if (dtHistData.Rows[0]["MotherRegisteredClinic"].ToString() == "0")
+                    {
+                        rdoMotherRegisNo.Checked = true;
+                    }
+
+                    txtMotherId.Text = dtHistData.Rows[0]["motherNo"].ToString();
+                    ddlmothersANCFU.SelectedValue = dtHistData.Rows[0]["ANCFollowup"].ToString();
+                    txtmotherANCfollowup.Text = dtHistData.Rows[0]["PlMFollowupother"].ToString();
+
+                    if (dtHistData.Rows[0]["MotherReferredtoARV"].ToString() == "1")
+                    {
+                        rdMotherRDrugYes.Checked = true;
+                    }
+                    else if (dtHistData.Rows[0]["MotherReferredtoARV"].ToString() == "0")
+                    {
+                        rdMotherRDrugNo.Checked = true;
+                    }
+
+                    if (dtHistData.Rows[0]["OnART"].ToString() == "1")
+                    {
+                        rdoARTEnrolYes.Checked = true;
+                    }
+                    else if (dtHistData.Rows[0]["OnART"].ToString() == "0")
+                    {
+                        rdoARTEnrolNo.Checked = true;
+                    }
+                }
+                catch { }
+
+
+                //Neonatal History data
+                try
+                {
+                    ddlReferredFrom.Text = dtHistData.Rows[0]["ChildReferredFrom"].ToString();
+                    ddlPlaceofDelivery.SelectedValue = dtHistData.Rows[0]["DeliveryPlaceHEI"].ToString();
+                    txtOtherFacility.Text = dtHistData.Rows[0]["Deliveryotherfacility"].ToString();
+                    txtOtherDelivery.Text = dtHistData.Rows[0]["Deliveryother"].ToString();
+
+                    ddlModeofDelivery.SelectedValue = dtHistData.Rows[0]["ModeofDeliveryHEI"].ToString();
+                    ddlARVProphylaxis.SelectedValue = dtHistData.Rows[0]["ChildPEPARVs"].ToString();
+                    txtOtherARVProphylaxis.Text = dtHistData.Rows[0]["ARVPropOther"].ToString();
+                }
+                catch { }
+            }
+
+
+            if (dtInfantInfo.Rows.Count > 0)
+            {
+                try
+                {
+                    txtBirthWeight.Text = dtInfantInfo.Rows[0]["BirthWeight"].ToString();
+                    ddlIfeedingoption.SelectedValue = dtInfantInfo.Rows[0]["FeedingOption"].ToString();
+                }
+                catch { }
+            }
+        }
+
         protected void Page_PreRender(object sender, EventArgs e)
         {
             if (Convert.ToInt32(Session["PatientVisitId"]) > 0)
@@ -125,6 +201,13 @@ namespace PresentationApp.ClinicalForms
                     KNHPMTCTHEIData();
                 }
             }
+            else
+            {
+                PopulateHistoricalInformation();
+                txtVisitDate.Value = DateTime.Now.ToString("dd-MMM-yyyy");
+                ddlVisitType.SelectedIndex = 2;
+            }
+
             if (ddlPlaceofDelivery.SelectedItem != null)
             {
                 if (ddlPlaceofDelivery.SelectedItem.Text == "Other facility")
@@ -393,22 +476,22 @@ namespace PresentationApp.ClinicalForms
                     {
                         txtOtherARVProphylaxis.Text = theDS.Tables[1].Rows[0]["ARVPropOther"].ToString();
                     }
-                    //htparameter data....
+
                     if (theDS.Tables[1].Rows[0]["MotherRegisteredClinic"] != System.DBNull.Value)
                     {
                         if (theDS.Tables[1].Rows[0]["MotherRegisteredClinic"].ToString() == "1")
                         {
                             rdoMotherRegisYes.Checked = true;
-                            btnFind.Visible = true;
-                            lblBtnFind.Visible = true;
+                            txtMotherId.Visible = true;
+                            lblMotherId.Visible = true;
                         }
 
                         else if (theDS.Tables[1].Rows[0]["MotherRegisteredClinic"].ToString() == "0")
                         {
                             rdoMotherRegisNo.Checked = true;
-                            btnFind.Visible = false;
-                            lblBtnFind.Visible = false;
-                        };
+                            txtMotherId.Visible = false;
+                            lblMotherId.Visible = false;
+                        }
                     }
 
                     if (theDS.Tables[1].Rows[0]["ANCFollowup"] != System.DBNull.Value)
@@ -714,19 +797,7 @@ namespace PresentationApp.ClinicalForms
                 {
                     theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
                     BindManager.BindCombo(ddlImmunisationPeriod, theDTCode, "Name", "Id");
-
                 }
-
-                ////Duration Period
-                //theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
-                //theDVDecode.RowFilter = "CodeName='Immunisationperiod' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1) and Name NOT IN ('Birth','6 weeks','10 weeks','14 weeks','3 Months','15 Months')";
-                //theDVDecode.Sort = "SRNo";
-                //if (theDVDecode.Table != null)
-                //{
-                //    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
-                //    BindManager.BindCombo(ddlDuration, theDTCode, "Name", "Id");
-
-                //}
 
                 //Immunization given
                 theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
@@ -738,26 +809,7 @@ namespace PresentationApp.ClinicalForms
                     BindManager.BindCombo(ddImmunisationgiven, theDTCode, "Name", "Id");
 
                 }
-
-                ////Plan
-                //theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
-                //theDVDecode.RowFilter = "CodeName='Plan' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1)";
-                //theDVDecode.Sort = "SRNo";
-                //if (theDVDecode.Table != null)
-                //{
-                //    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
-                //    BindManager.BindCombo(ddlPlan, theDTCode, "Name", "Id");
-                //}
-                //theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
-                //theDVDecode.RowFilter = "CodeName='Regimen' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1)";
-                //theDVDecode.Sort = "SRNo";
-                //if (theDVDecode.Table != null)
-                //{
-                //    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
-                //    BindManager.BindCombo(ddlRegimen, theDTCode, "Name", "Id");
-                //}
             }
-
 
             if (theDS.Tables["Mst_ModDecode"] != null)
             {
@@ -1358,26 +1410,7 @@ namespace PresentationApp.ClinicalForms
 
         private void SaveUpdateKNHPMTCTHEI(int DataQuality)
         {
-
             DataSet theDSforChklist = new DataSet();
-
-            ////Diagnosis
-            //DataTable DTDiagnosis = new DataTable();
-            //DTDiagnosis = GetCheckBoxListcheckedIDs(PnlDiagnosis, "DiagnosisID", "Diagnosis_Other", 0);
-            //DTDiagnosis.TableName = "dtD";
-            //theDSforChklist.Tables.Add(DTDiagnosis);
-
-            ////Presenting Complaints
-            //DataTable DTPresentComplaints = new DataTable();
-            //DTPresentComplaints = GetCheckBoxListcheckedIDs(pnl2PComplaints, "PComplaintId", "Complaint_Other", 0);
-            //DTPresentComplaints.TableName = "dtPC";
-            //theDSforChklist.Tables.Add(DTPresentComplaints);
-
-            //Vital Sign Referred To
-            //DataTable DTVSReferredTo = new DataTable();
-            //DTVSReferredTo = GetCheckBoxListcheckedIDs(idVitalSign.cblReferredTo);
-            //DTVSReferredTo.TableName = "dtVS_Rt";
-            //theDSforChklist.Tables.Add(DTVSReferredTo);
 
             //TB Assessment
             DataTable DTTBAssessment = new DataTable();
@@ -1460,6 +1493,11 @@ namespace PresentationApp.ClinicalForms
 
             visitPK = KNHHEIManager.Save_Update_KNHHEI(PatientID, visitPK, LocationID, htparam, theDSforChklist, Convert.ToInt32(Session["AppUserId"]), DataQuality);
             Session["PatientVisitId"] = visitPK;
+
+            if (txtMotherId.Text.Length > 3)
+            {
+                KNHHEIManager.SaveMotherToChildLinkage(PatientID, txtMotherId.Text);
+            }
         }
 
         private void BindGrid(System.Web.UI.WebControls.GridView gridView, string gridName)

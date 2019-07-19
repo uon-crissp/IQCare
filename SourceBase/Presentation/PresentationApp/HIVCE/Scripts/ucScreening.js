@@ -377,26 +377,13 @@ function DisplayTBContactScreenedDiv(id, txt) {
 
 function DisplayIPTDiv(ctrlName) {
 
-    //$("#ddlIPTAdherence").select2("val", "0");
-    //$("#ddlIPTAdherence").trigger('change.select2');
-
-    //$("#ddlIPTContraindication").select2("val", "0");
-    //$("#ddlIPTContraindication").trigger('change.select2');
-
-    //$("#ddlIPTDiscontinued").select2("val", "0");
-    //$("#ddlIPTDiscontinued").trigger('change.select2');
-
-    //$("#dtIPTStartDate").datepicker('setDate', "");
-
-    //$("#dtIPTEndDate").datepicker('setDate', "");
-    //debugger;
     if (ctrlName.parentNode.parentNode.innerText.trim().toLowerCase() == "start ipt") {
 
         $("#divIPTStartDate").css("visibility", "visible");
         $("#divIPTStartDate").css("display", "block");
+        $("#divIPTEndDate").css("visibility", "visible");
+        $("#divIPTEndDate").css("display", "block");
 
-        $("#divIPTEndDate").css("visibility", "hidden");
-        $("#divIPTEndDate").css("display", "none");
         $("#divIPTAdherence").css("visibility", "hidden");
         $("#divIPTAdherence").css("display", "none");
         $("#divIPTContraindication").css("visibility", "hidden");
@@ -437,9 +424,9 @@ function DisplayIPTDiv(ctrlName) {
 
         $("#divIPTEndDate").css("visibility", "visible");
         $("#divIPTEndDate").css("display", "block");
+        $("#divIPTStartDate").css("visibility", "visible");
+        $("#divIPTStartDate").css("display", "block");
 
-        $("#divIPTStartDate").css("visibility", "hidden");
-        $("#divIPTStartDate").css("display", "none");
         $("#divIPTAdherence").css("visibility", "hidden");
         $("#divIPTAdherence").css("display", "none");
         $("#divIPTContraindication").css("visibility", "hidden");
@@ -464,37 +451,6 @@ function DisplayIPTDiv(ctrlName) {
 
     }
 }
-
-//function GetScreeningData() {
-//    //debugger;
-//    var postData;
-//    $.ajax({
-//        type: "POST",
-//        url: "ClinicalEncounter.aspx?data=getscreeningdata",
-//        //data: JSON.stringify(nodeId),
-//        contentType: "application/json;charset=utf-8",
-//        dataType: "json",
-//        async: true,
-//        cache: false,
-//        beforeSend: function () {
-//        },
-//        success: function (response) {
-//            console.log(response);
-//            var responseSuccess = response.Success;
-//            if (responseSuccess != null) {
-//                if (responseSuccess == "false") {
-//                    customAlert(errorMessage);
-//                }
-//            }
-//            else {
-//                BindScreeningData(response);
-//            }
-
-//        },
-//        error: function (msg) {
-//        }
-//    });
-//}
 
 function BindScreeningData(responseDB) {
     var response = responseDB.Collection;
@@ -584,7 +540,7 @@ function BindScreeningData(responseDB) {
             strIPT += "     <input type=\"radio\" id=\"rb" + value.DId + "\" name=\"rbIPT\" class=\"flat-red\"";
             if (value.DN !== "Start IPT" && value.DN !== "Declined IPT") {
                 if (disabled) {
-                    strIPT += " disabled= \"disabled\"";
+                    //strIPT += " disabled= \"disabled\"";
                 }
             }
             strIPT += "     value=\"" + value.DId + "\" />&nbsp;";
@@ -881,7 +837,6 @@ function BindScreeningData(responseDB) {
         $("input:radio[name=rbIPT][value=" + continueIPT + "]").attr('checked', 'checked');
         $("input:radio[name=rbIPT]").iCheck('update');
         ReInitialiseIPTDiv(1159, dataIPT);
-
     }
     else {
         $("input:radio[name=rbIPT][value=" + responseDB.IPT + "]").attr('checked', 'checked');
@@ -910,17 +865,15 @@ function ReInitialiseIPTDiv(id, dataIPT) {
 
             $("#divIPTStartDate").css("visibility", "visible");
             $("#divIPTStartDate").css("display", "block");
+            $("#divIPTEndDate").css("visibility", "visible");
+            $("#divIPTEndDate").css("display", "block");
 
-            $("#divIPTEndDate").css("visibility", "hidden");
-            $("#divIPTEndDate").css("display", "none");
             $("#divIPTAdherence").css("visibility", "hidden");
             $("#divIPTAdherence").css("display", "none");
             $("#divIPTContraindication").css("visibility", "hidden");
             $("#divIPTContraindication").css("display", "none");
             $("#divIPTDiscontinued").css("visibility", "hidden");
             $("#divIPTDiscontinued").css("display", "none");
-
-
         }
         else if (name.toLowerCase() == "continue ipt" || name.toLowerCase() == "defaulted") {
 
@@ -941,11 +894,11 @@ function ReInitialiseIPTDiv(id, dataIPT) {
 
             $("#divIPTEndDate").css("visibility", "visible");
             $("#divIPTEndDate").css("display", "block");
+            $("#divIPTStartDate").css("visibility", "visible");
+            $("#divIPTStartDate").css("display", "block");
 
             $("#divIPTAdherence").css("visibility", "hidden");
             $("#divIPTAdherence").css("display", "none");
-            $("#divIPTStartDate").css("visibility", "hidden");
-            $("#divIPTStartDate").css("display", "none");
             $("#divIPTContraindication").css("visibility", "hidden");
             $("#divIPTContraindication").css("display", "none");
             $("#divIPTDiscontinued").css("visibility", "hidden");

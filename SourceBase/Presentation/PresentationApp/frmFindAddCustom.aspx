@@ -22,6 +22,7 @@
         <asp:HiddenField ID="HPatientID" runat="server" />
         <asp:HiddenField ID="HLocationID" runat="server" />
         <asp:HiddenField ID="HModuleID" runat="server" />
+        <asp:HiddenField ID="HModuleName" runat="server" />
         <asp:UpdateProgress ID="sProgress" runat="server" DisplayAfter="5">
             <ProgressTemplate>
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; vertical-align: middle;">

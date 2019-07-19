@@ -1715,7 +1715,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.21022                                                                                             "
+                "FrameworkVersion" = "8:3.5.21022                                                                                                       "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -3231,7 +3231,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:IQCareService"
         "ProductCode" = "8:{C9A1B86A-1C6D-4141-BC99-893E58479FA0}"
-        "PackageCode" = "8:{E91F392A-B776-4375-96A0-F6A169094809}"
+        "PackageCode" = "8:{CECDDAE5-5DAF-454A-8A9F-4F2277B289B1}"
         "UpgradeCode" = "8:{80A07246-5896-49F6-8B67-A9C025F0A433}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -677,34 +677,27 @@ public partial class frmPatient_History : BasePage
                 theDV.RowFilter = "FeatureName='" + theName[0].Trim() + "'";
                 DataTable dtview = theDV.ToTable();
                 Session["FeatureID"] = Convert.ToString(dtview.Rows[0]["FeatureID"]);
-                if (Authentication.HasFunctionRight(Convert.ToInt32(dtview.Rows[0]["FeatureID"]), FunctionAccess.View, (DataTable)Session["UserRight"]) == true)
+
+                if (DRCustomFrm["FeatureName"].ToString().Length > 9)
                 {
-                    if (DRCustomFrm["FeatureName"].ToString().Length > 9)
+                    if (DRCustomFrm["FeatureName"].ToString().Substring(0, 9) == "Pharmacy_")
                     {
-                        if (DRCustomFrm["FeatureName"].ToString().Substring(0, 9) == "Pharmacy_")
-                        {
-                            url = string.Format("{0}", "~/./PharmacyDispense/frmPharmacyDispense_PatientOrder.aspx");
-                        }
-                        else
-                        {
-                            url = string.Format("{0}", "./frmClinical_CustomForm.aspx");
-                        }
+                        url = string.Format("{0}", "~/./PharmacyDispense/frmPharmacyDispense_PatientOrder.aspx");
                     }
                     else
+                    {
                         url = string.Format("{0}", "./frmClinical_CustomForm.aspx");
-                    Response.Redirect(url);
+                    }
                 }
                 else
                 {
-                    MsgBuilder theBuilder = new MsgBuilder();
-                    theBuilder.DataElements["MessageText"] = "You are Not Authorized to Access this Form.";
-                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    url = string.Format("{0}", "./frmClinical_CustomForm.aspx");
                 }
 
+                Response.Redirect(url);
             }
         }
 
         TreeViewExisForm.SelectedNode.NavigateUrl = url;
-
     }
 }
