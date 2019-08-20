@@ -18,5 +18,8 @@ namespace Interface.Security
         DataTable GetIQCareSystems(int theFlag);
         DataSet GetMySQLAuditTrailData();
         DataSet GetVisitForms();
+        void ExecuteBatchNonQuery(string sql);
+        string GetEMRConnectionString();
+        string GetIQToolsConnectionString();
     }
 }

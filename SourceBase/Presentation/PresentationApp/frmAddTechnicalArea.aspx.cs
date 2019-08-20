@@ -1203,7 +1203,7 @@ public partial class frmAddTechnicalArea : BasePage
 
             if (blankstatus > 0)
             {
-                sqlselect = "UPDATE mst_Patient WITH(ROWLOCK) SET mst_Patient.Status=0, ";
+                sqlselect = "UPDATE mst_Patient WITH(ROWLOCK) SET mst_Patient.Status=0, mst_patient.Moduleid=" + ddlTecharea.SelectedValue.ToString() + ", ";
                 sqlselect = sqlselect + "PatientType = 0,";
 
                 DataTable DTModuleIdents = (DataTable)ViewState["ModuleIdentifiers"];
@@ -1258,7 +1258,6 @@ public partial class frmAddTechnicalArea : BasePage
                                     theBuilder.DataElements["Control"] = DTModuleIdents.Rows[j]["FieldName"].ToString();
                                     IQCareMsgBox.Show("DuplicateIndentifier", theBuilder, this);
                                     return false;
-
                                 }
                             }
                         }

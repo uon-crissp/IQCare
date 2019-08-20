@@ -125,8 +125,6 @@
                             <li>
                                 <asp:LinkButton ID="lnkDefaulterTracing" runat="server" 
                                     onclick="lnkDefaulterTracing_Click">Defaulter Tracing</asp:LinkButton></li>
-                            <li>
-                                <asp:LinkButton ID="lnkCareEnd" runat="server" onclick="lnkCareEnd_Click">Care Ending</asp:LinkButton></li>
                         </td>
                     </tr>
                 </table>

@@ -74,14 +74,5 @@ namespace PresentationApp.ClinicalForms.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkDefaulterTracing;
-        
-        /// <summary>
-        /// lnkCareEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCareEnd;
     }
 }

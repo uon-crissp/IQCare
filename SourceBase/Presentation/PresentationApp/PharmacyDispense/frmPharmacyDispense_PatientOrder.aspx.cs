@@ -677,166 +677,174 @@ namespace PresentationApp.PharmacyDispense
 
         private Boolean FieldValidation()
         {
-            //Store Validation
-            if (ddlDispensingStore.SelectedValue == "0")
+            try
             {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select the dispensing store";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-
-                return false;
-            }
-            if (ddlregimenLine.SelectedValue == "0")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select Regimen line";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-
-                return false;
-            }
-            if (ddlRegimenCode.SelectedValue == "0")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select Regimen Code";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-
-                return false;
-            }
-            if (ddlTreatmentProg.SelectedValue == "0")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select Treatment Program ";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                return false;
-            }
-            if (ddlTreatmentPlan.SelectedValue == "0")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select Treatment Plan ";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                return false;
-            }
-
-            if (gvDispenseDrugs.Rows.Count == 0)
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please select at least one drug";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                return false;
-            }
-            if (ddlPrescribedBy.SelectedValue == "0")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Select Prescribed by";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                return false;
-            }
-            if (txtprescriptionDate.Value == "")
-            {
-                MsgBuilder theBuilder = new MsgBuilder();
-                theBuilder.DataElements["MessageText"] = "Please Enter Prescribed Date";
-                IQCareMsgBox.Show("#C1", theBuilder, this);
-                Label lblError = new Label();
-                lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                return false;
-            }
-
-            if (Convert.ToInt16(Session["Paperless"]) != 1)
-            {
-                if (Session["SCMModule"] != null)
-                {
-                    if ((Session["SCMModule"]).ToString() == "PMSCM" && ddlDispensingStore.CssClass != "hidden")
-                    {
-                        if (ddlDispensingStore.SelectedValue == "0")
-                        {
-                            MsgBuilder theBuilder = new MsgBuilder();
-                            theBuilder.DataElements["MessageText"] = "Please Select Dispensing Store";
-                            IQCareMsgBox.Show("#C1", theBuilder, this);
-                            Label lblError = new Label();
-                            lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                            return false;
-                        }
-                    }
-                }
-
-                if (ddlDispensedBy.SelectedValue == "0")
+                //Store Validation
+                if (ddlDispensingStore.SelectedValue == "0")
                 {
                     MsgBuilder theBuilder = new MsgBuilder();
-                    theBuilder.DataElements["MessageText"] = "Please Select Dispensed by";
+                    theBuilder.DataElements["MessageText"] = "Please Select the dispensing store";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+
+                    return false;
+                }
+                if (ddlregimenLine.SelectedValue == "0")
+                {
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please Select Regimen line";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+
+                    return false;
+                }
+                if (ddlRegimenCode.SelectedValue == "0")
+                {
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please Select Regimen Code";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+
+                    return false;
+                }
+                if (ddlTreatmentProg.SelectedValue == "0")
+                {
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please Select Treatment Program ";
                     IQCareMsgBox.Show("#C1", theBuilder, this);
                     Label lblError = new Label();
                     lblError.Text = (Master.FindControl("lblError") as Label).Text;
                     return false;
                 }
-                if (txtDispenseDate.Value == "")
+                if (ddlTreatmentPlan.SelectedValue == "0")
                 {
                     MsgBuilder theBuilder = new MsgBuilder();
-                    theBuilder.DataElements["MessageText"] = "Please Enter Dispensed Date";
+                    theBuilder.DataElements["MessageText"] = "Please Select Treatment Plan ";
                     IQCareMsgBox.Show("#C1", theBuilder, this);
                     Label lblError = new Label();
                     lblError.Text = (Master.FindControl("lblError") as Label).Text;
                     return false;
                 }
-            }
-            else if (Convert.ToInt32(Session["Paperless"]) == 1)
-            {
-                if (Convert.ToInt32(Session["PatientVisitID"]) != 0)
+
+                if (gvDispenseDrugs.Rows.Count == 0)
                 {
-                    if (Session["typeOfDispense"].ToString().ToLower() != "new order")
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please select at least one drug";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                    return false;
+                }
+                if (ddlPrescribedBy.SelectedValue == "0")
+                {
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please Select Prescribed by";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                    return false;
+                }
+                if (txtprescriptionDate.Value == "")
+                {
+                    MsgBuilder theBuilder = new MsgBuilder();
+                    theBuilder.DataElements["MessageText"] = "Please Enter Prescribed Date";
+                    IQCareMsgBox.Show("#C1", theBuilder, this);
+                    Label lblError = new Label();
+                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                    return false;
+                }
+
+                if (Convert.ToInt16(Session["Paperless"]) != 1)
+                {
+                    if (Session["SCMModule"] != null)
                     {
-                        if (Session["SCMModule"] != null)
+                        if ((Session["SCMModule"]).ToString() == "PMSCM" && ddlDispensingStore.CssClass != "hidden")
                         {
-                            if ((Session["SCMModule"].ToString() == "PMSCM") && ddlDispensingStore.CssClass != "hidden")
+                            if (ddlDispensingStore.SelectedValue == "0")
                             {
-                                if (ddlDispensingStore.SelectedValue == "0")
-                                {
-                                    MsgBuilder theBuilder = new MsgBuilder();
-                                    theBuilder.DataElements["MessageText"] = "Please Select Dispensing Store";
-                                    IQCareMsgBox.Show("#C1", theBuilder, this);
-                                    Label lblError = new Label();
-                                    lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                                    return false;
-                                }
+                                MsgBuilder theBuilder = new MsgBuilder();
+                                theBuilder.DataElements["MessageText"] = "Please Select Dispensing Store";
+                                IQCareMsgBox.Show("#C1", theBuilder, this);
+                                Label lblError = new Label();
+                                lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                                return false;
                             }
                         }
-                        if (ddlDispensedBy.SelectedValue == "0")
+                    }
+
+                    if (ddlDispensedBy.SelectedValue == "0")
+                    {
+                        MsgBuilder theBuilder = new MsgBuilder();
+                        theBuilder.DataElements["MessageText"] = "Please Select Dispensed by";
+                        IQCareMsgBox.Show("#C1", theBuilder, this);
+                        Label lblError = new Label();
+                        lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                        return false;
+                    }
+                    if (txtDispenseDate.Value == "")
+                    {
+                        MsgBuilder theBuilder = new MsgBuilder();
+                        theBuilder.DataElements["MessageText"] = "Please Enter Dispensed Date";
+                        IQCareMsgBox.Show("#C1", theBuilder, this);
+                        Label lblError = new Label();
+                        lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                        return false;
+                    }
+                }
+                else if (Convert.ToInt32(Session["Paperless"]) == 1)
+                {
+                    if (Convert.ToInt32(Session["PatientVisitID"]) != 0)
+                    {
+                        if (Session["typeOfDispense"].ToString().ToLower() != "new order")
                         {
-                            MsgBuilder theBuilder = new MsgBuilder();
-                            theBuilder.DataElements["MessageText"] = "Please Select Dispensed by";
-                            IQCareMsgBox.Show("#C1", theBuilder, this);
-                            Label lblError = new Label();
-                            lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                            return false;
-                        }
-                        if (txtDispenseDate.Value == "")
-                        {
-                            MsgBuilder theBuilder = new MsgBuilder();
-                            theBuilder.DataElements["MessageText"] = "Please Enter Dispensed Date";
-                            IQCareMsgBox.Show("#C1", theBuilder, this);
-                            Label lblError = new Label();
-                            lblError.Text = (Master.FindControl("lblError") as Label).Text;
-                            return false;
+                            if (Session["SCMModule"] != null)
+                            {
+                                if ((Session["SCMModule"].ToString() == "PMSCM") && ddlDispensingStore.CssClass != "hidden")
+                                {
+                                    if (ddlDispensingStore.SelectedValue == "0")
+                                    {
+                                        MsgBuilder theBuilder = new MsgBuilder();
+                                        theBuilder.DataElements["MessageText"] = "Please Select Dispensing Store";
+                                        IQCareMsgBox.Show("#C1", theBuilder, this);
+                                        Label lblError = new Label();
+                                        lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                                        return false;
+                                    }
+                                }
+                            }
+                            if (ddlDispensedBy.SelectedValue == "0")
+                            {
+                                MsgBuilder theBuilder = new MsgBuilder();
+                                theBuilder.DataElements["MessageText"] = "Please Select Dispensed by";
+                                IQCareMsgBox.Show("#C1", theBuilder, this);
+                                Label lblError = new Label();
+                                lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                                return false;
+                            }
+                            if (txtDispenseDate.Value == "")
+                            {
+                                MsgBuilder theBuilder = new MsgBuilder();
+                                theBuilder.DataElements["MessageText"] = "Please Enter Dispensed Date";
+                                IQCareMsgBox.Show("#C1", theBuilder, this);
+                                Label lblError = new Label();
+                                lblError.Text = (Master.FindControl("lblError") as Label).Text;
+                                return false;
+                            }
                         }
                     }
                 }
-            }
 
-            IQCareMsgBox.HideMessage(this);
-            return true;
+                IQCareMsgBox.HideMessage(this);
+                return true;
+            }
+            catch
+            {
+                IQCareMsgBox.HideMessage(this);
+                return true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

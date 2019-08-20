@@ -253,7 +253,8 @@
                         <asp:MenuItem Text="Debit Note" Value="mnuDebitNote"></asp:MenuItem>
                         <%-- <asp:MenuItem Text="Patient Profile Summary" Value="mnuClinicalSummary" NavigateUrl="javascript:openClinicalSummary();"
                             Target="_self"></asp:MenuItem>--%>
-                        <asp:MenuItem Text="Patient Profile Summary" Value="mnuClinicalSummary"></asp:MenuItem>
+                        <asp:MenuItem Text="Patient Summary Report" Value="mnuClinicalSummary"></asp:MenuItem>
+                        <asp:MenuItem Text="Patient Registration Form" Value="mnuPatRegForm"></asp:MenuItem>
                         <asp:MenuItem Text="Drug History" Value="mnuDrugHistory" NavigateUrl="javascript:openDrugHistory();"
                             Target="_self"></asp:MenuItem>
                         <asp:MenuItem Text="Lab History" Value="mnuLabHistory" NavigateUrl="javascript:openLabHistory();"

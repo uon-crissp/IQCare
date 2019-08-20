@@ -429,6 +429,43 @@ namespace BusinessProcess.Clinical
            ClsObject VisitManager = new ClsObject();
            return (DataSet)VisitManager.ReturnObject(ClsUtility.theParams, "pr_InitialFollowupVisit_DateValidate_Constella", ClsDBUtility.ObjectEnum.DataSet);
        }
-       
+
+       public int SaveTBScreeningDetails(int PatientID, int visitId, int[] TBICF, int TBFindings, int locationID, int UserId)
+       {
+           ClsUtility.Init_Hashtable();
+           ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, PatientID.ToString());
+           ClsUtility.AddParameters("@visit_pk", SqlDbType.VarChar, visitId.ToString());
+           ClsUtility.AddParameters("@tbfindings", SqlDbType.VarChar, TBFindings.ToString());
+           ClsUtility.AddParameters("@location", SqlDbType.VarChar, locationID.ToString());
+           ClsUtility.AddParameters("@userid", SqlDbType.VarChar, UserId.ToString());
+           ClsObject VisitManager = new ClsObject();
+           VisitManager.ReturnObject(ClsUtility.theParams, "pr_SaveRefillEncounterTBScreen", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
+
+           foreach (int i in TBICF)
+           {
+               ClsUtility.Init_Hashtable();
+               ClsUtility.AddParameters("@Ptn_pk", SqlDbType.Int, PatientID.ToString());
+               ClsUtility.AddParameters("@visit_pk", SqlDbType.VarChar, visitId.ToString());
+               ClsUtility.AddParameters("@ID", SqlDbType.VarChar, i.ToString());
+               ClsUtility.AddParameters("@NumericFiled", SqlDbType.VarChar, "0");
+               ClsUtility.AddParameters("@OtherNotes", SqlDbType.VarChar, "");
+               ClsUtility.AddParameters("@DateField1", SqlDbType.VarChar, null);
+               ClsUtility.AddParameters("@DateField2", SqlDbType.VarChar, null);
+               ClsUtility.AddParameters("@FieldName", SqlDbType.VarChar, "TBAssessmentICF");
+               VisitManager = new ClsObject();
+               VisitManager.ReturnObject(ClsUtility.theParams, "pr_Clinical_Save_Multiselect_line", ClsDBUtility.ObjectEnum.ExecuteNonQuery);
+           }
+
+           return 1;
+       }
+
+       public DataSet GetTBScreeningData(int VisitPK)
+       {
+           ClsUtility.Init_Hashtable();
+           ClsUtility.AddParameters("@visit_pk", SqlDbType.Int, VisitPK.ToString());
+           ClsObject VisitManager = new ClsObject();
+           return (DataSet)VisitManager.ReturnObject(ClsUtility.theParams, "pr_GetRefillEncounterTBScreen", ClsDBUtility.ObjectEnum.DataSet);
+       }
+      
     }
 }

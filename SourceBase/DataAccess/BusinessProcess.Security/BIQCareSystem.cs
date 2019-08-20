@@ -238,5 +238,55 @@ namespace BusinessProcess.Security
             return (DataSet)VisitManager.ReturnObject(ClsUtility.theParams, "pr_Admin_SelectVisitType", ClsDBUtility.ObjectEnum.DataSet);
         }
 
+        public void ExecuteBatchNonQuery(string sql)
+        {
+            DataMgr datamgr = new DataMgr();
+            string constring = DataMgr.GetConnectionString(ConnectionMode.EMR);
+
+            using (SqlConnection conn = new SqlConnection(constring))
+            {
+                string sqlBatch = string.Empty;
+                SqlCommand cmd = new SqlCommand(string.Empty, conn);
+                conn.Open();
+                sql += "\nGO";   // make sure last batch is executed.
+                try
+                {
+                    foreach (string line in sql.Split(new string[2] { "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        if (line.ToUpperInvariant().Trim() == "GO")
+                        {
+                            try
+                            {
+                                cmd.CommandText = sqlBatch;
+                                cmd.ExecuteNonQuery();
+                                sqlBatch = string.Empty;
+                            }
+                            catch
+                            {
+                                sqlBatch = string.Empty;
+                            }
+                        }
+                        else
+                        {
+                            sqlBatch += line + "\n";
+                        }
+                    }
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public string GetEMRConnectionString()
+        {
+            return DataMgr.GetConnectionString(ConnectionMode.EMR);
+        }
+
+        public string GetIQToolsConnectionString()
+        {
+            return DataMgr.GetConnectionString(ConnectionMode.REPORT);
+        }
     }
 }

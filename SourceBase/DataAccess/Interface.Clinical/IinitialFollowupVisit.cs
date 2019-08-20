@@ -13,5 +13,7 @@ namespace Interface.Clinical
         int DeleteInitialFollowupVisitForm(string FormName, int OrderNo, int PatientId, int UserID);
         DataSet GetInitialFollowupVisitInfo(int patientID, int locationID, int visitID);
         DataSet GetExistInitialFollowupVisitbydate(int PatientID, string VisitdByDate, int locationID);
+        int SaveTBScreeningDetails(int PatientID, int visitId, int[] TBICF, int TBFindings, int locationID, int UserId);
+        DataSet GetTBScreeningData(int VisitPK);
     }
 }

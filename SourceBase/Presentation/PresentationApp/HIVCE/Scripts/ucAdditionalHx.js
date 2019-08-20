@@ -1388,12 +1388,12 @@ function BindADXControls(response) {
     var age = $("#hidDOB").val();
     var gender = $("#hidGender").val();
 
-    if (age > 5) {
+    if (age > 2) {
         $("#divG1").removeClass("box box-default box-solid").addClass("box box-default box-solid collapsed-box");
         $("#divG1I").removeClass("fa fa-minus");
     }
 
-    if (age > 5) {
+    if (age > 2) {
         $("#btnAddMilestones").prop('disabled', true);
         $("#btnAddImmunization").prop('disabled', true);
     }
@@ -2378,7 +2378,7 @@ function CheckADXBlankValues() {
     var visitType = $("#ddlVisitType").select2("val");
     var visitTypeData = $("#ddlVisitType").select2('data')[0];
 
-    if (age < 5) {
+    if (age < 2) {
         if (visitType != null) {
             if (visitTypeData.text.toUpperCase().indexOf("INITIAL") >= 0) {
                 if (jQuery.isEmptyObject(arrMilestones) == true) {

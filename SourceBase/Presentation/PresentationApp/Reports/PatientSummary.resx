@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="VLs.ParameterValues" xml:space="preserve">
+    <value>{@patientpk:3}</value>
+  </metadata>
+  <metadata name="ARTInfo.ParameterValues" xml:space="preserve">
+    <value>{@Patientpk:3}</value>
+  </metadata>
+  <metadata name="CD4.ParameterValues" xml:space="preserve">
+    <value>{@patientpk:3}</value>
+  </metadata>
+  <metadata name="ClinicalNotes.ParameterValues" xml:space="preserve">
+    <value>{@patientpk:3}</value>
+  </metadata>
+  <data name="ClinicalNotes.SelectCommand" xml:space="preserve">
+    <value>	SELECT top 3 *
+	FROM (
+		SELECT [Plan]
+			,ord.VisitDate
+		FROM dtl_KNH_ExpressForm_details dtl
+		INNER JOIN ord_Visit ord
+			ON ord.Visit_Id = dtl.Visit_pk
+		WHERE dtl.Ptn_pk = @patientpk
+			AND dtl.[Plan] IS NOT NULL
+			AND dtl.[Plan] &lt;&gt; ''
+
+		UNION
+		
+		SELECT WorkUpPlan [Plan]
+			,ord.VisitDate
+		FROM DTL_KNH_RevisedAdultFollowup_Form dtl
+		INNER JOIN ord_Visit ord
+			ON ord.Visit_Id = dtl.Visit_pk
+		WHERE dtl.Ptn_pk = @patientpk
+			AND dtl.WorkUpPlan IS NOT NULL
+			AND dtl.WorkUpPlan &lt;&gt; ''
+		
+		UNION
+		
+		SELECT WorkUpPlan [Plan]
+			,ord.VisitDate
+		FROM DTL_Paediatric_Initial_Evaluation_Form dtl
+		INNER JOIN ord_Visit ord
+			ON ord.Visit_Id = dtl.Visit_pk
+		WHERE dtl.Ptn_pk = @patientpk
+			AND dtl.WorkUpPlan IS NOT NULL
+			AND dtl.WorkUpPlan &lt;&gt; ''
+		
+		UNION
+		
+		SELECT WorkUpPlan [Plan]
+			,ord.VisitDate
+		FROM DTL_Adult_Initial_Evaluation_Form dtl
+		INNER JOIN ord_Visit ord
+			ON ord.Visit_Id = dtl.Visit_pk
+		WHERE dtl.Ptn_pk = @patientpk
+			AND dtl.WorkUpPlan IS NOT NULL
+			AND dtl.WorkUpPlan &lt;&gt; ''
+		union
+		select [Plan],ord.VisitDate from dtl_KNH_ExpressForm_details dtl INNER JOIN ord_Visit ord on ord.Visit_Id=dtl.Visit_pk
+		WHERE dtl.Ptn_pk=@patientpk and dtl.[Plan] is NOT NULL and dtl.[Plan]&lt;&gt;''
+		union
+		SELECT WorkUpPlan[Plan],ord.VisitDate from DTL_KNH_RevisedAdultFollowup_Form dtl INNER JOIN ord_Visit ord on ord.Visit_Id=dtl.Visit_pk
+		WHERE dtl.Ptn_pk=@patientpk and dtl.WorkUpPlan is NOT NULL and dtl.WorkUpPlan&lt;&gt;''
+		union
+		SELECT WorkUpPlan[Plan],ord.VisitDate from DTL_Paediatric_Initial_Evaluation_Form dtl INNER JOIN ord_Visit ord on ord.Visit_Id=dtl.Visit_pk
+		WHERE dtl.Ptn_pk=@patientpk and dtl.WorkUpPlan is NOT NULL and dtl.WorkUpPlan&lt;&gt;''
+		union
+		SELECT WorkUpPlan[Plan],ord.VisitDate from DTL_Adult_Initial_Evaluation_Form dtl INNER JOIN ord_Visit ord on ord.Visit_Id=dtl.Visit_pk
+		WHERE dtl.Ptn_pk=@patientpk and dtl.WorkUpPlan is NOT NULL and dtl.WorkUpPlan&lt;&gt;''
+		union
+		SELECT WorkPlan [Plan],ord.VisitDate from dtl_KNHPMTCTHEI dtl INNER JOIN ord_Visit ord on ord.Visit_Id=dtl.Visit_pk
+		WHERE dtl.Ptn_pk=@patientpk and dtl.WorkPlan is NOT NULL and dtl.WorkPlan&lt;&gt;''
+
+		) tblPlan
+	ORDER BY tblPlan.VisitDate DESC</value>
+  </data>
+  <metadata name="PatientDetails.ParameterValues" xml:space="preserve">
+    <value>{@patientpk:3}</value>
+  </metadata>
+  <data name="PatientDetails.SelectCommand" xml:space="preserve">
+    <value>Select Top 1 a.FacilityName
+, a.PatientName
+, a.PatientID
+, a.DOB
+, a.AgeCurrent
+, a.Gender  
+, a.RegistrationAtCCC
+, Case When b.PatientPK Is Null Then 'No' Else 'Yes' End As ARTInitiated   
+, b.StartARTDate
+, b.StartRegimen
+, b.LastRegimen
+, (select top 1 Weight from tmp_ClinicalEncounters x where x.PatientPK=a.PatientPK and Weight&gt;0 order by VisitDate) as [bWeight]
+, (select top 1 Height from tmp_ClinicalEncounters x where x.PatientPK=a.PatientPK and height&gt;0 order by VisitDate) as [bHeight]
+, (select top 1 cast((Weight*100*100)/(Height*Height) as decimal(12,2)) from tmp_ClinicalEncounters x 
+	where x.PatientPK=a.PatientPK and Weight&gt;0 and height&gt;0 order by VisitDate) as [bBMI]
+, (select top 1 x.bWHO from IQC_bWHO x where x.PatientPK=a.PatientPK) as bWHO
+, (select top 1 x.bCD4 from IQC_bCD4 x where x.PatientPK=a.PatientPK) as bCD4
+, (select x.OI+'-'+cast(year(x.OIDate) as varchar)+', ' from tmp_OIs x where x.PatientPK=a.PatientPK 
+	and (x.bOITest=1 or x.eOITest=1) for xml path('')) as bOIs
+, (select top 1 x.VLResult from IQC_AllVL x where x.PatientPK=a.PatientPK order by x.VLOrderDate) as FirstVL
+
+, (select top 1 x.lastWHO from IQC_lastWHO x where x.PatientPK=a.PatientPK) as CurrentWHO
+, (select x.OI+'-'+cast(year(x.OIDate) as varchar)+', ' from tmp_OIs x where x.PatientPK=a.PatientPK 
+	and x.OIDate between dateadd(yy,-2,getdate()) and getdate() for xml path('')) as CurrentOIs
+, (select top 1 x.ProphylaxisType from tmp_Pharmacy x where x.PatientPK=a.PatientPK 
+	and x.TreatmentType='Prophylaxis' order by DispenseDate desc) as CurrentOIProphylaxis
+, (select y.name+', ' from dtl_Multiselect_line x inner join mst_Decode y on x.ValueID=y.ID 
+	where FieldName='ChronicCondition' and x.Ptn_pk=a.patientpk for xml path('')) as otherConditions
+From tmp_PatientMaster a    
+Left Join tmp_ARTPatients b On a.PatientPK = b.PatientPK  
+Where a.PatientPK = @patientpk</value>
+  </data>
+</root>

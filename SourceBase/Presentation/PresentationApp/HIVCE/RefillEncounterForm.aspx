@@ -8,6 +8,8 @@
         type="text/javascript"></script>
     <script src="<%=ResolveUrl("Scripts/Constants.js") %>?n=<%=string.Format("{0:yyyyMMddhhmmss}",DateTime.Now)%>"
         type="text/javascript"></script>
+    <script src="<%=ResolveUrl("Scripts/ucScreening.js") %>?n=<%=string.Format("{0:yyyyMMddhhmmss}",DateTime.Now)%>"
+        type="text/javascript"></script>
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
@@ -209,7 +211,7 @@
                                         </div>
                                     
                                     <!-- Presenting Complaints -->
-                                    <div class="box box-primary">
+                                        <div class="box box-primary">
                                         <div class="box-header with-border">
                                             <h3 class="box-title">
                                                 Presenting Complaints</h3>
@@ -290,6 +292,7 @@
                                         </div>
                                         <!-- /.box-body -->
                                     </div>
+
                                     <!-- /.panel -->
                                         <div class="panel panel-default" id="divOBSGYN">
                                             <div class="panel-body">
@@ -380,6 +383,37 @@
                                             <!-- /.box-body -->
                                         </div>
                                     <!-- /.panel -->
+
+                                      <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">
+                                                TB Screening</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-md-2 form-group">
+                                                    <label id="Label10" runat="server" for="inputEmail3" class="control-label requiredFieldColor">
+                                                        TB Assessment (ICF) :</label>
+                                                </div>
+                                                <div class="col-md-4 form-group">
+                                                    <asp:CheckBoxList ID="cblTBAssesment" runat="server">
+                                                    </asp:CheckBoxList>
+                                                </div>
+                                                <div class="col-md-2 form-group">
+                                                    <label id="Label11" runat="server" for="inputEmail3" class="control-label requiredFieldColor">
+                                                        TB Findings :</label>
+                                                </div>
+                                                <div class="col-md-4 form-group">
+                                                    <asp:DropDownList ID="ddlTBFindings" runat="server" Width="98%" CssClass="form-control">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+
+
                                     <div class="box box-primary" id="div1">
                                         <div class="box-header">
                                             <h4 class="box-title">

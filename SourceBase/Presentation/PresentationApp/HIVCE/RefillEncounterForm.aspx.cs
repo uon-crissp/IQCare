@@ -101,6 +101,36 @@ namespace HIVCE.Presentation
                     this.hidMOD.Value = Session["TechnicalAreaId"].ToString();
                 }
 
+                //TB Assesment
+                //------------------------------------------------------------------------------------
+                DataSet theDS = new DataSet();
+                theDS.ReadXml(MapPath("..\\XMLFiles\\ALLMasters.con"));
+                DataView theDVDecode = new DataView();
+                DataTable theDTCode = new DataTable();
+                BindFunctions BindManager = new BindFunctions();
+                IQCareUtils theUtils = new IQCareUtils();
+
+                //TB Assesment Outcome
+                theDVDecode = new DataView(theDS.Tables["mst_pmtctdecode"]);
+                theDVDecode.RowFilter = "CodeName='TBAssessmentoutcome' and (DeleteFlag = 0 or DeleteFlag IS NULL) and SystemId in(0,1)";
+                theDVDecode.Sort = "SRNo desc";
+                if (theDVDecode.Table != null)
+                {
+                    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
+                    BindManager.BindCheckedList(cblTBAssesment, theDTCode, "Name", "ID");
+                }
+
+                //TB Findings
+                theDVDecode = new DataView(theDS.Tables["mst_Decode"]);
+                theDVDecode.RowFilter = "DeleteFlag=0 and CodeName='TBFindings' and Name not in('Other')";
+                if (theDVDecode.Table != null)
+                {
+                    theDTCode = (DataTable)theUtils.CreateTableFromDataView(theDVDecode);
+                    BindManager.BindCombo(ddlTBFindings, theDTCode, "Name", "Id");
+                }
+                //------------------------------------------------------------------------------------
+
+
                 if (!object.Equals(Request.QueryString["data"], null))
                 {
                     string response = string.Empty;
@@ -123,6 +153,10 @@ namespace HIVCE.Presentation
                     {
                         response = GetRefillEncounter(Convert.ToInt32(PatientId), visitPK, locationId);
                         SendResponse(response);
+
+                        IinitialFollowupVisit tbscreenManager = (IinitialFollowupVisit)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BInitialFollowupVisit, BusinessProcess.Clinical");
+                        DataSet tbscreenDS= tbscreenManager.GetTBScreeningData(visitPK);
+                        ddlTBFindings.SelectedValue = tbscreenDS.Tables[0].Rows[0]["TBFindings"].ToString();
                     }
                     if (Request.QueryString["data"].ToString() == "getzscore")
                     {
@@ -238,7 +272,6 @@ namespace HIVCE.Presentation
             ResponseType ObjResponse = new ResponseType();
             try
             {
-
                 HIVCE.Common.Entities.RefillEncounterDB obj = SerializerUtil.ConverToObject<HIVCE.Common.Entities.RefillEncounterDB>(nodeJson);
                 IClinicalEncounter clinicalencounter = (IClinicalEncounter)ObjectFactory.CreateInstance("HIVCE.BusinessLayer.BLClinicalEncounter, HIVCE.BusinessLayer");
                 obj.Ptn_pk = ptn_pk;
@@ -254,6 +287,13 @@ namespace HIVCE.Presentation
                 {
                     ObjResponse.Success = EnumUtil.GetEnumDescription(Success.False);
                 }
+
+                try
+                {
+                    IinitialFollowupVisit tbscreenManager = (IinitialFollowupVisit)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BInitialFollowupVisit, BusinessProcess.Clinical");
+                    tbscreenManager.SaveTBScreeningDetails(ptn_pk, visitPK, null, Convert.ToInt32(ddlTBFindings.SelectedItem.Value), locationId, userId);
+                }
+                catch { }
             }
             catch (Exception ex)
             {

@@ -14,6 +14,8 @@ using Application.Common;
 using Application.Presentation;
 using Interface.Security;
 using System.Threading;
+using System.IO;
+using System.Web.Configuration;
 
 public partial class frmLogin : BasePage
 {
@@ -154,6 +156,38 @@ public partial class frmLogin : BasePage
             Session["SystemId"] = Convert.ToInt32(theDT.Rows[0]["SystemId"]);
             #region "Version Control"
 
+            //Run upgrade scripts here
+            //--------------------------------------------------------------------------------------------------------------------
+            if (theDS.Tables[1].Rows[0]["AppVer"].ToString() != AuthenticationManager.AppVersion || ((DateTime)theDS.Tables[1].Rows[0]["RelDate"]).ToString("dd-MMM-yyyy") != AuthenticationManager.ReleaseDate)
+            {
+                IIQCareSystem appManager = (IIQCareSystem)ObjectFactory.CreateInstance("BusinessProcess.Security.BIQCareSystem, BusinessProcess.Security");
+
+                string scriptDirectory = @"C:\inetpub\wwwroot\IQCare\scripts\";
+                string dbversion = theDS.Tables[1].Rows[0]["AppVer"].ToString();
+
+                int iDBVersion = Convert.ToInt16(dbversion.Replace(".", ""));
+                int iAppversion = Convert.ToInt16(AuthenticationManager.AppVersion.Replace(".", ""));
+
+                DirectoryInfo di = new DirectoryInfo(scriptDirectory);
+                FileInfo[] rgFiles = di.GetFiles("*.sql");
+
+                foreach (FileInfo fi in rgFiles)
+                {
+                    int iScriptVersion = Convert.ToInt16(fi.Name.Replace(".sql", "").Replace(".", ""));
+
+                    if (iScriptVersion > iDBVersion)
+                    {
+                        FileInfo fileInfo = new FileInfo(fi.FullName);
+                        string script = fileInfo.OpenText().ReadToEnd();
+                        appManager.ExecuteBatchNonQuery(script);
+                    }
+                }
+
+                theDS = ApplicationManager.GetFacilitySettings(1);
+            }
+            //--------------------------------------------------------------------------------------------------------------------
+
+            //Check if DB has been upgraded to latest version
             if (theDS.Tables[1].Rows[0]["AppVer"].ToString() != AuthenticationManager.AppVersion || ((DateTime)theDS.Tables[1].Rows[0]["RelDate"]).ToString("dd-MMM-yyyy") != AuthenticationManager.ReleaseDate)
             {
                 string script = "<script language = 'javascript' defer ='defer' id = 'confirm'>\n";
@@ -357,19 +391,13 @@ public partial class frmLogin : BasePage
 
         try
         {
-            //CLogger.WriteLog(ELogLevel.INFO, "Form: frmLogin, Method: Page_Load() begin!");
-            // ScriptManager.RegisterStartupScript(this, this.GetType(), "screenSize", "getScreenSize();", true);
             Ajax.Utility.RegisterTypeForAjax(typeof(frmLogin));
             if (!Page.IsPostBack)
             {
                 Thread theThread = new Thread(new ParameterizedThreadStart(IQCareUtils.GenerateCache));
                 theThread.Start(false);
                 Init_Form();
-
-                if (ConfigurationManager.AppSettings["TestingBuildDate"] != null)
-                    lblTestRelDate.Text = "Testing build release date: " + ConfigurationManager.AppSettings["TestingBuildDate"].ToString();
             }
-            //CLogger.WriteLog(ELogLevel.INFO, "Form: frmLogin, Method: Page_Load() end!");
         }
         catch (Exception err)
         {
@@ -721,5 +749,20 @@ public partial class frmLogin : BasePage
         return theHlpFileNm;
         //IQWebUtils theUtils = new IQWebUtils();
         //theUtils.ShowFile(theHlpFileNm, Response); 
+    }
+
+    public void UpdateConnectionString(string key, string value)
+    {
+        Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
+        if (config.ConnectionStrings.ConnectionStrings[key] == null)
+        {
+            config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings(key, value));
+        }
+        else
+        {
+            config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+        }
+        config.Save();
+        ConfigurationManager.RefreshSection("connectionStrings");
     }
 }

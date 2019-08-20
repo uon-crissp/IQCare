@@ -135,7 +135,7 @@ namespace RemServer
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(13, 121);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 15);
+            this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Verify Password";
             // 
@@ -163,7 +163,7 @@ namespace RemServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 200);
+            this.ClientSize = new System.Drawing.Size(404, 193);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtconfirmpass);

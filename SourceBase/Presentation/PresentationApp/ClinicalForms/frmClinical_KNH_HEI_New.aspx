@@ -907,7 +907,7 @@
                         <div class="box-body table-responsive no-padding" style="overflow: hidden; margin-left: 5px;">
                             <div class="row" style="margin-left: 2px;">
                                 <br />
-                                <act:TabContainer ID="tabControl" runat="server" CssClass="ajax__myTab" ActiveTabIndex="0"
+                                <act:TabContainer ID="tabControl" runat="server" CssClass="ajax__myTab" ActiveTabIndex="1"
                                     Width="100%" OnActiveTabChanged="tabControl_ActiveTabChanged" 
                                     AutoPostBack="true">
                                     <act:TabPanel ID="TabPnlTriage" runat="server" HeaderText="Triage and Neonatal History">
@@ -928,7 +928,7 @@
                                                                     onblur="DateFormat(this,this.value,event,false,3)" onkeyup="DateFormat(this,this.value,event,false,3);"
                                                                     onfocus="javascript:vDateType='3'" maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy"
                                                                     style="width: 120px;" />
-                                                            &nbsp;&nbsp;</div>
+                                                            &nbsp;&nbsp;&nbsp;</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1 col-sm-12 col-xs-12 form-group text-right">
@@ -1306,7 +1306,7 @@
                                                                         maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                         onblur="DateFormat(this,this.value,event,false,3)" onfocus="javascript:vDateType='3'"
                                                                         onkeyup="DateFormat(this,this.value,event,false,3);" />
-                                                                &nbsp;&nbsp;</div>
+                                                                &nbsp;&nbsp;&nbsp;</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
@@ -1381,10 +1381,10 @@
                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdoMotherRegisYes" type="radio" value="Yes" runat="server" name="MotherRegister"
                                                                 onclick="disable_enable_btnFind()" />
-                                                            &nbsp; <label for="rdoMotherRegisYes">Yes</label>
+                                                            &nbsp; &nbsp; <label for="rdoMotherRegisYes">Yes</label>
                                                             <input id="rdoMotherRegisNo" runat="server" name="MotherRegister" type="radio" value="No"
                                                                 onclick="disable_enable_btnFind()" />
-                                                            &nbsp; <label for="rdoMotherRegisNo">No</label>
+                                                            &nbsp; &nbsp; <label for="rdoMotherRegisNo">No</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label id="lblMotherId" runat="server">
@@ -1409,9 +1409,9 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdMotherRDrugYes" type="radio" runat="server" name="MotherRDrug" />
-                                                            &nbsp; <label for="rdMotherRDrugYes">Yes</label>
+                                                            &nbsp; &nbsp; <label for="rdMotherRDrugYes">Yes</label>
                                                             <input id="rdMotherRDrugNo" runat="server" name="MotherRDrug" type="radio" />
-                                                            &nbsp; <label for="rdMotherRDrugNo">No</label>
+                                                            &nbsp; &nbsp; <label for="rdMotherRDrugNo">No</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -1437,9 +1437,9 @@
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                                             <input id="rdoARTEnrolYes" type="radio" value="Yes" runat="server" name="ARTEnrol" />
-                                                            &nbsp; <label for="rdoARTEnrolYes">Yes</label>
+                                                            &nbsp; &nbsp; <label for="rdoARTEnrolYes">Yes</label>
                                                             <input id="rdoARTEnrolNo" runat="server" name="ARTEnrol" type="radio" value="No" />
-                                                            &nbsp; <label for="rdoARTEnrolNo">No</label>
+                                                            &nbsp; &nbsp; <label for="rdoARTEnrolNo">No</label>
                                                         </div>
                                                         <div class="col-md-1 col-sm-12 col-xs-12 form-group">
                                                         </div>
@@ -1495,7 +1495,7 @@
                                                                                         maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                         onblur="DateFormat(this,this.value,event,false,3)" onkeyup="DateFormat(this,this.value,event,false,3);"
                                                                                         onfocus="javascript:vDateType='3'" />
-                                                                                &nbsp;&nbsp;</div>
+                                                                                &nbsp;&nbsp;&nbsp;</div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
@@ -1812,7 +1812,7 @@
                                                                                 maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                 onblur="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
                                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" />
-                                                                            &nbsp;&nbsp;&nbsp;&nbsp;</input></div>
+                                                                            &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;</input></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-1 col-sm-12 col-xs-12 form-group">
@@ -1879,9 +1879,9 @@
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                                                                     <input id="rdoHasVitaminGivenYes" name="Vitamingiven" type="radio" runat="server" />
-                                                                    <label>Yes</label>
+                                                                    &nbsp;</input><label>Yes</label>
                                                                     <input id="rdoHasVitaminGivenNo" runat="server" name="Vitamingiven" type="radio" />
-                                                                    <label>No</label>
+                                                                    &nbsp;</input><label>No</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1936,7 +1936,7 @@
                                                                                 maxlength="11" size="11" runat="server" data-date-format="dd-M-yyyy" style="width: 120px;"
                                                                                 onblur="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
                                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" />
-                                                                            &nbsp;&nbsp;&nbsp;&nbsp;</input></div>
+                                                                            &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;</input></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-1 col-sm-12 col-xs-12 form-group">

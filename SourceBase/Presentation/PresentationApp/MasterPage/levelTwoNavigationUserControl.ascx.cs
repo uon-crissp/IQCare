@@ -296,6 +296,7 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
                 RemoveMenuItemByValue(patientLevelMenu.Items, "mnuPatientBlueCard");
                 RemoveMenuItemByValue(patientLevelMenu.Items, "mnuDebitNote");
                 RemoveMenuItemByValue(patientLevelMenu.Items, "mnuClinicalSummary");
+                RemoveMenuItemByValue(patientLevelMenu.Items, "mnuPatRegForm");
             }
             if (Authentication.HasFeatureRight(ApplicationAccess.Schedular, theDT) == false)
             {
@@ -1566,8 +1567,12 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
         AssignUrl(patientLevelMenu.Items, "mnuPatientProfile", theUrl);
 
         //########### PatientSummary ############
-        theUrl = string.Format("{0}&ReportName={1}&sts={2}", "../Reports/frmReportViewer.aspx?name=Add", "PatientSummary", lblpntStatus.Text);
+        theUrl = string.Format("{0}", "../Reports/frmPatientSummary.aspx");
         AssignUrl(patientLevelMenu.Items, "mnuClinicalSummary", theUrl);
+
+        //########### PatientSummary ############
+        theUrl = string.Format("{0}", "../Reports/frmPatRegReport.aspx");
+        AssignUrl(patientLevelMenu.Items, "mnuPatRegForm", theUrl);
 
         //########### ARV-Pickup Report ############
         theUrl = string.Format("{0}&SatelliteID={1}&CountryID={2}&PosID={3}&sts={4}", "../Reports/frmReportDebitNote.aspx?name=Add", Session["AppSatelliteId"], Session["AppCountryId"], Session["AppPosID"], lblpntStatus.Text);

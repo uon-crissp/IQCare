@@ -71,10 +71,14 @@ namespace PresentationApp.ClinicalForms.UserControl
             OpenForm("Tracking");
         }
 
-        protected void lnkCareEnd_Click(object sender, EventArgs e)
-        {
-            OpenForm("CareEnd");
-        }
+        //protected void lnkCareEnd_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        OpenForm("CareEnd");
+        //    }
+        //    catch { }
+        //}
 
         protected void lnkClinicalEncounter_Click(object sender, EventArgs e)
         {

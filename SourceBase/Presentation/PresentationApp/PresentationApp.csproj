@@ -264,6 +264,13 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Telerik.Reporting, Version=8.1.14.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=8.1.14.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Telerik.Web.Design, Version=2014.1.403.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Dlls\Telerik.Web.Design.dll</HintPath>
@@ -2466,6 +2473,20 @@
     <Compile Include="Reports\frmPatientCEOIChronicDisease.aspx.designer.cs">
       <DependentUpon>frmPatientCEOIChronicDisease.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmPatientSummary.aspx.cs">
+      <DependentUpon>frmPatientSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPatientSummary.aspx.designer.cs">
+      <DependentUpon>frmPatientSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmPatRegReport.aspx.cs">
+      <DependentUpon>frmPatRegReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPatRegReport.aspx.designer.cs">
+      <DependentUpon>frmPatRegReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmQueryBuilderReports.aspx.cs">
       <DependentUpon>frmQueryBuilderReports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2570,6 +2591,18 @@
     </Compile>
     <Compile Include="Reports\frmReport_TanzaniaNACPMonthlyReport.aspx.designer.cs">
       <DependentUpon>frmReport_TanzaniaNACPMonthlyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PatientRegistrationForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PatientRegistrationForm.Designer.cs">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PatientSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PatientSummary.Designer.cs">
+      <DependentUpon>PatientSummary.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportHeaderFooter.master.cs">
       <DependentUpon>ReportHeaderFooter.master</DependentUpon>
@@ -5073,6 +5106,9 @@
     <Content Include="Laboratory\frm_Laboratory.aspx" />
     <Content Include="Laboratory\frm_LabTestResults.aspx" />
     <Content Include="Laboratory\UserControl\UserControl_LabOrderDetails.ascx" />
+    <Content Include="logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="PatientSummary.aspx" />
     <Content Include="PharmacyDispense\BinCard.aspx" />
     <Content Include="PharmacyDispense\frmPharmacyDispense_FindPatient.aspx" />
@@ -5100,9 +5136,23 @@
     <Content Include="PrEP\Scripts\ucPrEPTriage.js" />
     <Content Include="PrEP\Styles\Site.css" />
     <Content Include="Reports\frmPatientCEOIChronicDisease.aspx" />
+    <Content Include="Reports\frmPatientSummary.aspx" />
+    <Content Include="Reports\frmPatRegReport.aspx" />
     <Content Include="Reports\ucOIChronicDisease.js" />
     <Content Include="Scheduler\frmHome_Visit.aspx" />
     <Content Include="Scheduler\frmScheduler_ContactCareTracking.aspx" />
+    <Content Include="scripts\4.2.0.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\4.2.1.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\4.2.2.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\4.2.3.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Style\bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
     <Content Include="Style\bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />
     <Content Include="Style\bootstrap-3.3.6-dist\css\bootstrap.css" />
@@ -6572,6 +6622,12 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cr_PatientProfileSummary_New.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PatientRegistrationForm.resx">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PatientSummary.resx">
+      <DependentUpon>PatientSummary.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
@@ -6636,7 +6692,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

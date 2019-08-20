@@ -103,68 +103,84 @@ namespace PresentationApp.ClinicalForms.UserControl
                 this.UserControl_VitalsExtruder1.lblBMI.Text = theDS.Tables[8].Rows[0]["BMI"].ToString();
             }
 
-            if (theDS.Tables[12].Rows.Count > 0)
+            //if (theDS.Tables[12].Rows.Count > 0)
+            //{
+            //    if (theDS.Tables[12].Rows[0]["OnTBtreatment"].ToString() == "Yes")
+            //    {
+            //        this.UserControl_VitalsExtruder1.IPTSDLable.Visible = false;
+            //        this.UserControl_VitalsExtruder1.IPTSD.Visible = false;
+            //        this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
+            //        this.UserControl_VitalsExtruder1.IPTED.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        this.UserControl_VitalsExtruder1.IPTSDLable.Visible = true;
+            //        this.UserControl_VitalsExtruder1.IPTSD.Visible = true;
+            //        this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
+            //        this.UserControl_VitalsExtruder1.IPTED.Visible = true;
+            //        if (theDS.Tables[13].Rows.Count > 0)
+            //        {
+            //            //if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["IPTName"].ToString()))
+            //            //{
+            //            //    if (theDS.Tables[13].Rows[0]["IPTName"].ToString().ToLower().Contains("completed"))
+            //            //    {
+            //            //        this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
+            //            //        this.UserControl_VitalsExtruder1.IPTED.Visible = true;
+            //            //    }
+            //            //    else
+            //            //    {
+            //            //        this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
+            //            //        this.UserControl_VitalsExtruder1.IPTED.Visible = false;
+            //            //    }
+            //            //}
+            //            //else
+            //            //{
+            //            //    this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
+            //            //    this.UserControl_VitalsExtruder1.IPTED.Visible = false;
+            //            //}
+
+            //            this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
+            //            this.UserControl_VitalsExtruder1.IPTED.Visible = true;
+
+            //            if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()))
+            //            {
+            //                this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
+            //            }
+
+            //            if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()))
+            //            {
+            //                this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    this.UserControl_VitalsExtruder1.IPTSDLable.Visible = true;
+            //    this.UserControl_VitalsExtruder1.IPTSD.Visible = true;
+            //    this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
+            //    this.UserControl_VitalsExtruder1.IPTED.Visible = true;
+
+            //    if (theDS.Tables[13].Rows.Count > 0)
+            //    {
+            //        this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
+            //        this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");
+            //    }
+            //}
+
+            //IPT information
+            this.UserControl_VitalsExtruder1.IPTSDLable.Visible = true;
+            this.UserControl_VitalsExtruder1.IPTSD.Visible = true;
+            this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
+            this.UserControl_VitalsExtruder1.IPTED.Visible = true;
+
+            if (theDS.Tables[13].Rows.Count > 0)
             {
-                if (theDS.Tables[12].Rows[0]["OnTBtreatment"].ToString() == "Yes")
-                {
-                    this.UserControl_VitalsExtruder1.IPTSDLable.Visible = false;
-                    this.UserControl_VitalsExtruder1.IPTSD.Visible = false;
-                    this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
-                    this.UserControl_VitalsExtruder1.IPTED.Visible = false;
-                }
-                else
-                {
-                    this.UserControl_VitalsExtruder1.IPTSDLable.Visible = true;
-                    this.UserControl_VitalsExtruder1.IPTSD.Visible = true;
-                    this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
-                    this.UserControl_VitalsExtruder1.IPTED.Visible = true;
-                    if (theDS.Tables[13].Rows.Count > 0)
-                    {
-                        if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["IPTName"].ToString()))
-                        {
-                            if (theDS.Tables[13].Rows[0]["IPTName"].ToString().ToLower().Contains("completed"))
-                            {
-                                this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
-                                this.UserControl_VitalsExtruder1.IPTED.Visible = true;
-                            }
-                            else
-                            {
-                                this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
-                                this.UserControl_VitalsExtruder1.IPTED.Visible = false;
-                            }
-                        }
-                        else
-                        {
-                            this.UserControl_VitalsExtruder1.IPTEDLable.Visible = false;
-                            this.UserControl_VitalsExtruder1.IPTED.Visible = false;
-                        }
-
-                        if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()))
-                        {
-                            this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
-                        }
-
-                        if (!string.IsNullOrEmpty(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()))
-                        {
-                            this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");
-                        }
-                    }
-                }
-            }
-            else
-            {
-                this.UserControl_VitalsExtruder1.IPTSDLable.Visible = true;
-                this.UserControl_VitalsExtruder1.IPTSD.Visible = true;
-                this.UserControl_VitalsExtruder1.IPTEDLable.Visible = true;
-                this.UserControl_VitalsExtruder1.IPTED.Visible = true;
-
-                if (theDS.Tables[13].Rows.Count > 0)
-                {
-                    this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
-                    this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");
-                }
+                this.UserControl_VitalsExtruder1.IPTSD.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHStartDate"].ToString()).ToString("dd-MMM-yyyy");
+                this.UserControl_VitalsExtruder1.IPTED.Text = Convert.ToDateTime(theDS.Tables[13].Rows[0]["INHEndDate"].ToString()).ToString("dd-MMM-yyyy");
             }
 
+            //DCM information
             if (theDS.Tables[16].Rows.Count > 0)
             {
                 this.UserControl_VitalsExtruder1.lblPatientClassificationVal.Text = theDS.Tables[16].Rows[0]["PatientClassificationName"].ToString();

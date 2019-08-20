@@ -460,7 +460,7 @@
                     <div class="row">
                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                             <label for="inputEmail3" class="control-label">
-                                On Family Planning?</label>
+                                <font color="blue">On Family Planning?</font></label>
                         </div>
                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                             <input id="chkOnFamilyPlanning" name="switch-size" type="checkbox" checked data-size="small"
@@ -468,7 +468,7 @@
                         </div>
                         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                             <label for="inputEmail3" class="control-label">
-                                Family Planning Method:</label>
+                                <font color="blue">Family Planning Method:</font></label>
                             <select class="form-control select2" data-placeholder="Select" id="ddlFPM" style="width: 100%;">
                             </select>
                         </div>
