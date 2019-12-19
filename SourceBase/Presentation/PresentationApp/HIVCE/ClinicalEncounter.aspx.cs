@@ -1245,9 +1245,9 @@ namespace HIVCE.Presentation
             }
             catch (Exception ex)
             {
-                CLogger.WriteLog(ELogLevel.ERROR, "GetZScoreDetails() exception: " + ex.ToString());
-                ResponseType response = new ResponseType() { Success = EnumUtil.GetEnumDescription(Success.False) };
-                result = SerializerUtil.ConverToJson<ResponseType>(response);
+                //CLogger.WriteLog(ELogLevel.ERROR, "GetZScoreDetails() exception: " + ex.ToString());
+                //ResponseType response = new ResponseType() { Success = EnumUtil.GetEnumDescription(Success.False) };
+                //result = SerializerUtil.ConverToJson<ResponseType>(response);
             }
             finally
             {

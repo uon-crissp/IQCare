@@ -120,8 +120,9 @@ namespace PresentationApp.Reports
             this.textBox78 = new Telerik.Reporting.TextBox();
             this.textBox79 = new Telerik.Reporting.TextBox();
             this.textBox80 = new Telerik.Reporting.TextBox();
-            this.PatientDetails = new Telerik.Reporting.SqlDataSource();
             this.pbLogo = new Telerik.Reporting.PictureBox();
+            this.PatientDetails = new Telerik.Reporting.SqlDataSource();
+            this.facilityReportsService1 = new FacilityReportsService();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox52
@@ -991,6 +992,12 @@ namespace PresentationApp.Reports
             this.textBox80.Style.Font.Bold = true;
             this.textBox80.Value = "HAART Details:";
             // 
+            // pbLogo
+            // 
+            this.pbLogo.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0D), Telerik.Reporting.Drawing.Unit.Inch(0D));
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.90000003576278687D), Telerik.Reporting.Drawing.Unit.Inch(0.79992133378982544D));
+            // 
             // PatientDetails
             // 
             this.PatientDetails.ConnectionString = "IQTools";
@@ -998,12 +1005,6 @@ namespace PresentationApp.Reports
             this.PatientDetails.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@patientpk", System.Data.DbType.String, "=Parameters.patientpk.Value")});
             this.PatientDetails.SelectCommand = resources.GetString("PatientDetails.SelectCommand");
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0D), Telerik.Reporting.Drawing.Unit.Inch(0D));
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.90000003576278687D), Telerik.Reporting.Drawing.Unit.Inch(0.79992133378982544D));
             // 
             // PatientSummary
             // 
@@ -1157,5 +1158,6 @@ namespace PresentationApp.Reports
         private Telerik.Reporting.TextBox textBox79;
         private Telerik.Reporting.TextBox textBox80;
         private Telerik.Reporting.PictureBox pbLogo;
+        private FacilityReportsService facilityReportsService1;
     }
 }

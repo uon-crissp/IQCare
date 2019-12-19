@@ -1342,15 +1342,15 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
             divHIVCE();
         }
 
-        if (Session["PaperLess"] != null)
-        {
-            if (Session["PaperLess"].ToString() == "0")
-            {
-                RemoveMenuItemByValue(patientLevelMenu.Items,
-                    "mnuWaitingList"); //waiting list available only in paerless mode
+        //if (Session["PaperLess"] != null)
+        //{
+        //    if (Session["PaperLess"].ToString() == "0")
+        //    {
+        //        RemoveMenuItemByValue(patientLevelMenu.Items,
+        //            "mnuWaitingList"); //waiting list available only in paerless mode
 
-            }
-        }
+        //    }
+        //}
     }
 
     private void Init_Menu()

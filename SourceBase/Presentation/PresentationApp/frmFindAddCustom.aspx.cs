@@ -28,10 +28,10 @@ namespace IQCare.Web
                 HtmlGenericControl lblServiceArea = (HtmlGenericControl)FindPatient.FindControl("lblServiceArea");
                 lblServiceArea.InnerText = Request.QueryString["srvNm"];
 
-                if (Convert.ToInt32(Session["Paperless"]) != 1)//waiting list is available only in paperless mode
-                {
-                    btnWaitingList.Visible = false;
-                }
+                //if (Convert.ToInt32(Session["Paperless"]) != 1)//waiting list is available only in paperless mode
+                //{
+                //    btnWaitingList.Visible = false;
+                //}
 
                 Session["HIVPatientStatus"] = 0;
                 Session["PMTCTPatientStatus"] = 0;

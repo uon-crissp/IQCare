@@ -196,15 +196,16 @@ public partial class frmAddTechnicalArea : BasePage
         }
         if (theDT.Rows.Count > 0)
         {
-            BindManager.BindCombo(ddlTecharea, BindModuleByBusinessRules(theDT, DSModules.Tables[1]), "ModuleName", "ModuleID");
+            //BindManager.BindCombo(ddlTecharea, BindModuleByBusinessRules(theDT, DSModules.Tables[1]), "ModuleName", "ModuleID");
+            BindManager.BindCombo(ddlTecharea, theDT, "ModuleName", "ModuleID");
             ptnMgr = null;
         }
 
         ptnMgr = null;
     }
+
     public DataTable BindModuleByBusinessRules(DataTable dt, DataTable dtbusinessrules)
     {
-
         DataTable btable = new DataTable();
         btable.Columns.Add("ModuleName", typeof(string));
         btable.Columns.Add("ModuleID", typeof(string));
@@ -558,19 +559,16 @@ public partial class frmAddTechnicalArea : BasePage
             }
             else
             {
-
                 DataRow theDR = btable.NewRow();
                 theDR["ModuleName"] = r["ModuleName"].ToString();
                 theDR["ModuleID"] = r["ModuleID"].ToString();
                 btable.Rows.Add(theDR);
-
-
             }
-
-
         }
+
         return btable;
     }
+    
     private Boolean FieldValidation()
     {
         IIQCareSystem IQCareSecurity = (IIQCareSystem)ObjectFactory.CreateInstance("BusinessProcess.Security.BIQCareSystem, BusinessProcess.Security");

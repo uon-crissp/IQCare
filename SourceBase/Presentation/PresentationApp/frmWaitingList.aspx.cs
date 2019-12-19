@@ -146,31 +146,13 @@ namespace IQCare.Web
             IPatientRegistration PManager = (IPatientRegistration)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BPatientRegistration, BusinessProcess.Clinical");
             PManager.ChangeWaitingListStatus(WaitingListID, 1, Convert.ToInt32(base.Session["AppUserId"]));
 
-
-            // Added for bug ID 1062
-            if (ddwaitingList.SelectedItem.Text == "Laboratory")
-            {
-                String theOrdScript;
-                theOrdScript = "<script language='javascript' id='openPatient'>\n";
-                theOrdScript += "window.opener.location.href = './Laboratory/frm_LabTestResults.aspx';\n";
-                theOrdScript += "window.close();\n";
-                theOrdScript += "</script>\n";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "closePage", theOrdScript);
-            }
-            else// (ddwaitingList.SelectedItem.Text == "Pharmacy")
-            {
-                String theOrdScript;
-                theOrdScript = "<script language='javascript' id='openPatient'>\n";
-                //theOrdScript += "window.opener.location.href = './ClinicalForms/frmPatient_Home.aspx';\n"; Bug ID 1062
-                theOrdScript += "window.opener.location.href = './ClinicalForms/frmPatient_History.aspx';\n";
-                theOrdScript += "window.close();\n";
-                theOrdScript += "</script>\n";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "closePage", theOrdScript);
-            }
-
-            // End addition.
-            //  theUrl = "./ClinicalForms/frmPatient_Home.aspx";
-            //  Response.Redirect(theUrl, false);
+            String theOrdScript;
+            theOrdScript = "<script language='javascript' id='openPatient'>\n";
+            //theOrdScript += "window.opener.location.href = './ClinicalForms/frmPatient_Home.aspx';\n"; Bug ID 1062
+            theOrdScript += "window.opener.location.href = './ClinicalForms/frmPatient_History.aspx';\n";
+            theOrdScript += "window.close();\n";
+            theOrdScript += "</script>\n";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "closePage", theOrdScript);
         }
 
         protected void grdWaitingList_RowDataBound(object sender, GridViewRowEventArgs e)
